@@ -1,14 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import appTarget from '../app-target';
+import render from '../app-target';
 import styles from './credits.css';
-import {getInitialDarkMode} from '../../lib/tw-theme-hoc.jsx';
 
-import fosshostLogo from './fosshost-light.png';
+import {APP_NAME} from '../../lib/brand';
+import {applyGuiColors} from '../../lib/themes/guiHelpers';
+import {detectTheme} from '../../lib/themes/themePersistance';
 import UserData from './users';
 
 /* eslint-disable react/jsx-no-literals */
+
+applyGuiColors(detectTheme());
+document.documentElement.lang = 'en';
 
 const User = ({image, text, href}) => (
     <a
@@ -18,6 +21,7 @@ const User = ({image, text, href}) => (
         className={styles.user}
     >
         <img
+            loading="lazy"
             className={styles.userImage}
             src={image}
             width="60"
@@ -52,44 +56,66 @@ const Credits = () => (
     <main className={styles.main}>
         <header className={styles.headerContainer}>
             <h1 className={styles.headerText}>
-                {'TurboWarp Credits'}
+                {APP_NAME} Credits
             </h1>
         </header>
         <section>
             <p>
-                Thank you to everyone that makes this project possible.
+                The {APP_NAME} project is made possible by the work of many volunteers.
             </p>
         </section>
+        {APP_NAME !== 'TurboWarp' && (
+            // Be kind and considerate. Don't remove this :)
+            <section>
+                <h2>TurboWarp</h2>
+                <p>
+                    {APP_NAME} is based on <a href="https://turbowarp.org/">TurboWarp</a>.
+                </p>
+            </section>
+        )}
         <section>
-            <h2>{'Fosshost'}</h2>
+            <h2>Scratch</h2>
             <p>
-                <a href="https://fosshost.org/">Fosshost</a> provides free high quality hosting services to open source projects including TurboWarp.
-                {' '}Fosshost <a href="https://fosshost.org/donate">accepts donations</a> to support their work.
+                {APP_NAME} is based on the work of the <a href="https://scratch.mit.edu/credits">Scratch contributors</a> but is not endorsed by Scratch in any way.
             </p>
-            <a href="https://fosshost.org/">
-                <img
-                    src={fosshostLogo}
-                    width="250"
-                    height="125"
-                />
-            </a>
+            <p>
+                <a href="https://scratch.mit.edu/donate">
+                    Donate to support Scratch.
+                </a>
+            </p>
         </section>
         <section>
-            <h2>{'Scratch'}</h2>
-            <p>TurboWarp is based on the work of the <a href="https://scratch.mit.edu/credits">Scratch contributors</a> but is not endorsed by Scratch in any way. Scratch <a href="https://scratch.mit.edu/donate">accepts donations</a> to support their work.</p>
+            <h2>Contributors</h2>
+            <UserList users={UserData.contributors} />
         </section>
         <section>
-            <h2>{'Addons'}</h2>
+            <h2>Addons</h2>
             <UserList users={UserData.addonDevelopers} />
         </section>
         <section>
-            <p>Individual contributors are listed in no particular order.</p>
+            <h2>TurboWarp Extension Gallery</h2>
+            <UserList users={UserData.extensionDevelopers} />
+        </section>
+        <section>
+            <h2>Documentation</h2>
+            <UserList users={UserData.docs} />
+        </section>
+        <section>
+            <h2>Translators</h2>
+            <p>
+                More than 100 people have helped translate {APP_NAME} and its addons into many languages
+                &mdash; far more than we could hope to list here.
+            </p>
+        </section>
+        <section>
+            <p>
+                <i>
+                    Individual contributors are listed in no particular order.
+                    The order is randomized each visit.
+                </i>
+            </p>
         </section>
     </main>
 );
 
-document.body.setAttribute('theme', getInitialDarkMode() ? 'dark' : 'light');
-
-ReactDOM.render((
-    <Credits />
-), appTarget);
+render(<Credits />);

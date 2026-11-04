@@ -8,7 +8,6 @@ import MediaQuery from 'react-responsive';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import tabStyles from 'react-tabs/style/react-tabs.css';
 import VM from 'scratch-vm';
-import Renderer from 'scratch-render';
 
 import Blocks from '../../containers/blocks.jsx';
 import CostumeTab from '../../containers/costume-tab.jsx';
@@ -23,7 +22,6 @@ import BackdropLibrary from '../../containers/backdrop-library.jsx';
 import Watermark from '../../containers/watermark.jsx';
 
 import Backpack from '../../containers/backpack.jsx';
-import WebGlModal from '../../containers/webgl-modal.jsx';
 import BrowserModal from '../browser-modal/browser-modal.jsx';
 import TipsLibrary from '../../containers/tips-library.jsx';
 import Cards from '../../containers/cards.jsx';
@@ -33,18 +31,24 @@ import ConnectionModal from '../../containers/connection-modal.jsx';
 import TelemetryModal from '../telemetry-modal/telemetry-modal.jsx';
 import TWUsernameModal from '../../containers/tw-username-modal.jsx';
 import TWSettingsModal from '../../containers/tw-settings-modal.jsx';
-import GM2CustomExtension from '../../containers/gm2-custom-extension.jsx';
+import TWSecurityManager from '../../containers/tw-security-manager.jsx';
+import TWCustomExtensionModal from '../../containers/tw-custom-extension-modal.jsx';
+import TWRestorePointManager from '../../containers/tw-restore-point-manager.jsx';
+import TWFontsModal from '../../containers/tw-fonts-modal.jsx';
+import TWUnknownPlatformModal from '../../containers/tw-unknown-platform-modal.jsx';
+import TWInvalidProjectModal from '../../containers/tw-invalid-project-modal.jsx';
 
-import layout, {STAGE_SIZE_MODES} from '../../lib/layout-constants';
+import {STAGE_SIZE_MODES, FIXED_WIDTH, UNCONSTRAINED_NON_STAGE_WIDTH} from '../../lib/layout-constants';
 import {resolveStageSize} from '../../lib/screen-utils';
+import {Theme} from '../../lib/themes';
 
 import {isRendererSupported, isBrowserSupported} from '../../lib/tw-environment-support-prober';
 
 import styles from './gui.css';
 import addExtensionIcon from './icon--extensions.svg';
-import codeIcon from './icon--code.svg';
-import costumesIcon from './icon--costumes.svg';
-import soundsIcon from './icon--sounds.svg';
+import codeIcon from '!../../lib/tw-recolor/build!./icon--code.svg';
+import costumesIcon from '!../../lib/tw-recolor/build!./icon--costumes.svg';
+import soundsIcon from '!../../lib/tw-recolor/build!./icon--sounds.svg';
 
 const messages = defineMessages({
     addExtension: {
@@ -53,6 +57,19 @@ const messages = defineMessages({
         defaultMessage: 'Add Extension'
     }
 });
+
+const getFullscreenBackgroundColor = () => {
+    const params = new URLSearchParams(location.search);
+    if (params.has('fullscreen-background')) {
+        return params.get('fullscreen-background');
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return '#111';
+    }
+    return 'white';
+};
+
+const fullscreenBackgroundColor = getFullscreenBackgroundColor();
 
 const GUIComponent = props => {
     const {
@@ -66,9 +83,11 @@ const GUIComponent = props => {
         backdropLibraryVisible,
         backpackHost,
         backpackVisible,
+        blocksId,
         blocksTabVisible,
         cardsVisible,
         canChangeLanguage,
+        canChangeTheme,
         canCreateNew,
         canEditTitle,
         canManageFiles,
@@ -85,7 +104,6 @@ const GUIComponent = props => {
         enableCommunity,
         intl,
         isCreating,
-        isDark,
         isEmbedded,
         isFullScreen,
         isPlayerOnly,
@@ -93,6 +111,7 @@ const GUIComponent = props => {
         isShared,
         isWindowFullScreen,
         isTelemetryEnabled,
+        isTotallyNormal,
         loading,
         logo,
         renderLogin,
@@ -100,7 +119,9 @@ const GUIComponent = props => {
         onClickAccountNav,
         onCloseAccountNav,
         onClickAddonSettings,
-        onClickTheme,
+        onClickDesktopSettings,
+        onClickNewWindow,
+        onClickPackager,
         onLogOut,
         onOpenRegistration,
         onToggleLoginOpen,
@@ -109,6 +130,7 @@ const GUIComponent = props => {
         onActivateTab,
         onClickLogo,
         onExtensionButtonClick,
+        onOpenCustomExtensionModal,
         onProjectTelemetryEvent,
         onRequestCloseBackdropLibrary,
         onRequestCloseCostumeLibrary,
@@ -120,29 +142,28 @@ const GUIComponent = props => {
         onTelemetryModalCancel,
         onTelemetryModalOptIn,
         onTelemetryModalOptOut,
+        securityManager,
         showComingSoon,
+        showOpenFilePicker,
+        showSaveFilePicker,
         soundsTabVisible,
         stageSizeMode,
         targetIsStage,
         telemetryModalVisible,
+        theme,
         tipsLibraryVisible,
         usernameModalVisible,
         settingsModalVisible,
-		
-		gmCustomExtensionVisible,
-		
-		onExtensionCustomSelect,
-		onExtensionExitButtonClick,
-		
+        customExtensionModalVisible,
+        fontsModalVisible,
+        unknownPlatformModalVisible,
+        invalidProjectModalVisible,
         vm,
         ...componentProps
     } = omit(props, 'dispatch');
     if (children) {
         return <Box {...componentProps}>{children}</Box>;
     }
-	
-	window.onExtensionCustomSelect = onExtensionCustomSelect;
-	window.onExtensionExitButtonClick = onExtensionExitButtonClick;
 
     const tabClassNames = {
         tabs: styles.tabs,
@@ -153,15 +174,39 @@ const GUIComponent = props => {
         tabSelected: classNames(tabStyles.reactTabsTabSelected, styles.isSelected)
     };
 
-    const minWidth = layout.fullSizeMinWidth + Math.max(0, customStageSize.width - layout.referenceWidth);
-    return (<MediaQuery minWidth={minWidth}>{isFullSize => {
-        const stageSize = resolveStageSize(stageSizeMode, isFullSize);
+    const unconstrainedWidth = (
+        UNCONSTRAINED_NON_STAGE_WIDTH +
+        FIXED_WIDTH +
+        Math.max(0, customStageSize.width - FIXED_WIDTH)
+    );
+    return (<MediaQuery minWidth={unconstrainedWidth}>{isUnconstrained => {
+        const stageSize = resolveStageSize(stageSizeMode, isUnconstrained);
+
+        const alwaysEnabledModals = (
+            <React.Fragment>
+                <TWSecurityManager securityManager={securityManager} />
+                <TWRestorePointManager />
+                {usernameModalVisible && <TWUsernameModal />}
+                {settingsModalVisible && <TWSettingsModal />}
+                {customExtensionModalVisible && <TWCustomExtensionModal />}
+                {fontsModalVisible && <TWFontsModal />}
+                {unknownPlatformModalVisible && <TWUnknownPlatformModal />}
+                {invalidProjectModalVisible && <TWInvalidProjectModal />}
+            </React.Fragment>
+        );
 
         return isPlayerOnly ? (
             <React.Fragment>
-                {/* tw: when window is fullscreen, put a solid white background behind the stage */}
+                {/* TW: When the window is fullscreen, use an element to display the background color */}
+                {/* The default color for transparency is inconsistent between browsers and there isn't an existing */}
+                {/* element for us to style that fills the entire screen. */}
                 {isWindowFullScreen ? (
-                    <div className={styles.fullscreenBackground} />
+                    <div
+                        className={styles.fullscreenBackground}
+                        style={{
+                            backgroundColor: fullscreenBackgroundColor
+                        }}
+                    />
                 ) : null}
                 <StageWrapper
                     isFullScreen={isFullScreen}
@@ -169,25 +214,26 @@ const GUIComponent = props => {
                     isRendererSupported={isRendererSupported()}
                     isRtl={isRtl}
                     loading={loading}
-                    stageSize={STAGE_SIZE_MODES.large}
+                    stageSize={STAGE_SIZE_MODES.full}
                     vm={vm}
                 >
                     {alertsVisible ? (
                         <Alerts className={styles.alertsContainer} />
                     ) : null}
                 </StageWrapper>
-                {usernameModalVisible && <TWUsernameModal />}
-                {settingsModalVisible && <TWSettingsModal />}
+                {alwaysEnabledModals}
             </React.Fragment>
         ) : (
             <Box
                 className={styles.pageWrapper}
                 dir={isRtl ? 'rtl' : 'ltr'}
+                style={{
+                    minWidth: 1024 + Math.max(0, customStageSize.width - 480),
+                    minHeight: 640 + Math.max(0, customStageSize.height - 360)
+                }}
                 {...componentProps}
             >
-                {usernameModalVisible && <TWUsernameModal />}
-                {settingsModalVisible && <TWSettingsModal />}
-				{gmCustomExtensionVisible && <GM2CustomExtension />}
+                {alwaysEnabledModals}
                 {telemetryModalVisible ? (
                     <TelemetryModal
                         isRtl={isRtl}
@@ -208,11 +254,11 @@ const GUIComponent = props => {
                         messageId="gui.loader.creating"
                     />
                 ) : null}
-                {isRendererSupported() ? null : (
-                    <WebGlModal isRtl={isRtl} />
-                )}
                 {isBrowserSupported() ? null : (
-                    <BrowserModal isRtl={isRtl} />
+                    <BrowserModal
+                        isRtl={isRtl}
+                        onClickDesktopSettings={onClickDesktopSettings}
+                    />
                 )}
                 {tipsLibraryVisible ? (
                     <TipsLibrary />
@@ -246,6 +292,7 @@ const GUIComponent = props => {
                     authorThumbnailUrl={authorThumbnailUrl}
                     authorUsername={authorUsername}
                     canChangeLanguage={canChangeLanguage}
+                    canChangeTheme={canChangeTheme}
                     canCreateCopy={canCreateCopy}
                     canCreateNew={canCreateNew}
                     canEditTitle={canEditTitle}
@@ -256,13 +303,18 @@ const GUIComponent = props => {
                     className={styles.menuBarPosition}
                     enableCommunity={enableCommunity}
                     isShared={isShared}
+                    isTotallyNormal={isTotallyNormal}
                     logo={logo}
                     renderLogin={renderLogin}
                     showComingSoon={showComingSoon}
+                    showOpenFilePicker={showOpenFilePicker}
+                    showSaveFilePicker={showSaveFilePicker}
                     onClickAbout={onClickAbout}
                     onClickAccountNav={onClickAccountNav}
                     onClickAddonSettings={onClickAddonSettings}
-                    onClickTheme={onClickTheme}
+                    onClickDesktopSettings={onClickDesktopSettings}
+                    onClickNewWindow={onClickNewWindow}
+                    onClickPackager={onClickPackager}
                     onClickLogo={onClickLogo}
                     onCloseAccountNav={onCloseAccountNav}
                     onLogOut={onLogOut}
@@ -288,7 +340,7 @@ const GUIComponent = props => {
                                     <Tab className={tabClassNames.tab}>
                                         <img
                                             draggable={false}
-                                            src={codeIcon}
+                                            src={codeIcon()}
                                         />
                                         <FormattedMessage
                                             defaultMessage="Code"
@@ -302,7 +354,7 @@ const GUIComponent = props => {
                                     >
                                         <img
                                             draggable={false}
-                                            src={costumesIcon}
+                                            src={costumesIcon()}
                                         />
                                         {targetIsStage ? (
                                             <FormattedMessage
@@ -324,7 +376,7 @@ const GUIComponent = props => {
                                     >
                                         <img
                                             draggable={false}
-                                            src={soundsIcon}
+                                            src={soundsIcon()}
                                         />
                                         <FormattedMessage
                                             defaultMessage="Sounds"
@@ -336,13 +388,16 @@ const GUIComponent = props => {
                                 <TabPanel className={tabClassNames.tabPanel}>
                                     <Box className={styles.blocksWrapper}>
                                         <Blocks
+                                            key={`${blocksId}/${theme.id}`}
                                             canUseCloud={canUseCloud}
                                             grow={1}
                                             isVisible={blocksTabVisible}
                                             options={{
-                                                media: `${basePath}static/blocks-media/`
+                                                media: `${basePath}static/${theme.getBlocksMediaFolder()}/`
                                             }}
                                             stageSize={stageSize}
+                                            onOpenCustomExtensionModal={onOpenCustomExtensionModal}
+                                            theme={theme}
                                             vm={vm}
                                         />
                                     </Box>
@@ -366,7 +421,6 @@ const GUIComponent = props => {
                                 <TabPanel className={tabClassNames.tabPanel}>
                                     {costumesTabVisible ? <CostumeTab
                                         vm={vm}
-                                        isDark={isDark}
                                     /> : null}
                                 </TabPanel>
                                 <TabPanel className={tabClassNames.tabPanel}>
@@ -412,7 +466,9 @@ GUIComponent.propTypes = {
     backpackVisible: PropTypes.bool,
     basePath: PropTypes.string,
     blocksTabVisible: PropTypes.bool,
+    blocksId: PropTypes.string,
     canChangeLanguage: PropTypes.bool,
+    canChangeTheme: PropTypes.bool,
     canCreateCopy: PropTypes.bool,
     canCreateNew: PropTypes.bool,
     canEditTitle: PropTypes.bool,
@@ -432,13 +488,13 @@ GUIComponent.propTypes = {
     enableCommunity: PropTypes.bool,
     intl: intlShape.isRequired,
     isCreating: PropTypes.bool,
-    isDark: PropTypes.bool,
     isEmbedded: PropTypes.bool,
     isFullScreen: PropTypes.bool,
     isPlayerOnly: PropTypes.bool,
     isRtl: PropTypes.bool,
     isShared: PropTypes.bool,
     isWindowFullScreen: PropTypes.bool,
+    isTotallyNormal: PropTypes.bool,
     loading: PropTypes.bool,
     logo: PropTypes.string,
     onActivateCostumesTab: PropTypes.func,
@@ -446,10 +502,13 @@ GUIComponent.propTypes = {
     onActivateTab: PropTypes.func,
     onClickAccountNav: PropTypes.func,
     onClickAddonSettings: PropTypes.func,
-    onClickTheme: PropTypes.func,
+    onClickDesktopSettings: PropTypes.func,
+    onClickNewWindow: PropTypes.func,
+    onClickPackager: PropTypes.func,
     onClickLogo: PropTypes.func,
     onCloseAccountNav: PropTypes.func,
     onExtensionButtonClick: PropTypes.func,
+    onOpenCustomExtensionModal: PropTypes.func,
     onLogOut: PropTypes.func,
     onOpenRegistration: PropTypes.func,
     onRequestCloseBackdropLibrary: PropTypes.func,
@@ -465,22 +524,31 @@ GUIComponent.propTypes = {
     onTelemetryModalOptOut: PropTypes.func,
     onToggleLoginOpen: PropTypes.func,
     renderLogin: PropTypes.func,
+    securityManager: PropTypes.shape({}),
     showComingSoon: PropTypes.bool,
+    showOpenFilePicker: PropTypes.func,
+    showSaveFilePicker: PropTypes.func,
     soundsTabVisible: PropTypes.bool,
     stageSizeMode: PropTypes.oneOf(Object.keys(STAGE_SIZE_MODES)),
     targetIsStage: PropTypes.bool,
     telemetryModalVisible: PropTypes.bool,
+    theme: PropTypes.instanceOf(Theme),
     tipsLibraryVisible: PropTypes.bool,
     usernameModalVisible: PropTypes.bool,
     settingsModalVisible: PropTypes.bool,
-	gmCustomExtensionVisible: PropTypes.bool,
+    customExtensionModalVisible: PropTypes.bool,
+    fontsModalVisible: PropTypes.bool,
+    unknownPlatformModalVisible: PropTypes.bool,
+    invalidProjectModalVisible: PropTypes.bool,
     vm: PropTypes.instanceOf(VM).isRequired
 };
 GUIComponent.defaultProps = {
     backpackHost: null,
     backpackVisible: false,
     basePath: './',
+    blocksId: 'original',
     canChangeLanguage: true,
+    canChangeTheme: true,
     canCreateNew: false,
     canEditTitle: false,
     canManageFiles: true,
@@ -492,6 +560,7 @@ GUIComponent.defaultProps = {
     enableCommunity: false,
     isCreating: false,
     isShared: false,
+    isTotallyNormal: false,
     loading: false,
     showComingSoon: false,
     stageSizeMode: STAGE_SIZE_MODES.large
@@ -501,7 +570,9 @@ const mapStateToProps = state => ({
     customStageSize: state.scratchGui.customStageSize,
     isWindowFullScreen: state.scratchGui.tw.isWindowFullScreen,
     // This is the button's mode, as opposed to the actual current state
-    stageSizeMode: state.scratchGui.stageSize.stageSize
+    blocksId: state.scratchGui.timeTravel.year.toString(),
+    stageSizeMode: state.scratchGui.stageSize.stageSize,
+    theme: state.scratchGui.theme.theme
 });
 
 export default injectIntl(connect(

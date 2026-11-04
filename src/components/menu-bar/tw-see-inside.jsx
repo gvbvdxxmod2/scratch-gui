@@ -6,6 +6,7 @@ import Button from '../button/button.jsx';
 
 import communityIcon from './icon--see-community.svg';
 import styles from './tw-see-inside.css';
+
 const SeeInsideButton = ({
     className,
     onClick
@@ -17,8 +18,8 @@ const SeeInsideButton = ({
         )}
         iconClassName={styles.seeInsideButtonIcon}
         iconSrc={communityIcon}
-        iconWidth="20"
-        iconHeight="20"
+        iconWidth={20}
+        iconHeight={20}
         onClick={onClick}
     >
         <FormattedMessage

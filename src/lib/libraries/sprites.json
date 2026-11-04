@@ -2028,6 +2028,41 @@
         "blocks": {}
     },
     {
+        "name": "Cat 2",
+        "tags": [
+            "cat",
+            "kitty",
+            "kitten",
+            "animals",
+            "mammal"
+        ],
+        "isStage": false,
+        "variables": {},
+        "costumes": [
+            {
+                "assetId": "7499cf6ec438d0c7af6f896bc6adc294",
+                "name": "cat 2",
+                "bitmapResolution": 1,
+                "md5ext": "7499cf6ec438d0c7af6f896bc6adc294.svg",
+                "dataFormat": "svg",
+                "rotationCenterX": 87,
+                "rotationCenterY": 39
+            }
+        ],
+        "sounds": [
+            {
+                "assetId": "cf51a0c4088942d95bcc20af13202710",
+                "name": "meow2",
+                "dataFormat": "wav",
+                "format": "",
+                "rate": 44100,
+                "sampleCount": 26048,
+                "md5ext": "cf51a0c4088942d95bcc20af13202710.wav"
+            }
+        ],
+        "blocks": {}
+    },
+    {
         "name": "Catcher",
         "tags": [
             "baseball",
@@ -3087,6 +3122,28 @@
                 "name": "dango",
                 "bitmapResolution": 1,
                 "md5ext": "b4ab6b3b69de1bc3ed6a94ace172a0b0.svg",
+                "dataFormat": "svg",
+                "rotationCenterX": 44,
+                "rotationCenterY": 44
+            }
+        ],
+        "sounds": [],
+        "blocks": {}
+    },
+    {
+        "name": "Dango Cat",
+        "tags": [
+            "food",
+            "animals"
+        ],
+        "isStage": false,
+        "variables": {},
+        "costumes": [
+            {
+                "assetId": "927d672925e7b99f7813735c484c6922",
+                "name": "dango cat",
+                "bitmapResolution": 1,
+                "md5ext": "927d672925e7b99f7813735c484c6922.svg",
                 "dataFormat": "svg",
                 "rotationCenterX": 44,
                 "rotationCenterY": 44
@@ -5600,115 +5657,6 @@
         "blocks": {}
     },
     {
-        "name": "Giga",
-        "tags": [
-            "fantasy",
-            "drawing"
-        ],
-        "isStage": false,
-        "variables": {},
-        "costumes": [
-            {
-                "assetId": "92161a11e851ecda94cbbb985018fed6",
-                "name": "giga-a",
-                "bitmapResolution": 1,
-                "md5ext": "92161a11e851ecda94cbbb985018fed6.svg",
-                "dataFormat": "svg",
-                "rotationCenterX": 72,
-                "rotationCenterY": 96
-            },
-            {
-                "assetId": "bc706a7648342aaacac9050378b40c43",
-                "name": "giga-b",
-                "bitmapResolution": 1,
-                "md5ext": "bc706a7648342aaacac9050378b40c43.svg",
-                "dataFormat": "svg",
-                "rotationCenterX": 72,
-                "rotationCenterY": 96
-            },
-            {
-                "assetId": "337b338b2b10176221e638ac537854e6",
-                "name": "giga-c",
-                "bitmapResolution": 1,
-                "md5ext": "337b338b2b10176221e638ac537854e6.svg",
-                "dataFormat": "svg",
-                "rotationCenterX": 73,
-                "rotationCenterY": 96
-            },
-            {
-                "assetId": "db15886cfdcb5e2f4459e9074e3990a1",
-                "name": "giga-d",
-                "bitmapResolution": 1,
-                "md5ext": "db15886cfdcb5e2f4459e9074e3990a1.svg",
-                "dataFormat": "svg",
-                "rotationCenterX": 73,
-                "rotationCenterY": 96
-            }
-        ],
-        "sounds": [
-            {
-                "assetId": "83a9787d4cb6f3b7632b4ddfebf74367",
-                "name": "pop",
-                "dataFormat": "wav",
-                "format": "",
-                "rate": 44100,
-                "sampleCount": 1032,
-                "md5ext": "83a9787d4cb6f3b7632b4ddfebf74367.wav"
-            }
-        ],
-        "blocks": {}
-    },
-    {
-        "name": "Giga Walking",
-        "tags": [
-            "fantasy",
-            "walking"
-        ],
-        "isStage": false,
-        "variables": {},
-        "costumes": [
-            {
-                "assetId": "3afad833094d8dff1c4ff79edcaa13d0",
-                "name": "Giga walk1",
-                "bitmapResolution": 1,
-                "md5ext": "3afad833094d8dff1c4ff79edcaa13d0.svg",
-                "dataFormat": "svg",
-                "rotationCenterX": 70,
-                "rotationCenterY": 107
-            },
-            {
-                "assetId": "d27716e022fb5f747d7b09fe6eeeca06",
-                "name": "Giga walk2",
-                "bitmapResolution": 1,
-                "md5ext": "d27716e022fb5f747d7b09fe6eeeca06.svg",
-                "dataFormat": "svg",
-                "rotationCenterX": 71,
-                "rotationCenterY": 107
-            },
-            {
-                "assetId": "db55131bf54f96e8986d9b30730e42ce",
-                "name": "Giga walk3",
-                "bitmapResolution": 1,
-                "md5ext": "db55131bf54f96e8986d9b30730e42ce.svg",
-                "dataFormat": "svg",
-                "rotationCenterX": 71,
-                "rotationCenterY": 107
-            }
-        ],
-        "sounds": [
-            {
-                "assetId": "83a9787d4cb6f3b7632b4ddfebf74367",
-                "name": "pop",
-                "dataFormat": "wav",
-                "format": "",
-                "rate": 44100,
-                "sampleCount": 1032,
-                "md5ext": "83a9787d4cb6f3b7632b4ddfebf74367.wav"
-            }
-        ],
-        "blocks": {}
-    },
-    {
         "name": "Giraffe",
         "tags": [
             "animals",
@@ -5987,58 +5935,6 @@
                 "rate": 44100,
                 "sampleCount": 22494,
                 "md5ext": "b92de59d992a655c1b542223a784cda6.wav"
-            }
-        ],
-        "blocks": {}
-    },
-    {
-        "name": "Gobo",
-        "tags": [
-            "fantasy",
-            "drawing",
-            "jenkins",
-            "ganglia"
-        ],
-        "isStage": false,
-        "variables": {},
-        "costumes": [
-            {
-                "assetId": "f505a4e9eab5e40e2669a4462dba4c90",
-                "name": "gobo-a",
-                "bitmapResolution": 1,
-                "md5ext": "f505a4e9eab5e40e2669a4462dba4c90.svg",
-                "dataFormat": "svg",
-                "rotationCenterX": 47,
-                "rotationCenterY": 55
-            },
-            {
-                "assetId": "5c0896569305ab177d87caa31aad2a72",
-                "name": "gobo-b",
-                "bitmapResolution": 1,
-                "md5ext": "5c0896569305ab177d87caa31aad2a72.svg",
-                "dataFormat": "svg",
-                "rotationCenterX": 47,
-                "rotationCenterY": 55
-            },
-            {
-                "assetId": "9d8021c216fb92cc708e1e96f3ed2b52",
-                "name": "gobo-c",
-                "bitmapResolution": 1,
-                "md5ext": "9d8021c216fb92cc708e1e96f3ed2b52.svg",
-                "dataFormat": "svg",
-                "rotationCenterX": 47,
-                "rotationCenterY": 55
-            }
-        ],
-        "sounds": [
-            {
-                "assetId": "83a9787d4cb6f3b7632b4ddfebf74367",
-                "name": "pop",
-                "dataFormat": "wav",
-                "format": "",
-                "rate": 44100,
-                "sampleCount": 1032,
-                "md5ext": "83a9787d4cb6f3b7632b4ddfebf74367.wav"
             }
         ],
         "blocks": {}
@@ -9201,13 +9097,13 @@
         "variables": {},
         "costumes": [
             {
-                "assetId": "592816f56409d582603c485cbefcbbb8",
+                "assetId": "1d9b10ec091c86e27e69854b933bc90d",
                 "name": "neigh pony",
                 "bitmapResolution": 1,
-                "md5ext": "592816f56409d582603c485cbefcbbb8.svg",
+                "md5ext": "1d9b10ec091c86e27e69854b933bc90d.svg",
                 "dataFormat": "svg",
-                "rotationCenterX": 74,
-                "rotationCenterY": 78
+                "rotationCenterX": 73.981,
+                "rotationCenterY": 77.163
             }
         ],
         "sounds": [
@@ -12995,6 +12891,27 @@
                 "md5ext": "df08249ed5446cc5e10b7ac62faac89b.wav"
             }
         ],
+        "blocks": {}
+    },
+    {
+        "name": "Turbo Robot",
+        "tags": [
+            "robot"
+        ],
+        "isStage": false,
+        "variables": {},
+        "costumes": [
+            {
+                "name": "robot",
+                "bitmapResolution": 1,
+                "dataFormat": "svg",
+                "assetId": "9546f547835649c415959fc86c9a1717",
+                "md5ext": "9546f547835649c415959fc86c9a1717.svg",
+                "rotationCenterX": 33.402360253924,
+                "rotationCenterY": 62.05085241467614
+            }
+        ],
+        "sounds": [],
         "blocks": {}
     },
     {

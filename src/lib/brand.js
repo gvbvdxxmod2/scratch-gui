@@ -1,2 +1,5 @@
-const APP_NAME = 'Gvbvdxx Mod 2';
-module.exports = {APP_NAME:APP_NAME};
+// Legacy export format because this is used by some build-time scripts stuck in the past.
+// eslint-disable-next-line import/no-commonjs
+module.exports = {
+    APP_NAME: 'Gvbvdxx Mod 2'
+};

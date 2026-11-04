@@ -21,13 +21,12 @@ import {connect} from 'react-redux';
 import {compose} from 'redux';
 import {FormattedMessage, defineMessages, injectIntl, intlShape} from 'react-intl';
 import {getIsLoading} from '../reducers/project-state.js';
-import DOMElementRenderer from '../containers/dom-element-renderer.jsx';
 import AppStateHOC from '../lib/app-state-hoc.jsx';
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
 import TWProjectMetaFetcherHOC from '../lib/tw-project-meta-fetcher-hoc.jsx';
 import TWStateManagerHOC from '../lib/tw-state-manager-hoc.jsx';
-import TWThemeHOC from '../lib/tw-theme-hoc.jsx';
 import SBFileUploaderHOC from '../lib/sb-file-uploader-hoc.jsx';
+import TWPackagerIntegrationHOC from '../lib/tw-packager-integration-hoc.jsx';
 import SettingsStore from '../addons/settings-store-singleton';
 import '../lib/tw-fix-history-api';
 import GUI from './render-gui.jsx';
@@ -35,67 +34,38 @@ import MenuBar from '../components/menu-bar/menu-bar.jsx';
 import ProjectInput from '../components/tw-project-input/project-input.jsx';
 import FeaturedProjects from '../components/tw-featured-projects/featured-projects.jsx';
 import Description from '../components/tw-description/description.jsx';
-import WebGlModal from '../containers/webgl-modal.jsx';
 import BrowserModal from '../components/browser-modal/browser-modal.jsx';
-import CloudVariableBadge from '../components/tw-cloud-variable-badge/cloud-variable-badge.jsx';
-import {isRendererSupported, isBrowserSupported} from '../lib/tw-environment-support-prober';
+import CloudVariableBadge from '../containers/tw-cloud-variable-badge.jsx';
+import TWWindchimeSubmitter from '../containers/tw-windchime-submitter.jsx';
+import {isBrowserSupported} from '../lib/tw-environment-support-prober';
 import AddonChannels from '../addons/channels';
 import {loadServiceWorker} from './load-service-worker';
 import runAddons from '../addons/entry';
+import InvalidEmbed from '../components/tw-invalid-embed/invalid-embed.jsx';
+import {APP_NAME} from '../lib/brand.js';
 
 import styles from './interface.css';
 
-//Prop type error cleaner.
-var oldConsolError = console.error;
-console.error = function (...messages) {
-	try{
-		var newMessages = [];
-		for (var msg of messages) {
-			if (msg.indexOf("Warning: Failed prop type:") > -1) {
-				//ignore the message
-			} else {
-				newMessages.push(msg);
-			}
-		}
-		if (newMessages.length < 1) {
-			//dont post the console message.
-		} else {
-			oldConsolError.apply(console,newMessages);
-		}
-	}catch(e){
-		//Idk what to do here, so display the error anyways.
-		oldConsolError.apply(console, messages);
-	}
-}
+const isInvalidEmbed = window.parent !== window;
 
-if (window.parent !== window) {
-    // eslint-disable-next-line no-alert
-    alert('Using embed');
-    throw new Error('Invalid embed');
-}
-
-let announcement = null;
-if (process.env.ANNOUNCEMENT) {
-    announcement = document.createElement('p');
-    // This is safe because process.env.ANNOUNCEMENT is set at build time.
-    announcement.innerHTML = process.env.ANNOUNCEMENT;
-}
-
-const handleClickAddonSettings = () => {
+const handleClickAddonSettings = addonId => {
+    // addonId might be a string of the addon to focus on, undefined, or an event (treat like undefined)
     const path = process.env.ROUTING_STYLE === 'wildcard' ? 'addons' : 'addons.html';
-    window.open(`${process.env.ROOT}${path}`);
+    const url = `${process.env.ROOT}${path}${typeof addonId === 'string' ? `#${addonId}` : ''}`;
+    window.open(url);
 };
 
 const messages = defineMessages({
     defaultTitle: {
-        defaultMessage: 'Make your Scratch 3.0 projects fast, and more in control with Gvbvdxx Mod 2.',
+        defaultMessage: 'Make your Scratch projects more powerful!',
         description: 'Title of homepage',
         id: 'tw.guiDefaultTitle'
     }
 });
 
 const WrappedMenuBar = compose(
-    SBFileUploaderHOC
+    SBFileUploaderHOC,
+    TWPackagerIntegrationHOC
 )(MenuBar);
 
 if (AddonChannels.reloadChannel) {
@@ -118,20 +88,37 @@ const Footer = () => (
             <div className={styles.footerText}>
                 <FormattedMessage
                     // eslint-disable-next-line max-len
-                    defaultMessage="Gvbvdxx Mod 2 is not affiliated with Scratch, the Scratch Team, or the Scratch Foundation."
-                    description="Disclaimer that Gvbvdxx Mod 2 is not connected to Scratch"
+                    defaultMessage="{APP_NAME} is not affiliated with Scratch, the Scratch Team, or the Scratch Foundation."
+                    description="Disclaimer that TurboWarp is not connected to Scratch"
                     id="tw.footer.disclaimer"
+                    values={{
+                        APP_NAME
+                    }}
                 />
             </div>
+
+            <div className={styles.footerText}>
+                <FormattedMessage
+                    // eslint-disable-next-line max-len
+                    defaultMessage="Scratch is a project of the Scratch Foundation. It is available for free at {scratchDotOrg}."
+                    description="A disclaimer that Scratch requires when referring to Scratch. {scratchDotOrg} is a link with text 'https://scratch.org/'"
+                    id="tw.footer.scratchDisclaimer"
+                    values={{
+                        scratchDotOrg: (
+                            <a
+                                href="https://scratch.org/"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                {'https://scratch.org/'}
+                            </a>
+                        )
+                    }}
+                />
+            </div>
+
             <div className={styles.footerColumns}>
                 <div className={styles.footerSection}>
-                    <a href="https://fosshost.org/">
-                        <FormattedMessage
-                            defaultMessage="Hosting provided by Fosshost"
-                            description="Fosshost link in footer"
-                            id="tw.footer.fosshost"
-                        />
-                    </a>
                     <a href="credits.html">
                         <FormattedMessage
                             defaultMessage="Credits"
@@ -152,27 +139,27 @@ const Footer = () => (
                     <a href="https://docs.turbowarp.org/embedding">
                         <FormattedMessage
                             defaultMessage="Embedding"
-                            description="Menu bar item for embedding link"
+                            description="Link in footer to embedding documentation for embedding link"
                             id="tw.footer.embed"
                         />
                     </a>
                     <a href="https://docs.turbowarp.org/url-parameters">
                         <FormattedMessage
                             defaultMessage="URL Parameters"
-                            description="Menu bar item for URL parameters link"
+                            description="Link in footer to URL parameters documentation"
                             id="tw.footer.parameters"
                         />
                     </a>
-                    <a href="https://docs.turbowarp.org/translate">
+                    <a href="https://docs.turbowarp.org/">
                         <FormattedMessage
-                            defaultMessage="Help Translate TurboWarp"
-                            description="Menu bar item for translating TurboWarp link"
-                            id="tw.footer.translate"
+                            defaultMessage="Documentation"
+                            description="Link in footer to additional documentation"
+                            id="tw.footer.documentation"
                         />
                     </a>
                 </div>
                 <div className={styles.footerSection}>
-                    <a href="https://scratch.mit.edu/users/gvbvdxx/#comments">
+                    <a href="https://scratch.mit.edu/users/GarboMuffin/#comments">
                         <FormattedMessage
                             defaultMessage="Feedback & Bugs"
                             description="Link to feedback/bugs page"
@@ -211,12 +198,16 @@ class Interface extends React.Component {
     }
     handleUpdateProjectTitle (title, isDefault) {
         if (isDefault || !title) {
-            document.title = `Gvbvdxx Mod 2 - ${this.props.intl.formatMessage(messages.defaultTitle)}`;
+            document.title = `${APP_NAME} - ${this.props.intl.formatMessage(messages.defaultTitle)}`;
         } else {
-            document.title = `${title} - Gvbvdxx Mod 2`;
+            document.title = `${title} - ${APP_NAME}`;
         }
     }
     render () {
+        if (isInvalidEmbed) {
+            return <InvalidEmbed />;
+        }
+
         const {
             /* eslint-disable no-unused-vars */
             intl,
@@ -226,7 +217,6 @@ class Interface extends React.Component {
             isLoading,
             isPlayerOnly,
             isRtl,
-            onClickTheme,
             projectId,
             /* eslint-enable no-unused-vars */
             ...props
@@ -239,29 +229,29 @@ class Interface extends React.Component {
                     [styles.playerOnly]: isHomepage,
                     [styles.editor]: isEditor
                 })}
+                dir={isRtl ? 'rtl' : 'ltr'}
             >
+                <TWWindchimeSubmitter />
                 {isHomepage ? (
                     <div className={styles.menu}>
                         <WrappedMenuBar
                             canChangeLanguage
                             canManageFiles
+                            canChangeTheme
                             enableSeeInside
                             onClickAddonSettings={handleClickAddonSettings}
-                            onClickTheme={onClickTheme}
                         />
                     </div>
                 ) : null}
                 <div
                     className={styles.center}
                     style={isPlayerOnly ? ({
-                        // add a couple pixels to account for border (TODO: remove weird hack)
+                        // + 2 accounts for 1px border on each side of the stage
                         width: `${Math.max(480, props.customStageSize.width) + 2}px`
                     }) : null}
                 >
-                    {isHomepage && announcement ? <DOMElementRenderer domElement={announcement} /> : null}
                     <GUI
                         onClickAddonSettings={handleClickAddonSettings}
-                        onClickTheme={onClickTheme}
                         onUpdateProjectTitle={this.handleUpdateProjectTitle}
                         backpackVisible
                         backpackHost="_local_"
@@ -269,14 +259,17 @@ class Interface extends React.Component {
                     />
                     {isHomepage ? (
                         <React.Fragment>
-							
-                            {isRendererSupported() ? null : (
-                                <WebGlModal isRtl={isRtl} />
-                            )}
                             {isBrowserSupported() ? null : (
                                 <BrowserModal isRtl={isRtl} />
                             )}
-							<ProjectInput/>
+                            <div className={styles.section}>
+                                <ProjectInput />
+                            </div>
+                            {hasCloudVariables && projectId !== '0' && (
+                                <div className={styles.section}>
+                                    <CloudVariableBadge />
+                                </div>
+                            )}
                             {description.instructions || description.credits ? (
                                 <div className={styles.section}>
                                     <Description
@@ -286,22 +279,26 @@ class Interface extends React.Component {
                                     />
                                 </div>
                             ) : null}
-							<hr/>
-							<b>UPDATE:
-							The scratch account gvbvdxx has been removed from scratch.mit.edu because I requested Scratch Team to do so.
-							Gvbmod2-dev was permbanned on scratch.
-							I've given up using scratch, and will never return using it.
-							If you want to see updates, check my new <a href="https://www.youtube.com/@gvbmod2-dev" target="_blank">YouTube channel.</a>
-							</b><br/>
-							<span>
-								Gvbvdxx Mod 2 is created by gvbvdxx.
-								It is a modifcation on top of TurboWarp.
-								It also adds extensions more to use and make more powerful projects.<br/>
-							</span><br/>
+                            <div className={styles.section}>
+                                <p>
+                                    <FormattedMessage
+                                        // eslint-disable-next-line max-len
+                                        defaultMessage="{APP_NAME} is a Scratch mod that compiles projects to JavaScript to make them run really fast. Try it out by inputting a project ID or URL above or choosing a featured project below."
+                                        description="Description of TurboWarp on the homepage"
+                                        id="tw.home.description"
+                                        values={{
+                                            APP_NAME
+                                        }}
+                                    />
+                                </p>
+                            </div>
+                            <div className={styles.section}>
+                                <FeaturedProjects studio="27205657" />
+                            </div>
                         </React.Fragment>
                     ) : null}
                 </div>
-				
+                {isHomepage && <Footer />}
             </div>
         );
     }
@@ -322,7 +319,6 @@ Interface.propTypes = {
     isLoading: PropTypes.bool,
     isPlayerOnly: PropTypes.bool,
     isRtl: PropTypes.bool,
-    onClickTheme: PropTypes.func,
     projectId: PropTypes.string
 };
 
@@ -349,7 +345,7 @@ const WrappedInterface = compose(
     ErrorBoundaryHOC('TW Interface'),
     TWProjectMetaFetcherHOC,
     TWStateManagerHOC,
-    TWThemeHOC
+    TWPackagerIntegrationHOC
 )(ConnectedInterface);
 
 export default WrappedInterface;

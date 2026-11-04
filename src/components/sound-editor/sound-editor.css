@@ -52,6 +52,10 @@
     border-right: 1px dashed $ui-black-transparent;
 }
 
+.name-input {
+    width: 100%;
+}
+
 .waveform-container {
     display: flex;
     justify-content: space-around;
@@ -74,17 +78,29 @@ $border-radius: 0.25rem;
     height: 2rem;
     padding: 0.35rem;
     outline: none;
-    background: white;
+    background: $ui-white;
     border-radius: $border-radius;
     border: 1px solid $ui-black-transparent;
     cursor: pointer;
     font-size: 0.85rem;
-    transition: 0.2s;
     user-select: none;
     margin: 0px;
+    position: relative;
 }
-[theme="dark"] .button {
-    background-color: $ui-primary;
+
+.button:active {
+    background: $looks-transparent;
+}
+
+.button:focus::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    border: 1px solid $looks-secondary;
+    z-index: 1;
 }
 
 .button > img {
@@ -94,19 +110,22 @@ $border-radius: 0.25rem;
     min-width: 1.25rem;
 }
 
+.round-button-outer {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
 .round-button {
     height: 3rem;
     width: 3rem;
     outline: none;
-    background: $motion-primary;
+    background: $looks-secondary;
     border-radius: 100%;
-    border: 4px solid $ui-white-dim;
+    border: none;
     cursor: pointer;
     padding: 0.75rem;
     user-select: none;
-}
-[theme="dark"] .round-button {
-    border-color: transparent;
 }
 
 .round-button > img {
@@ -139,6 +158,12 @@ $border-radius: 0.25rem;
 
 .trim-button > img {
     width: 1.25rem;
+}
+
+.effects {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .effect-button {
@@ -197,37 +222,43 @@ $border-radius: 0.25rem;
     border-radius: 0;
 }
 
-[dir="ltr"] .button-group .button {
-    border-left: none;
-}
-[dir="rtl"] .button-group .button {
+.button:not(:last-child) {
     border-right: none;
 }
 
-[dir="ltr"] .button-group .button:last-of-type {
-    border-top-right-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
-}
-
-[dir="ltr"] .button-group .button:first-of-type {
-    border-left: 1px solid $ui-black-transparent;
-    border-top-left-radius: $border-radius;
-    border-bottom-left-radius: $border-radius;
-}
-
-[dir="rtl"] .button-group .button:last-of-type {
-    border-top-left-radius: $border-radius;
-    border-bottom-left-radius: $border-radius;
-}
-
-[dir="rtl"] .button-group .button:first-of-type {
+[dir="rtl"] .button:not(:last-child) {
+    border-left: none;
     border-right: 1px solid $ui-black-transparent;
-    border-top-right-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
+}
+
+.button-group .button:first-child,
+[dir="rtl"] .button-group .button:last-child,
+.button-group .button:first-child:focus::before,
+[dir="rtl"] .button-group .button:last-child:focus::before {
+    border-radius: $form-radius 0 0 $form-radius;
+}
+
+.button-group .button:last-child,
+[dir="rtl"] .button-group .button:first-child,
+.button-group .button:last-child:focus::before,
+[dir="rtl"] .button-group .button:first-child:focus::before {
+    border-radius: 0 $form-radius $form-radius 0;
 }
 
 .button:disabled > img {
     opacity: 0.25;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: calc(2 * $space);
+}
+.duration {
+    font-weight: bold;
+}
+.advanced-info {
+
 }
 
 .alert {
@@ -248,10 +279,4 @@ $border-radius: 0.25rem;
 .too-large {
     background-color: rgba(255, 119, 0, 0.3);
     border-color: rgb(255, 119, 0);
-}
-
-.info-row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: calc(2 * $space);
 }

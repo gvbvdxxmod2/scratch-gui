@@ -10,17 +10,17 @@ import styles from './slider-prompt.css';
 
 const messages = defineMessages({
     minValue: {
-        defaultMessage: 'Lowest value',
+        defaultMessage: 'Minimum value',
         description: 'Label of slider modal',
         id: 'gui.sliderModal.min'
     },
     maxValue: {
-        defaultMessage: 'Highest value',
+        defaultMessage: 'Maximum value',
         description: 'Label of slider modal',
         id: 'gui.sliderModal.max'
     },
     title: {
-        defaultMessage: 'Change the slider range',
+        defaultMessage: 'Change slider range',
         description: 'Title of slider modal',
         id: 'gui.sliderModal.title'
     }

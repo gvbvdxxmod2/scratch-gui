@@ -7,6 +7,9 @@ import VM from 'scratch-vm';
 import {injectIntl, intlShape} from 'react-intl';
 
 import ErrorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
+import ProjectLoadErrorComponent, {
+    isKnownProjectLoadError
+} from '../components/tw-project-load-error/project-load-error.jsx';
 import {
     getIsError,
     getIsShowingProject
@@ -22,9 +25,7 @@ import {
     closeCostumeLibrary,
     closeBackdropLibrary,
     closeTelemetryModal,
-    openExtensionLibrary,
-	openCustomExtModal,
-	closeCustomExtModal
+    openExtensionLibrary
 } from '../reducers/modals';
 
 import FontLoaderHOC from '../lib/font-loader-hoc.jsx';
@@ -33,26 +34,41 @@ import SBFileUploaderHOC from '../lib/sb-file-uploader-hoc.jsx';
 import ProjectFetcherHOC from '../lib/project-fetcher-hoc.jsx';
 import TitledHOC from '../lib/titled-hoc.jsx';
 import ProjectSaverHOC from '../lib/project-saver-hoc.jsx';
-import QueryParserHOC from '../lib/query-parser-hoc.jsx';
 import storage from '../lib/storage';
 import vmListenerHOC from '../lib/vm-listener-hoc.jsx';
 import vmManagerHOC from '../lib/vm-manager-hoc.jsx';
 import cloudManagerHOC from '../lib/cloud-manager-hoc.jsx';
-import TWFullScreenResizerHOC from '../lib/tw-fullscreen-resizer-hoc.jsx';
-import TWRestorePointHOC from '../lib/tw-restore-point-hoc.jsx';
 
 import GUIComponent from '../components/gui/gui.jsx';
 import {setIsScratchDesktop} from '../lib/isScratchDesktop.js';
+import TWFullScreenResizerHOC from '../lib/tw-fullscreen-resizer-hoc.jsx';
+import TWThemeManagerHOC from './tw-theme-manager-hoc.jsx';
+
+const {RequestMetadata, setMetadata, unsetMetadata} = storage.scratchFetch;
+
+const setProjectIdMetadata = projectId => {
+    // If project ID is '0' or zero, it's not a real project ID. In that case, remove the project ID metadata.
+    // Same if it's null undefined.
+    if (projectId && projectId !== '0') {
+        setMetadata(RequestMetadata.ProjectId, projectId);
+    } else {
+        unsetMetadata(RequestMetadata.ProjectId);
+    }
+};
 
 class GUI extends React.Component {
     componentDidMount () {
         setIsScratchDesktop(this.props.isScratchDesktop);
         this.props.onStorageInit(storage);
         this.props.onVmInit(this.props.vm);
+        setProjectIdMetadata(this.props.projectId);
     }
     componentDidUpdate (prevProps) {
-        if (this.props.projectId !== prevProps.projectId && this.props.projectId !== null) {
-            this.props.onUpdateProjectId(this.props.projectId);
+        if (this.props.projectId !== prevProps.projectId) {
+            if (this.props.projectId !== null) {
+                this.props.onUpdateProjectId(this.props.projectId);
+            }
+            setProjectIdMetadata(this.props.projectId);
         }
         if (this.props.isShowingProject && !prevProps.isShowingProject) {
             // this only notifies container when a project changes from not yet loaded to loaded
@@ -62,8 +78,15 @@ class GUI extends React.Component {
     }
     render () {
         if (this.props.isError) {
-            throw new Error(
-                `Error in Scratch GUI [location=${window.location}]: ${this.props.error}`);
+            if (isKnownProjectLoadError(this.props.error)) {
+                return (
+                    <ProjectLoadErrorComponent
+                        error={this.props.error}
+                        isFullScreen={this.props.isFullScreen}
+                    />
+                );
+            }
+            throw this.props.error;
         }
         const {
             /* eslint-disable no-unused-vars */
@@ -110,6 +133,7 @@ GUI.propTypes = {
     isLoading: PropTypes.bool,
     isScratchDesktop: PropTypes.bool,
     isShowingProject: PropTypes.bool,
+    isTotallyNormal: PropTypes.bool,
     loadingStateVisible: PropTypes.bool,
     onProjectLoaded: PropTypes.func,
     onSeeCommunity: PropTypes.func,
@@ -124,6 +148,7 @@ GUI.propTypes = {
 
 GUI.defaultProps = {
     isScratchDesktop: false,
+    isTotallyNormal: false,
     onStorageInit: storageInstance => storageInstance.addOfficialScratchWebStores(),
     onProjectLoaded: () => {},
     onUpdateProjectId: () => {},
@@ -158,16 +183,17 @@ const mapStateToProps = state => {
         telemetryModalVisible: state.scratchGui.modals.telemetryModal,
         tipsLibraryVisible: state.scratchGui.modals.tipsLibrary,
         usernameModalVisible: state.scratchGui.modals.usernameModal,
-		gmCustomExtensionVisible: state.scratchGui.modals.gmCustomExtension,
         settingsModalVisible: state.scratchGui.modals.settingsModal,
+        customExtensionModalVisible: state.scratchGui.modals.customExtensionModal,
+        fontsModalVisible: state.scratchGui.modals.fontsModal,
+        unknownPlatformModalVisible: state.scratchGui.modals.unknownPlatformModal,
+        invalidProjectModalVisible: state.scratchGui.modals.invalidProjectModal,
         vm: state.scratchGui.vm
     };
 };
 
 const mapDispatchToProps = dispatch => ({
     onExtensionButtonClick: () => dispatch(openExtensionLibrary()),
-	onExtensionExitButtonClick: () => dispatch(closeCustomExtModal()),
-	onExtensionCustomSelect: () => dispatch(openCustomExtModal()),
     onActivateTab: tab => dispatch(activateTab(tab)),
     onActivateCostumesTab: () => dispatch(activateTab(COSTUMES_TAB_INDEX)),
     onActivateSoundsTab: () => dispatch(activateTab(SOUNDS_TAB_INDEX)),
@@ -178,7 +204,7 @@ const mapDispatchToProps = dispatch => ({
 
 const ConnectedGUI = injectIntl(connect(
     mapStateToProps,
-    mapDispatchToProps,
+    mapDispatchToProps
 )(GUI));
 
 // note that redux's 'compose' function is just being used as a general utility to make
@@ -187,6 +213,8 @@ const ConnectedGUI = injectIntl(connect(
 const WrappedGui = compose(
     LocalizationHOC,
     ErrorBoundaryHOC('Top Level App'),
+    TWThemeManagerHOC, // componentDidUpdate() needs to run very early for icons to update immediately
+    TWFullScreenResizerHOC,
     FontLoaderHOC,
     // QueryParserHOC, // tw: HOC is unused
     ProjectFetcherHOC,
@@ -195,9 +223,7 @@ const WrappedGui = compose(
     vmListenerHOC,
     vmManagerHOC,
     SBFileUploaderHOC,
-    cloudManagerHOC,
-    TWFullScreenResizerHOC,
-    TWRestorePointHOC
+    cloudManagerHOC
 )(ConnectedGUI);
 
 WrappedGui.setAppElement = ReactModal.setAppElement;

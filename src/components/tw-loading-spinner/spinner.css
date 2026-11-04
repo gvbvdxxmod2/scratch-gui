@@ -12,11 +12,8 @@
     height: 64px;
     border-radius: 50%;
     border: 6px solid;
-    border-color: #ff794d transparent #ff794d transparent;
+    border-color: $looks-secondary transparent $looks-secondary transparent;
     animation: spinner 1.2s linear infinite;
-}
-[theme="dark"] .spinner {
-    border-color: #ff794d transparent #ff794d transparent;
 }
 @keyframes spinner {
     0% {

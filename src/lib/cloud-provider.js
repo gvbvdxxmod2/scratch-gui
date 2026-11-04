@@ -49,7 +49,7 @@ class CloudProvider {
         try {
             // tw: only add ws:// or wss:// if it not already present in the cloudHost
             if (!this.cloudHost || (!this.cloudHost.includes('ws://') && !this.cloudHost.includes('wss://'))) {
-                this.cloudHost = 'wss://'+this.cloudHost;
+                this.cloudHost = (location.protocol === 'http:' ? 'ws://' : 'wss://') + this.cloudHost;
             }
             this.connection = new WebSocket(this.cloudHost);
         } catch (e) {
@@ -97,19 +97,23 @@ class CloudProvider {
     }
 
     onClose (e) {
-        // tw: code 4002 is "Username Error" -- do not try to reconnect
+        // Code 4002 is "Username Error" -- do not try to reconnect
         if (e && e.code === 4002) {
             log.info('Cloud username is invalid. Not reconnecting.');
-			log.info(this.cloudHost);
             this.onInvalidUsername();
             return;
         }
-        // tw: code 4004 is "Project Unavailable" -- do not try to reconnect
+        // Code 4003 is "Overloaded" -- do not try to reconnect
+        if (e && e.code === 4003) {
+            log.info('The server is full. Not reconnecting.');
+            return;
+        }
+        // Code 4004 is "Project Unavailable" -- do not try to reconnect
         if (e && e.code === 4004) {
             log.info('Cloud variables are disabled for this project. Not reconnecting.');
             return;
         }
-        log.info(`Closed connection to websocket`);
+        log.info(`WebSocket connection closed with code ${e && e.code}`);
         const randomizedTimeout = this.randomizeDuration(this.exponentialTimeout());
         this.setTimeout(this.openConnection.bind(this), randomizedTimeout);
     }

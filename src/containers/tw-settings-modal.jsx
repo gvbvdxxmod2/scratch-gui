@@ -36,9 +36,10 @@ class UsernameModal extends React.Component {
     handleFramerateChange (e) {
         this.props.vm.setFramerate(e.target.checked ? 60 : 30);
     }
-    handleCustomizeFramerate () {
+    async handleCustomizeFramerate () {
+        // prompt() returns Promise in desktop app
         // eslint-disable-next-line no-alert
-        const newFramerate = prompt(this.props.intl.formatMessage(messages.newFramerate), this.props.framerate);
+        const newFramerate = await prompt(this.props.intl.formatMessage(messages.newFramerate), this.props.framerate);
         const parsed = parseFloat(newFramerate);
         if (isFinite(parsed)) {
             this.props.vm.setFramerate(parsed);
@@ -133,6 +134,7 @@ UsernameModal.propTypes = {
         setStageSize: PropTypes.func,
         storeProjectOptions: PropTypes.func
     }),
+    isEmbedded: PropTypes.bool,
     framerate: PropTypes.number,
     highQualityPen: PropTypes.bool,
     interpolation: PropTypes.bool,
@@ -149,6 +151,7 @@ UsernameModal.propTypes = {
 
 const mapStateToProps = state => ({
     vm: state.scratchGui.vm,
+    isEmbedded: state.scratchGui.mode.isEmbedded,
     framerate: state.scratchGui.tw.framerate,
     highQualityPen: state.scratchGui.tw.highQualityPen,
     interpolation: state.scratchGui.tw.interpolation,

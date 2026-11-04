@@ -1648,6 +1648,21 @@
         "rotationCenterY": 180
     },
     {
+        "name": "Cat 2",
+        "tags": [
+            "kitty",
+            "kitten",
+            "animals",
+            "mammal"
+        ],
+        "assetId": "7499cf6ec438d0c7af6f896bc6adc294",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "7499cf6ec438d0c7af6f896bc6adc294.svg",
+        "rotationCenterX": 87,
+        "rotationCenterY": 39
+    },
+    {
         "name": "Catcher-a",
         "tags": [
             "baseball",
@@ -2596,6 +2611,19 @@
         "bitmapResolution": 1,
         "dataFormat": "svg",
         "md5ext": "b4ab6b3b69de1bc3ed6a94ace172a0b0.svg",
+        "rotationCenterX": 44,
+        "rotationCenterY": 44
+    },
+    {
+        "name": "Dango Cat",
+        "tags": [
+            "food",
+            "animals"
+        ],
+        "assetId": "927d672925e7b99f7813735c484c6922",
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "md5ext": "927d672925e7b99f7813735c484c6922.svg",
         "rotationCenterX": 44,
         "rotationCenterY": 44
     },
@@ -4554,101 +4582,6 @@
         "rotationCenterY": 26
     },
     {
-        "name": "Giga Walk1",
-        "tags": [
-            "fantasy",
-            "walking"
-        ],
-        "assetId": "3afad833094d8dff1c4ff79edcaa13d0",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "3afad833094d8dff1c4ff79edcaa13d0.svg",
-        "rotationCenterX": 70,
-        "rotationCenterY": 107
-    },
-    {
-        "name": "Giga Walk2",
-        "tags": [
-            "fantasy",
-            "walking"
-        ],
-        "assetId": "d27716e022fb5f747d7b09fe6eeeca06",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "d27716e022fb5f747d7b09fe6eeeca06.svg",
-        "rotationCenterX": 71,
-        "rotationCenterY": 107
-    },
-    {
-        "name": "Giga Walk3",
-        "tags": [
-            "fantasy",
-            "walking"
-        ],
-        "assetId": "db55131bf54f96e8986d9b30730e42ce",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "db55131bf54f96e8986d9b30730e42ce.svg",
-        "rotationCenterX": 71,
-        "rotationCenterY": 107
-    },
-    {
-        "name": "Giga-a",
-        "tags": [
-            "fantasy",
-            "drawing",
-            "happy"
-        ],
-        "assetId": "92161a11e851ecda94cbbb985018fed6",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "92161a11e851ecda94cbbb985018fed6.svg",
-        "rotationCenterX": 72,
-        "rotationCenterY": 96
-    },
-    {
-        "name": "Giga-b",
-        "tags": [
-            "fantasy",
-            "drawing",
-            "happy"
-        ],
-        "assetId": "bc706a7648342aaacac9050378b40c43",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "bc706a7648342aaacac9050378b40c43.svg",
-        "rotationCenterX": 72,
-        "rotationCenterY": 96
-    },
-    {
-        "name": "Giga-c",
-        "tags": [
-            "fantasy",
-            "drawing",
-            "happy"
-        ],
-        "assetId": "337b338b2b10176221e638ac537854e6",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "337b338b2b10176221e638ac537854e6.svg",
-        "rotationCenterX": 73,
-        "rotationCenterY": 96
-    },
-    {
-        "name": "Giga-d",
-        "tags": [
-            "fantasy",
-            "drawing",
-            "mad"
-        ],
-        "assetId": "db15886cfdcb5e2f4459e9074e3990a1",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "db15886cfdcb5e2f4459e9074e3990a1.svg",
-        "rotationCenterX": 73,
-        "rotationCenterY": 96
-    },
-    {
         "name": "Giraffe-a",
         "tags": [
             "animals",
@@ -4901,51 +4834,6 @@
         "md5ext": "afb9fe328adae617ee3375366fca02e7.svg",
         "rotationCenterX": 40,
         "rotationCenterY": 80
-    },
-    {
-        "name": "Gobo-a",
-        "tags": [
-            "fantasy",
-            "drawing",
-            "jenkins",
-            "ganglia"
-        ],
-        "assetId": "f505a4e9eab5e40e2669a4462dba4c90",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "f505a4e9eab5e40e2669a4462dba4c90.svg",
-        "rotationCenterX": 47,
-        "rotationCenterY": 55
-    },
-    {
-        "name": "Gobo-b",
-        "tags": [
-            "fantasy",
-            "drawing",
-            "jenkins",
-            "ganglia"
-        ],
-        "assetId": "5c0896569305ab177d87caa31aad2a72",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "5c0896569305ab177d87caa31aad2a72.svg",
-        "rotationCenterX": 47,
-        "rotationCenterY": 55
-    },
-    {
-        "name": "Gobo-c",
-        "tags": [
-            "fantasy",
-            "drawing",
-            "jenkins",
-            "ganglia"
-        ],
-        "assetId": "9d8021c216fb92cc708e1e96f3ed2b52",
-        "bitmapResolution": 1,
-        "dataFormat": "svg",
-        "md5ext": "9d8021c216fb92cc708e1e96f3ed2b52.svg",
-        "rotationCenterX": 47,
-        "rotationCenterY": 55
     },
     {
         "name": "Grasshopper-a",
@@ -7357,12 +7245,12 @@
             "animals",
             "fantasy"
         ],
-        "assetId": "592816f56409d582603c485cbefcbbb8",
+        "assetId": "1d9b10ec091c86e27e69854b933bc90d",
         "bitmapResolution": 1,
         "dataFormat": "svg",
-        "md5ext": "592816f56409d582603c485cbefcbbb8.svg",
-        "rotationCenterX": 74,
-        "rotationCenterY": 78
+        "md5ext": "1d9b10ec091c86e27e69854b933bc90d.svg",
+        "rotationCenterX": 73.981,
+        "rotationCenterY": 77.163
     },
     {
         "name": "Noor-a",
@@ -10269,6 +10157,18 @@
         "md5ext": "9a5c211622d6d2fed600c1809fccd21d.svg",
         "rotationCenterX": 55,
         "rotationCenterY": 37
+    },
+    {
+        "name": "Turbo Robot",
+        "tags": [
+            "robot"
+        ],
+        "bitmapResolution": 1,
+        "dataFormat": "svg",
+        "assetId": "9546f547835649c415959fc86c9a1717",
+        "md5ext": "9546f547835649c415959fc86c9a1717.svg",
+        "rotationCenterX": 33.402360253924,
+        "rotationCenterY": 62.05085241467614
     },
     {
         "name": "Unicorn",

@@ -2,11 +2,13 @@ import React from 'react';
 import GUI from '../containers/gui.jsx';
 
 const searchParams = new URLSearchParams(location.search);
-const cloudHost = searchParams.get('cloud_host') || 'wss://gm2-cloud.glitch.me';
+const cloudHost = searchParams.get('cloud_host') || 'wss://clouddata.turbowarp.org';
 
 const RenderGUI = props => (
     <GUI
         cloudHost={cloudHost}
+        canUseCloud
+        hasCloudPermission
         canSave={false}
         basePath={process.env.ROOT}
         canEditTitle

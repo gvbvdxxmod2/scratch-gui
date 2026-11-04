@@ -1,7 +1,4 @@
-import minilog from 'minilog';
+import nanolog from '@turbowarp/nanolog';
+nanolog.enable();
 
-var ogconsoleerror = console.error;
-
-minilog.enable();
-
-export default minilog('gui');
+export default nanolog('gui');

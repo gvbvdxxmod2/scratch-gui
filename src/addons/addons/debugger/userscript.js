@@ -2,7 +2,9 @@ import { isPaused, setPaused, onPauseChanged, setup } from "./module.js";
 import createLogsTab from "./logs.js";
 import createThreadsTab from "./threads.js";
 import createPerformanceTab from "./performance.js";
+import createTimingTab from "./timing/createTimingTab.js";
 import Utils from "../find-bar/blockly/Utils.js";
+import addSmallStageClass from "../../libraries/common/cs/small-stage.js";
 
 const removeAllChildren = (element) => {
   while (element.firstChild) {
@@ -11,9 +13,11 @@ const removeAllChildren = (element) => {
 };
 
 export default async function ({ addon, console, msg }) {
-  setup(addon.tab.traps.vm);
+  setup(addon);
+  const vm = addon.tab.traps.vm;
 
   let logsTab;
+  let timingTab;
   const messagesLoggedBeforeLogsTabLoaded = [];
   const logMessage = (...args) => {
     if (logsTab) {
@@ -35,6 +39,12 @@ export default async function ({ addon, console, msg }) {
     setPaused(true);
     setInterfaceVisible(true);
   };
+
+  addon.tab.addBlock("sa-pause", {
+    args: [],
+    callback: pause,
+    hidden: true,
+  });
   addon.tab.addBlock("\u200B\u200Bbreakpoint\u200B\u200B", {
     args: [],
     displayName: msg("block-breakpoint"),
@@ -61,8 +71,26 @@ export default async function ({ addon, console, msg }) {
       logMessage(content, thread, "error");
     },
   });
+  addon.tab.addBlock("\u200B\u200Bstart timer\u200B\u200B %s", {
+    // TurboWarp's addon block API expects argument names rather than descriptor objects.
+    args: ["label"],
+    defaults: [msg("default-timer-label")],
+    displayName: msg("block-start-timer"),
+    callback: ({ label }, thread) => {
+      const normalizedLabel = label === "" || typeof label === "undefined" ? msg("default-timer-label") : label;
+      if (timingTab) timingTab.startTimer(normalizedLabel, thread.target.id, thread.peekStack());
+    },
+  });
+  addon.tab.addBlock("\u200B\u200Bstop timer\u200B\u200B %s", {
+    args: ["label"],
+    defaults: [msg("default-timer-label")],
+    displayName: msg("block-stop-timer"),
+    callback: ({ label }, thread) => {
+      const normalizedLabel = label === "" || typeof label === "undefined" ? msg("default-timer-label") : label;
+      if (timingTab) timingTab.stopTimer(normalizedLabel);
+    },
+  });
 
-  const vm = addon.tab.traps.vm;
   await new Promise((resolve, reject) => {
     if (vm.editingTarget) return resolve();
     vm.runtime.once("PROJECT_LOADED", resolve);
@@ -103,7 +131,14 @@ export default async function ({ addon, console, msg }) {
   const tabContentContainer = Object.assign(document.createElement("div"), {
     className: "sa-debugger-tab-content",
   });
+  const interfaceFooter = Object.assign(document.createElement("div"), {
+    className: "sa-debugger-footer",
+  });
+  const footerButtonContainer = Object.assign(document.createElement("div"), {
+    className: "sa-debugger-footer-buttons",
+  });
 
+  // TW: interpreter-dependent debugger features do not support compiled threads.
   const compilerWarning = document.createElement("a");
   compilerWarning.addEventListener("click", () => {
     addon.tab.redux.dispatch({
@@ -111,10 +146,13 @@ export default async function ({ addon, console, msg }) {
       modal: "settingsModal"
     });
   });
-  compilerWarning.className = "sa-debugger-log sa-debugger-compiler-warning";
+  compilerWarning.className = "sa-debugger-compiler-warning";
+  // TW: TODO: translate
   compilerWarning.textContent = "The debugger works best when the compiler is disabled.";
+  // The timing tab profiles compiled projects too, so the warning doesn't apply there.
+  let isTimingTabActive = false;
   const updateCompilerWarningVisibility = () => {
-    compilerWarning.hidden = !vm.runtime.compilerOptions.enabled;
+    compilerWarning.hidden = !vm.runtime.compilerOptions.enabled || isTimingTabActive;
   };
   vm.on("COMPILER_OPTIONS_CHANGED", updateCompilerWarningVisibility);
   updateCompilerWarningVisibility();
@@ -140,12 +178,12 @@ export default async function ({ addon, console, msg }) {
     mouseOffsetY = e.clientY - interfaceContainer.offsetTop;
     lastX = e.clientX;
     lastY = e.clientY;
-    document.addEventListener("mouseup", handleStopDrag);
-    document.addEventListener("mousemove", handleDragInterface);
+    document.addEventListener("pointerup", handleStopDrag);
+    document.addEventListener("pointermove", handleDragInterface);
   };
   const handleStopDrag = () => {
-    document.removeEventListener("mouseup", handleStopDrag);
-    document.removeEventListener("mousemove", handleDragInterface);
+    document.removeEventListener("pointerup", handleStopDrag);
+    document.removeEventListener("pointermove", handleDragInterface);
   };
   const moveInterface = (x, y) => {
     lastX = x;
@@ -164,13 +202,17 @@ export default async function ({ addon, console, msg }) {
   window.addEventListener("resize", () => {
     moveInterface(lastX, lastY);
   });
-  interfaceHeader.addEventListener("mousedown", handleStartDrag);
+  interfaceHeader.addEventListener("pointerdown", handleStartDrag);
+  interfaceHeader.addEventListener("touchmove", (e) => e.preventDefault());
 
   interfaceHeader.append(tabListElement, buttonContainerElement);
-  interfaceContainer.append(interfaceHeader, compilerWarning, tabContentContainer);
+  interfaceFooter.appendChild(footerButtonContainer);
+  // TW: append compilerWarning after interfaceHeader
+  interfaceContainer.append(interfaceHeader, compilerWarning, tabContentContainer, interfaceFooter);
   document.body.append(interfaceContainer);
+  moveInterface(0, 0); // necessary to initialize position if running scratch-gui locally
 
-  const createHeaderButton = ({ text, icon, description }) => {
+  const createIconButton = ({ text, icon, description }) => {
     const button = Object.assign(document.createElement("div"), {
       className: addon.tab.scratchClass("card_shrink-expand-button"),
       draggable: false,
@@ -178,14 +220,17 @@ export default async function ({ addon, console, msg }) {
     if (description) {
       button.title = description;
     }
-    const imageElement = Object.assign(document.createElement("img"), {
-      src: icon,
-      draggable: false,
-    });
+    let imageElement = null;
+    if (icon) {
+      imageElement = Object.assign(document.createElement("img"), {
+        src: icon,
+        draggable: false,
+      });
+      button.appendChild(imageElement);
+    }
     const textElement = Object.assign(document.createElement("span"), {
       textContent: text,
     });
-    button.appendChild(imageElement);
     button.appendChild(textElement);
     return {
       element: button,
@@ -196,7 +241,8 @@ export default async function ({ addon, console, msg }) {
 
   const createHeaderTab = ({ text, icon }) => {
     const tab = document.createElement("li");
-    const imageElement = Object.assign(document.createElement("img"), {
+    // TW: recolor Scratch Addons' purple icons to the selected TurboWarp accent.
+    const imageElement = Object.assign(addon.tab.recolorable(), {
       src: icon,
       draggable: false,
     });
@@ -212,23 +258,41 @@ export default async function ({ addon, console, msg }) {
     };
   };
 
-  const unpauseButton = createHeaderButton({
+  const unpauseButton = createIconButton({
     text: msg("unpause"),
     icon: addon.self.getResource("/icons/play.svg") /* rewritten by pull.js */,
   });
   unpauseButton.element.classList.add("sa-debugger-unpause");
   unpauseButton.element.addEventListener("click", () => setPaused(false));
+
+  const unpauseContainer = Object.assign(document.createElement("div"), {
+    className: "sa-debugger-unpause-container",
+  });
+  unpauseContainer.appendChild(unpauseButton.element);
   const updateUnpauseVisibility = (paused) => {
-    unpauseButton.element.style.display = paused ? "" : "none";
+    unpauseContainer.style.display = paused ? "" : "none";
+    setTimeout(updateFooterVisibility, 0); // Have to wait for other modules to update their buttons
   };
   updateUnpauseVisibility(isPaused());
   onPauseChanged(updateUnpauseVisibility);
 
-  const closeButton = createHeaderButton({
-    text: msg("close"),
-    icon: addon.self.getResource("/icons/close.svg") /* rewritten by pull.js */,
+  // Close button structure copied from addon-api/content-script/modal.js
+  const closeContainer = Object.assign(document.createElement("div"), {
+    className: addon.tab.scratchClass("modal_header-item", "modal_header-item-close"),
   });
-  closeButton.element.addEventListener("click", () => setInterfaceVisible(false));
+  const closeButton = Object.assign(document.createElement("div"), {
+    className: addon.tab.scratchClass("close-button_close-button", "close-button_large"),
+    title: msg("close"),
+  });
+  closeContainer.appendChild(closeButton);
+  closeButton.appendChild(
+    Object.assign(document.createElement("img"), {
+      className: addon.tab.scratchClass("close-button_close-icon"),
+      src: addon.self.getResource("/icons/close.svg") /* rewritten by pull.js */,
+      draggable: false,
+    })
+  );
+  closeButton.addEventListener("click", () => setInterfaceVisible(false));
 
   const originalStep = vm.runtime._step;
   const afterStepCallbacks = [];
@@ -308,7 +372,7 @@ export default async function ({ addon, console, msg }) {
   };
 
   const goToBlock = (blockId) => {
-    const workspace = Blockly.getMainWorkspace();
+    const workspace = addon.tab.traps.getWorkspace();
     const block = workspace.getBlockById(blockId);
     if (!block) return;
 
@@ -334,8 +398,8 @@ export default async function ({ addon, console, msg }) {
   // May be slightly incorrect in some edge cases.
   const formatBlocklyBlockData = (jsonData) => {
     // For sample jsonData, see:
-    // https://github.com/LLK/scratch-blocks/blob/0bd1a17e66a779ec5d11f4a00c43784e3ac7a7b8/blocks_vertical/motion.js
-    // https://github.com/LLK/scratch-blocks/blob/0bd1a17e66a779ec5d11f4a00c43784e3ac7a7b8/blocks_vertical/control.js
+    // https://github.com/scratchfoundation/scratch-blocks/blob/0bd1a17e66a779ec5d11f4a00c43784e3ac7a7b8/blocks_vertical/motion.js
+    // https://github.com/scratchfoundation/scratch-blocks/blob/0bd1a17e66a779ec5d11f4a00c43784e3ac7a7b8/blocks_vertical/control.js
 
     const processSegment = (index) => {
       const message = jsonData[`message${index}`];
@@ -355,9 +419,11 @@ export default async function ({ addon, console, msg }) {
           } else if (type === "field_image") {
             const src = argInfo.src;
             if (src.endsWith("rotate-left.svg")) {
-              formattedMessage += "↩";
+              formattedMessage += msg("/_general/blocks/anticlockwise");
             } else if (src.endsWith("rotate-right.svg")) {
-              formattedMessage += "↪";
+              formattedMessage += msg("/_general/blocks/clockwise");
+            } else if (src.endsWith("green-flag.svg")) {
+              formattedMessage += msg("/_general/blocks/green-flag");
             }
           } else {
             formattedMessage += "()";
@@ -397,6 +463,8 @@ export default async function ({ addon, console, msg }) {
     let text;
     let category;
     let shape;
+    // TW: support custom extension colors
+    let color;
     if (
       block.opcode === "data_variable" ||
       block.opcode === "data_listcontents" ||
@@ -430,10 +498,16 @@ export default async function ({ addon, console, msg }) {
         formatProcedureCode(proccode)
       );
       category = "more";
+    } else if (block.opcode === "control_stop") {
+      // Procedural block - jsonInit not called, so we can't handle it with the fakeBlock approach
+      text = ScratchBlocks.ScratchMsgs.translate("CONTROL_STOP", "stop");
+      category = "control";
+      shape = "stacked";
     } else {
-      // Try to call things like https://github.com/LLK/scratch-blocks/blob/0bd1a17e66a779ec5d11f4a00c43784e3ac7a7b8/blocks_vertical/operators.js#L36
+      // Try to call things like https://github.com/scratchfoundation/scratch-blocks/blob/0bd1a17e66a779ec5d11f4a00c43784e3ac7a7b8/blocks_vertical/operators.js#L36
       var jsonData;
       const fakeBlock = {
+        workspace: addon.tab.traps.getWorkspace(),
         jsonInit(data) {
           jsonData = data;
         },
@@ -443,7 +517,7 @@ export default async function ({ addon, console, msg }) {
         try {
           blockConstructor.init.call(fakeBlock);
         } catch (e) {
-          // ignore
+          console.log(e);
         }
       }
       if (!jsonData) {
@@ -454,7 +528,8 @@ export default async function ({ addon, console, msg }) {
         return null;
       }
       // jsonData.extensions is not guaranteed to exist
-      category = jsonData.extensions?.includes("scratch_extension") ? "pen" : jsonData.category;
+      // TW: added different extension for default colors
+      category = jsonData?.extensions.includes("default_extension_colors") ? "pen" : jsonData.category;
       const isStatement =
         (jsonData.extensions &&
           (jsonData.extensions.includes("shape_statement") ||
@@ -463,8 +538,12 @@ export default async function ({ addon, console, msg }) {
         "previousStatement" in jsonData ||
         "nextStatement" in jsonData;
       shape = isStatement ? "stacked" : "round";
+      // TW: support custom extension colors
+      color = jsonData.colour;
     }
-    if (!text || !category) {
+
+    // TW: support custom extensions
+    if (!text) {
       return null;
     }
 
@@ -473,14 +552,34 @@ export default async function ({ addon, console, msg }) {
     element.textContent = text;
     element.dataset.shape = shape;
 
-    element.classList.add(`sa-block-color-${category}`);
+    // TW: support custom extension colors
+    const COLOR_CLASSES = [
+      "motion",
+      "looks",
+      "sounds",
+      "events",
+      "control",
+      "sensing",
+      "operators",
+      "data",
+      "data-lists",
+      "list",
+      "more",
+      "pen",
+      "addon-custom-block"
+    ];
+    if (COLOR_CLASSES.includes(category)) {
+      element.classList.add(`sa-block-color-${category}`);
+    } else if (color) {
+      element.style.setProperty('--sa-block-colored-background', color);
+    }
 
     return element;
   };
 
   const api = {
     debug: {
-      createHeaderButton,
+      createIconButton: createIconButton,
       createHeaderTab,
       setHasUnreadMessage,
       addAfterStepCallback,
@@ -495,12 +594,26 @@ export default async function ({ addon, console, msg }) {
   };
   logsTab = await createLogsTab(api);
   const threadsTab = await createThreadsTab(api);
-  const allTabs = [logsTab, threadsTab];
+  const performanceTab = await createPerformanceTab(api);
+  timingTab = await createTimingTab(api);
+  const allTabs = [logsTab, threadsTab, performanceTab, timingTab];
 
   for (const message of messagesLoggedBeforeLogsTabLoaded) {
     logsTab.addLog(...message);
   }
   messagesLoggedBeforeLogsTabLoaded.length = 0;
+
+  function updateFooterVisibility() {
+    // Show footer only if buttons are visible
+    interfaceFooter.style.display = "none";
+    const allButtons = footerButtonContainer.children;
+    for (const button of allButtons) {
+      if (button.style.display !== "none") {
+        interfaceFooter.style.display = "";
+        return;
+      }
+    }
+  }
 
   let activeTab;
   const setActiveTab = (tab) => {
@@ -512,16 +625,22 @@ export default async function ({ addon, console, msg }) {
     }
     tab.tab.element.classList.add(selectedClass);
     activeTab = tab;
+    isTimingTabActive = tab === timingTab;
+    updateCompilerWarningVisibility();
 
     removeAllChildren(tabContentContainer);
     tabContentContainer.appendChild(tab.content);
 
     removeAllChildren(buttonContainerElement);
-    buttonContainerElement.appendChild(unpauseButton.element);
+    buttonContainerElement.appendChild(closeContainer);
+
+    removeAllChildren(footerButtonContainer);
+    footerButtonContainer.appendChild(unpauseContainer);
     for (const button of tab.buttons) {
-      buttonContainerElement.appendChild(button.element);
+      footerButtonContainer.appendChild(button.element);
     }
-    buttonContainerElement.appendChild(closeButton.element);
+
+    updateFooterVisibility();
 
     if (isInterfaceVisible) {
       activeTab.show();
@@ -535,29 +654,14 @@ export default async function ({ addon, console, msg }) {
   }
   setActiveTab(allTabs[0]);
 
-  if (addon.tab.redux.state && addon.tab.redux.state.scratchGui.stageSize.stageSize === "small") {
-    document.body.classList.add("sa-debugger-small");
-  }
-  document.addEventListener(
-    "click",
-    (e) => {
-      if (e.target.closest("[class*='stage-header_stage-button-first']:not(.sa-hide-stage-button)")) {
-        document.body.classList.add("sa-debugger-small");
-      } else if (
-        e.target.closest("[class*='stage-header_stage-button-last']") ||
-        e.target.closest(".sa-hide-stage-button")
-      ) {
-        document.body.classList.remove("sa-debugger-small");
-      }
-    },
-    { capture: true }
-  );
+  addSmallStageClass();
 
   const ogGreenFlag = vm.runtime.greenFlag;
   vm.runtime.greenFlag = function (...args) {
     if (addon.settings.get("log_clear_greenflag")) {
       logsTab.clearLogs();
     }
+    timingTab.clearTimers();
     if (addon.settings.get("log_greenflag")) {
       logsTab.addLog(msg("log-msg-flag-clicked"), null, "internal");
     }
@@ -596,19 +700,65 @@ export default async function ({ addon, console, msg }) {
     return ogStartHats.call(this, hat, optMatchFields, ...args);
   };
 
+  // TW: not supported in compiler so we just removed entirely for now
+  /*
+  const ogAddToList = vm.runtime._primitives.data_addtolist;
+  vm.runtime._primitives.data_addtolist = function (args, util) {
+    if (addon.settings.get("log_max_list_length")) {
+      const list = util.target.lookupOrCreateList(args.LIST.id, args.LIST.name);
+      if (list.value.length >= 200000) {
+        logsTab.addLog(msg("log-msg-list-append-too-long", { list: list.name }), util.thread, "internal-warn");
+      }
+    }
+    ogAddToList.call(this, args, util);
+  };
+
+  const ogInertAtList = vm.runtime._primitives.data_insertatlist;
+  vm.runtime._primitives.data_insertatlist = function (args, util) {
+    if (addon.settings.get("log_max_list_length")) {
+      const list = util.target.lookupOrCreateList(args.LIST.id, args.LIST.name);
+      if (list.value.length >= 200000) {
+        logsTab.addLog(msg("log-msg-list-insert-too-long", { list: list.name }), util.thread, "internal-warn");
+      }
+    }
+    ogInertAtList.call(this, args, util);
+  };
+
+  const ogSetVariableTo = vm.runtime._primitives.data_setvariableto;
+  vm.runtime._primitives.data_setvariableto = function (args, util) {
+    if (addon.settings.get("log_invalid_cloud_data")) {
+      const variable = util.target.lookupOrCreateVariable(args.VARIABLE.id, args.VARIABLE.name);
+      if (variable.isCloud) {
+        const value = args.VALUE.toString();
+        if (isNaN(value)) {
+          logsTab.addLog(msg("log-cloud-data-nan", { var: variable.name }), util.thread, "internal-warn");
+        } else if (value.length > 256) {
+          logsTab.addLog(msg("log-cloud-data-too-long", { var: variable.name }), util.thread, "internal-warn");
+        }
+      }
+    }
+    ogSetVariableTo.call(this, args, util);
+  };
+  */
+
   while (true) {
-    await addon.tab.waitForElement('[class*="stage-header_stage-size-row"]', {
-      markAsSeen: true,
-      reduxEvents: [
-        "scratch-gui/mode/SET_PLAYER",
-        "scratch-gui/mode/SET_FULL_SCREEN",
-        "fontsLoaded/SET_FONTS_LOADED",
-        "scratch-gui/locales/SELECT_LOCALE",
-      ],
-    });
+    await addon.tab.waitForElement(
+      // TW: changed structure of header
+      '[class^="stage-header_stage-size-row"], [class^="stage-header_fullscreen-buttons-row_"]',
+      {
+        markAsSeen: true,
+        reduxEvents: [
+          "scratch-gui/mode/SET_PLAYER",
+          "scratch-gui/mode/SET_FULL_SCREEN",
+          "fontsLoaded/SET_FONTS_LOADED",
+          "scratch-gui/locales/SELECT_LOCALE",
+        ],
+      }
+    );
     if (addon.tab.editorMode === "editor") {
       addon.tab.appendToSharedSpace({ space: "stageHeader", element: debuggerButtonOuter, order: 0 });
     } else {
+      debuggerButtonOuter.remove();
       setInterfaceVisible(false);
     }
   }

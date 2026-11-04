@@ -13,7 +13,11 @@ const MODAL_CONNECTION = 'connectionModal';
 const MODAL_TIPS_LIBRARY = 'tipsLibrary';
 const MODAL_USERNAME = 'usernameModal';
 const MODAL_SETTINGS = 'settingsModal';
-const MODAL_CUSTOM_EXTENSION = 'gmCustomExtension';
+const MODAL_CUSTOM_EXTENSION = 'customExtensionModal';
+const MODAL_RESTORE_POINTS = 'restorePointModal';
+const MODAL_FONTS = 'fontsModal';
+const MODAL_UNKNOWN_PLATFORM = 'unknownPlatformModal';
+const MODAL_INVALID_PROJECT = 'invalidProjectModal';
 
 const initialState = {
     [MODAL_BACKDROP_LIBRARY]: false,
@@ -28,7 +32,11 @@ const initialState = {
     [MODAL_TIPS_LIBRARY]: false,
     [MODAL_USERNAME]: false,
     [MODAL_SETTINGS]: false,
-	[MODAL_CUSTOM_EXTENSION]: false
+    [MODAL_CUSTOM_EXTENSION]: false,
+    [MODAL_RESTORE_POINTS]: false,
+    [MODAL_FONTS]: false,
+    [MODAL_UNKNOWN_PLATFORM]: false,
+    [MODAL_INVALID_PROJECT]: false
 };
 
 const reducer = function (state, action) {
@@ -94,8 +102,20 @@ const openUsernameModal = function () {
 const openSettingsModal = function () {
     return openModal(MODAL_SETTINGS);
 };
-const openCustomExtModal = function () {
+const openCustomExtensionModal = function () {
     return openModal(MODAL_CUSTOM_EXTENSION);
+};
+const openRestorePointModal = function () {
+    return openModal(MODAL_RESTORE_POINTS);
+};
+const openFontsModal = function () {
+    return openModal(MODAL_FONTS);
+};
+const openUnknownPlatformModal = function () {
+    return openModal(MODAL_UNKNOWN_PLATFORM);
+};
+const openInvalidProjectModal = function () {
+    return openModal(MODAL_INVALID_PROJECT);
 };
 const closeBackdropLibrary = function () {
     return closeModal(MODAL_BACKDROP_LIBRARY);
@@ -133,8 +153,20 @@ const closeUsernameModal = function () {
 const closeSettingsModal = function () {
     return closeModal(MODAL_SETTINGS);
 };
-const closeCustomExtModal = function () {
+const closeCustomExtensionModal = function () {
     return closeModal(MODAL_CUSTOM_EXTENSION);
+};
+const closeRestorePointModal = function () {
+    return closeModal(MODAL_RESTORE_POINTS);
+};
+const closeFontsModal = function () {
+    return closeModal(MODAL_FONTS);
+};
+const closeUnknownPlatformModal = function () {
+    return closeModal(MODAL_UNKNOWN_PLATFORM);
+};
+const closeInvalidProjectModal = function () {
+    return closeModal(MODAL_INVALID_PROJECT);
 };
 export {
     reducer as default,
@@ -151,7 +183,11 @@ export {
     openConnectionModal,
     openUsernameModal,
     openSettingsModal,
-	openCustomExtModal,
+    openCustomExtensionModal,
+    openRestorePointModal,
+    openFontsModal,
+    openUnknownPlatformModal,
+    openInvalidProjectModal,
     closeBackdropLibrary,
     closeCostumeLibrary,
     closeExtensionLibrary,
@@ -164,5 +200,9 @@ export {
     closeConnectionModal,
     closeUsernameModal,
     closeSettingsModal,
-	closeCustomExtModal
+    closeCustomExtensionModal,
+    closeRestorePointModal,
+    closeFontsModal,
+    closeUnknownPlatformModal,
+    closeInvalidProjectModal
 };

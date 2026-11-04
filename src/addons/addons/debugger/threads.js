@@ -62,9 +62,11 @@ export default async function createThreadsTab({ debug, addon, console, msg }) {
       }
     }
 
+    // TW: compiler-related support
     if (row.type === "compiled") {
       const el = document.createElement('div');
       el.className = "sa-debugger-thread-compiled";
+      // TW: TODO: get infrastructure to translate this
       el.textContent = "Compiled threads can't be stepped and have no stack information.";
       root.appendChild(el);
     }
@@ -102,6 +104,7 @@ export default async function createThreadsTab({ debug, addon, console, msg }) {
     const newRows = [];
     const threads = vm.runtime.threads;
     const visitedThreads = new Set();
+    const runningThread = getRunningThread();
 
     const createThreadInfo = (thread, depth) => {
       if (visitedThreads.has(thread)) {
@@ -120,6 +123,7 @@ export default async function createThreadsTab({ debug, addon, console, msg }) {
             targetName: target.getName(),
             id,
           },
+          // TW: compiler-related support
           compiledItem: thread.isCompiled ? {
             type: "compiled",
             depth: 1,
@@ -129,7 +133,6 @@ export default async function createThreadsTab({ debug, addon, console, msg }) {
       }
       const cacheInfo = threadInfoCache.get(thread);
 
-      const runningThread = getRunningThread();
       const createBlockInfo = (block, stackFrameIdx) => {
         const blockId = block.id;
         if (!block) return;
@@ -153,6 +156,7 @@ export default async function createThreadsTab({ debug, addon, console, msg }) {
         }
 
         blockInfo.running =
+          // TW: compiler-related support
           thread === runningThread && (
             thread.isCompiled || (
               blockId === runningThread.peekStack() &&
@@ -184,6 +188,7 @@ export default async function createThreadsTab({ debug, addon, console, msg }) {
         }
       }
 
+      // TW: compiler-related support
       if (cacheInfo.compiledItem) {
         result.push(cacheInfo.compiledItem);
       }
@@ -215,7 +220,7 @@ export default async function createThreadsTab({ debug, addon, console, msg }) {
     }
   });
 
-  const stepButton = debug.createHeaderButton({
+  const stepButton = debug.createIconButton({
     text: msg("step"),
     icon: addon.self.getResource("/icons/step.svg") /* rewritten by pull.js */,
     description: msg("step-desc"),
@@ -231,7 +236,32 @@ export default async function createThreadsTab({ debug, addon, console, msg }) {
   handlePauseChanged(isPaused());
   onPauseChanged(handlePauseChanged);
 
-  onSingleStep(updateContent);
+  onSingleStep(() => {
+    updateContent();
+    queueMicrotask(() => {
+      const runningIndex = logView.rows.findIndex((i) => i.running);
+      if (runningIndex !== -1 && !logView.isInView(runningIndex, logView.rowHeight)) {
+        // Try to show the entire thread if we can fit it on screen
+        let found = false;
+        const maxScrollback = Math.floor(logView.height / logView.rowHeight);
+        for (let i = 1; i < maxScrollback; i++) {
+          const checkIndex = runningIndex - i;
+          if (logView.rows[checkIndex].type === "thread-header") {
+            logView.scrollTo(checkIndex);
+            found = true;
+            break;
+          }
+        }
+
+        if (!found) {
+          // We somehow couldn't find the header or the stack is too big for us to show the header
+          // and the current stack item at the same time. Settle for showing as much of the stack
+          // as we can while also leaving some room on the bottom for the stack to grow.
+          logView.scrollTo(Math.max(0, runningIndex - maxScrollback + 5));
+        }
+      }
+    });
+  });
 
   const show = () => {
     logView.show();

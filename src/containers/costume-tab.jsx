@@ -144,7 +144,9 @@ class CostumeTab extends React.Component {
     }
     handleExportCostume (costumeIndex) {
         const item = this.props.vm.editingTarget.sprite.costumes[costumeIndex];
-        const blob = new Blob([item.asset.data], {type: item.asset.assetType.contentType});
+        const blob = new Blob([
+            this.props.vm.getExportedCostume(item)
+        ], {type: item.asset.assetType.contentType});
         downloadBlob(`${item.name}.${item.asset.dataFormat}`, blob);
     }
     handleNewCostume (costume, fromCostumeLibrary, targetId) {
@@ -318,7 +320,6 @@ class CostumeTab extends React.Component {
                 {target.costumes ?
                     <PaintEditorWrapper
                         selectedCostumeIndex={this.state.selectedCostumeIndex}
-                        isDark={this.props.isDark}
                     /> :
                     null
                 }
@@ -331,7 +332,6 @@ CostumeTab.propTypes = {
     dispatchUpdateRestore: PropTypes.func,
     editingTarget: PropTypes.string,
     intl: intlShape,
-    isDark: PropTypes.bool,
     isRtl: PropTypes.bool,
     onActivateSoundsTab: PropTypes.func.isRequired,
     onCloseImporting: PropTypes.func.isRequired,

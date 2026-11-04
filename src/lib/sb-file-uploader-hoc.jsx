@@ -1,12 +1,11 @@
 import bindAll from 'lodash.bindall';
 import React from 'react';
 import PropTypes from 'prop-types';
-import {defineMessages, intlShape, injectIntl} from 'react-intl';
+import {intlShape, injectIntl} from 'react-intl';
 import {connect} from 'react-redux';
 import log from '../lib/log';
 import sharedMessages from './shared-messages';
-import FileSystemAPI from './tw-filesystem-api';
-import {setFileHandle} from '../reducers/tw';
+import {setFileHandle, setProjectError} from '../reducers/tw';
 
 import {
     LoadingStates,
@@ -19,19 +18,12 @@ import {
 import {setProjectTitle} from '../reducers/project-title';
 import {
     openLoadingProject,
-    closeLoadingProject
+    closeLoadingProject,
+    openInvalidProjectModal
 } from '../reducers/modals';
 import {
     closeFileMenu
 } from '../reducers/menus';
-
-const messages = defineMessages({
-    loadError: {
-        id: 'tw.loadError',
-        defaultMessage: 'Could not load project: {error}',
-        description: 'An error that displays when a local project file fails to load.'
-    }
-});
 
 /**
  * Higher Order Component to provide behavior for loading local project files into editor.
@@ -42,13 +34,6 @@ const messages = defineMessages({
  *     <WrappedComponent />
  * </SBFileUploaderHOC>
  */
-function stripOutFileExtension (a) {
-	var dotsSplit = a.split(".");
-	return dotsSplit.slice(0,dotsSplit.length-1).join(".");
-}
-const getProjectTitleFromFilename = fileInputFilename => {
-    return stripOutFileExtension(fileInputFilename); // truncate project title to max 100 chars
-};
 const SBFileUploaderHOC = function (WrappedComponent) {
     class SBFileUploaderComponent extends React.Component {
         constructor (props) {
@@ -88,34 +73,46 @@ const SBFileUploaderHOC = function (WrappedComponent) {
             this.fileReader = new FileReader();
             this.fileReader.onload = this.onload;
             // tw: Use FS API when available
-            if (FileSystemAPI.available()) {
+            if (this.props.showOpenFilePicker) {
                 (async () => {
                     try {
-                        const handle = await FileSystemAPI.showOpenFilePicker();
+                        const [handle] = await this.props.showOpenFilePicker({
+                            multiple: false,
+                            types: [
+                                {
+                                    description: 'Scratch Project',
+                                    accept: {
+                                        // Chrome on Android tracks the MIME type of files that get downloaded and
+                                        // then actually enforces that the type must match in showOpenFilePicker()
+                                        // and does not allow the user to override the filter. As Scratch projects have
+                                        // no well-defined and well-adopted MIME types, we can't assume anything about
+                                        // what MIME type they are saved with, so we have to use the most broad MIME
+                                        // type here. Otherwise some users just won't be able to load files for no
+                                        // fault of their own.
+                                        '*/*': ['.sb', '.sb2', '.sb3']
+                                    }
+                                }
+                            ]
+                        });
                         const file = await handle.getFile();
                         this.handleChange({
                             target: {
-                                files: [file]
+                                files: [file],
+                                handle: handle
                             }
                         });
-                        if (file.name.endsWith('.sb3')) {
-                            this.props.onSetFileHandle(handle);
-                        } else {
-                            this.props.onSetFileHandle(null);
-                        }
                     } catch (err) {
-                        // If user aborted process, do not show an error.
+                        // If the user aborted it, that's not an error.
                         if (err && err.name === 'AbortError') {
                             return;
                         }
-                        // eslint-disable-next-line no-console
-                        console.error(err);
+                        log.error(err);
                     }
                 })();
             } else {
                 // create <input> element and add it to DOM
                 this.inputElement = document.createElement('input');
-                this.inputElement.accept = '.sb,.sb2,.sb3,.gm2';
+                this.inputElement.accept = '.sb,.sb2,.sb3';
                 this.inputElement.style = 'display: none;';
                 this.inputElement.type = 'file';
                 this.inputElement.onchange = this.handleChange; // connects to step 3
@@ -149,6 +146,16 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                     );
                 }
                 if (uploadAllowed) {
+                    // Don't update file handle until after confirming replace.
+                    const handle = thisFileInput.handle;
+                    if (handle) {
+                        if (this.fileToUpload.name.endsWith('.sb3')) {
+                            this.props.onSetFileHandle(handle);
+                        } else {
+                            this.props.onSetFileHandle(null);
+                        }
+                    }
+
                     // cues step 4
                     this.props.requestProjectUpload(loadingState);
                 } else {
@@ -176,7 +183,12 @@ const SBFileUploaderHOC = function (WrappedComponent) {
         }
         // used in step 6 below
         getProjectTitleFromFilename (fileInputFilename) {
-            return getProjectTitleFromFilename(fileInputFilename);
+            if (!fileInputFilename) return '';
+            // only parse title with valid scratch project extensions
+            // (.sb, .sb2, and .sb3)
+            const matches = fileInputFilename.match(/^(.*)\.sb[23]?$/);
+            if (!matches) return '';
+            return matches[1].substring(0, 100); // truncate project title to max 100 chars
         }
         // step 6: attached as a handler on our FileReader object; called when
         // file upload raw data is available in the reader
@@ -186,7 +198,7 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                 const filename = this.fileToUpload && this.fileToUpload.name;
                 let loadingSuccess = false;
                 // tw: stop when loading new project
-                this.props.vm.stop();
+                this.props.vm.quit();
                 this.props.vm.loadProject(this.fileReader.result)
                     .then(() => {
                         if (filename) {
@@ -197,11 +209,8 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                         loadingSuccess = true;
                     })
                     .catch(error => {
-                        log.warn(error);
-                        // eslint-disable-next-line no-alert
-                        alert(this.props.intl.formatMessage(messages.loadError, {
-                            error: `${error}`
-                        }));
+                        log.error(error);
+                        this.props.onLoadingFailed(error);
                     })
                     .then(() => {
                         this.props.onLoadingFinished(this.props.loadingState, loadingSuccess);
@@ -230,6 +239,7 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                 isLoadingUpload,
                 isShowingWithoutId,
                 loadingState,
+                onLoadingFailed,
                 onLoadingFinished,
                 onLoadingStarted,
                 onSetFileHandle,
@@ -260,17 +270,27 @@ const SBFileUploaderHOC = function (WrappedComponent) {
         isShowingProject: PropTypes.bool,
         isShowingWithoutId: PropTypes.bool,
         loadingState: PropTypes.oneOf(LoadingStates),
+        onLoadingFailed: PropTypes.func,
         onLoadingFinished: PropTypes.func,
         onLoadingStarted: PropTypes.func,
         onSetProjectTitle: PropTypes.func,
         projectChanged: PropTypes.bool,
         requestProjectUpload: PropTypes.func,
+        showOpenFilePicker: PropTypes.func,
         userOwnsProject: PropTypes.bool,
         vm: PropTypes.shape({
             loadProject: PropTypes.func,
-            stop: PropTypes.func
+            quit: PropTypes.func,
+            renderer: PropTypes.shape({
+                draw: PropTypes.func
+            })
         }),
         onSetFileHandle: PropTypes.func
+    };
+    SBFileUploaderComponent.defaultProps = {
+        showOpenFilePicker: typeof showOpenFilePicker === 'function' && !navigator.userAgent.includes('Android') ?
+            window.showOpenFilePicker.bind(window) :
+            null
     };
     const mapStateToProps = (state, ownProps) => {
         const loadingState = state.scratchGui.projectState.loadingState;
@@ -289,6 +309,10 @@ const SBFileUploaderHOC = function (WrappedComponent) {
     const mapDispatchToProps = (dispatch, ownProps) => ({
         cancelFileUpload: loadingState => dispatch(onLoadedProject(loadingState, false, false)),
         closeFileMenu: () => dispatch(closeFileMenu()),
+        onLoadingFailed: error => {
+            dispatch(setProjectError(error));
+            dispatch(openInvalidProjectModal());
+        },
         // transition project state from loading to regular, and close
         // loading screen and file menu
         onLoadingFinished: (loadingState, success) => {

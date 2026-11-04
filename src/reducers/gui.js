@@ -21,7 +21,9 @@ import fontsLoadedReducer, {fontsLoadedInitialState} from './fonts-loaded';
 import restoreDeletionReducer, {restoreDeletionInitialState} from './restore-deletion';
 import stageSizeReducer, {stageSizeInitialState} from './stage-size';
 import targetReducer, {targetsInitialState} from './targets';
+import themeReducer, {themeInitialState} from './theme';
 import timeoutReducer, {timeoutInitialState} from './timeout';
+import timeTravelReducer, {timeTravelInitialState} from './time-travel';
 import toolboxReducer, {toolboxInitialState} from './toolbox';
 import twReducer, {twInitialState} from './tw';
 import customStageSizeReducer, {customStageSizeInitialState} from './custom-stage-size';
@@ -29,7 +31,7 @@ import vmReducer, {vmInitialState} from './vm';
 import vmStatusReducer, {vmStatusInitialState} from './vm-status';
 import workspaceMetricsReducer, {workspaceMetricsInitialState} from './workspace-metrics';
 import throttle from 'redux-throttle';
-require("../welcome.js")
+
 import decks from '../lib/libraries/decks/index.jsx';
 
 const guiMiddleware = compose(applyMiddleware(throttle(300, {leading: true, trailing: true})));
@@ -58,7 +60,9 @@ const guiInitialState = {
     fontsLoaded: fontsLoadedInitialState,
     restoreDeletion: restoreDeletionInitialState,
     targets: targetsInitialState,
+    theme: themeInitialState,
     timeout: timeoutInitialState,
+    timeTravel: timeTravelInitialState,
     toolbox: toolboxInitialState,
     tw: twInitialState,
     vm: vmInitialState,
@@ -162,7 +166,9 @@ const guiReducer = combineReducers({
     fontsLoaded: fontsLoadedReducer,
     restoreDeletion: restoreDeletionReducer,
     targets: targetReducer,
+    theme: themeReducer,
     timeout: timeoutReducer,
+    timeTravel: timeTravelReducer,
     toolbox: toolboxReducer,
     tw: twReducer,
     vm: vmReducer,

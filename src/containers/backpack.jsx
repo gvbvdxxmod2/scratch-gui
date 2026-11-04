@@ -93,6 +93,14 @@ class Backpack extends React.Component {
             this.getContents();
         }
     }
+    handleError (error) {
+        this.setState({
+            error: `${error}`,
+            loading: false
+        });
+        // Log error to console and make the Promise reject.
+        throw error;
+    }
     handleDrop (dragInfo) {
         let payloader = null;
         let presaveAsset = null;
@@ -115,37 +123,32 @@ class Backpack extends React.Component {
         if (!payloader) return;
 
         // Creating the payload is async, so set loading before starting
-        this.setState({loading: true}, () => {
-            payloader(dragInfo.payload, this.props.vm)
-                .then(payload => {
-                    // Force the asset to save to the asset server before storing in backpack
-                    // Ensures any asset present in the backpack is also on the asset server
-                    if (presaveAsset && !presaveAsset.clean && !this.props.host === LOCAL_API) {
-                        return storage.store(
-                            presaveAsset.assetType,
-                            presaveAsset.dataFormat,
-                            presaveAsset.data,
-                            presaveAsset.assetId
-                        ).then(() => payload);
-                    }
-                    return payload;
-                })
-                .then(payload => saveBackpackObject({
+        this.setState({loading: true}, async () => {
+            try {
+                const payload = await payloader(dragInfo.payload, this.props.vm);
+                // Force the asset to save to the asset server before storing in backpack
+                // Ensures any asset present in the backpack is also on the asset server
+                if (presaveAsset && !presaveAsset.clean && !this.props.host === LOCAL_API) {
+                    await storage.store(
+                        presaveAsset.assetType,
+                        presaveAsset.dataFormat,
+                        presaveAsset.data,
+                        presaveAsset.assetId
+                    );
+                }
+                const item = await saveBackpackObject({
                     host: this.props.host,
                     token: this.props.token,
                     username: this.props.username,
                     ...payload
-                }))
-                .then(item => {
-                    this.setState({
-                        loading: false,
-                        contents: [item].concat(this.state.contents)
-                    });
-                })
-                .catch(error => {
-                    this.setState({error: true, loading: false});
-                    throw error;
                 });
+                this.setState({
+                    loading: false,
+                    contents: [item].concat(this.state.contents)
+                });
+            } catch (error) {
+                this.handleError(error);
+            }
         });
     }
     handleDelete (id) {
@@ -163,18 +166,18 @@ class Backpack extends React.Component {
                     });
                 })
                 .catch(error => {
-                    this.setState({error: true, loading: false});
-                    throw error;
+                    this.handleError(error);
                 });
         });
     }
     findItemById (id) {
         return this.state.contents.find(i => i.id === id);
     }
-    handleRename (id) {
+    async handleRename (id) {
         const item = this.findItemById(id);
+        // prompt() returns Promise in desktop app
         // eslint-disable-next-line no-alert
-        const newName = prompt(this.props.intl.formatMessage(messages.rename), item.name);
+        const newName = await prompt(this.props.intl.formatMessage(messages.rename), item.name);
         if (!newName) {
             return;
         }
@@ -191,8 +194,7 @@ class Backpack extends React.Component {
                     });
                 })
                 .catch(error => {
-                    this.setState({error: true, loading: false});
-                    throw error;
+                    this.handleError(error);
                 });
         });
     }
@@ -214,8 +216,7 @@ class Backpack extends React.Component {
                         });
                     })
                     .catch(error => {
-                        this.setState({error: true, loading: false});
-                        throw error;
+                        this.handleError(error);
                     });
             });
         }
@@ -242,7 +243,7 @@ class Backpack extends React.Component {
             this.handleDrop({
                 dragType: DragConstants.CODE,
                 payload: {
-                    blockObjects: blocks,
+                    blockObjects: this.props.vm.exportStandaloneBlocks(blocks),
                     topBlockId: topBlockId
                 }
             });

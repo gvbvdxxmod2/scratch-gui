@@ -12,7 +12,7 @@ import styles from './custom-procedures.css';
 
 const messages = defineMessages({
     myblockModalTitle: {
-        defaultMessage: 'Create a custom block',
+        defaultMessage: 'Make a Block',
         description: 'Title for the modal where you create a custom block.',
         id: 'gui.customProcedures.myblockModalTitle'
     }
@@ -23,6 +23,7 @@ const CustomProcedures = props => (
         className={styles.modalContent}
         contentLabel={props.intl.formatMessage(messages.myblockModalTitle)}
         onRequestClose={props.onCancel}
+        id="customProceduresModal"
     >
         <Box
             className={styles.workspace}
@@ -36,6 +37,11 @@ const CustomProcedures = props => (
                     tabIndex="0"
                     onClick={props.onAddTextNumber}
                 >
+                    <img
+                        className={styles.optionIcon}
+                        src={textInputIcon}
+                        draggable={false}
+                    />
                     <div className={styles.optionTitle}>
                         <FormattedMessage
                             defaultMessage="Add an input"
@@ -57,6 +63,11 @@ const CustomProcedures = props => (
                     tabIndex="0"
                     onClick={props.onAddBoolean}
                 >
+                    <img
+                        className={styles.optionIcon}
+                        src={booleanInputIcon}
+                        draggable={false}
+                    />
                     <div className={styles.optionTitle}>
                         <FormattedMessage
                             defaultMessage="Add an input"
@@ -78,17 +89,17 @@ const CustomProcedures = props => (
                     tabIndex="0"
                     onClick={props.onAddLabel}
                 >
+                    <img
+                        className={styles.optionIcon}
+                        src={labelIcon}
+                        draggable={false}
+                    />
                     <div className={styles.optionTitle}>
                         <FormattedMessage
                             defaultMessage="Add a label"
                             description="Label for button to add a label"
                             id="gui.customProcedures.addALabel"
                         />
-                    </div>
-					<div className={styles.optionDescription}>
-                        <span>
-							text that can not be edited
-						</span>
                     </div>
                 </div>
             </div>
@@ -100,7 +111,7 @@ const CustomProcedures = props => (
                         onChange={props.onToggleWarp}
                     />
                     <FormattedMessage
-                        defaultMessage="Run without screen refresh (Warp code)"
+                        defaultMessage="Run without screen refresh"
                         description="Label for checkbox to run without screen refresh"
                         id="gui.customProcedures.runWithoutScreenRefresh"
                     />

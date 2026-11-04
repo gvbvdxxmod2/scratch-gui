@@ -298,7 +298,7 @@ StudioView.prototype.onselect = function (id, el) { };
 StudioView.prototype.onpageload = function () { };
 StudioView.prototype.onend = function () { };
 
-StudioView.STUDIO_API = 'https://trampoline.turbowarp.org/api/studios/33606945/projects?offset=$offset';
+StudioView.STUDIO_API = 'https://trampoline.turbowarp.org/api/studios/$id/projects?offset=$offset';
 
 // The URL to download thumbnails from.
 // $id is replaced with the project's ID.
@@ -310,7 +310,7 @@ StudioView.PROJECT_PAGE = 'https://turbowarp.org/$id';
 
 // The URL for studio pages.
 // $id is replaced with the studio ID.
-StudioView.STUDIO_PAGE = 'https://scratch.mit.edu/studios/33606945/';
+StudioView.STUDIO_PAGE = 'https://scratch.mit.edu/studios/$id/';
 
 // The amount of "placeholders" to insert before the next page loads.
 StudioView.PLACEHOLDER_COUNT = 9;

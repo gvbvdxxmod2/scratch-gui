@@ -1,6 +1,6 @@
 import EventTarget from "../../event-target.js"; /* inserted by pull.js */
 
-// https://github.com/LLK/scratch-vm/blob/bb352913b57991713a5ccf0b611fda91056e14ec/src/engine/thread.js#L198
+// https://github.com/scratchfoundation/scratch-vm/blob/bb352913b57991713a5ccf0b611fda91056e14ec/src/engine/thread.js#L198
 const STATUS_RUNNING = 0;
 const STATUS_PROMISE_WAIT = 1;
 const STATUS_YIELD = 2;
@@ -68,6 +68,9 @@ const compensateForTimePassedWhilePaused = (thread, pauseState) => {
   if (thread.timer) {
     thread.timer.startTime += vm.runtime.currentMSecs - pauseState.time;
   }
+  if (thread.compatibilityStackFrame && thread.compatibilityStackFrame.timer) {
+    thread.compatibilityStackFrame.timer.startTime += vm.runtime.currentMSecs - pauseState.time;
+  }
   const stackFrame = thread.peekStackFrame();
   if (stackFrame && stackFrame.executionContext && stackFrame.executionContext.timer) {
     stackFrame.executionContext.timer.startTime += vm.runtime.currentMSecs - pauseState.time;
@@ -96,6 +99,13 @@ export const setPaused = (_paused) => {
   if (didChange) {
     paused = _paused;
     eventTarget.dispatchEvent(new CustomEvent("change"));
+
+    // TW: events for extensions
+    if (paused) {
+      vm.runtime.emit("RUNTIME_PAUSED");
+    } else {
+      vm.runtime.emit("RUNTIME_UNPAUSED");
+    }
   }
 
   // Don't check didChange as new threads could've started that we need to pause.
@@ -148,7 +158,7 @@ export const onSingleStep = (listener) => {
 export const getRunningThread = () => steppingThread;
 
 // A modified version of this function
-// https://github.com/LLK/scratch-vm/blob/0e86a78a00db41af114df64255e2cd7dd881329f/src/engine/sequencer.js#L179
+// https://github.com/scratchfoundation/scratch-vm/blob/0e86a78a00db41af114df64255e2cd7dd881329f/src/engine/sequencer.js#L179
 // Returns if we should continue executing this thread.
 const singleStepThread = (thread) => {
   if (thread.status === STATUS_DONE) {
@@ -177,7 +187,7 @@ const singleStepThread = (thread) => {
     have access to that method, so we need to force the original stepThread to run
     execute for us then exit before it tries to run more blocks.
     So, we make `thread.blockGlowInFrame = ...` throw an exception, so this line:
-    https://github.com/LLK/scratch-vm/blob/bb352913b57991713a5ccf0b611fda91056e14ec/src/engine/sequencer.js#L214
+    https://github.com/scratchfoundation/scratch-vm/blob/bb352913b57991713a5ccf0b611fda91056e14ec/src/engine/sequencer.js#L214
     will end the function early. We then have to set it back to normal afterward.
 
     Why are we here just to suffer?
@@ -363,12 +373,12 @@ export const singleStep = () => {
   eventTarget.dispatchEvent(new CustomEvent("step"));
 };
 
-export const setup = (_vm) => {
+export const setup = (addon) => {
   if (vm) {
     return;
   }
 
-  vm = _vm;
+  vm = addon.tab.traps.vm;
 
   const originalStepThreads = vm.runtime.sequencer.stepThreads;
   vm.runtime.sequencer.stepThreads = function () {
@@ -421,4 +431,18 @@ export const setup = (_vm) => {
     }
     return count;
   };
+
+  // Prevent the VM's context from being resumed while the project is paused
+  const newResume = function () {
+    if (!paused) AudioContext.prototype.resume.call(this);
+  };
+  if (vm.runtime.audioEngine) {
+    vm.runtime.audioEngine.audioContext.resume = newResume;
+  } else {
+    const originalAttachAudioEngine = vm.runtime.attachAudioEngine;
+    vm.runtime.attachAudioEngine = function (audioEngine) {
+      audioEngine.audioContext.resume = newResume;
+      return originalAttachAudioEngine.call(this, audioEngine);
+    };
+  }
 };

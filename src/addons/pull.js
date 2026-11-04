@@ -105,32 +105,39 @@ const matchAll = (str, regex) => {
     return matches;
 };
 
+const includePolyfills = (contents, newPath) => {
+    if (contents.includes('EventTarget')) {
+        const eventTargetPath = pathUtil.relative(
+            pathUtil.dirname(newPath),
+            pathUtil.resolve(__dirname, 'event-target.js')
+        )
+            .split(pathUtil.sep)
+            .join('/');
+        contents = `import EventTarget from "${eventTargetPath}"; /* inserted by pull.js */\n\n${contents}`;
+    }
+    return contents;
+};
+
 const includeImportedLibraries = contents => {
     // Parse things like:
     // import { normalizeHex, getHexRegex } from "../../libraries/normalize-color.js";
     // import RateLimiter from "../../libraries/rate-limiter.js";
+    // import "../../libraries/thirdparty/cs/chart.min.js";
     const matches = matchAll(
         contents,
-        /import +(?:{.*}|.*) +from +["']\.\.\/\.\.\/libraries\/([\w\d_\/-]+(?:\.esm)?\.js)["'];/g
+        /import +(?:(?:{.*}|.*) +from +)?["'](?:\.\.\/)+libraries\/([\w\d_./-]+(?:\.esm)?\.js)["'];/g
     );
     for (const match of matches) {
         const libraryFile = match[1];
         const oldLibraryPath = pathUtil.resolve(__dirname, 'ScratchAddons', 'libraries', libraryFile);
         const newLibraryPath = pathUtil.resolve(__dirname, 'libraries', libraryFile);
-        const libraryContents = fs.readFileSync(oldLibraryPath, 'utf-8');
+        const libraryContents = includePolyfills(fs.readFileSync(oldLibraryPath, 'utf-8'), newLibraryPath);
         const newLibraryDirName = pathUtil.dirname(newLibraryPath);
         fs.mkdirSync(newLibraryDirName, {
             recursive: true
         });
         fs.writeFileSync(newLibraryPath, libraryContents);
     }
-};
-
-const includePolyfills = contents => {
-    if (contents.includes('EventTarget')) {
-        contents = `import EventTarget from "../../event-target.js"; /* inserted by pull.js */\n\n${contents}`;
-    }
-    return contents;
 };
 
 const detectUnimplementedAPIs = (addonId, contents) => {
@@ -140,18 +147,19 @@ const detectUnimplementedAPIs = (addonId, contents) => {
 
     if (contents.includes('addon.self.dir')) {
         // eslint-disable-next-line max-len
-        console.warn(`Warning: ${addonId} contains unwritten addon.self.dir. It or this script should be modified so that it will be rewritten.`);
+        console.warn(`Warning: ${addonId} contains un-rewritten addon.self.dir. It or this script should be modified so that it will be rewritten.`);
     }
 
     if (contents.includes('addon.self.lib')) {
         // eslint-disable-next-line max-len
-        console.warn(`Warning: ${addonId} contains unwritten addon.self.lib. It should use modern ES6 import statements.`);
+        console.warn(`Warning: ${addonId} contains un-rewritten addon.self.lib. It should use modern ES6 import statements.`);
     }
 };
 
 const rewriteAssetImports = contents => {
-    // Reroute addon.self.dir concatenation to call runtime function.
-    // Parse things like:
+    // Rewrite addon.self.dir concatenation to call runtime function.
+
+    // Rewrite things like:
     // el.src = addon.self.dir + "/" + name + ".svg";
     //          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  match
     //                           ^^^^^^^^^^^^^^^^^^^  capture group 1
@@ -159,6 +167,15 @@ const rewriteAssetImports = contents => {
         /addon\.self\.(?:dir|lib) *\+ *([^;,\n]+)/g,
         (_fullText, name) => `addon.self.getResource(${name}) /* rewritten by pull.js */`
     );
+
+    // Rewrite things like:
+    // `${addon.self.dir}/${name}.svg`
+    //                   ^^^^^^^^^^^^  capture group 1
+    contents = contents.replace(
+        /`\${addon\.self\.(?:dir|lib)}([^`]+)`/g,
+        (_fullText, name) => `addon.self.getResource(\`${name}\`) /* rewritten by pull.js */`
+    );
+
     return contents;
 };
 
@@ -179,6 +196,7 @@ const normalizeManifest = (id, manifest) => {
     delete manifest.libraries;
     delete manifest.injectAsStyleElt;
     delete manifest.updateUserstylesOnSettingsChange;
+    delete manifest.presetPreview;
 
     // All addons have dynamic enable
     delete manifest.dynamicEnable;
@@ -198,10 +216,13 @@ const normalizeManifest = (id, manifest) => {
     }
 
     if (manifest.credits) {
-        for (const {link} of manifest.credits) {
-            if (link && !link.startsWith('https://scratch.mit.edu/')) {
-                console.warn(`Warning: ${id} contains unsafe credit link: ${link}`);
+        for (const user of manifest.credits) {
+            if (user.link && !user.link.startsWith('https://scratch.mit.edu/')) {
+                console.warn(`Warning: ${id} contains unsafe credit link: ${user.link}`);
             }
+
+            delete user.note;
+            delete user.id;
         }
     }
 };
@@ -297,7 +318,7 @@ const processAddon = (id, oldDirectory, newDirectory) => {
 
             if (file.endsWith('.js')) {
                 includeImportedLibraries(contents);
-                contents = includePolyfills(contents);
+                contents = includePolyfills(contents, newPath);
                 contents = rewriteAssetImports(contents);
             }
 
@@ -309,31 +330,45 @@ const processAddon = (id, oldDirectory, newDirectory) => {
 };
 
 const SKIP_MESSAGES = [
-    'debugger/@description',
+    '_general/meta/addonSettings',
+    '_general/meta/managedBySa',
+    '_locale',
+    '_locale_name',
     'debugger/@settings-name-log_max_list_length',
     'debugger/log-msg-list-append-too-long',
     'debugger/log-msg-list-insert-too-long',
     'debugger/@settings-name-log_invalid_cloud_data',
     'debugger/log-cloud-data-nan',
     'debugger/log-cloud-data-too-long',
-    'debugger/tab-performance',
-    'debugger/performance-framerate-title',
-    'debugger/performance-framerate-graph-tooltip',
-    'debugger/performance-clonecount-title',
-    'debugger/performance-clonecount-graph-tooltip',
     'editor-devtools/extension-description-not-for-addon',
     'mediarecorder/added-by',
     'editor-theme3/@settings-name-sa-color',
     'editor-theme3/@settings-name-forums',
-    'block-switching/@settings-name-sa'
+    'editor-theme3/@info-disablesMenuBar',
+    'editor-theme3/@info-aboutHighContrast',
+    'editor-theme3/@settings-name-monitors',
+    'block-switching/@settings-name-sa',
+    'custom-menu-bar/@credits-dropdown',
+    'custom-menu-bar/@credits-tutorials-button',
+    'custom-menu-bar/@info-tutorials-button-update',
+    'custom-menu-bar/@settings-name-compact-username',
+    'custom-menu-bar/@settings-name-hide-tutorials-button',
+    'custom-menu-bar/@settings-name-my-stuff'
 ];
 
 const parseMessageDirectory = localeRoot => {
+    const unstructure = string => {
+        if (typeof string === 'object') {
+            return string.string;
+        }
+        return string;
+    };
+
     const settings = {};
     const runtime = {};
     const upstreamMessageIds = new Set();
 
-    for (const addon of addons) {
+    for (const addon of ['_general', ...addons]) {
         const path = pathUtil.join(localeRoot, `${addon}.json`);
         try {
             const contents = fs.readFileSync(path, 'utf-8');
@@ -344,7 +379,13 @@ const parseMessageDirectory = localeRoot => {
                     continue;
                 }
 
-                const value = parsed[id];
+                // Messages ending with /@update are temporary notices describing what's new.
+                // We don't show them.
+                if (id.endsWith('/@update')) {
+                    continue;
+                }
+
+                const value = unstructure(parsed[id]);
                 if (id.includes('/@')) {
                     settings[id] = value;
                 } else {

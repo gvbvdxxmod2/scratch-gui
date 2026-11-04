@@ -1,6 +1,3 @@
-import TWExtensions from './tw-extensions.json';
-
-
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
@@ -12,6 +9,9 @@ import penInsetIconURL from './pen/pen-small.svg';
 
 import videoSensingIconURL from './videoSensing/video-sensing.png';
 import videoSensingInsetIconURL from './videoSensing/video-sensing-small.svg';
+
+import faceSensingIconURL from './faceSensing/face-sensing.svg';
+import faceSensingInsetIconURL from './faceSensing/face-sensing-small.svg';
 
 import text2speechIconURL from './text2speech/text2speech.png';
 import text2speechInsetIconURL from './text2speech/text2speech-small.svg';
@@ -50,523 +50,12 @@ import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
 import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 
 import twIcon from './tw/tw.svg';
+import customExtensionIcon from './custom/custom.svg';
+import returnIcon from './custom/return.svg';
+import galleryIcon from './gallery/gallery.svg';
+import {APP_NAME} from '../../brand';
 
-import customExtensionIcon from './custom/custom-gm2.svg';
-
-import jsDialogsBigIcon from './dialog/dialogs.png';
-import jsDialogsSmallIcon from './dialog/small.png';
-import speech4pcDialogsBigIcon from './speech4pc/speech.png';
-import speech4pcDialogsSmallIcon from './speech4pc/small.png';
-import websitesBigIcon from './websites/websites.png';
-import websitesSmallIcon from './websites/small.png';
-import scratchBigIcon from './control/scratch.png';
-import scratchSmallIcon from './control/small.png';
-import betteraudioBigIcon from './better_audio/big.png';
-import betteraudioSmallIcon from './better_audio/small.png';
-import speech2textIconURL from './speech2text/speech.png';
-import gamepadbig from './gamepad/big.png';
-import gamepadsmall from './gamepad/small.png';
-import webmidismall from './webmidi/small.png';
-import webmidibig from './webmidi/big.png';
-import beepboxsmall from './beepbox_synth/small.png';
-import beepboxbig from './beepbox_synth/big.png';
-import wssmall from './websockets/small.png';
-import wsbig from './websockets/big.png';
-import audioctxsmall from './audio_context/small.png';
-import audioctxbig from './audio_context/big.png';
-import userdatasmall from './userdata/small.png';
-import userdatabig from './userdata/big.png';
-import rokusmall from './roku/small.png';
-import rokubig from './roku/big.png';
-
-import sprcanvas from './sprite_canvas/sprite_canvas.svg';
-
-import returnIcon from './returnIcon.svg';
-
-import sndanalyserBig from './sound_analyser/big.svg';
-
-import nessmall from './nes_emulator/nes-small.svg';
-import nesbig from './nes_emulator/nes.svg';
-
-import gm2HTML5Small from './html5/small.svg';
-import gm2HTML5Large from './html5/large.svg';
-
-import twExtsIcon from './tw/tw-icon.svg';
-
-var twExtensionList = [];
-
-for (var ext of TWExtensions.extensions) {
-	if (!(ext.id.toLowerCase() == "gamepad")) {
-		var extraText = "";
-		if (ext.by) {
-			var tmpArray = [].concat(ext.by);
-			extraText += "By: ";
-			for (var user of tmpArray) {
-				extraText += user.name+" ";
-			}
-		}
-		var extraText2 = "";
-		if (ext.original) {
-			var tmpArray = [].concat(ext.original);
-			extraText2 += "Original: ";
-			for (var user of tmpArray) {
-				extraText2 += user.name+" ";
-			}
-			
-		}
-		var iconURL = "";
-		if (ext.image) {
-			try{
-				iconURL = require("./tw-extensions/"+ext.image);
-			}catch(e){
-				iconURL = require("./unknown.svg");
-			}
-		} else {
-			iconURL = require("./unknown.svg");
-		}
-		var extDescription = ext.description + " " + extraText + "" + extraText2;
-		twExtensionList.push({
-			name: ext.name,
-			extensionId: ext.id,
-			iconURL: iconURL,
-			insetIconURL: twExtsIcon,
-			description: (
-				<div>
-					<span>
-						{extDescription}
-					</span>
-					<br/>
-					<span>From <a href="https://extensions.turbowarp.org/" target="_blank">TurboWarp Extensions</a>.</span>
-				</div>
-			),
-			featured: true,
-			disabled: false,
-			internetConnectionRequired: false,
-			bluetoothRequired: false,
-			helpLink: '',
-			tags: [
-				"tw"
-			]
-		});
-	}
-}
-var gm2otherext = [];
-if (window.GvbvdxxMod2AddedExtensionInfo) {
-	for (var ext of window.GvbvdxxMod2AddedExtensionInfo) {
-		var helpLink = "";
-		if (ext.gui.helpLink) {
-			helpLink = ext.gui.helpLink;
-		}
-		gm2otherext.push({
-			name: ext.gui.name,
-			extensionId: ext.id,
-			iconURL: ext.gui.imageURL,
-			description: (
-				<div>
-					<span>
-						{ext.gui.discription}
-					</span>
-				</div>
-			),
-			featured: true,
-			disabled: false,
-			internetConnectionRequired: false,
-			bluetoothRequired: false,
-			helpLink: helpLink,
-			tags: [
-				"other"
-			]
-		});
-	}
-}
 export default [
-	{
-        name: (
-            <FormattedMessage
-                defaultMessage="Custom Extension"
-                description="Name of custom extension category"
-                id="tw.customExtension.name"
-            />
-        ),
-        extensionId: '',
-        iconURL: customExtensionIcon,
-        description: (
-            <FormattedMessage
-                defaultMessage="Load custom extensions, without modifing the source code. This supports the new TurboWarp extension libary."
-                description=""
-                id="tw.customExtension.description"
-            />
-        ),
-        featured: true,
-		tags: [
-			"gm2",
-			"tw"
-		]
-    },
-	{
-        name: (
-            <FormattedMessage
-                defaultMessage="Sprite canvases"
-                description=""
-                id="gm2.sprcvs.name"
-            />
-        ),
-        extensionId: 'spritecanvas',
-        iconURL: sprcanvas,
-        description: (
-            <FormattedMessage
-                defaultMessage="Lets you draw things on sprite skins. Including saving and loading images, and a working flood fill tool."
-                description=""
-                id="gm2.sprcvs.description"
-            />
-        ),
-        featured: true,
-		tags: [
-			"gm2"
-		]
-    },
-	{
-        name: (
-            <FormattedMessage
-                defaultMessage="NES Emulator"
-                description=""
-                id="gm2.nes.name"
-            />
-        ),
-        extensionId: 'nesemulator',
-		insetIconURL: nessmall,
-        iconURL: nesbig,
-        description: (
-            <FormattedMessage
-                defaultMessage="Run Nintendo Entertainment System games, and play them."
-                description=""
-                id="gm2.nes.description"
-            />
-        ),
-        featured: true,
-		tags: [
-			"gm2"
-		]
-    },
-	{
-        name: (
-            <FormattedMessage
-                defaultMessage="Sound Analyser"
-                description=""
-                id="gm2.sndanalyser.name"
-            />
-        ),
-        extensionId: 'sndanalyser',
-        iconURL: sndanalyserBig,
-        description: (
-            <FormattedMessage
-                defaultMessage="Read the information about sounds playing from the project."
-                description=""
-                id="gm2.sndanalyser.description"
-            />
-        ),
-        featured: true,
-		tags: [
-			"gm2"
-		]
-    },
-	{
-        name: (
-            <FormattedMessage
-                defaultMessage="HTML5 Elements"
-                description=""
-                id="tw.html5.name"
-            />
-        ),
-        extensionId: 'html5',
-		insetIconURL: gm2HTML5Small,
-        iconURL: gm2HTML5Large,
-        description: (
-            <FormattedMessage
-                defaultMessage="Create HTMl5 elements. Display sprite costumes out of the stage!"
-                description=""
-                id="tw.html5.description"
-            />
-        ),
-        featured: true,
-		tags: [
-			"gm2"
-		]
-    },
-	{
-        name: 'Roku',
-        extensionId: 'roku',
-        iconURL: rokubig,
-        insetIconURL: rokusmall,
-        description: (
-            <FormattedMessage
-                defaultMessage="Control your roku tv, player, and more, with this extension."
-                description=""
-                id="gui.extension.roku.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        internetConnectionRequired: true,
-        bluetoothRequired: false,
-        helpLink: '',
-		softwareRequired: true,
-		tags: [
-			"gm2"
-		]
-	},
-	{
-        name: 'User Data',
-        extensionId: 'userdata',
-        iconURL: userdatabig,
-        insetIconURL: userdatasmall,
-        description: (
-            <FormattedMessage
-                defaultMessage="Get The User's Data"
-                description=""
-                id="gui.extension.userdata.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        internetConnectionRequired: false,
-        bluetoothRequired: false,
-        helpLink: '',
-		tags: [
-			"gm2"
-		]
-	},
-	{
-        name: 'Extra',
-        extensionId: 'extra',
-        iconURL: audioctxbig,
-        insetIconURL: audioctxsmall,
-        description: (
-            <FormattedMessage
-                defaultMessage="Gvbvdxx Mod Helper App, Unfinished."
-                description=""
-                id="gui.extension.extra.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        internetConnectionRequired: false,
-        bluetoothRequired: false,
-        helpLink: '',
-		tags: [
-			"gm2"
-		]
-	},
-    {
-        name: 'Audio Context',
-        extensionId: 'audioctx',
-        iconURL: audioctxbig,
-        insetIconURL: audioctxsmall,
-        description: (
-            <FormattedMessage
-                defaultMessage="Play 8-bit sounds"
-                description=""
-                id="gui.extension.audioctx.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        internetConnectionRequired: false,
-        bluetoothRequired: false,
-        helpLink: '',
-		tags: [
-			"gm2"
-		]
-	},
-    {
-        name: 'Websockets',
-        extensionId: 'websocket',
-        iconURL: wsbig,
-        insetIconURL: wssmall,
-        description: (
-            <FormattedMessage
-                defaultMessage="Connect to servers!"
-                description=""
-                id="gui.extension.websocket.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        internetConnectionRequired: false,
-        bluetoothRequired: false,
-        helpLink: '',
-		tags: [
-			"gm2"
-		]
-	},
-    {
-        name: 'Beepbox',
-        extensionId: 'beepboxsynth',
-        iconURL: beepboxbig,
-        insetIconURL: beepboxsmall,
-        description: (
-            <FormattedMessage
-                defaultMessage="Play beepbox songs"
-                description=""
-                id="gui.extension.beepboxsynth.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        internetConnectionRequired: false,
-        bluetoothRequired: false,
-        helpLink: '',
-		tags: [
-			"gm2"
-		]
-	},
-{
-        name: (
-            <FormattedMessage
-                defaultMessage="WebMIDI"
-                description="Name for the 'WebMIDI' extension"
-                id="gui.extension.webmidi.name"
-            />
-        ),
-        extensionId: 'webmidi',
-        iconURL: webmidibig,
-        insetIconURL: webmidismall,
-        description: (
-            <FormattedMessage
-                defaultMessage="Web MIDI for Musical Instrument"
-                description="Description for the 'WebMIDI' extension"
-                id="gui.extension.webmidi.description"
-            />
-        ),
-        featured: true,
-		tags: [
-			"gm2"
-		]
-    },
-    {
-        name: 'Gamepad',
-        extensionId: 'gamepad',
-        iconURL: gamepadbig,
-        insetIconURL: gamepadsmall,
-        description: (
-            <FormattedMessage
-                defaultMessage="Gamepad Support For Scratch"
-                description=""
-                id="gui.extension.gamepad.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        internetConnectionRequired: false,
-        bluetoothRequired: false,
-        helpLink: '',
-		tags: [
-			"gm2"
-		]
-	},
-    {
-        name: 'Better Audio',
-        extensionId: 'betteraudio',
-        iconURL: betteraudioBigIcon,
-        insetIconURL: betteraudioSmallIcon,
-        description: (
-            <FormattedMessage
-                defaultMessage="Better Audio"
-                description="Better Audio For Scratch"
-                id="gui.extension.betteraudio.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        internetConnectionRequired: false,
-        bluetoothRequired: false,
-        helpLink: '',
-		tags: [
-			"gm2"
-		]
-	},
-/**    {
-        name: 'Scratch Control',
-        extensionId: 'scratch',
-        collaborator: 'gvbvdxx',
-        iconURL: scratchBigIcon,
-        insetIconURL: scratchSmallIcon,
-        description: (
-            <FormattedMessage
-                defaultMessage="Scratch Control"
-                description="Control Scratch Stuff"
-                id="gui.extension.scratchcontrol.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        internetConnectionRequired: false,
-        bluetoothRequired: false,
-        helpLink: ''
-	},*/
-    {
-        name: 'Website API',
-        extensionId: 'websites',
-        iconURL: websitesBigIcon,
-        insetIconURL: websitesSmallIcon,
-        description: (
-            <FormattedMessage
-                defaultMessage="Website API"
-                description="Website API"
-                id="gui.extension.websites.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        internetConnectionRequired: false,
-        bluetoothRequired: false,
-        helpLink: '',
-		tags: [
-			"gm2"
-		]
-	},
-    {
-        name: 'JS',
-        extensionId: 'dialogs',
-        iconURL: jsDialogsBigIcon,
-        insetIconURL: jsDialogsSmallIcon,
-        description: (
-            <FormattedMessage
-                defaultMessage="JS"
-                description="JS Blocks"
-                id="gui.extension.newblocks.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        internetConnectionRequired: false,
-        bluetoothRequired: false,
-        helpLink: '',
-		tags: [
-			"gm2"
-		]
-	},
-    {
-        name: 'speech4pc',
-        extensionId: 'speech4pc',
-        iconURL: speech4pcDialogsBigIcon,
-        insetIconURL: speech4pcDialogsSmallIcon,
-        description: (
-            <FormattedMessage
-                defaultMessage="Pc Version Of Text To Speech."
-                description="Pc Version Of Text To Speech."
-                id="gui.extension.speech4pc.description"
-            />
-        ),
-        featured: true,
-        disabled: false,
-        internetConnectionRequired: false,
-        bluetoothRequired: false,
-        helpLink: '',
-		tags: [
-			"gm2"
-		]
-	},
     {
         name: (
             <FormattedMessage
@@ -585,11 +74,8 @@ export default [
                 id="gui.extension.music.description"
             />
         ),
-        featured: true,
-		tags: [
-			"scratch",
-			"gm2"
-		]
+        tags: ['scratch'],
+        featured: true
     },
     {
         name: (
@@ -609,10 +95,8 @@ export default [
                 id="gui.extension.pen.description"
             />
         ),
-        featured: true,
-		tags: [
-			"scratch"
-		]
+        tags: ['scratch'],
+        featured: true
     },
     {
         name: (
@@ -632,10 +116,30 @@ export default [
                 id="gui.extension.videosensing.description"
             />
         ),
-        featured: true,
-		tags: [
-			"scratch"
-		]
+        tags: ['scratch'],
+        featured: true
+    },
+    {
+        name: (
+            <FormattedMessage
+                defaultMessage="Face Sensing"
+                description="Name for the 'Face Sensing' extension"
+                id="tw.extension.faceSensing.name"
+            />
+        ),
+        extensionId: 'faceSensing',
+        extensionURL: 'https://extensions.turbowarp.org/lab/face-sensing.js',
+        iconURL: faceSensingIconURL,
+        insetIconURL: faceSensingInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Sense faces with the camera."
+                description="Description for the 'Face Sensing' extension"
+                id="tw.extension.faceSensing.description"
+            />
+        ),
+        tags: ['scratch'],
+        featured: true
     },
     {
         name: (
@@ -656,11 +160,9 @@ export default [
                 id="gui.extension.text2speech.description"
             />
         ),
+        tags: ['scratch'],
         featured: true,
-        internetConnectionRequired: true,
-		tags: [
-			"scratch"
-		]
+        internetConnectionRequired: true
     },
     {
         name: (
@@ -681,11 +183,9 @@ export default [
                 id="gui.extension.translate.description"
             />
         ),
+        tags: ['scratch'],
         featured: true,
-        internetConnectionRequired: true,
-		tags: [
-			"scratch"
-		]
+        internetConnectionRequired: true
     },
     {
         name: 'Makey Makey',
@@ -700,10 +200,8 @@ export default [
                 id="gui.extension.makeymakey.description"
             />
         ),
-        featured: true,
-		tags: [
-			"scratch"
-		]
+        tags: ['scratch'],
+        featured: true
     },
     {
         name: 'micro:bit',
@@ -718,6 +216,7 @@ export default [
                 id="gui.extension.microbit.description"
             />
         ),
+        tags: ['scratch'],
         featured: true,
         disabled: false,
         bluetoothRequired: true,
@@ -733,10 +232,7 @@ export default [
                 id="gui.extension.microbit.connectingMessage"
             />
         ),
-        helpLink: 'https://scratch.mit.edu/microbit',
-		tags: [
-			"scratch"
-		]
+        helpLink: 'https://scratch.mit.edu/microbit'
     },
     {
         name: 'LEGO MINDSTORMS EV3',
@@ -751,6 +247,7 @@ export default [
                 id="gui.extension.ev3.description"
             />
         ),
+        tags: ['scratch'],
         featured: true,
         disabled: false,
         bluetoothRequired: true,
@@ -766,10 +263,7 @@ export default [
                 id="gui.extension.ev3.connectingMessage"
             />
         ),
-        helpLink: 'https://scratch.mit.edu/ev3',
-		tags: [
-			"scratch"
-		]
+        helpLink: 'https://scratch.mit.edu/ev3'
     },
     {
         name: 'LEGO BOOST',
@@ -784,6 +278,7 @@ export default [
                 id="gui.extension.boost.description"
             />
         ),
+        tags: ['scratch'],
         featured: true,
         disabled: false,
         bluetoothRequired: true,
@@ -800,10 +295,7 @@ export default [
                 id="gui.extension.boost.connectingMessage"
             />
         ),
-        helpLink: 'https://scratch.mit.edu/boost',
-		tags: [
-			"scratch"
-		]
+        helpLink: 'https://scratch.mit.edu/boost'
     },
     {
         name: 'LEGO Education WeDo 2.0',
@@ -818,6 +310,7 @@ export default [
                 id="gui.extension.wedo2.description"
             />
         ),
+        tags: ['scratch'],
         featured: true,
         disabled: false,
         bluetoothRequired: true,
@@ -834,10 +327,7 @@ export default [
                 id="gui.extension.wedo2.connectingMessage"
             />
         ),
-        helpLink: 'https://scratch.mit.edu/wedo',
-		tags: [
-			"scratch"
-		]
+        helpLink: 'https://scratch.mit.edu/wedo'
     },
     {
         name: 'Go Direct Force & Acceleration',
@@ -852,6 +342,7 @@ export default [
                 id="gui.extension.gdxfor.description"
             />
         ),
+        tags: ['scratch'],
         featured: true,
         disabled: false,
         bluetoothRequired: true,
@@ -867,35 +358,9 @@ export default [
                 id="gui.extension.gdxfor.connectingMessage"
             />
         ),
-        helpLink: 'https://scratch.mit.edu/vernier',
-		tags: [
-			"scratch"
-		]
+        helpLink: 'https://scratch.mit.edu/vernier'
     },
     {
-        name: (
-            <FormattedMessage
-                defaultMessage="TurboWarp Blocks"
-                description="Name of TW extension"
-                id="tw.twExtension.name"
-            />
-        ),
-        extensionId: 'tw',
-        iconURL: twIcon,
-        description: (
-            <FormattedMessage
-                defaultMessage="Weird new blocks. Not compatible with Scratch."
-                description="Description of TW extension"
-                id="tw.twExtension.description"
-            />
-        ),
-        featured: true,
-        incompatibleWithScratch: true,
-		tags: [
-			"tw"
-		]
-    },
-	{
         // not really an extension, but it's easiest to present it as one
         name: (
             <FormattedMessage
@@ -916,5 +381,128 @@ export default [
         tags: ['tw'],
         incompatibleWithScratch: true,
         featured: true
+    },
+    {
+        name: (
+            <FormattedMessage
+                defaultMessage="{APP_NAME} Blocks"
+                description="Name of the strange 'TurboWarp Blocks' extension"
+                id="tw.twExtension.name"
+                values={{
+                    APP_NAME
+                }}
+            />
+        ),
+        extensionId: 'tw',
+        iconURL: twIcon,
+        description: (
+            <FormattedMessage
+                defaultMessage="Weird new blocks."
+                description="Description of the strange 'TurboWarp Blocks' extension"
+                id="tw.twExtension.description"
+            />
+        ),
+        incompatibleWithScratch: true,
+        tags: ['tw'],
+        featured: true
+    },
+    {
+        name: (
+            <FormattedMessage
+                defaultMessage="Custom Extension"
+                description="Name of library item to load a custom extension from a remote source"
+                id="tw.customExtension.name"
+            />
+        ),
+        extensionId: 'custom_extension',
+        iconURL: customExtensionIcon,
+        description: (
+            <FormattedMessage
+                defaultMessage="Load custom extensions from URLs, files, or JavaScript source code."
+                description="Description of library item to load a custom extension from a custom source"
+                id="tw.customExtension.description"
+            />
+        ),
+        tags: ['tw'],
+        featured: true
+        // Not marked as incompatible with Scratch so that clicking on it doesn't show a prompt
     }
-].concat(gm2otherext).concat(twExtensionList);
+];
+
+export const galleryLoading = {
+    name: (
+        <FormattedMessage
+            defaultMessage="{APP_NAME} Extension Gallery"
+            description="Name of extensions.turbowarp.org in extension library"
+            id="tw.extensionGallery.name"
+            values={{
+                APP_NAME
+            }}
+        />
+    ),
+    href: 'https://extensions.turbowarp.org/',
+    extensionId: 'gallery',
+    iconURL: galleryIcon,
+    description: (
+        <FormattedMessage
+            // eslint-disable-next-line max-len
+            defaultMessage="Loading extension gallery..."
+            description="Appears while loading extension list from the custom extension gallery"
+            id="tw.extensionGallery.loading"
+        />
+    ),
+    tags: ['tw'],
+    featured: true
+};
+
+export const galleryMore = {
+    name: (
+        <FormattedMessage
+            defaultMessage="{APP_NAME} Extension Gallery"
+            description="Name of extensions.turbowarp.org in extension library"
+            id="tw.extensionGallery.name"
+            values={{
+                APP_NAME
+            }}
+        />
+    ),
+    href: 'https://extensions.turbowarp.org/',
+    extensionId: 'gallery',
+    iconURL: galleryIcon,
+    description: (
+        <FormattedMessage
+            // eslint-disable-next-line max-len
+            defaultMessage="Learn more about extensions at extensions.turbowarp.org."
+            description="Appears after the extension list from the gallery was loaded successfully"
+            id="tw.extensionGallery.more"
+        />
+    ),
+    tags: ['tw'],
+    featured: true
+};
+
+export const galleryError = {
+    name: (
+        <FormattedMessage
+            defaultMessage="{APP_NAME} Extension Gallery"
+            description="Name of extensions.turbowarp.org in extension library"
+            id="tw.extensionGallery.name"
+            values={{
+                APP_NAME
+            }}
+        />
+    ),
+    href: 'https://extensions.turbowarp.org/',
+    extensionId: 'gallery',
+    iconURL: galleryIcon,
+    description: (
+        <FormattedMessage
+            // eslint-disable-next-line max-len
+            defaultMessage="Error loading extension gallery. Visit extensions.turbowarp.org to find more extensions."
+            description="Appears when an error occurred loading extension list from the custom extension gallery"
+            id="tw.extensionGallery.error"
+        />
+    ),
+    tags: ['tw'],
+    featured: true
+};

@@ -10,6 +10,8 @@ import Input from '../forms/input.jsx';
 import BufferedInputHOC from '../forms/buffered-input-hoc.jsx';
 import DocumentationLink from '../tw-documentation-link/documentation-link.jsx';
 import styles from './settings-modal.css';
+import helpIcon from './help-icon.svg';
+import {APP_NAME} from '../../lib/brand.js';
 
 /* eslint-disable react/no-multi-comp */
 
@@ -76,7 +78,12 @@ class UnwrappedSetting extends React.Component {
                         className={styles.helpIcon}
                         onClick={this.handleClickHelp}
                         title={this.props.intl.formatMessage(messages.help)}
-                    />
+                    >
+                        <img
+                            src={helpIcon}
+                            draggable={false}
+                        />
+                    </button>
                 </div>
                 {this.state.helpVisible && (
                     <div className={styles.detail}>
@@ -106,7 +113,6 @@ const BooleanSetting = ({value, onChange, label, ...props}) => (
         primary={
             <label className={styles.label}>
                 <FancyCheckbox
-                    type="checkbox"
                     className={styles.checkbox}
                     checked={value}
                     onChange={onChange}
@@ -241,6 +247,7 @@ const RemoveFencing = props => (
         }
         help={
             <FormattedMessage
+                // eslint-disable-next-line max-len
                 defaultMessage="Allows sprites to move offscreen, become as large or as small as they want, and makes touching blocks work offscreen."
                 description="Remove Fencing setting help"
                 id="tw.settingsModal.removeFencingHelp"
@@ -306,9 +313,12 @@ const DisableCompiler = props => (
         help={
             <FormattedMessage
                 // eslint-disable-next-line max-len
-                defaultMessage="Disables the TurboWarp compiler. You may want to enable this while editing projects so that scripts update immediately. Otherwise, you should never enable this."
+                defaultMessage="Disables the {APP_NAME} compiler. You may want to enable this while editing projects so that scripts update immediately. Otherwise, you should never enable this."
                 description="Disable Compiler help"
                 id="tw.settingsModal.disableCompilerHelp"
+                values={{
+                    APP_NAME
+                }}
             />
         }
         slug="disable-compiler"
@@ -334,6 +344,7 @@ const CustomStageSize = ({
                 <BufferedInput
                     value={stageWidth}
                     onSubmit={onStageWidthChange}
+                    className={styles.customStageSizeInput}
                     type="number"
                     min="0"
                     max="1024"
@@ -343,6 +354,7 @@ const CustomStageSize = ({
                 <BufferedInput
                     value={stageHeight}
                     onSubmit={onStageHeightChange}
+                    className={styles.customStageSizeInput}
                     type="number"
                     min="0"
                     max="1024"
@@ -478,16 +490,20 @@ const SettingsModalComponent = props => (
                     id="tw.settingsModal.dangerZone"
                 />
             </Header>
-            <CustomStageSize
-                {...props}
-            />
+            {!props.isEmbedded && (
+                <CustomStageSize
+                    {...props}
+                />
+            )}
             <DisableCompiler
                 value={props.disableCompiler}
                 onChange={props.onDisableCompilerChange}
             />
-            <StoreProjectOptions
-                {...props}
-            />
+            {!props.isEmbedded && (
+                <StoreProjectOptions
+                    {...props}
+                />
+            )}
         </Box>
     </Modal>
 );
@@ -495,6 +511,7 @@ const SettingsModalComponent = props => (
 SettingsModalComponent.propTypes = {
     intl: intlShape,
     onClose: PropTypes.func,
+    isEmbedded: PropTypes.bool,
     framerate: PropTypes.number,
     onFramerateChange: PropTypes.func,
     onCustomizeFramerate: PropTypes.func,
