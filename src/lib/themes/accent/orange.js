@@ -3,10 +3,10 @@ const guiColors = {
     'motion-primary-transparent': 'hsla(30, 100%, 65%, 0.35)',
     'motion-tertiary': 'hsla(30, 60%, 50%, 1)',
 
-    'looks-secondary': 'hsla(30, 100%, 65%, 1)',
-    'looks-transparent': 'rgba(255, 172, 77, 0.35)',
-    'looks-light-transparent': '#ffa34d26',
-    'looks-secondary-dark': 'rgb(183, 138, 78)',
+    'looks-secondary': 'rgb(255, 121, 77)',
+    'looks-transparent': 'rgba(255, 121, 77, 0.35)',
+    'looks-light-transparent': '#ff7b0026',
+    'looks-secondary-dark': 'rgb(143, 69, 44)',
 
     'extensions-primary': '#e066ff',
     'extensions-tertiary': '#7a0099',

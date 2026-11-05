@@ -4,16 +4,12 @@ import styles from './input.css';
 import classNames from 'classnames';
 
 function numberRender(props) {
+    var defaultVal = props.value || 0;
     return (<input
         type="number"
-        defaultValue={props.value || "0"}
+        defaultValue={defaultVal}
         className={classNames(props.className, styles.numberInput)}
         onBlur={
-            (e) => {
-                props.onChange(e);
-            }
-        }
-        onChange={
             (e) => {
                 props.onChange(e);
             }

@@ -18,6 +18,7 @@ import styles from './settings-menu.css';
 
 import dropdownCaret from './dropdown-caret.svg';
 import settingsIcon from './icon--settings.svg';
+import gm2EditorOptionsSettingsIcon from './gm2-editor-settings-icon.svg';
 
 const SettingsMenu = ({
     canChangeLanguage,
@@ -60,6 +61,27 @@ const SettingsMenu = ({
         >
             <MenuSection>
                 {canChangeLanguage && <LanguageMenu onRequestCloseSettings={onRequestClose} />}
+                <GM2EditorOptions>
+                    {
+                        doEditorOptions => (
+                            <MenuItem onClick={doEditorOptions}>
+                                <div className={styles.option}>
+                                    <img
+                                        src={gm2EditorOptionsSettingsIcon}
+                                        draggable={false}
+                                        width={25}
+                                        height={25}
+                                    />
+                                    <FormattedMessage
+                                        defaultMessage="Editor Options"
+                                        description="Menu bar item for opening the editor options."
+                                        id="gm2.menuBar.editorOptions"
+                                    />
+                                </div>
+                            </MenuItem>
+                        )
+                    }
+                </GM2EditorOptions>
                 {canChangeTheme && (
                     <React.Fragment>
                         <TWGuiThemeMenu />
@@ -69,19 +91,6 @@ const SettingsMenu = ({
                         <TWAccentThemeMenu />
                     </React.Fragment>
                 )}
-                <GM2EditorOptions>
-                    {
-                        doEditorOptions => (
-                            <MenuItem onClick={doEditorOptions}>
-                                <FormattedMessage
-                                    defaultMessage="Editor Options"
-                                    description="Menu bar item for opening the editor options."
-                                    id="gm2.menuBar.editorOptions"
-                                />
-                            </MenuItem>
-                        )
-                    }
-                </GM2EditorOptions>
                 {onClickDesktopSettings && <TWDesktopSettings onClick={onClickDesktopSettings} />}
             </MenuSection>
         </MenuBarMenu>

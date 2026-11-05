@@ -52,6 +52,9 @@ class UnwrappedSetting extends React.Component {
         this.state = {
             helpVisible: false
         };
+        if (this.props.inputHandler) {
+            this.props.inputHandler.changeHandler = this.handleClickHelp;
+        }
     }
     componentDidUpdate (prevProps) {
         if (this.props.active && !prevProps.active) {
@@ -103,7 +106,8 @@ UnwrappedSetting.propTypes = {
     help: PropTypes.node,
     primary: PropTypes.node,
     secondary: PropTypes.node,
-    slug: PropTypes.string
+    slug: PropTypes.string,
+    inputHandler: PropTypes.object,
 };
 const Setting = injectIntl(UnwrappedSetting);
 
@@ -129,22 +133,37 @@ BooleanSetting.propTypes = {
     label: PropTypes.node.isRequired
 };
 
-const NumberSetting = ({value, onChange, label, ...props}) => (
-    <Setting
+const NumberSetting = ({defaultVal, value, onChange, label, ...props}) => {
+
+    var setting = null;
+    var handlerThing = {changeHandler: () => {}}; //The only way I can think of to show the help information lol.
+
+    var fancyInput = (
+        <FancyInput
+            value={value}
+            inputType="number"
+            className={styles.input}
+            onChange={(event) => {
+                onChange(event);
+                handlerThing.changeHandler(event);
+            }}
+        />
+    );
+
+    setting = (<Setting
         {...props}
-        active={value}
+        active={value !== defaultVal}
+        inputHandler={handlerThing}
         primary={
             <label className={styles.label}>
-                <FancyInput
-                    inputType="number"
-                    className={styles.input}
-                    onChange={onChange}
-                />
+                {fancyInput}
                 {label}
             </label>
         }
-    />
-);
+    />);
+
+    return setting;
+};
 NumberSetting.propTypes = {
     onChange: PropTypes.func.isRequired,
     value: PropTypes.number.isRequired,
@@ -175,11 +194,12 @@ const HighQualityPen = props => (
 
 const CustomFPS = props => (
     <NumberSetting
+        defaultVal={30}
         value={props.framerate}
         onChange={props.onChange}
         label={
             <FormattedMessage
-                defaultMessage="60 FPS (Custom FPS)"
+                defaultMessage="Custom FPS"
                 description="FPS setting"
                 id="tw.settingsModal.fps"
             />
@@ -187,7 +207,7 @@ const CustomFPS = props => (
         help={
             <FormattedMessage
                 // eslint-disable-next-line max-len
-                defaultMessage="Runs scripts 60 times per second instead of 30. Most projects will not work properly with this enabled. You should try Interpolation with 60 FPS mode disabled if that is the case. {customFramerate}."
+                defaultMessage="Lets you make the project's framerate higher or lower than Scratch's default 30 FPS. Most projects will not work properly with this enabled. You should try Interpolation with Custom FPS mode disabled if that is the case."
                 description="FPS setting help"
                 id="tw.settingsModal.fpsHelp"
                 values={{
@@ -433,7 +453,7 @@ const StoreProjectOptions = ({onStoreProjectOptions}) => (
             <p>
                 <FormattedMessage
                     // eslint-disable-next-line max-len
-                    defaultMessage="Stores the selected settings in the project so they will be automatically applied when TurboWarp loads this project. Warp timer and disable compiler will not be saved."
+                    defaultMessage="Stores the selected settings in the project so they will be automatically applied when Gvbvdxx Mod 2 loads this project. Warp timer and disable compiler will not be saved. This option also supports TurboWarp and other TurboWarp based modifications."
                     description="Help text for the store settings in project button"
                     id="tw.settingsModal.storeProjectOptionsHelp"
                 />
