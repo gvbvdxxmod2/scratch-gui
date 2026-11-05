@@ -34,7 +34,15 @@ class UsernameModal extends React.Component {
         ]);
     }
     handleFramerateChange (e) {
-        this.props.vm.setFramerate(e.target.checked ? 60 : 30);
+        var float = +e.target.value || 30;
+        if (float < 1) {
+            float = 1;
+        }
+        if (float > 1000) {
+            float = 1000;
+        }
+        float = Math.round(float);
+        this.props.vm.setFramerate(float);
     }
     async handleCustomizeFramerate () {
         // prompt() returns Promise in desktop app

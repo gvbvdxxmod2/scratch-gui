@@ -6,6 +6,7 @@ import bindAll from 'lodash.bindall';
 import Box from '../box/box.jsx';
 import Modal from '../../containers/modal.jsx';
 import FancyCheckbox from '../tw-fancy-checkbox/checkbox.jsx';
+import FancyInput from '../gm2-fancy-input/input.jsx';
 import Input from '../forms/input.jsx';
 import BufferedInputHOC from '../forms/buffered-input-hoc.jsx';
 import DocumentationLink from '../tw-documentation-link/documentation-link.jsx';
@@ -128,6 +129,28 @@ BooleanSetting.propTypes = {
     label: PropTypes.node.isRequired
 };
 
+const NumberSetting = ({value, onChange, label, ...props}) => (
+    <Setting
+        {...props}
+        active={value}
+        primary={
+            <label className={styles.label}>
+                <FancyInput
+                    inputType="number"
+                    className={styles.input}
+                    onChange={onChange}
+                />
+                {label}
+            </label>
+        }
+    />
+);
+NumberSetting.propTypes = {
+    onChange: PropTypes.func.isRequired,
+    value: PropTypes.number.isRequired,
+    label: PropTypes.node.isRequired
+};
+
 const HighQualityPen = props => (
     <BooleanSetting
         {...props}
@@ -151,8 +174,8 @@ const HighQualityPen = props => (
 );
 
 const CustomFPS = props => (
-    <BooleanSetting
-        value={props.framerate !== 30}
+    <NumberSetting
+        value={props.framerate}
         onChange={props.onChange}
         label={
             <FormattedMessage

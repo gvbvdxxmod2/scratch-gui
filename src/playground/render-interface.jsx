@@ -35,6 +35,7 @@ import ProjectInput from '../components/tw-project-input/project-input.jsx';
 import FeaturedProjects from '../components/tw-featured-projects/featured-projects.jsx';
 import Description from '../components/tw-description/description.jsx';
 import BrowserModal from '../components/browser-modal/browser-modal.jsx';
+import {openEditorSettingsModal} from '../reducers/modals';
 import CloudVariableBadge from '../containers/tw-cloud-variable-badge.jsx';
 import TWWindchimeSubmitter from '../containers/tw-windchime-submitter.jsx';
 import {isBrowserSupported} from '../lib/tw-environment-support-prober';
@@ -53,6 +54,14 @@ const handleClickAddonSettings = addonId => {
     const path = process.env.ROUTING_STYLE === 'wildcard' ? 'addons' : 'addons.html';
     const url = `${process.env.ROOT}${path}${typeof addonId === 'string' ? `#${addonId}` : ''}`;
     window.open(url);
+};
+
+const handleClickEditorSettings = () => {
+    try{
+        openEditorSettingsModal();
+    }catch(e){
+        window.alert(e);
+    }
 };
 
 const messages = defineMessages({
@@ -240,6 +249,7 @@ class Interface extends React.Component {
                             canChangeTheme
                             enableSeeInside
                             onClickAddonSettings={handleClickAddonSettings}
+                            onClickEditorSettings={handleClickEditorSettings}
                         />
                     </div>
                 ) : null}

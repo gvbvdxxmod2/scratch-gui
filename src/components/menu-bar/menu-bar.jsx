@@ -557,6 +557,10 @@ class MenuBar extends React.Component {
                                 this.props.onClickAddonSettings &&
                                 this.props.onClickAddonSettings.bind(null, 'editor-theme3')
                             }
+                            onOpenEditorSettings={
+                                this.props.onClickEditorSettings &&
+                                this.props.onClickEditorSettings.bind(null, 'editor-theme3')
+                            }
                             onRequestClose={this.props.onRequestCloseSettings}
                             onRequestOpen={this.props.onClickSettings}
                             settingsMenuOpen={this.props.settingsMenuOpen}

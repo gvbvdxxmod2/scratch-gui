@@ -1,0 +1,20 @@
+@import "../../css/colors.css";
+
+.numberInput {
+    appearance: none;
+    width: 100px;
+    height: fit-content;
+    border-radius: 4px;
+    transition: .2s;
+    background-color: $ui-white;
+    transition-property: background-color;
+    border: 1px solid $ui-black-transparent;
+    outline: none;
+    padding: 3px 3px;
+    box-sizing: border-box;
+}
+
+.numberInput:focus {
+    border-color: $looks-secondary;
+    box-shadow: 0 0 0 3px $looks-transparent;
+}

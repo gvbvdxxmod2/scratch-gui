@@ -38,6 +38,8 @@ import TWFontsModal from '../../containers/tw-fonts-modal.jsx';
 import TWUnknownPlatformModal from '../../containers/tw-unknown-platform-modal.jsx';
 import TWInvalidProjectModal from '../../containers/tw-invalid-project-modal.jsx';
 
+import GM2EditorOptionsModal from '../../containers/gm2-editor-options-modal.jsx';
+
 import {STAGE_SIZE_MODES, FIXED_WIDTH, UNCONSTRAINED_NON_STAGE_WIDTH} from '../../lib/layout-constants';
 import {resolveStageSize} from '../../lib/screen-utils';
 import {Theme} from '../../lib/themes';
@@ -120,6 +122,7 @@ const GUIComponent = props => {
         onCloseAccountNav,
         onClickAddonSettings,
         onClickDesktopSettings,
+        onClickEditorSettings,
         onClickNewWindow,
         onClickPackager,
         onLogOut,
@@ -153,6 +156,7 @@ const GUIComponent = props => {
         theme,
         tipsLibraryVisible,
         usernameModalVisible,
+        editorOptionsVisible,
         settingsModalVisible,
         customExtensionModalVisible,
         fontsModalVisible,
@@ -187,6 +191,7 @@ const GUIComponent = props => {
                 <TWSecurityManager securityManager={securityManager} />
                 <TWRestorePointManager />
                 {usernameModalVisible && <TWUsernameModal />}
+                {editorOptionsVisible && <GM2EditorOptionsModal />}
                 {settingsModalVisible && <TWSettingsModal />}
                 {customExtensionModalVisible && <TWCustomExtensionModal />}
                 {fontsModalVisible && <TWFontsModal />}
@@ -312,6 +317,7 @@ const GUIComponent = props => {
                     onClickAbout={onClickAbout}
                     onClickAccountNav={onClickAccountNav}
                     onClickAddonSettings={onClickAddonSettings}
+                    onClickEditorSettings={onClickEditorSettings}
                     onClickDesktopSettings={onClickDesktopSettings}
                     onClickNewWindow={onClickNewWindow}
                     onClickPackager={onClickPackager}
@@ -502,6 +508,7 @@ GUIComponent.propTypes = {
     onActivateTab: PropTypes.func,
     onClickAccountNav: PropTypes.func,
     onClickAddonSettings: PropTypes.func,
+    onClickEditorSettings: PropTypes.func,
     onClickDesktopSettings: PropTypes.func,
     onClickNewWindow: PropTypes.func,
     onClickPackager: PropTypes.func,
@@ -535,6 +542,7 @@ GUIComponent.propTypes = {
     theme: PropTypes.instanceOf(Theme),
     tipsLibraryVisible: PropTypes.bool,
     usernameModalVisible: PropTypes.bool,
+    editorOptionsVisible: PropTypes.bool,
     settingsModalVisible: PropTypes.bool,
     customExtensionModalVisible: PropTypes.bool,
     fontsModalVisible: PropTypes.bool,

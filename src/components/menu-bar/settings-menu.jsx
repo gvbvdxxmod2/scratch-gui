@@ -4,12 +4,14 @@ import {FormattedMessage} from 'react-intl';
 
 import LanguageMenu from './language-menu.jsx';
 import MenuBarMenu from './menu-bar-menu.jsx';
-import {MenuSection} from '../menu/menu.jsx';
+import {MenuItem, MenuSection} from '../menu/menu.jsx';
 import MenuLabel from './tw-menu-label.jsx';
 import TWAccentThemeMenu from './tw-theme-accent.jsx';
 import TWGuiThemeMenu from './tw-theme-gui.jsx';
 import TWBlocksThemeMenu from './tw-theme-blocks.jsx';
 import TWDesktopSettings from './tw-desktop-settings.jsx';
+
+import GM2EditorOptions from '../../containers/gm2-editor-options.jsx';
 
 import menuBarStyles from './menu-bar.css';
 import styles from './settings-menu.css';
@@ -67,6 +69,19 @@ const SettingsMenu = ({
                         <TWAccentThemeMenu />
                     </React.Fragment>
                 )}
+                <GM2EditorOptions>
+                    {
+                        doEditorOptions => (
+                            <MenuItem onClick={doEditorOptions}>
+                                <FormattedMessage
+                                    defaultMessage="Editor Options"
+                                    description="Menu bar item for opening the editor options."
+                                    id="gm2.menuBar.editorOptions"
+                                />
+                            </MenuItem>
+                        )
+                    }
+                </GM2EditorOptions>
                 {onClickDesktopSettings && <TWDesktopSettings onClick={onClickDesktopSettings} />}
             </MenuSection>
         </MenuBarMenu>
