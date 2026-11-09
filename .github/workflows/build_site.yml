@@ -28,6 +28,7 @@ jobs:
 
       - name: Install and Build Frontend
         run: |
+          
           sudo apt install python3
           yarn install --force --ignore-engines --no-cache --no-lockfile
           yarn run build
