@@ -18,6 +18,11 @@
     color: white;
 }
 
+.loadingGvbvdxxy {
+  -webkit-mask: url('images/gvbvdxxy-loading.svg') no-repeat center / contain;
+  mask: url('images/gvbvdxxy-loading.svg.svg') no-repeat center / contain;
+}
+
 .fullscreen {
     /* Break out of the layout using position: fixed to cover the whole screen */
     position: fixed;
