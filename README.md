@@ -1,16 +1,18 @@
-# Gvbvdxx Mod 2 GUI
+# Gvbvdxx Mod 2 [Updated] GUI
 
-![bandicam 2023-07-11 20-31-24-775](https://github.com/gvbvdxx-test/GvbvdxxMod2/assets/123641869/a99ee0fc-04b5-4d20-bfaa-b6ab0f418192)
+![Screenshot of the editor](./markdown-assets/editor.png)
 
-Gvbvdxx Mod 2 is designed to make more powerful games without the need to type any actual code, and is 100% backwards compadible with Scratch and it's older versions.
-Currently the latest version of gvbvdxx mod 2.
+An updated version of the Gvbvdxx Mod 2 editor, based on TurboWarp's editor.
 
-Hevily edited to work ONLY with the GvbvdxxMod2 vm.
-Based on a version of TurboWarp, which is also a modified version of Scratch.
+Gvbvdxx Mod 2 is a tool for making programs in your browser by connecting lego-like blocks toghether (also known as block-coding and block-based-coding). Gvbvdxx Mod 2 is a modification of [TurboWarp's](https://turbowarp.org/) code, which in turn is a modification of [Scratch's](https://scratch.mit.edu/) code. Gvbvdxx Mod 2 aims for more power and control over what you can make with it, compared to [Scratch](https://scratch.mit.edu/). Additionally since Gvbvdxx Mod 2 is based on [TurboWarp's](https://turbowarp.org/) code, it also inherits its super fast compiler, making it easier to make larger programs for slower devices compared to raw Scratch.
+
+
+Heavily edited to work best with the GvbvdxxMod2 vm.
+Based on a modified version of TurboWarp, which is also a modified version of Scratch.
 
 # Minimal Requirements
 
-Node JS V16.16.0
+Node JS (Latest should work)
 NPM
 Git (If you want to use command line for cloning)
 
