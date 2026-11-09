@@ -6,6 +6,11 @@ let messages = defineMessages({
         defaultMessage: 'my variable',
         description: 'Name for the default variable',
         id: 'gui.defaultProject.variable'
+    },
+    costume: {
+        defaultMessage: 'Gvbvdxxy',
+        description: 'Name for the default costume when loading a empty project',
+        id: 'gm2.defaultProject.costume'
     }
 });
 
