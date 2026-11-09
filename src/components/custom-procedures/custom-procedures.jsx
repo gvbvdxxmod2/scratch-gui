@@ -104,18 +104,53 @@ const CustomProcedures = props => (
                 </div>
             </div>
             <div className={styles.checkboxRow}>
-                <label>
-                    <input
-                        checked={props.warp}
-                        type="checkbox"
-                        onChange={props.onToggleWarp}
-                    />
-                    <FormattedMessage
-                        defaultMessage="Run without screen refresh"
-                        description="Label for checkbox to run without screen refresh"
-                        id="gui.customProcedures.runWithoutScreenRefresh"
-                    />
-                </label>
+                <div className={styles.checkboxOptions}>
+
+                    <label>
+                        <input
+                            checked={props.warp}
+                            type="checkbox"
+                            onChange={props.onToggleWarp}
+                        />
+                        <FormattedMessage
+                            defaultMessage="Run without screen refresh"
+                            description="Label for checkbox to run without screen refresh"
+                            id="gui.customProcedures.runWithoutScreenRefresh"
+                        />
+                    </label>
+
+                    <div className={props.useCustomColor ? styles.checkboxContentActive : styles.checkboxContent}>
+                        <label>
+                            <input
+                                checked={props.useCustomColor}
+                                type="checkbox"
+                                onChange={props.onToggleColor}
+                            />
+                            <FormattedMessage
+                                defaultMessage="Custom Color?"
+                                description="Label for enabling a custom block color"
+                                id="gui.customProcedures.customColorOption"
+                            />
+                        </label>
+                        {props.useCustomColor ? (
+                            <div>
+                                <label>
+                                    <FormattedMessage
+                                        defaultMessage="Color:"
+                                        description="Label for the color picker"
+                                        id="gui.customProcedures.customColorLabel"
+                                    />
+                                    <input
+                                        defaultValue={props.customColor}
+                                        type="color"
+                                        onBlur={props.onEditColor}
+                                    />
+                                </label>
+                            </div>
+                        ) : null}
+                    </div>
+
+                </div>
             </div>
             <Box className={styles.buttonRow}>
                 <button
@@ -152,7 +187,11 @@ CustomProcedures.propTypes = {
     onCancel: PropTypes.func.isRequired,
     onOk: PropTypes.func.isRequired,
     onToggleWarp: PropTypes.func.isRequired,
-    warp: PropTypes.bool.isRequired
+    onToggleColor: PropTypes.func.isRequired,
+    warp: PropTypes.bool.isRequired,
+    useCustomColor: PropTypes.bool.isRequired,
+    onEditColor: PropTypes.func.isRequired,
+    customColor: PropTypes.string,
 };
 
 export default injectIntl(CustomProcedures);

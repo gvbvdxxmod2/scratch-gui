@@ -125,61 +125,25 @@ const CustomExtensionModal = props => (
                 </React.Fragment>
             )}
 
-            {props.onChangeUnsandboxed ? (
-                <React.Fragment>
-                    <label className={styles.unsandboxedContainer}>
-                        <FancyCheckbox
-                            className={styles.unsandboxedCheckbox}
-                            checked={props.unsandboxed}
-                            onChange={props.onChangeUnsandboxed}
-                        />
-                        <FormattedMessage
-                            defaultMessage="Run without sandbox"
-                            description="Message that appears in custom extension prompt"
-                            id="tw.customExtensionModal.unsandboxed"
-                        />
-                    </label>
-                    {props.unsandboxed && (
-                        <p className={styles.unsandboxedWarning}>
+            <React.Fragment>
+                    <p className={styles.unsandboxedWarning}>
                             <FormattedMessage
                                 // eslint-disable-next-line max-len
-                                defaultMessage="Loading extensions without the sandbox is dangerous and should not be enabled if you don't know what you're doing."
+                                defaultMessage="Loading custom extensions can be dangerous and you should make sure you trust the extension's you load. These extensions are unsandboxed by default, and can't be changed."
                                 description="Warning that appears when disabling extension security sandbox"
-                                id="tw.customExtensionModal.unsandboxedWarning1"
+                                id="gm2.customExtensionModal.unsandboxedWarning1"
                             />
                             <FormattedMessage
                                 // eslint-disable-next-line max-len
-                                defaultMessage="Unsandboxed extensions can corrupt your project, delete your settings, phish for passwords, and other bad things. The {APP_NAME} developers are not responsible for any resulting issues."
+                                defaultMessage="Unsandboxed extensions can corrupt your project (even on accident!), delete your settings, phish for passwords, and other bad things. The {APP_NAME} and TurboWarp developers are not responsible for any resulting issues."
                                 description="Warning that appears when disabling extension security sandbox"
-                                id="tw.customExtensionModal.unsandboxedWarning2"
+                                id="gm2.customExtensionModal.unsandboxedWarning2"
                                 values={{
                                     APP_NAME
                                 }}
                             />
                         </p>
-                    )}
                 </React.Fragment>
-            ) : (
-                props.unsandboxed ? (
-                    <p className={styles.trustedExtension}>
-                        <FormattedMessage
-                            // eslint-disable-next-line max-len
-                            defaultMessage="This extension will be loaded without the sandbox because it is from a trusted source."
-                            description="Message that appears in custom extension prompt"
-                            id="tw.customExtensionModal.trusted"
-                        />
-                    </p>
-                ) : (
-                    <p>
-                        <FormattedMessage
-                            // eslint-disable-next-line max-len
-                            defaultMessage="Extensions from untrusted URLs will always be loaded with the sandbox for security."
-                            description="Message that appears in custom extension prompt"
-                            id="tw.customExtensionModal.untrusted"
-                        />
-                    </p>
-                )
-            )}
 
             <div className={styles.buttonRow}>
                 <button
@@ -215,8 +179,6 @@ CustomExtensionModal.propTypes = {
     onKeyDown: PropTypes.func.isRequired,
     text: PropTypes.string.isRequired,
     onChangeText: PropTypes.func.isRequired,
-    unsandboxed: PropTypes.bool.isRequired,
-    onChangeUnsandboxed: PropTypes.func,
     onLoadExtension: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired
 };

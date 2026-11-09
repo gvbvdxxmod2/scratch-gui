@@ -14,13 +14,17 @@ class CustomProcedures extends React.Component {
             'handleAddBoolean',
             'handleAddTextNumber',
             'handleToggleWarp',
+            'handleToggleColor',
+            'handleEditColor',
             'handleCancel',
             'handleOk',
             'setBlocks'
         ]);
         this.state = {
             rtlOffset: 0,
-            warp: false
+            warp: false,
+            useCustomColor: false,
+            currentColor: "",
         };
     }
     componentWillUnmount () {
@@ -28,6 +32,37 @@ class CustomProcedures extends React.Component {
             this.workspace.dispose();
         }
     }
+    handleToggleColor() {
+        if (this.mutationRoot) {
+            var currentColor = this.mutationRoot.getCColor();
+            if (!currentColor) {
+                //enable
+                this.mutationRoot.setCColor(this.mutationRoot._colorBeforeUpdate);
+                this.setState({useCustomColor: true});
+            } else {
+                //disable
+                this.mutationRoot.setCColor(null);
+                this.setState({useCustomColor: false});
+            }
+        }
+    }
+    handleEditColor(event) {
+        if (!this.mutationRoot) {
+            return;
+        }
+        if (!this.state.useCustomColor) {
+            return;
+        }
+        var input = event.target;
+        var colorValue = input.value;
+
+        this.mutationRoot.setCColor(colorValue);
+
+        this.setState({
+            currentColor: colorValue
+        });
+    }
+
     setBlocks (blocksRef) {
         if (!blocksRef) return;
         this.blocks = blocksRef;
@@ -100,6 +135,11 @@ class CustomProcedures extends React.Component {
                 }
             }
             this.mutationRoot.moveBy(dx, dy);
+
+            var currentColor = this.mutationRoot.getCColor() || this.mutationRoot._colorBeforeUpdate;
+            if (currentColor !== this.state.currentColor) {
+                this.setState({currentColor});
+            }
         });
         this.mutationRoot.domToMutation(this.props.mutator);
         this.mutationRoot.initSvg();
@@ -144,12 +184,16 @@ class CustomProcedures extends React.Component {
             <CustomProceduresComponent
                 componentRef={this.setBlocks}
                 warp={this.state.warp}
+                useCustomColor={this.state.useCustomColor}
+                customColor={this.state.currentColor}
                 onAddBoolean={this.handleAddBoolean}
                 onAddLabel={this.handleAddLabel}
                 onAddTextNumber={this.handleAddTextNumber}
                 onCancel={this.handleCancel}
                 onOk={this.handleOk}
                 onToggleWarp={this.handleToggleWarp}
+                onToggleColor={this.handleToggleColor}
+                onEditColor={this.handleEditColor}
             />
         );
     }

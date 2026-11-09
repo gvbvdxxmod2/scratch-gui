@@ -35,8 +35,7 @@ class CustomExtensionModal extends React.Component {
             'handleChangeText',
             'handleDragOver',
             'handleDragLeave',
-            'handleDrop',
-            'handleChangeUnsandboxed'
+            'handleDrop'
         ]);
 
         this.state = {
@@ -44,7 +43,7 @@ class CustomExtensionModal extends React.Component {
             url: '',
             files: null,
             text: '',
-            unsandboxed: getPersistedUnsandboxed()
+            unsandboxed: true
         };
     }
 
@@ -125,15 +124,6 @@ class CustomExtensionModal extends React.Component {
         try {
             const urls = await this.getExtensionURLs();
 
-            if (this.state.type !== 'url') {
-                setPersistedUnsandboxed(this.state.unsandboxed);
-                if (this.state.unsandboxed) {
-                    for (const url of urls) {
-                        manuallyTrustExtension(url);
-                    }
-                }
-            }
-
             for (const url of urls) {
                 await this.props.vm.extensionManager.loadExtensionURL(url);
             }
@@ -191,20 +181,11 @@ class CustomExtensionModal extends React.Component {
     }
 
     isUnsandboxed () {
-        if (this.state.type === 'url') {
-            return isTrustedExtension(this.state.url);
-        }
-        return this.state.unsandboxed;
+        return true;
     }
 
     canChangeUnsandboxed () {
-        return this.state.type !== 'url';
-    }
-
-    handleChangeUnsandboxed (e) {
-        this.setState({
-            unsandboxed: e.target.checked
-        });
+        return false;
     }
 
     render () {
@@ -225,8 +206,7 @@ class CustomExtensionModal extends React.Component {
                 onKeyDown={this.handleKeyDown}
                 text={this.state.text}
                 onChangeText={this.handleChangeText}
-                unsandboxed={this.isUnsandboxed()}
-                onChangeUnsandboxed={this.canChangeUnsandboxed() ? this.handleChangeUnsandboxed : null}
+                unsandboxed={true}
                 onLoadExtension={this.handleLoadExtension}
                 onClose={this.handleClose}
             />

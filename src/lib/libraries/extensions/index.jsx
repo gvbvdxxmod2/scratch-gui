@@ -69,12 +69,12 @@ export default [
         insetIconURL: musicInsetIconURL,
         description: (
             <FormattedMessage
-                defaultMessage="Play instruments and drums."
+                defaultMessage="Play instruments and drums, with improvements applied by Gvbvdxx."
                 description="Description for the 'Music' extension"
-                id="gui.extension.music.description"
+                id="gm2.extension.music.description"
             />
         ),
-        tags: ['scratch'],
+        tags: ['scratch', "gm2"],
         featured: true
     },
     {
@@ -128,7 +128,6 @@ export default [
             />
         ),
         extensionId: 'faceSensing',
-        extensionURL: 'https://extensions.turbowarp.org/lab/face-sensing.js',
         iconURL: faceSensingIconURL,
         insetIconURL: faceSensingInsetIconURL,
         description: (
@@ -385,7 +384,7 @@ export default [
     {
         name: (
             <FormattedMessage
-                defaultMessage="{APP_NAME} Blocks"
+                defaultMessage="TurboWarp Blocks"
                 description="Name of the strange 'TurboWarp Blocks' extension"
                 id="tw.twExtension.name"
                 values={{
@@ -432,7 +431,7 @@ export default [
 export const galleryLoading = {
     name: (
         <FormattedMessage
-            defaultMessage="{APP_NAME} Extension Gallery"
+            defaultMessage="TurboWarp Extension Gallery"
             description="Name of extensions.turbowarp.org in extension library"
             id="tw.extensionGallery.name"
             values={{
@@ -458,7 +457,7 @@ export const galleryLoading = {
 export const galleryMore = {
     name: (
         <FormattedMessage
-            defaultMessage="{APP_NAME} Extension Gallery"
+            defaultMessage="TurboWarp Extension Gallery"
             description="Name of extensions.turbowarp.org in extension library"
             id="tw.extensionGallery.name"
             values={{
@@ -484,7 +483,7 @@ export const galleryMore = {
 export const galleryError = {
     name: (
         <FormattedMessage
-            defaultMessage="{APP_NAME} Extension Gallery"
+            defaultMessage="TurboWarp Extension Gallery"
             description="Name of extensions.turbowarp.org in extension library"
             id="tw.extensionGallery.name"
             values={{

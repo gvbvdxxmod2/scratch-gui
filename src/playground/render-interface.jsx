@@ -32,7 +32,7 @@ import '../lib/tw-fix-history-api';
 import GUI from './render-gui.jsx';
 import MenuBar from '../components/menu-bar/menu-bar.jsx';
 import ProjectInput from '../components/tw-project-input/project-input.jsx';
-import FeaturedProjects from '../components/tw-featured-projects/featured-projects.jsx';
+//import FeaturedProjects from '../components/tw-featured-projects/featured-projects.jsx';
 import Description from '../components/tw-description/description.jsx';
 import BrowserModal from '../components/browser-modal/browser-modal.jsx';
 import {openEditorSettingsModal} from '../reducers/modals';
@@ -97,9 +97,9 @@ const Footer = () => (
             <div className={styles.footerText}>
                 <FormattedMessage
                     // eslint-disable-next-line max-len
-                    defaultMessage="{APP_NAME} is not affiliated with Scratch, the Scratch Team, or the Scratch Foundation."
-                    description="Disclaimer that TurboWarp is not connected to Scratch"
-                    id="tw.footer.disclaimer"
+                    defaultMessage="TurboWarp and {APP_NAME} are not affiliated with Scratch, the Scratch Team, or the Scratch Foundation. (We're saying mostly everything is fan-made)"
+                    description="Disclaimer that the Scratch Mods are not connected to Scratch"
+                    id="gm2.footer.disclaimer"
                     values={{
                         APP_NAME
                     }}
@@ -110,16 +110,16 @@ const Footer = () => (
                 <FormattedMessage
                     // eslint-disable-next-line max-len
                     defaultMessage="Scratch is a project of the Scratch Foundation. It is available for free at {scratchDotOrg}."
-                    description="A disclaimer that Scratch requires when referring to Scratch. {scratchDotOrg} is a link with text 'https://scratch.org/'"
+                    description="A disclaimer that Scratch requires when referring to Scratch. {scratchDotOrg} is a link with text 'https://scratch.mit.edu/'"
                     id="tw.footer.scratchDisclaimer"
                     values={{
                         scratchDotOrg: (
                             <a
-                                href="https://scratch.org/"
+                                href="https://scratch.mit.edu/"
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                {'https://scratch.org/'}
+                                {'https://scratch.mit.edu/'}
                             </a>
                         )
                     }}
@@ -137,56 +137,22 @@ const Footer = () => (
                     </a>
                 </div>
                 <div className={styles.footerSection}>
-                    <a href="https://desktop.turbowarp.org/">
+                    <a href="https://gvbvdxx.me/">
                         {/* Do not translate */}
-                        {'TurboWarp Desktop'}
+                        {"Gvbvdxx's other amazing programs & software!"}
                     </a>
-                    <a href="https://packager.turbowarp.org/">
-                        {/* Do not translate */}
-                        {'TurboWarp Packager'}
-                    </a>
-                    <a href="https://docs.turbowarp.org/embedding">
+                    <a href="https://github.com/gvbvdxxmod2/scratch-gui/issues">
                         <FormattedMessage
-                            defaultMessage="Embedding"
-                            description="Link in footer to embedding documentation for embedding link"
-                            id="tw.footer.embed"
-                        />
-                    </a>
-                    <a href="https://docs.turbowarp.org/url-parameters">
-                        <FormattedMessage
-                            defaultMessage="URL Parameters"
-                            description="Link in footer to URL parameters documentation"
-                            id="tw.footer.parameters"
-                        />
-                    </a>
-                    <a href="https://docs.turbowarp.org/">
-                        <FormattedMessage
-                            defaultMessage="Documentation"
-                            description="Link in footer to additional documentation"
-                            id="tw.footer.documentation"
-                        />
-                    </a>
-                </div>
-                <div className={styles.footerSection}>
-                    <a href="https://scratch.mit.edu/users/GarboMuffin/#comments">
-                        <FormattedMessage
-                            defaultMessage="Feedback & Bugs"
+                            defaultMessage="Issues, Feedback and Bug reports"
                             description="Link to feedback/bugs page"
-                            id="tw.feedback"
+                            id="gm2.feedback"
                         />
                     </a>
-                    <a href="https://github.com/TurboWarp/">
+                    <a href="https://github.com/gvbvdxxmod2">
                         <FormattedMessage
                             defaultMessage="Source Code"
                             description="Link to source code"
-                            id="tw.code"
-                        />
-                    </a>
-                    <a href="privacy.html">
-                        <FormattedMessage
-                            defaultMessage="Privacy Policy"
-                            description="Link to privacy policy"
-                            id="tw.privacy"
+                            id="gm2.code"
                         />
                     </a>
                 </div>
@@ -293,17 +259,35 @@ class Interface extends React.Component {
                                 <p>
                                     <FormattedMessage
                                         // eslint-disable-next-line max-len
-                                        defaultMessage="{APP_NAME} is a Scratch mod that compiles projects to JavaScript to make them run really fast. Try it out by inputting a project ID or URL above or choosing a featured project below."
+                                        defaultMessage="{APP_NAME} is a tool for making programs in your browser by connecting lego-like blocks toghether (also known as block-coding and block-based-coding). {APP_NAME} is a modification of {TW_LINK}'s code, which in turn is a modification of {SCRATCH_LINK}'s code. {APP_NAME} aims for more power and control over what you can make with it, compared to {SCRATCH_LINK}. Additionally since {APP_NAME} is based on {TW_LINK}'s code, it also inherits its super fast compiler, making it easier to make larger programs for slower devices compared to raw {SCRATCH_LINK}."
                                         description="Description of TurboWarp on the homepage"
                                         id="tw.home.description"
                                         values={{
-                                            APP_NAME
+                                            APP_NAME,
+                                            TW_LINK: (
+                                                <a
+                                                    href="https://turbowarp.org/"
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                >
+                                                    {'TurboWarp'}
+                                                </a>
+                                            ),
+                                            SCRATCH_LINK: (
+                                                <a
+                                                    href="https://scratch.mit.edu/"
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                >
+                                                    {'Scratch'}
+                                                </a>
+                                            )
                                         }}
                                     />
                                 </p>
                             </div>
                             <div className={styles.section}>
-                                <FeaturedProjects studio="27205657" />
+                                {/*<FeaturedProjects studio="27205657" />*/}
                             </div>
                         </React.Fragment>
                     ) : null}

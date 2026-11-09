@@ -14,6 +14,14 @@
     background-color: $looks-light-transparent;
 }
 
+.green-flag {
+    transform: scale(1);
+    transition: 0.1s;
+}
+.green-flag:hover {
+    transform: scale(1.15);
+}
+
 .green-flag.is-active {
     background-color: $looks-transparent;
 }

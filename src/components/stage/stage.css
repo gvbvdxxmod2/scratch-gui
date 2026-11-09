@@ -144,11 +144,24 @@ stage doesn't "spill" out from under its rounded corners. instead, shift these o
     box-sizing: border-box;
     width: 5rem;
     height: 5rem;
+    transition: 0.3s;
 }
 
-.green-flag-overlay > img {
+.green-flag-overlay-wrapper:hover > .green-flag-overlay {
+    border: 6px solid $ui-white-default;
+    width: 6rem;
+    height: 6rem;
+}
+
+.green-flag-overlay-wrapper > .green-flag-overlay > img {
     width: 100%;
     object-fit: contain;
+    transform: scale(1);
+    transition: 0.3s;
+}
+
+.green-flag-overlay-wrapper:hover > .green-flag-overlay > img {
+    transform: scale(1.12);
 }
 
 

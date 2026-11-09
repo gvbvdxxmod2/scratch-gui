@@ -1,4 +1,4 @@
-import ScratchStorage from '@turbowarp/scratch-storage';
+var ScratchStorage = require('@gvbvdxxmod2/scratch-storage');
 
 import defaultProject from './default-project';
 

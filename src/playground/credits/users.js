@@ -10,7 +10,7 @@ const shuffle = list => {
 
 const fromHardcoded = ({userID = '0', username}) => {
     const result = {
-        image: `https://trampoline.turbowarp.org/avatars/${userID}`,
+        image: `https://cdn2.scratch.mit.edu/get_image/user/${userID}_60x60.png`, //Gvbvdxx: TurboWarp is blocked at my school :(
         text: username
     };
     if (username && userID !== '0') {

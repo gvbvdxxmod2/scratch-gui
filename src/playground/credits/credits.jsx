@@ -7,6 +7,7 @@ import {APP_NAME} from '../../lib/brand';
 import {applyGuiColors} from '../../lib/themes/guiHelpers';
 import {detectTheme} from '../../lib/themes/themePersistance';
 import UserData from './users';
+import GM2UserData from './gm2-users.jsx';
 
 /* eslint-disable react/jsx-no-literals */
 
@@ -61,7 +62,30 @@ const Credits = () => (
         </header>
         <section>
             <p>
-                The {APP_NAME} project is made possible by the work of many volunteers.
+                {APP_NAME} is made possible thanks to TurboWarp and Scratch being free & open source!
+            </p>
+        </section>
+        {APP_NAME !== 'Gvbvdxx Mod 2' && (
+            // Be kind and considerate. Don't remove this :)
+            <section>
+                <h2>Gvbvdxx Mod 2</h2>
+                <p>
+                    {APP_NAME} is based on <a href="https://github.com/gvbvdxxmod2/">Gvbvdxx Mod 2</a>'s source code.
+                </p>
+            </section>
+        )}
+        <section>
+            <h2>Developers, contributors, and helping people</h2>
+            <UserList users={GM2UserData.people} />
+        </section>
+        <header className={styles.headerContainer}>
+            <h1 className={styles.headerText}>
+                TurboWarp Credits
+            </h1>
+        </header>
+        <section>
+            <p>
+                The TurboWarp project is made possible by the work of many volunteers.
             </p>
         </section>
         {APP_NAME !== 'TurboWarp' && (
@@ -69,14 +93,14 @@ const Credits = () => (
             <section>
                 <h2>TurboWarp</h2>
                 <p>
-                    {APP_NAME} is based on <a href="https://turbowarp.org/">TurboWarp</a>.
+                    {APP_NAME} is based on <a href="https://turbowarp.org/">TurboWarp</a>'s source code, found <a href="https://github.com/TurboWarp/">here</a>.
                 </p>
             </section>
         )}
         <section>
             <h2>Scratch</h2>
             <p>
-                {APP_NAME} is based on the work of the <a href="https://scratch.mit.edu/credits">Scratch contributors</a> but is not endorsed by Scratch in any way.
+                TurboWarp is based on the work of the <a href="https://scratch.mit.edu/credits">Scratch contributors</a> but is not endorsed by Scratch in any way.
             </p>
             <p>
                 <a href="https://scratch.mit.edu/donate">
@@ -103,7 +127,7 @@ const Credits = () => (
         <section>
             <h2>Translators</h2>
             <p>
-                More than 100 people have helped translate {APP_NAME} and its addons into many languages
+                More than 100 people have helped translate TurboWarp and its addons into many languages
                 &mdash; far more than we could hope to list here.
             </p>
         </section>

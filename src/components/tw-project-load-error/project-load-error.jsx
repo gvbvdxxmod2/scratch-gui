@@ -93,6 +93,42 @@ const UnsharedMessage = () => (
     </React.Fragment>
 );
 
+const TrampolineErrorMessage = () => (
+    <React.Fragment>
+        <p className={styles.header}>
+            <FormattedMessage
+                defaultMessage="Project Server is down/blocked"
+                description="Title of page shown when your internet filter blocks the project server"
+                id="gm2.blocked.1"
+            />
+        </p>
+        <p>
+            <FormattedMessage
+                defaultMessage="If you're on a school internet connection, this might mean that we can't reach the project server."
+                description="Appears on the trampoline error message. People often are probably on school internets."
+                id="gm2.blocked.wrongId"
+            />
+        </p>
+        <p>
+            <FormattedMessage
+                defaultMessage="Try downloading the project directly from the Scratch editor and loading it here."
+                description="Appears on the trampoline error message. People often are probably on school internets."
+                id="gm2.blocked.downloadsuggestion"
+            />
+        </p>
+        <button
+            className={styles.button}
+            onClick={handleReload}
+        >
+            <FormattedMessage
+                defaultMessage="Reload"
+                description="Button to reload the page when page crashes"
+                id="gui.crashMessage.reload"
+            />
+        </button>
+    </React.Fragment>
+);
+
 const UnavailableLegalReasonsMessage = ({moreUrl}) => (
     <React.Fragment>
         <p className={styles.header}>

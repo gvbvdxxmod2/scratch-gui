@@ -14,6 +14,7 @@ import extensionTags from '../lib/libraries/tw-extension-tags';
 
 import LibraryComponent from '../components/library/library.jsx';
 import extensionIcon from '../components/action-menu/icon--sprite.svg';
+import unknownExtensionImage from './unknown-extension.svg';
 
 const messages = defineMessages({
     extensionTitle: {
@@ -41,8 +42,47 @@ const translateGalleryItem = (extension, locale) => ({
 
 let cachedGallery = null;
 
-const fetchLibrary = async () => {
-    const res = await fetch('https://extensions.turbowarp.org/generated-metadata/extensions-v0.json');
+const getLibrary = async () => {
+    var library = await import("../gm2-tw-extension-lib-data/index.jsx");
+    var libraryContent = library.default || library;
+    
+    return libraryContent.map(extension => ({
+        name: extension.name,
+        nameTranslations: {},
+        description: extension.description,
+        descriptionTranslations: {},
+        extensionId: extension.id,
+        extensionURL: extension.url,
+        iconURL: extension.image || unknownExtensionImage,
+        tags: ['tw'],
+        credits: [
+            ...(extension.authors || []),
+        ].map(credit => {
+            if (credit.link) {
+                return (
+                    <a
+                        href={credit.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        key={credit.name}
+                    >
+                        {credit.name}
+                    </a>
+                );
+            }
+            return credit.name;
+        }),
+        docsURI: null,
+        /*samples: extension.samples ? extension.samples.map(sample => ({
+            href: `${process.env.ROOT}editor?project_url=https://extensions.turbowarp.org/samples/${encodeURIComponent(sample)}.sb3`,
+            text: sample
+        })) : null,*/
+        incompatibleWithScratch: true,
+        featured: true
+    }));;
+
+
+    /*const res = await fetch('https://extensions.turbowarp.org/generated-metadata/extensions-v0.json');
     if (!res.ok) {
         throw new Error(`HTTP status ${res.status}`);
     }
@@ -81,7 +121,7 @@ const fetchLibrary = async () => {
         })) : null,
         incompatibleWithScratch: !extension.scratchCompatible,
         featured: true
-    }));
+    }));*/
 };
 
 class ExtensionLibrary extends React.PureComponent {
@@ -104,7 +144,7 @@ class ExtensionLibrary extends React.PureComponent {
                 });
             }, 750);
 
-            fetchLibrary()
+            getLibrary()
                 .then(gallery => {
                     cachedGallery = gallery;
                     this.setState({
@@ -139,7 +179,15 @@ class ExtensionLibrary extends React.PureComponent {
             return;
         }
 
-        const url = item.extensionURL ? item.extensionURL : extensionId;
+        if (extensionId) {
+            this.props.vm.extensionManager.loadExtensionURL(extensionId)
+            .then(() => {
+                this.props.onCategorySelected(extensionId);
+            })
+            return;
+        }
+
+        /*const url = item.extensionURL ? item.extensionURL : extensionId;
         if (!item.disabled) {
             if (this.props.vm.extensionManager.isExtensionLoaded(extensionId)) {
                 this.props.onCategorySelected(extensionId);
@@ -154,7 +202,7 @@ class ExtensionLibrary extends React.PureComponent {
                         alert(err);
                     });
             }
-        }
+        }*/
     }
     render () {
         let library = null;
