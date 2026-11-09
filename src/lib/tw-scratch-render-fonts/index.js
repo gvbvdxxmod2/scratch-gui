@@ -1,5 +1,5 @@
-/* eslint-disable import/no-commonjs */
 
+/* eslint-disable import/no-commonjs */
 const SansSerif = require('./NotoSans-Medium.woff2');
 const Serif = require('./SourceSerifPro-Regular.woff2');
 const Handwriting = require('./handlee-regular.woff2');
