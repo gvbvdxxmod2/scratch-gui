@@ -28,7 +28,8 @@ jobs:
 
       - name: Install and Build Frontend
         run: |
-          npm install --force
+          sudo apt install git cmake build-essential python3
+          yarn install --force --ignore-engines
           yarn run build
 
       - name: Deploy to Deploy Branch
