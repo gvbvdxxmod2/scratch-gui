@@ -28,7 +28,7 @@ jobs:
 
       - name: Install and Build Frontend
         run: |
-          npm install
+          npm install --force
           yarn run build
 
       - name: Deploy to Deploy Branch
