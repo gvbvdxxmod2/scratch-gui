@@ -88,6 +88,7 @@
     "scratch-audio": "git+https://github.com/gvbmod/scratch-audio.git",
     "scratch-vm": "git+https://github.com/gvbvdxxmod2/scratch-vm.git",
     "scratch-render-fonts": "git+https://github.com/gvbvdxxmod2/scratch-render-fonts.git",
+    "scratch-render": "git+https://github.com/gvbvdxxmod2/scratch-render.git",
     "scratch-paint": "git+https://github.com/gvbvdxxmod2/scratch-paint.git",
     "scratch-blocks": "git+https://github.com/gvbvdxxmod2/scratch-blocks.git",
     "style-loader": "^0.23.0",
