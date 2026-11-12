@@ -91,7 +91,7 @@
     "scratch-render": "git+https://github.com/gvbvdxxmod2/scratch-render.git",
     "scratch-paint": "git+https://github.com/gvbvdxxmod2/scratch-paint.git",
     "scratch-blocks": "git+https://github.com/gvbvdxxmod2/scratch-blocks.git",
-    "@gvbvdxxmod2/scratch-storage": "git+https://github.com/gvbvdxxmod2/scratch-storage.git",
+    "scratch-storage": "git+https://github.com/gvbvdxxmod2/scratch-storage.git",
     "style-loader": "^0.23.0",
     "text-encoding": "0.7.0",
     "to-style": "1.3.3",

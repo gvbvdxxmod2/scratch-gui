@@ -1,4 +1,4 @@
-var ScratchStorage = require('@gvbvdxxmod2/scratch-storage');
+var ScratchStorage = require('scratch-storage');
 
 import defaultProject from './default-project';
 
