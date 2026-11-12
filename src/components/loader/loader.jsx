@@ -13,35 +13,35 @@ import bottomBlock from './bottom-block.svg';
 const mainMessages = {
     'gui.loader.headline': (
         <FormattedMessage
-            defaultMessage="Loading Project"
+            defaultMessage="Loading..."
             description="Main loading message"
-            id="gui.loader.headline"
+            id="gm2.loader.headline"
         />
     ),
     'gui.loader.creating': (
         <FormattedMessage
-            defaultMessage="Creating Project"
+            defaultMessage="Creating..."
             description="Main creating message"
-            id="gui.loader.creating"
+            id="gm2.loader.creating"
         />
     )
 };
 
 const messages = defineMessages({
     projectData: {
-        defaultMessage: 'Loading project …',
+        defaultMessage: 'Loading JSON...',
         description: 'Appears when loading project data, but not assets yet',
-        id: 'tw.loader.projectData'
+        id: 'gm2.loader.projectData'
     },
     downloadingAssets: {
-        defaultMessage: 'Downloading assets ({complete}/{total}) …',
+        defaultMessage: 'Fetching resources [{complete}/{total}]...',
         description: 'Appears when loading project assets from a project on a remote website',
-        id: 'tw.loader.downloadingAssets'
+        id: 'gm2.loader.downloadingAssets'
     },
     loadingAssets: {
-        defaultMessage: 'Loading assets ({complete}/{total}) …',
+        defaultMessage: 'Loading resources [{complete}/{total}]...',
         description: 'Appears when loading project assets from a project file on the user\'s computer',
-        id: 'tw.loader.loadingAssets'
+        id: 'gm2.loader.loadingAssets'
     }
 });
 
@@ -113,22 +113,11 @@ class LoaderComponent extends React.Component {
                 })}
             >
                 <div className={styles.container}>
-                    <div className={styles.blockAnimation}>
-                        <img
-                            className={styles.topBlock}
-                            src={topBlock}
-                            draggable={false}
-                        />
-                        <img
-                            className={styles.middleBlock}
-                            src={middleBlock}
-                            draggable={false}
-                        />
-                        <img
-                            className={styles.bottomBlock}
-                            src={bottomBlock}
-                            draggable={false}
-                        />
+                    <div className={styles.loadingGvbvdxxyContainer}>
+                        <div className={styles.loadingGvbvdxxyMask}>
+                            <div className={styles.loadingGvbvdxxyInner1}/>
+                            <div className={styles.loadingGvbvdxxyInner2}/>
+                        </div>
                     </div>
 
                     <div className={styles.title}>

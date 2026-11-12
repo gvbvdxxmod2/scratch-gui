@@ -434,7 +434,9 @@ class Blocks extends React.Component {
         this.workspace.glowBlock(data.id, false);
     }
     onVisualReport (data) {
-        this.workspace.reportValue(data.id, data.value);
+        try{
+            this.workspace.reportValue(data.id, data.value);
+        }catch(e){console.error("Visual report event error: ",e);}
     }
     getToolboxXML () {
         // Use try/catch because this requires digging pretty deep into the VM

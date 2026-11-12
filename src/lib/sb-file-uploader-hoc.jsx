@@ -80,6 +80,12 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                             multiple: false,
                             types: [
                                 {
+                                    description: 'Gvbvdxx Mod 2 Project',
+                                    accept: {
+                                        '*/*': ['.gm2']
+                                    }
+                                },
+                                {
                                     description: 'Scratch Project',
                                     accept: {
                                         // Chrome on Android tracks the MIME type of files that get downloaded and
@@ -112,7 +118,7 @@ const SBFileUploaderHOC = function (WrappedComponent) {
             } else {
                 // create <input> element and add it to DOM
                 this.inputElement = document.createElement('input');
-                this.inputElement.accept = '.sb,.sb2,.sb3';
+                this.inputElement.accept = '.sb,.sb2,.sb3,.gm2';
                 this.inputElement.style = 'display: none;';
                 this.inputElement.type = 'file';
                 this.inputElement.onchange = this.handleChange; // connects to step 3
@@ -149,7 +155,7 @@ const SBFileUploaderHOC = function (WrappedComponent) {
                     // Don't update file handle until after confirming replace.
                     const handle = thisFileInput.handle;
                     if (handle) {
-                        if (this.fileToUpload.name.endsWith('.sb3')) {
+                        if (this.fileToUpload.name.endsWith('.gm2')) {
                             this.props.onSetFileHandle(handle);
                         } else {
                             this.props.onSetFileHandle(null);
@@ -186,7 +192,7 @@ const SBFileUploaderHOC = function (WrappedComponent) {
             if (!fileInputFilename) return '';
             // only parse title with valid scratch project extensions
             // (.sb, .sb2, and .sb3)
-            const matches = fileInputFilename.match(/^(.*)\.sb[23]?$/);
+            const matches = fileInputFilename.match(/^(.*)\.sb[23]?$^(.*)\.gm[2]?$/);
             if (!matches) return '';
             return matches[1].substring(0, 100); // truncate project title to max 100 chars
         }
