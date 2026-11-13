@@ -1,13 +1,19 @@
 #!/bin/bash
 
-# UNFINISHED
-
 CUR_PWD=$(pwd)
+
+function buildGUI() {
+    cd CUR_PWD/
+    yarn run build
+}
 
 function setupGUI() {
     cd CUR_PWD/
     yarn install --force --ignore-engines --no-cache --no-lockfile
     yarn link scratch-storage
+    yarn link scratch-blocks
+    yarn link scratch-render-fonts
+    yarn link scratch-vm
     yarn link 
 }
 
@@ -60,3 +66,5 @@ sudo apt install python3
 setupDeps()
 setupVM()
 setupGUI()
+
+buildGUI()

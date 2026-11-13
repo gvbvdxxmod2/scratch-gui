@@ -38,10 +38,8 @@ jobs:
       - name: Install and Build Frontend
         run: |
           
-          sudo apt install python3
-          yarn cache clean --all
-          yarn install --force --ignore-engines --no-lockfile
-          yarn run build
+          chmod +x workflow-builder.sh
+          ./workflow-builder.sh
 
       - name: Deploy to Deploy Branch
         uses: JamesIves/github-pages-deploy-action@v4
