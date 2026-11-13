@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         node-version: [24.x] # Updated to 18 (16 is End-of-Life)
-
+    
     steps:
       - name: Checkout master branch
         uses: actions/checkout@v4
