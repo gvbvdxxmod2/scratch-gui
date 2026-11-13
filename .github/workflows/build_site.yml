@@ -39,7 +39,6 @@ jobs:
         run: |
           
           sudo apt install python3
-          npm cache clean
           npm install --force --ignore-engines --no-lockfile
           npm run build
 
