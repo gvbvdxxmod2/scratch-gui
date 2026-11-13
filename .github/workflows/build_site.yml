@@ -30,7 +30,8 @@ jobs:
         run: |
           
           sudo apt install python3
-          yarn install --force --ignore-engines --no-cache --no-lockfile
+          yarn cache clean --all
+          yarn install --force --ignore-engines --no-lockfile
           yarn run build
 
       - name: Deploy to Deploy Branch
