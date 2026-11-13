@@ -31,9 +31,9 @@ jobs:
         with:
           path: ~/.cache/yarn
           # Increment the version suffix here (e.g., from -v1 to -v2) to discard the corrupted cache
-          key: ${{ runner.os }}-yarn-v2-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ github.sha }}-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-v2-
+            ${{ runner.os }}-yarn-${{ github.sha }}-
 
       - name: Install and Build Frontend
         run: |
