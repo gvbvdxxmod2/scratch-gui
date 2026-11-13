@@ -55,7 +55,10 @@ import returnIcon from './custom/return.svg';
 import galleryIcon from './gallery/gallery.svg';
 import {APP_NAME} from '../../brand';
 
+import GvbvdxxMod2Extensions from "./gm2-extensions.jsx";
+
 export default [
+    ...GvbvdxxMod2Extensions,
     {
         name: (
             <FormattedMessage
