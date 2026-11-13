@@ -1362,7 +1362,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* overridden by src/lib/themes/guiHelpers.js */\n\n/* make sure to keep these in sync with other constants,\ne.g. STAGE_DIMENSION_DEFAULTS in lib/screen-utils.js */\n\n/* layout contants from `layout-constants.js` */\n\n.library-item_library-item_1DcMO {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: flex-start;\n    flex-basis: 160px;\n    position: relative;\n    height: 160px;\n    max-width: 160px;\n    margin: 0.5rem;\n    padding: 1rem 1rem 0 1rem;\n    font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    color: var(--text-primary);\n    background: var(--ui-white);\n    border-width: 2px;\n    border-style: solid;\n    border-color: var(--ui-black-transparent);\n    border-radius: 0.5rem;\n    text-align: center;\n    cursor: pointer;\n}\n\n.library-item_library-item-extension_3xus9 {\n    align-self: stretch;\n}\n\n.library-item_library-item_1DcMO:hover {\n    border-width: 2px;\n    border-color: var(--looks-secondary);\n}\n\n.library-item_hidden_1ILc7 {\n    display: none;\n}\n\n.library-item_disabled_1-aDH {\n    opacity: .5;\n    cursor: auto;\n}\n\n.library-item_disabled_1-aDH:hover {\n    border-color: var(--ui-black-transparent);\n}\n\n.library-item_library-item-image-container-wrapper_x4EWB {\n    height: 100px;\n    width: 100%;\n    position: relative;\n}\n\n.library-item_library-item-image-container_3dqjX {\n    position: absolute;\n    height: 100px;\n    width: 100%;\n}\n\n.library-item_library-item-inset-image-container_3PLJ1 {\n    position: relative;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-top: -2.5rem;\n    align-self: flex-start;\n    background-color: var(--pen-primary);\n    width: 3.5rem;\n    height: 3.5rem;\n    border-radius: 0.5rem;\n    border: 0.25rem solid var(--ui-white);\n}\n\n[dir=\"ltr\"] .library-item_library-item-inset-image-container_3PLJ1 {\n    margin-left: 1rem;\n}\n\n[dir=\"rtl\"] .library-item_library-item-inset-image-container_3PLJ1 {\n    margin-right: 1rem;\n}\n\n.library-item_library-item-image_2bORn {\n    max-width: 100%;\n    max-height: 100%;\n}\n\n.library-item_library-item-inset-image_17Tmt {\n    width: 2.5rem;\n}\n\n.library-item_library-item-name_2qMXu {\n    width: 80%;\n    margin: 0.25rem 0;\n    text-align: center;\n\n    /*\n        For truncating overflowing text gracefully\n        Min-width is for a bug: https://css-tricks.com/flexbox-truncated-text\n    */\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    min-width: 0;\n}\n\n.library-item_featured-item_3V2-t {\n    flex-basis: 300px;\n    max-width: 300px;\n    height: auto;\n    overflow: hidden;\n    padding: 0;\n}\n\n.library-item_featured-image-container_1KIHG {\n    position: relative;\n    width: 100%;\n}\n\n.library-item_featured-image_2gwZ6 {\n    width: 100%;\n    aspect-ratio: 2;\n}\n\n.library-item_featured-text_2KFel {\n    font-weight: bold;\n    padding: 10px;\n    /* height: 140px; */\n    width: 300px;\n}\n\n[dir=\"ltr\"] .library-item_featured-extension-text_22A1k {\n    text-align: left;\n    padding-left: 1.25rem;\n}\n\n[dir=\"rtl\"] .library-item_featured-extension-text_22A1k {\n    text-align: right;\n    padding-right: 1.25rem;\n}\n\n.library-item_featured-description_MjIJw {\n    display: block;\n    font-weight: normal;\n    line-height: 1.375rem;\n    padding-top: .3125rem;\n    padding-bottom: .25rem;\n}\n\n.library-item_featured-extension-metadata_3D8E8 {\n    width: 100%;\n    padding: 0 1.25rem 1rem 1.25rem;\n    display: flex;\n    flex-direction: row;\n    align-items: flex-start;\n    font-size: 12px;\n    color: var(--text-primary);\n    opacity: 0.75;\n}\n\n[dir=\"ltr\"] .library-item_featured-extension-metadata_3D8E8 {\n    text-align: left;\n}\n\n[dir=\"rtl\"] .library-item_featured-extension-metadata_3D8E8 {\n    text-align: right;\n}\n\n.library-item_featured-extension-requirement_2u2IO {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n.library-item_featured-extension-collaboration_2dGS9 {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n.library-item_featured-extension-metadata-detail_1M9BV {\n    height: 100%;\n    padding-top: 0.4rem;\n    font-weight: bold;\n}\n\n.library-item_featured-extension-metadata-detail_1M9BV img {\n    margin-right: 0.25rem;\n    width: 20px;\n    height: 20px;\n}\n\n.library-item_extension-links_3wgib {\n    width: 300px;\n    padding: 0 1.25rem 1rem 1.25rem;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    opacity: 0.75;\n    text-align: left;\n}\n\n.library-item_extension-links_3wgib a {\n    color: inherit !important;\n    text-decoration: underline;\n}\n\n.library-item_coming-soon-text_30OPh {\n    position: absolute;\n    background-color: var(--data-primary);\n    border-radius: 1rem;\n    box-shadow: 0 0 .5rem hsla(0, 0%, 0%, .25);\n    padding: .5rem 1rem;\n    font-size: .875rem;\n    font-weight: bold;\n    color: var(--ui-white);\n}\n\n[dir=\"ltr\"] .library-item_coming-soon-text_30OPh {\n    transform: translate(calc(2 * 0.5rem), calc(2 * 0.5rem));\n}\n\n[dir=\"rtl\"] .library-item_coming-soon-text_30OPh {\n    transform: translate(calc(-2 * 0.5rem), calc(2 * 0.5rem));\n}\n\n.library-item_favorite-container_2M2ay {\n    display: none;\n    background: none;\n    border: none;\n    padding: 0;\n    margin: 0;\n    position: absolute;\n    top: 0.5rem;\n    left: 0.5rem;\n}\n\n.library-item_favorite-icon_1ENdX {\n    width: 32px;\n    height: 32px;\n}\n\n.library-item_favorite-container_2M2ay.library-item_active_2mL0e,\n.library-item_library-item_1DcMO:hover .library-item_favorite-container_2M2ay {\n    display: block;\n}\n", ""]);
+exports.push([module.i, "/* overridden by src/lib/themes/guiHelpers.js */\n\n/* make sure to keep these in sync with other constants,\ne.g. STAGE_DIMENSION_DEFAULTS in lib/screen-utils.js */\n\n/* layout contants from `layout-constants.js` */\n\n.library-item_library-item_1DcMO {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: flex-start;\n    flex-basis: 160px;\n    position: relative;\n    height: 160px;\n    max-width: 160px;\n    margin: 0.5rem;\n    padding: 1rem 1rem 0 1rem;\n    font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    color: var(--text-primary);\n    background: var(--ui-white);\n    border-width: 2px;\n    border-style: solid;\n    border-color: var(--ui-black-transparent);\n    border-radius: 0.5rem;\n    text-align: center;\n    cursor: pointer;\n}\n\n.library-item_library-item-extension_3xus9 {\n    align-self: stretch;\n}\n\n.library-item_library-item_1DcMO:hover {\n    border-width: 2px;\n    border-color: var(--looks-secondary);\n}\n\n.library-item_hidden_1ILc7 {\n    display: none;\n}\n\n.library-item_disabled_1-aDH {\n    opacity: .5;\n    cursor: auto;\n}\n\n.library-item_disabled_1-aDH:hover {\n    border-color: var(--ui-black-transparent);\n}\n\n.library-item_library-item-image-container-wrapper_x4EWB {\n    height: 100px;\n    width: 100%;\n    position: relative;\n}\n\n.library-item_library-item-image-container_3dqjX {\n    position: absolute;\n    height: 100px;\n    width: 100%;\n}\n\n.library-item_library-item-inset-image-container_3PLJ1 {\n    position: relative;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-top: -2.5rem;\n    align-self: flex-start;\n    background-color: var(--pen-primary);\n    width: 3.5rem;\n    height: 3.5rem;\n    border-radius: 0.5rem;\n    border: 0.25rem solid var(--ui-white);\n}\n\n[dir=\"ltr\"] .library-item_library-item-inset-image-container_3PLJ1 {\n    margin-left: 1rem;\n}\n\n[dir=\"rtl\"] .library-item_library-item-inset-image-container_3PLJ1 {\n    margin-right: 1rem;\n}\n\n.library-item_library-item-image_2bORn {\n    max-width: 100%;\n    max-height: 100%;\n}\n\n.library-item_library-item-inset-image_17Tmt {\n    width: 2.5rem;\n}\n\n.library-item_library-item-name_2qMXu {\n    width: 80%;\n    margin: 0.25rem 0;\n    text-align: center;\n\n    /*\n        For truncating overflowing text gracefully\n        Min-width is for a bug: https://css-tricks.com/flexbox-truncated-text\n    */\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n    min-width: 0;\n}\n\n.library-item_featured-item_3V2-t {\n    flex-basis: 300px;\n    max-width: 300px;\n    height: auto;\n    overflow: hidden;\n    padding: 0;\n}\n\n.library-item_featured-image-container_1KIHG {\n    position: relative;\n    width: 100%;\n}\n\n.library-item_featured-image_2gwZ6 {\n    width: 100%;\n    object-fit:contain;\n}\n\n.library-item_featured-text_2KFel {\n    font-weight: bold;\n    padding: 10px;\n    /* height: 140px; */\n    width: 300px;\n}\n\n[dir=\"ltr\"] .library-item_featured-extension-text_22A1k {\n    text-align: left;\n    padding-left: 1.25rem;\n}\n\n[dir=\"rtl\"] .library-item_featured-extension-text_22A1k {\n    text-align: right;\n    padding-right: 1.25rem;\n}\n\n.library-item_featured-description_MjIJw {\n    display: block;\n    font-weight: normal;\n    line-height: 1.375rem;\n    padding-top: .3125rem;\n    padding-bottom: .25rem;\n}\n\n.library-item_featured-extension-metadata_3D8E8 {\n    width: 100%;\n    padding: 0 1.25rem 1rem 1.25rem;\n    display: flex;\n    flex-direction: row;\n    align-items: flex-start;\n    font-size: 12px;\n    color: var(--text-primary);\n    opacity: 0.75;\n}\n\n[dir=\"ltr\"] .library-item_featured-extension-metadata_3D8E8 {\n    text-align: left;\n}\n\n[dir=\"rtl\"] .library-item_featured-extension-metadata_3D8E8 {\n    text-align: right;\n}\n\n.library-item_featured-extension-requirement_2u2IO {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n.library-item_featured-extension-collaboration_2dGS9 {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n.library-item_featured-extension-metadata-detail_1M9BV {\n    height: 100%;\n    padding-top: 0.4rem;\n    font-weight: bold;\n}\n\n.library-item_featured-extension-metadata-detail_1M9BV img {\n    margin-right: 0.25rem;\n    width: 20px;\n    height: 20px;\n}\n\n.library-item_extension-links_3wgib {\n    width: 300px;\n    padding: 0 1.25rem 1rem 1.25rem;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    opacity: 0.75;\n    text-align: left;\n}\n\n.library-item_extension-links_3wgib a {\n    color: inherit !important;\n    text-decoration: underline;\n}\n\n.library-item_coming-soon-text_30OPh {\n    position: absolute;\n    background-color: var(--data-primary);\n    border-radius: 1rem;\n    box-shadow: 0 0 .5rem hsla(0, 0%, 0%, .25);\n    padding: .5rem 1rem;\n    font-size: .875rem;\n    font-weight: bold;\n    color: var(--ui-white);\n}\n\n[dir=\"ltr\"] .library-item_coming-soon-text_30OPh {\n    transform: translate(calc(2 * 0.5rem), calc(2 * 0.5rem));\n}\n\n[dir=\"rtl\"] .library-item_coming-soon-text_30OPh {\n    transform: translate(calc(-2 * 0.5rem), calc(2 * 0.5rem));\n}\n\n.library-item_favorite-container_2M2ay {\n    display: none;\n    background: none;\n    border: none;\n    padding: 0;\n    margin: 0;\n    position: absolute;\n    top: 0.5rem;\n    left: 0.5rem;\n}\n\n.library-item_favorite-icon_1ENdX {\n    width: 32px;\n    height: 32px;\n}\n\n.library-item_favorite-container_2M2ay.library-item_active_2mL0e,\n.library-item_library-item_1DcMO:hover .library-item_favorite-container_2M2ay {\n    display: block;\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -40811,6 +40811,72 @@ const translateVideo = (videoId, locale) => {
 
 /***/ }),
 
+/***/ "./src/lib/libraries/extensions/audio_context/big.png":
+/*!************************************************************!*\
+  !*** ./src/lib/libraries/extensions/audio_context/big.png ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/0f3480ea3ddc7ce9dd44deb423c6fb1a.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/audio_context/small.png":
+/*!**************************************************************!*\
+  !*** ./src/lib/libraries/extensions/audio_context/small.png ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAkdEVYdERlc2NyaXB0aW9uAEdhbWVwYWQuIG1vbm9jaHJvbWUgaWNvbhGLVc0AAANlSURBVHhe7dxRbuIwGIVRmAV0/+vsBhhQkRh1gCTEjn9fnSNVzSNKP67sl54v36fLCUL8uf+GCIImiqCJImiiCJoogiaKoIkiaKIImiiCntT56/HDg6An9DtiUT8IejLifU/QExHzMkFPQszrCHoCYl5P0MWJeRtBFybm7QRdlJg/I+iC3sV8+b4/8JSgixHzPoIuRMz7CboIMbch6ALE3I6gBxNzW4IeSMztCXoQMfch6AHE3I+gDybmvgR9IDH3J+iDiPkYgj6AmI8j6M7EfCxBdyTm4wm6EzGPIegOxDyOoBsT81iCbkjM4wm6ETHXIOgGxFyHoHcScy2C3kHM9Qj6Q2KuSdAfEHNdgt5IzLUJegMx1yfolcQ8B0GvIOZ5CHqBmOci6DfEPB9BvyDmOQn6CTHPS9C/iHlu5+sf6XJ/HuJdQJVUivnZO/Nl+zF0ocVMa44cC8Q8F0G/Ieb5CPoFMc9p6KWwyuVmtkuWS+FrFpoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiXK+fJ8u9+fDnb/uDwVd30tZz95b5c97pGELXTlm5uXIQRRBE2VY0NXPfLcjkWPRfIZeCqtYCrfal8+l8DVHjqulGKz1PAR9t2bhRF2foP9xi9paz03QT1jreQn6BWs9J0EvsNZzEfQKa9ea8QS9gSNIfYLeyFrXJugPWeuaBL2Dta5H0A1Y6zoE3chS1Dei7k/QDa09ggi7H0F3YK3HEXQn1noMQXdmrY8l6AOsXWv2E/SBHEH6E/TBrHVfgh7EWvch6IGsdXuCLsBatyPoIpaivhH1MkEX4giyn6ALWrPWPCfootasNf8TdHGi3kbQE1iz1s7WPwQ9EWu9TNCTEfV7gg4h9B+CntDveMX84D/4E8VCE0XQRBE0UQRNFEETRdBEETRRBE0UQRNF0EQRNFEETRRBE0XQBDmd/gKDn9ES1n9HXQAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/beepbox_synth/big.png":
+/*!************************************************************!*\
+  !*** ./src/lib/libraries/extensions/beepbox_synth/big.png ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/e7eea22d36a62e112fa0317d17e4148a.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/beepbox_synth/small.png":
+/*!**************************************************************!*\
+  !*** ./src/lib/libraries/extensions/beepbox_synth/small.png ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/bc379b7abaee10f2e04663f1f3b02751.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/better_audio/big.png":
+/*!***********************************************************!*\
+  !*** ./src/lib/libraries/extensions/better_audio/big.png ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/0c3344074f5980576a5fc0fb5710df2f.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/better_audio/small.png":
+/*!*************************************************************!*\
+  !*** ./src/lib/libraries/extensions/better_audio/small.png ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
 /***/ "./src/lib/libraries/extensions/boost/boost-button-illustration.svg":
 /*!**************************************************************************!*\
   !*** ./src/lib/libraries/extensions/boost/boost-button-illustration.svg ***!
@@ -40874,6 +40940,28 @@ module.exports = __webpack_require__.p + "static/assets/cf07199bb768b01e6ac2a5c6
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "static/assets/89833a109ba5105c76ee1fb007d6811b.svg";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/dialog/dialogs.png":
+/*!*********************************************************!*\
+  !*** ./src/lib/libraries/extensions/dialog/dialogs.png ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/8541dbe906ce639ebb97662cfad994a2.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/dialog/small.png":
+/*!*******************************************************!*\
+  !*** ./src/lib/libraries/extensions/dialog/small.png ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUQSURBVHhe7d3tlaJKFEbhjqADIiDjIRpymBgIxjmnQMSCVw4KWNi71vNnVkvJuuzmq8X7c/33C8wiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEAYk4IBEHJOKARByQiAMScUAiDkjEsd61NU1TXy6VsfEzO+wH6RV13bTt1eTzFI841iOOk2kb20y+pfotkw/7Sd1cTb5gWGs1VD/m9WFrZyvZtNnMxSKOKOI4q7YObLSqNrZ3z5ZdcG0tCu9iw1FdjIWav1dhiENrG98h9QvvMCyP7B0LQxwacWT/PqmN47jaLt+z2LEMG2llVh/mDkQcc4gjIY4Z1sWeh5Nh+DlpyaelxDGR5gpM1w+/Np27x9W2fvHr179yLuI4BHHsgThy4QOKz+XTTWaY0V34ZPfQ0sosx/o5xDFyOw+NDJ8pWzzmfqeVS9ljEMceiGOkrbsTjqVhL0kTZYt/HeIYIY5HxDHSXGJHFXuNX2jki38d4hiJxsGe41SIYw/EMRKNw4fPlC3+dYhjhDgeEcdI9GqlGz6XT5dN8kWIY2TNTbA07E2r+jyfCV2LOEaI4xFxjKQHUuLHlWFUl9pYJPmEJ0ccI8TxiDgmVh1YHkd6dMYfTPmOUIhjIu08Xth/5CPtTE59RkIcE8RxQxxzbjc83i/Ex2krIY45xJEQh7bmbnpkWCSpk/AKfBpxLEifC95oF9IPf4baPw8yea/SEMcC4ji9/eJw6cGCyDusGuX3QRwBxHFq+8ZxY4XcHyzYYPja+ApN3qgQxPGibSrZdJU2RxwvIo7TOD6OQevXM/4Ht/5d1o9iTz6I413EUboPxnE3fY4+OKyObKoyEMf2LJLu1ll4+L7DZPN8HHFsjzjKUlQcvRV/tPPV8jXLZvg04tgNcRSixDhWfCshceypzDjCnwghjj0Rxx6IY0/EUYJQHJfm4NtNtlahFeNSdlfEsYcviSO0816KwyZJ8/ingLsPAr91DIo//5IOdoce72KI4444MuePI/y9CbYJfCtkiw9mtqX9o3+WYN2W85e3oXVK49lafVTpcQy/zdWl6b6C/v7T20c7Q7+d6cDux/Zh8Uwq7MkGtTWo6yb9f0B95IvbGcbwTfgpq9jw1xZ4ndIhjhvimCg9jvi2Xxq+DZ5thqU4dhmHX0CtQhw3xDHxZ+JIO2+TzX/3gTj8KFfg7Y3BX4nj2dlGJ37lucGwtyn3VGNAHDfEMfEH4oj/vW3dl9S+PJbOfopBHCPE8eir46gu6esOVp70pQ8Hr/p8cHBU6ctbQpmWofQ47Df5tV9mv2P2/PJkSds23QNL/YyvDr9/l+bK5i8fcUjEUXocPfuPm+5M26aybTW3uewH/lSi395+r4kZ6Q9ptgb2/t0qpLWYju4nVXpVus+++ZocizgCiAPIEAck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHJCIAxJxQCIOSMQBiTggEQck4oBEHBD+/f4HsUQyQPEzmhIAAAAASUVORK5CYII="
 
 /***/ }),
 
@@ -40943,6 +41031,28 @@ module.exports = __webpack_require__.p + "static/assets/5b36d8cf15d803226e2fe4c0
 
 /***/ }),
 
+/***/ "./src/lib/libraries/extensions/gamepad/gamepads-thumbnail.svg":
+/*!*********************************************************************!*\
+  !*** ./src/lib/libraries/extensions/gamepad/gamepads-thumbnail.svg ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/5ac0eea6bf13b9db731779ca3ded2302.svg";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/gamepad/small.png":
+/*!********************************************************!*\
+  !*** ./src/lib/libraries/extensions/gamepad/small.png ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/c84261bddb0aa7ba4c3aa9f4c259c00e.png";
+
+/***/ }),
+
 /***/ "./src/lib/libraries/extensions/gdxfor/gdxfor-illustration.svg":
 /*!*********************************************************************!*\
   !*** ./src/lib/libraries/extensions/gdxfor/gdxfor-illustration.svg ***!
@@ -40973,6 +41083,406 @@ module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAi
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "static/assets/c73619fea5bb43c53a080399a35273be.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/gm2-extensions.jsx":
+/*!*********************************************************!*\
+  !*** ./src/lib/libraries/extensions/gm2-extensions.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_intl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-intl */ "./node_modules/react-intl/lib/index.es.js");
+/* harmony import */ var _brand__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../brand */ "./src/lib/brand.js");
+/* harmony import */ var _brand__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_brand__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _dialog_dialogs_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dialog/dialogs.png */ "./src/lib/libraries/extensions/dialog/dialogs.png");
+/* harmony import */ var _dialog_dialogs_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_dialog_dialogs_png__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _dialog_small_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dialog/small.png */ "./src/lib/libraries/extensions/dialog/small.png");
+/* harmony import */ var _dialog_small_png__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_dialog_small_png__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _speech4pc_speech_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./speech4pc/speech.png */ "./src/lib/libraries/extensions/speech4pc/speech.png");
+/* harmony import */ var _speech4pc_speech_png__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_speech4pc_speech_png__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _speech4pc_small_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./speech4pc/small.png */ "./src/lib/libraries/extensions/speech4pc/small.png");
+/* harmony import */ var _speech4pc_small_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_speech4pc_small_png__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _websites_websites_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./websites/websites.png */ "./src/lib/libraries/extensions/websites/websites.png");
+/* harmony import */ var _websites_websites_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_websites_websites_png__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _websites_small_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./websites/small.png */ "./src/lib/libraries/extensions/websites/small.png");
+/* harmony import */ var _websites_small_png__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_websites_small_png__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _better_audio_big_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./better_audio/big.png */ "./src/lib/libraries/extensions/better_audio/big.png");
+/* harmony import */ var _better_audio_big_png__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_better_audio_big_png__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _better_audio_small_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./better_audio/small.png */ "./src/lib/libraries/extensions/better_audio/small.png");
+/* harmony import */ var _better_audio_small_png__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_better_audio_small_png__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _gamepad_gamepads_thumbnail_svg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./gamepad/gamepads-thumbnail.svg */ "./src/lib/libraries/extensions/gamepad/gamepads-thumbnail.svg");
+/* harmony import */ var _gamepad_gamepads_thumbnail_svg__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_gamepad_gamepads_thumbnail_svg__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _gamepad_small_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./gamepad/small.png */ "./src/lib/libraries/extensions/gamepad/small.png");
+/* harmony import */ var _gamepad_small_png__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_gamepad_small_png__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _webmidi_small_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./webmidi/small.png */ "./src/lib/libraries/extensions/webmidi/small.png");
+/* harmony import */ var _webmidi_small_png__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_webmidi_small_png__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _webmidi_big_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./webmidi/big.png */ "./src/lib/libraries/extensions/webmidi/big.png");
+/* harmony import */ var _webmidi_big_png__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_webmidi_big_png__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _beepbox_synth_small_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./beepbox_synth/small.png */ "./src/lib/libraries/extensions/beepbox_synth/small.png");
+/* harmony import */ var _beepbox_synth_small_png__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_beepbox_synth_small_png__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _beepbox_synth_big_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./beepbox_synth/big.png */ "./src/lib/libraries/extensions/beepbox_synth/big.png");
+/* harmony import */ var _beepbox_synth_big_png__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_beepbox_synth_big_png__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _websockets_websockets_thumbnail_svg__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./websockets/websockets-thumbnail.svg */ "./src/lib/libraries/extensions/websockets/websockets-thumbnail.svg");
+/* harmony import */ var _websockets_websockets_thumbnail_svg__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_websockets_websockets_thumbnail_svg__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _audio_context_small_png__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./audio_context/small.png */ "./src/lib/libraries/extensions/audio_context/small.png");
+/* harmony import */ var _audio_context_small_png__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_audio_context_small_png__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _audio_context_big_png__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./audio_context/big.png */ "./src/lib/libraries/extensions/audio_context/big.png");
+/* harmony import */ var _audio_context_big_png__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_audio_context_big_png__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _userdata_small_png__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./userdata/small.png */ "./src/lib/libraries/extensions/userdata/small.png");
+/* harmony import */ var _userdata_small_png__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_userdata_small_png__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _userdata_big_png__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./userdata/big.png */ "./src/lib/libraries/extensions/userdata/big.png");
+/* harmony import */ var _userdata_big_png__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_userdata_big_png__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var _roku_small_png__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./roku/small.png */ "./src/lib/libraries/extensions/roku/small.png");
+/* harmony import */ var _roku_small_png__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_roku_small_png__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var _roku_big_png__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./roku/big.png */ "./src/lib/libraries/extensions/roku/big.png");
+/* harmony import */ var _roku_big_png__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(_roku_big_png__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var _sprite_canvas_sprite_canvas_svg__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./sprite_canvas/sprite_canvas.svg */ "./src/lib/libraries/extensions/sprite_canvas/sprite_canvas.svg");
+/* harmony import */ var _sprite_canvas_sprite_canvas_svg__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(_sprite_canvas_sprite_canvas_svg__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var _sound_analyser_big_svg__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./sound_analyser/big.svg */ "./src/lib/libraries/extensions/sound_analyser/big.svg");
+/* harmony import */ var _sound_analyser_big_svg__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(_sound_analyser_big_svg__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var _nes_emulator_nes_small_svg__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./nes_emulator/nes-small.svg */ "./src/lib/libraries/extensions/nes_emulator/nes-small.svg");
+/* harmony import */ var _nes_emulator_nes_small_svg__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(_nes_emulator_nes_small_svg__WEBPACK_IMPORTED_MODULE_26__);
+/* harmony import */ var _nes_emulator_nes_svg__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./nes_emulator/nes.svg */ "./src/lib/libraries/extensions/nes_emulator/nes.svg");
+/* harmony import */ var _nes_emulator_nes_svg__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(_nes_emulator_nes_svg__WEBPACK_IMPORTED_MODULE_27__);
+/* harmony import */ var _html5_small_svg__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./html5/small.svg */ "./src/lib/libraries/extensions/html5/small.svg");
+/* harmony import */ var _html5_small_svg__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(_html5_small_svg__WEBPACK_IMPORTED_MODULE_28__);
+/* harmony import */ var _html5_html5_thumbnail_svg__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./html5/html5-thumbnail.svg */ "./src/lib/libraries/extensions/html5/html5-thumbnail.svg");
+/* harmony import */ var _html5_html5_thumbnail_svg__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(_html5_html5_thumbnail_svg__WEBPACK_IMPORTED_MODULE_29__);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ([{
+  incompatibleWithScratch: true,
+  name: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Sprite Canvases",
+    id: "gm2.extensions.spritecanvas.name"
+  }),
+  extensionId: 'spritecanvas',
+  iconURL: _sprite_canvas_sprite_canvas_svg__WEBPACK_IMPORTED_MODULE_24___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Draw on sprites, not just the stage. Additionally lets you export the drawings as PNGs as well.",
+    id: "gm2.extensions.spritecanvas.description"
+  }),
+  featured: true,
+  tags: ["gm2"]
+}, {
+  incompatibleWithScratch: true,
+  name: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "NES Emulation",
+    id: "gm2.extensions.nesemulator.name"
+  }),
+  extensionId: 'nesemulator',
+  insetIconURL: null,
+  iconURL: _nes_emulator_nes_svg__WEBPACK_IMPORTED_MODULE_27___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Run Nintendo Entertainment System games and control them through your projects code.",
+    id: "gm2.extensions.nes.description"
+  }),
+  featured: true,
+  tags: ["gm2"]
+}, {
+  incompatibleWithScratch: true,
+  name: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Sound Analyser",
+    id: "gm2.extensions.sndanalyser.name"
+  }),
+  extensionId: 'sndanalyser',
+  iconURL: _sound_analyser_big_svg__WEBPACK_IMPORTED_MODULE_25___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Read the information about audio playing from the project.",
+    id: "gm2.extensions.sndanalyser.description"
+  }),
+  featured: true,
+  tags: ["gm2"]
+}, {
+  incompatibleWithScratch: true,
+  name: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "HTML5 Elements",
+    id: "gm2.extensions.html5.name"
+  }),
+  extensionId: 'html5',
+  insetIconURL: null,
+  iconURL: _html5_html5_thumbnail_svg__WEBPACK_IMPORTED_MODULE_29___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Create HTML elements outside the stage. Fun & useful as an effect for making things look like they have escaped the stage.",
+    id: "gm2.extensions.html5.description"
+  }),
+  featured: true,
+  tags: ["gm2"]
+}, {
+  incompatibleWithScratch: true,
+  name: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Roku Controls",
+    id: "gm2.extensions.roku.name"
+  }),
+  extensionId: 'roku',
+  iconURL: _roku_big_png__WEBPACK_IMPORTED_MODULE_23___default.a,
+  insetIconURL: _roku_small_png__WEBPACK_IMPORTED_MODULE_22___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Control your Roku devices using code from your project, requires special {appname} software installed.",
+    id: "gm2.extensions.roku.description",
+    values: {
+      appname: _brand__WEBPACK_IMPORTED_MODULE_2__["APP_NAME"]
+    }
+  }),
+  featured: true,
+  disabled: false,
+  internetConnectionRequired: true,
+  bluetoothRequired: false,
+  helpLink: '',
+  softwareRequired: true,
+  tags: ["gm2"]
+}, {
+  incompatibleWithScratch: true,
+  name: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "User Information",
+    id: "gm2.extensions.userdata.name"
+  }),
+  extensionId: 'userdata',
+  iconURL: _userdata_big_png__WEBPACK_IMPORTED_MODULE_21___default.a,
+  insetIconURL: _userdata_small_png__WEBPACK_IMPORTED_MODULE_20___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Retrieve the user's network information in your code easily.",
+    id: "gm2.extensions.userdata.description"
+  }),
+  featured: true,
+  disabled: false,
+  internetConnectionRequired: false,
+  bluetoothRequired: false,
+  helpLink: '',
+  tags: ["gm2"]
+}, {
+  incompatibleWithScratch: true,
+  name: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Audio Context blocks",
+    id: "gm2.extensions.audioctx.name"
+  }),
+  extensionId: 'audioctx',
+  iconURL: _audio_context_big_png__WEBPACK_IMPORTED_MODULE_19___default.a,
+  insetIconURL: _audio_context_small_png__WEBPACK_IMPORTED_MODULE_18___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Play 8-bit sounds",
+    id: "gm2.extensions.audioctx.description"
+  }),
+  featured: true,
+  disabled: false,
+  internetConnectionRequired: false,
+  bluetoothRequired: false,
+  helpLink: '',
+  tags: ["gm2"]
+}, {
+  incompatibleWithScratch: true,
+  name: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Gvbvdxx Mod Websockets",
+    id: "gm2.extensions.websocket.name"
+  }),
+  extensionId: 'websocket',
+  iconURL: _websockets_websockets_thumbnail_svg__WEBPACK_IMPORTED_MODULE_17___default.a,
+  insetIconURL: null,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Enables you to connect to an server built for Gvbvdxx Mod, though this is (somewhat) deprecated and shouldn't be used anymore.",
+    id: "gm2.extensions.websocket.description"
+  }),
+  featured: true,
+  disabled: false,
+  internetConnectionRequired: false,
+  bluetoothRequired: false,
+  helpLink: '',
+  tags: ["gm2"]
+}, {
+  incompatibleWithScratch: true,
+  name: 'Beepbox',
+  extensionId: 'beepboxsynth',
+  iconURL: _beepbox_synth_big_png__WEBPACK_IMPORTED_MODULE_16___default.a,
+  insetIconURL: _beepbox_synth_small_png__WEBPACK_IMPORTED_MODULE_15___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Play {beepboxlink} songs without exporting them.",
+    id: "gm2.extensions.beepboxsynth.description",
+    values: {
+      beepboxlink: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://beepbox.co/",
+        target: "_blank",
+        onClick: e => e.stopPropagation()
+      }, "https://beepbox.co")
+    }
+  }),
+  featured: true,
+  disabled: false,
+  internetConnectionRequired: false,
+  bluetoothRequired: false,
+  helpLink: '',
+  tags: ["gm2"]
+}, {
+  incompatibleWithScratch: true,
+  name: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "WebMIDI",
+    id: "gui.extension.webmidi.name"
+  }),
+  extensionId: 'webmidi',
+  iconURL: _webmidi_big_png__WEBPACK_IMPORTED_MODULE_14___default.a,
+  insetIconURL: _webmidi_small_png__WEBPACK_IMPORTED_MODULE_13___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Web MIDI for Musical Instrument",
+    id: "gui.extension.webmidi.description"
+  }),
+  featured: true,
+  tags: ["gm2"]
+}, {
+  incompatibleWithScratch: true,
+  name: 'Gamepads',
+  extensionId: 'gamepad',
+  iconURL: _gamepad_gamepads_thumbnail_svg__WEBPACK_IMPORTED_MODULE_11___default.a,
+  insetIconURL: null,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Gamepad Support For Scratch",
+    id: "gui.extension.gamepad.description"
+  }),
+  featured: true,
+  disabled: false,
+  internetConnectionRequired: false,
+  bluetoothRequired: false,
+  helpLink: '',
+  tags: ["gm2"]
+}, {
+  incompatibleWithScratch: true,
+  name: 'Better Audio',
+  extensionId: 'betteraudio',
+  iconURL: _better_audio_big_png__WEBPACK_IMPORTED_MODULE_9___default.a,
+  insetIconURL: _better_audio_small_png__WEBPACK_IMPORTED_MODULE_10___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Better Audio",
+    id: "gui.extension.betteraudio.description"
+  }),
+  featured: true,
+  disabled: false,
+  internetConnectionRequired: false,
+  bluetoothRequired: false,
+  helpLink: '',
+  tags: ["gm2"]
+},
+/**    {
+        name: 'Scratch Control',
+        extensionId: 'scratch',
+        collaborator: 'gvbvdxx',
+        iconURL: scratchBigIcon,
+        insetIconURL: scratchSmallIcon,
+        description: (
+            <FormattedMessage
+                defaultMessage="Scratch Control"
+                description="Control Scratch Stuff"
+                id="gui.extension.scratchcontrol.description"
+            />
+        ),
+        featured: true,
+        disabled: false,
+        internetConnectionRequired: false,
+        bluetoothRequired: false,
+        helpLink: ''
+    },*/
+{
+  incompatibleWithScratch: true,
+  name: 'Website API',
+  extensionId: 'websites',
+  iconURL: _websites_websites_png__WEBPACK_IMPORTED_MODULE_7___default.a,
+  insetIconURL: _websites_small_png__WEBPACK_IMPORTED_MODULE_8___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Website API",
+    id: "gui.extension.websites.description"
+  }),
+  featured: true,
+  disabled: false,
+  internetConnectionRequired: false,
+  bluetoothRequired: false,
+  helpLink: '',
+  tags: ["gm2"]
+}, {
+  incompatibleWithScratch: true,
+  name: 'JS',
+  extensionId: 'dialogs',
+  iconURL: _dialog_dialogs_png__WEBPACK_IMPORTED_MODULE_3___default.a,
+  insetIconURL: _dialog_small_png__WEBPACK_IMPORTED_MODULE_4___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "JS",
+    id: "gui.extension.newblocks.description"
+  }),
+  featured: true,
+  disabled: false,
+  internetConnectionRequired: false,
+  bluetoothRequired: false,
+  helpLink: '',
+  tags: ["gm2"]
+}, {
+  incompatibleWithScratch: true,
+  name: 'speech4pc',
+  extensionId: 'speech4pc',
+  iconURL: _speech4pc_speech_png__WEBPACK_IMPORTED_MODULE_5___default.a,
+  insetIconURL: _speech4pc_small_png__WEBPACK_IMPORTED_MODULE_6___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Use your devices local text to speech service rather than Scratch's.",
+    id: "gui.extension.speech4pc.description"
+  }),
+  featured: true,
+  disabled: false,
+  internetConnectionRequired: false,
+  bluetoothRequired: false,
+  helpLink: '',
+  tags: ["gm2"]
+}]);
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/html5/html5-thumbnail.svg":
+/*!****************************************************************!*\
+  !*** ./src/lib/libraries/extensions/html5/html5-thumbnail.svg ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/4e635faa5fd1a0966e218cb23931b7e4.svg";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/html5/small.svg":
+/*!******************************************************!*\
+  !*** ./src/lib/libraries/extensions/html5/small.svg ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiB2aWV3Qm94PSIwLDAsMTgwLDE4MCI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE1MCwtOTApIj48ZyBkYXRhLXBhcGVyLWRhdGE9InsmcXVvdDtpc1BhaW50aW5nTGF5ZXImcXVvdDs6dHJ1ZX0iIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIHN0eWxlPSJtaXgtYmxlbmQtbW9kZTogbm9ybWFsIj48cGF0aCBkPSJNMTUwLDI3MHYtMTgwaDE4MHYxODB6IiBmaWxsPSJub25lIi8+PGc+PHBhdGggZD0iTTE5My4xNzg3Myw5OC43OTIzOGg3LjI5NnY3LjIzMjU1aDYuNzI1MDF2LTcuMjMyNTVoNy4yOTZ2MjEuODg3OTloLTcuMjk2di03LjI5NmgtNi42NjE1NnY3LjI5NmgtNy4zNTk0NE0yMjQuMTM5MTMsMTA2LjA4ODM4aC02LjQzOTUxdi03LjI5NTk5aDIwLjIwNjc0djcuMjk1OTloLTYuNDcxMjN2MTQuNTkyaC03LjI5Nk0yNDEuMTEwMjYsOTguNzkyMzhoNy42NDQ5NGw0LjY5NDgxLDcuNzA4MzhsNC42OTQ4MiwtNy43MDgzOGg3LjY0NDk0djIxLjg4Nzk5aC03LjI5NnYtMTAuODQ4ODRsLTUuMTA3Miw3Ljg2N2wtNS4xMDcyLC03Ljg2N3YxMC44NDg4NGgtNy4xNjkxMU0yNjkuNDA2MDQsOTguNzkyMzhoNy4yOTZ2MTQuNjU1NDRoMTAuMzQxMjh2Ny4yMzI1NWgtMTcuNjM3MjgiIGZpbGw9IiMwMDAwMDAiLz48cGF0aCBkPSJNMTkyLjkyNDk1LDI0OC4yMDE3MWwtMTAuNDY4MTYsLTExNy40OTcyN2gxMTUuMDg2NDNsLTEwLjQ2ODE3LDExNy40MzM4M2wtNDcuMTcwMjEsMTMuMDY5MzUiIGZpbGw9IiNlNDRkMjYiLz48cGF0aCBkPSJNMjQwLDI1MS4yMTUyOHYtMTEwLjg2NzQzaDQ3LjA0MzMybC04Ljk3NzI1LDEwMC4yNDA2NiIgZmlsbD0iI2YxNjUyOSIvPjxwYXRoIGQ9Ik0yMDMuODM3MjMsMTU0LjcxNzc4aDM2LjE2Mjc3djE0LjQwMTY3aC0yMC4zNjUzNWwxLjMzMjMxLDE0Ljc1MDZoMTkuMDMzMDR2MTQuMzY5OTVoLTMyLjIyOTI4TTIwOC40MDUxNiwyMDUuNDcyNTRoMTQuNDY1MTFsMS4wMTUxLDExLjUxNDk4bDE2LjExNDYzLDQuMzE0MTV2MTUuMDM2MWwtMjkuNTY0NjUsLTguMjQ3NjUiIGZpbGw9IiNlYmViZWIiLz48cGF0aCBkPSJNMjc0LjcwMzU3LDE2OS4xMTk0NWgtMzQuNzY3MDF2LTE0LjQwMTY2aDM2LjA5OTMyTTI2OS40Mzc3NiwyMjguMDkwMTRsLTI5LjUwMTIsOC4xODQyMXYtMTQuOTcyNjZsMTYuMDgyOTEsLTQuMzE0MTVsMS42ODEyNSwtMTguNzE1ODJoLTE3Ljc2NDE3di0xNC40MDE2NmgzMy40NjY0MiIgZmlsbD0iI2ZmZmZmZiIvPjwvZz48L2c+PC9nPjwvc3ZnPg=="
 
 /***/ }),
 
@@ -41063,6 +41573,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _gallery_gallery_svg__WEBPACK_IMPORTED_MODULE_36___default = /*#__PURE__*/__webpack_require__.n(_gallery_gallery_svg__WEBPACK_IMPORTED_MODULE_36__);
 /* harmony import */ var _brand__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ../../brand */ "./src/lib/brand.js");
 /* harmony import */ var _brand__WEBPACK_IMPORTED_MODULE_37___default = /*#__PURE__*/__webpack_require__.n(_brand__WEBPACK_IMPORTED_MODULE_37__);
+/* harmony import */ var _gm2_extensions_jsx__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./gm2-extensions.jsx */ "./src/lib/libraries/extensions/gm2-extensions.jsx");
 
 
 
@@ -41106,7 +41617,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = ([{
+
+/* harmony default export */ __webpack_exports__["default"] = ([..._gm2_extensions_jsx__WEBPACK_IMPORTED_MODULE_38__["default"], {
   name: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
     defaultMessage: "Music",
     id: "gui.extension.music.name"
@@ -41515,6 +42027,28 @@ module.exports = __webpack_require__.p + "static/assets/9c604018c786598c0f198af5
 
 /***/ }),
 
+/***/ "./src/lib/libraries/extensions/nes_emulator/nes-small.svg":
+/*!*****************************************************************!*\
+  !*** ./src/lib/libraries/extensions/nes_emulator/nes-small.svg ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/e9e97d44300b863ecf49440de27a407d.svg";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/nes_emulator/nes.svg":
+/*!***********************************************************!*\
+  !*** ./src/lib/libraries/extensions/nes_emulator/nes.svg ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/23e468c2c10c1a0c38400b2202bf1073.svg";
+
+/***/ }),
+
 /***/ "./src/lib/libraries/extensions/pen/pen-small.svg":
 /*!********************************************************!*\
   !*** ./src/lib/libraries/extensions/pen/pen-small.svg ***!
@@ -41534,6 +42068,72 @@ module.exports = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAi
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "static/assets/8969372a821bd2a0170ed9a68a3e238d.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/roku/big.png":
+/*!***************************************************!*\
+  !*** ./src/lib/libraries/extensions/roku/big.png ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/c4e57ae74e6f8faa69dd84f67fd9fc8f.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/roku/small.png":
+/*!*****************************************************!*\
+  !*** ./src/lib/libraries/extensions/roku/small.png ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/852e415b32e5db0074500f7a27d85e5c.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/sound_analyser/big.svg":
+/*!*************************************************************!*\
+  !*** ./src/lib/libraries/extensions/sound_analyser/big.svg ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/e2465625fe57ea828ac07e86fd9706f3.svg";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/speech4pc/small.png":
+/*!**********************************************************!*\
+  !*** ./src/lib/libraries/extensions/speech4pc/small.png ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/speech4pc/speech.png":
+/*!***********************************************************!*\
+  !*** ./src/lib/libraries/extensions/speech4pc/speech.png ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/391132fc1d4679f5a707a70007d69ea3.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/sprite_canvas/sprite_canvas.svg":
+/*!**********************************************************************!*\
+  !*** ./src/lib/libraries/extensions/sprite_canvas/sprite_canvas.svg ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/e93b5dfeb08c4290bfa7001a7e6b0725.svg";
 
 /***/ }),
 
@@ -41592,6 +42192,28 @@ module.exports = __webpack_require__.p + "static/assets/296357261fb7d74c06765aad
 
 /***/ }),
 
+/***/ "./src/lib/libraries/extensions/userdata/big.png":
+/*!*******************************************************!*\
+  !*** ./src/lib/libraries/extensions/userdata/big.png ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/cc83e14f65f4b89b14bbcfc9cb02cbd3.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/userdata/small.png":
+/*!*********************************************************!*\
+  !*** ./src/lib/libraries/extensions/userdata/small.png ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/bcb0e431783893f28081a7843ea6078b.png";
+
+/***/ }),
+
 /***/ "./src/lib/libraries/extensions/videoSensing/video-sensing-small.svg":
 /*!***************************************************************************!*\
   !*** ./src/lib/libraries/extensions/videoSensing/video-sensing-small.svg ***!
@@ -41611,6 +42233,61 @@ module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGlu
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "static/assets/6e51f9cfc9bfca2f4fb88d1fe1ec2615.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/webmidi/big.png":
+/*!******************************************************!*\
+  !*** ./src/lib/libraries/extensions/webmidi/big.png ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/a7daa7288b1b44df881e9a756e3c55c7.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/webmidi/small.png":
+/*!********************************************************!*\
+  !*** ./src/lib/libraries/extensions/webmidi/small.png ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAIAAAABc2X6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADCSURBVHhe7drBDkAwEADR1v//c/XgIBJ2I0I75l04sDLUrbW1ViK11u3sxERDlu14LnxGF14zzpA4GCYIzrzU0DhDuse+8CyvxiVNZzCdwXQG0xlMZzCdwXQG0xlMZzCdwXQG0xlMZzCdwXQG0xlMZzCdwXQG0z0WnNkaGnphSBA8S0aeS5outUG8u9ixmV9sIwzJBu/1R9646+CrIf7DdAbTGUxnMJ3BdAbTGUxnMJ3BdAbTGUxnMJ3BdAbT/Sy4lBU5yjan1+bS1AAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/websites/small.png":
+/*!*********************************************************!*\
+  !*** ./src/lib/libraries/extensions/websites/small.png ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOxAAADsQBlSsOGwAABJFJREFUeF7t1guSojAARVHX5YJ6Pa6mN9OLcZpPFAgg+Bvr9TlVVI02BJNcGQ9nCCJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKI8Neif0/F8OBzPp5/m1ff563A4H46nc/uSu1jTfV4Y9M/5dLT4j7p/Tfv4v77713/DC4L++l3K9lW3+H9sQZ/t/jUV9OO+vwT9bHevqaAfN1r85uV4Qa9Pm36xq9+Dg/f7Y24/2nEv51zv1xg+0bp/l/PKf9u18XjNMR6z0Y3VjbF2/6s+vsG4x+oDbJjvjTUd3qe8Xc+nO8r91/ZhOM+R9nPM7ce2PXuX5wZ9Q1ms4+8GVJv7czofmwUZrEYJcrhA3WYNImquG3wphvcYjtVdN92ofjNGX6oSyPjc8lma4/rZy7nTqOfGbd4bjLlxvrfVQXf6zzAz2No+lL9N3m4WsL7H0+bwPP8h6PlFboMbBdDoN+vy/vImFZd7VGPV185H3qjPLeNWX8SZjV4e92rbfB9xK+i1v20L+vVz2O+/PKG3BFR0cZQnYHkaLcdSNqseqlw7GWth4cf3XRm3f0pVT+3VDd0630fcCnp+DbcH/Y457PcZQZf/uhaPweKMzq3HWg56utDLG9Lozr2Ovz3o9XFbe+Z7txcH/ZY57PdZQa9FMFECa4/BdYvh/fq4oNfOedibgn7pHPb7+J8ct2wOr/op0N/z6T851sft3D/f7V4c9FvmsN+HBD39fbvddMwSXrXQM0+U6Zfhqt6sMm61f1XQa+MW9893u/uCrsNtlM87fP8dc9jvQ4L+VYKbPNnaa8oqtucMF7DftME1l6Cb47L6ZfEn95695/xG7Ql6bdzrR9ow303mYmssB7e6DzNr2n1BZ+7xtDk8z+cE3eoXc3hMFqaEdTnmFvP3/eay4UYsP0muQVyOmc0YjjsyF3SrnsuWc/aHsBR0Yzx++fvNfSih9kf7ufv3bt2jPXbP4XneGvQ7LIbHnyBoogiaKIImSlzQ/G2CJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiCnM//AO46jES4oECTAAAAAElFTkSuQmCC"
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/websites/websites.png":
+/*!************************************************************!*\
+  !*** ./src/lib/libraries/extensions/websites/websites.png ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/0ecdb4dd6cfb7d7ee5a9b10e09325fad.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/websockets/websockets-thumbnail.svg":
+/*!**************************************************************************!*\
+  !*** ./src/lib/libraries/extensions/websockets/websockets-thumbnail.svg ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/e8c010b1402bc7bb52b4c721008b2674.svg";
 
 /***/ }),
 
@@ -41937,7 +42614,7 @@ __webpack_require__.r(__webpack_exports__);
   intlLabel: "TurboWarp"
 }, {
   tag: 'gm2',
-  intlLabel: _brand__WEBPACK_IMPORTED_MODULE_0__["APP_NAME"]
+  intlLabel: "Gvbvdxx Mod & " + _brand__WEBPACK_IMPORTED_MODULE_0__["APP_NAME"]
 }]);
 
 /***/ }),

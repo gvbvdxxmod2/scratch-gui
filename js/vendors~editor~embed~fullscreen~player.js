@@ -238274,7 +238274,7 @@ addExtensionToList({
 addExtensionToList({
   id: "music",
   type: ExtensionType.EXTENSION_BUILTIN_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.t.bind(null, /*! ../extensions/scratch3_music */ "./node_modules/scratch-vm/src/extensions/scratch3_music/index.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.t.bind(null, /*! ../extensions/scratch3_music */ "./node_modules/scratch-vm/src/extensions/scratch3_music/index.js", 7))
 });
 
 //Scratch 3.0 microbit extension:
@@ -238288,21 +238288,21 @@ addExtensionToList({
 addExtensionToList({
   id: "text2speech",
   type: ExtensionType.EXTENSION_BUILTIN_ASYNC,
-  importFunc: async () => await Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(88)]).then(__webpack_require__.t.bind(null, /*! ../extensions/scratch3_text2speech */ "./node_modules/scratch-vm/src/extensions/scratch3_text2speech/index.js", 7))
+  importFunc: async () => await Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(93)]).then(__webpack_require__.t.bind(null, /*! ../extensions/scratch3_text2speech */ "./node_modules/scratch-vm/src/extensions/scratch3_text2speech/index.js", 7))
 });
 
 //Scratch 3.0 translation extension:
 addExtensionToList({
   id: "translate",
   type: ExtensionType.EXTENSION_BUILTIN_ASYNC,
-  importFunc: async () => await Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(89)]).then(__webpack_require__.t.bind(null, /*! ../extensions/scratch3_translate */ "./node_modules/scratch-vm/src/extensions/scratch3_translate/index.js", 7))
+  importFunc: async () => await Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(94)]).then(__webpack_require__.t.bind(null, /*! ../extensions/scratch3_translate */ "./node_modules/scratch-vm/src/extensions/scratch3_translate/index.js", 7))
 });
 
 //Scratch 3.0 video sensing extension:
 addExtensionToList({
   id: "videoSensing",
   type: ExtensionType.EXTENSION_BUILTIN_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.t.bind(null, /*! ../extensions/scratch3_video_sensing */ "./node_modules/scratch-vm/src/extensions/scratch3_video_sensing/index.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.t.bind(null, /*! ../extensions/scratch3_video_sensing */ "./node_modules/scratch-vm/src/extensions/scratch3_video_sensing/index.js", 7))
 });
 
 //Scratch 3.0 Lego Mindstorms EV3 extension:
@@ -238316,7 +238316,7 @@ addExtensionToList({
 addExtensionToList({
   id: "makeymakey",
   type: ExtensionType.EXTENSION_BUILTIN_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 87).then(__webpack_require__.t.bind(null, /*! ../extensions/scratch3_makeymakey */ "./node_modules/scratch-vm/src/extensions/scratch3_makeymakey/index.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 92).then(__webpack_require__.t.bind(null, /*! ../extensions/scratch3_makeymakey */ "./node_modules/scratch-vm/src/extensions/scratch3_makeymakey/index.js", 7))
 });
 
 //Scratch 3.0 Lego Boost extension:
@@ -238359,6 +238359,7 @@ addExtensionToList({
 
 var ExtensionList = __webpack_require__(/*! ./extension-list.js */ "./node_modules/scratch-vm/src/extension-support/extension-list.js");
 __webpack_require__(/*! ./extensions-builtin.js */ "./node_modules/scratch-vm/src/extension-support/extensions-builtin.js");
+__webpack_require__(/*! ../extensions/gm2-extensions.js */ "./node_modules/scratch-vm/src/extensions/gm2-extensions.js");
 __webpack_require__(/*! ../gm2-tw-extension-lib-data/ */ "./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/index.js");
 module.exports = ExtensionList;
 
@@ -239030,6 +239031,54 @@ module.exports = {
   generateExtensionId,
   argumentIndexToId
 };
+
+/***/ }),
+
+/***/ "./node_modules/scratch-vm/src/extensions/gm2-extensions.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/scratch-vm/src/extensions/gm2-extensions.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _require = __webpack_require__(/*! ../extension-support/extension-list.js */ "./node_modules/scratch-vm/src/extension-support/extension-list.js"),
+  addExtensionToList = _require.addExtensionToList,
+  ExtensionType = _require.ExtensionType;
+
+//Gvbvdxx Mod (Original) Websocket extension:
+addExtensionToList({
+  id: "websocket",
+  type: ExtensionType.EXTENSION_BUILTIN_ASYNC,
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 91).then(__webpack_require__.t.bind(null, /*! ../extensions/gm_websocket */ "./node_modules/scratch-vm/src/extensions/gm_websocket/index.js", 7))
+});
+
+//Gvbvdxx Mod 2 Sprite Canvases extension:
+addExtensionToList({
+  id: "spritecanvas",
+  type: ExtensionType.EXTENSION_BUILTIN_ASYNC,
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 90).then(__webpack_require__.t.bind(null, /*! ../extensions/gm2_spritecanvas */ "./node_modules/scratch-vm/src/extensions/gm2_spritecanvas/index.js", 7))
+});
+
+//Gvbvdxx Mod 2 NES Emulation extension:
+addExtensionToList({
+  id: "nesemulator",
+  type: ExtensionType.EXTENSION_BUILTIN_ASYNC,
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.t.bind(null, /*! ../extensions/gm2_nesemulator */ "./node_modules/scratch-vm/src/extensions/gm2_nesemulator/index.js", 7))
+});
+
+//Gvbvdxx Mod 2 HTML5 Elements extension:
+addExtensionToList({
+  id: "html5",
+  type: ExtensionType.EXTENSION_BUILTIN_ASYNC,
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 89).then(__webpack_require__.t.bind(null, /*! ../extensions/gm2_html5_elements */ "./node_modules/scratch-vm/src/extensions/gm2_html5_elements/index.js", 7))
+});
+
+//Gvbvdxx Mod (Original) Gamepads (with updated labels) extension:
+addExtensionToList({
+  id: "gamepad",
+  type: ExtensionType.EXTENSION_BUILTIN_ASYNC,
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 88).then(__webpack_require__.t.bind(null, /*! ../extensions/gm2_gamepad */ "./node_modules/scratch-vm/src/extensions/gm2_gamepad/index.js", 7))
+});
 
 /***/ }),
 
@@ -239948,7 +239997,7 @@ addExtensionToList({
   id: "text",
   url: "https://extensions.turbowarp.org/lab/text.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 90).then(__webpack_require__.t.bind(null, /*! !raw-loader!./0.text.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/0.text.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 95).then(__webpack_require__.t.bind(null, /*! !raw-loader!./0.text.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/0.text.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -239961,7 +240010,7 @@ addExtensionToList({
   id: "faceSensing",
   url: "https://extensions.turbowarp.org/lab/face-sensing.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 91).then(__webpack_require__.t.bind(null, /*! !raw-loader!./1.faceSensing.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/1.faceSensing.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 96).then(__webpack_require__.t.bind(null, /*! !raw-loader!./1.faceSensing.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/1.faceSensing.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -239974,7 +240023,7 @@ addExtensionToList({
   id: "videoSprites",
   url: "https://extensions.turbowarp.org/lab/video-sprites.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 106).then(__webpack_require__.t.bind(null, /*! !raw-loader!./2.videoSprites.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/2.videoSprites.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 111).then(__webpack_require__.t.bind(null, /*! !raw-loader!./2.videoSprites.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/2.videoSprites.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -239987,7 +240036,7 @@ addExtensionToList({
   id: "stretch",
   url: "https://extensions.turbowarp.org/stretch.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 117).then(__webpack_require__.t.bind(null, /*! !raw-loader!./3.stretch.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/3.stretch.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 122).then(__webpack_require__.t.bind(null, /*! !raw-loader!./3.stretch.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/3.stretch.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240000,7 +240049,7 @@ addExtensionToList({
   id: "Gamepad",
   url: "https://extensions.turbowarp.org/gamepad.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 128).then(__webpack_require__.t.bind(null, /*! !raw-loader!./4.Gamepad.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/4.Gamepad.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 133).then(__webpack_require__.t.bind(null, /*! !raw-loader!./4.Gamepad.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/4.Gamepad.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240013,7 +240062,7 @@ addExtensionToList({
   id: "griffpatch",
   url: "https://extensions.turbowarp.org/box2d.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 139).then(__webpack_require__.t.bind(null, /*! !raw-loader!./5.griffpatch.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/5.griffpatch.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 144).then(__webpack_require__.t.bind(null, /*! !raw-loader!./5.griffpatch.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/5.griffpatch.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240026,7 +240075,7 @@ addExtensionToList({
   id: "files",
   url: "https://extensions.turbowarp.org/files.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 150).then(__webpack_require__.t.bind(null, /*! !raw-loader!./6.files.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/6.files.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 155).then(__webpack_require__.t.bind(null, /*! !raw-loader!./6.files.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/6.files.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240039,7 +240088,7 @@ addExtensionToList({
   id: "pointerlock",
   url: "https://extensions.turbowarp.org/pointerlock.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 161).then(__webpack_require__.t.bind(null, /*! !raw-loader!./7.pointerlock.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/7.pointerlock.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 166).then(__webpack_require__.t.bind(null, /*! !raw-loader!./7.pointerlock.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/7.pointerlock.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240052,7 +240101,7 @@ addExtensionToList({
   id: "MouseCursor",
   url: "https://extensions.turbowarp.org/cursor.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 172).then(__webpack_require__.t.bind(null, /*! !raw-loader!./8.MouseCursor.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/8.MouseCursor.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 177).then(__webpack_require__.t.bind(null, /*! !raw-loader!./8.MouseCursor.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/8.MouseCursor.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240065,7 +240114,7 @@ addExtensionToList({
   id: "runtimeoptions",
   url: "https://extensions.turbowarp.org/runtime-options.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 183).then(__webpack_require__.t.bind(null, /*! !raw-loader!./9.runtimeoptions.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/9.runtimeoptions.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 188).then(__webpack_require__.t.bind(null, /*! !raw-loader!./9.runtimeoptions.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/9.runtimeoptions.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240078,7 +240127,7 @@ addExtensionToList({
   id: "fetch",
   url: "https://extensions.turbowarp.org/fetch.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 92).then(__webpack_require__.t.bind(null, /*! !raw-loader!./10.fetch.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/10.fetch.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 97).then(__webpack_require__.t.bind(null, /*! !raw-loader!./10.fetch.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/10.fetch.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240091,7 +240140,7 @@ addExtensionToList({
   id: "strings",
   url: "https://extensions.turbowarp.org/text.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 97).then(__webpack_require__.t.bind(null, /*! !raw-loader!./11.strings.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/11.strings.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 102).then(__webpack_require__.t.bind(null, /*! !raw-loader!./11.strings.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/11.strings.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240104,7 +240153,7 @@ addExtensionToList({
   id: "localstorage",
   url: "https://extensions.turbowarp.org/local-storage.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 98).then(__webpack_require__.t.bind(null, /*! !raw-loader!./12.localstorage.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/12.localstorage.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 103).then(__webpack_require__.t.bind(null, /*! !raw-loader!./12.localstorage.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/12.localstorage.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240117,7 +240166,7 @@ addExtensionToList({
   id: "truefantombase",
   url: "https://extensions.turbowarp.org/true-fantom/base.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 99).then(__webpack_require__.t.bind(null, /*! !raw-loader!./13.truefantombase.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/13.truefantombase.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 104).then(__webpack_require__.t.bind(null, /*! !raw-loader!./13.truefantombase.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/13.truefantombase.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240130,7 +240179,7 @@ addExtensionToList({
   id: "Bitwise",
   url: "https://extensions.turbowarp.org/bitwise.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 100).then(__webpack_require__.t.bind(null, /*! !raw-loader!./14.Bitwise.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/14.Bitwise.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 105).then(__webpack_require__.t.bind(null, /*! !raw-loader!./14.Bitwise.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/14.Bitwise.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240143,7 +240192,7 @@ addExtensionToList({
   id: "skyhigh173BigInt",
   url: "https://extensions.turbowarp.org/Skyhigh173/bigint.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 101).then(__webpack_require__.t.bind(null, /*! !raw-loader!./15.skyhigh173BigInt.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/15.skyhigh173BigInt.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 106).then(__webpack_require__.t.bind(null, /*! !raw-loader!./15.skyhigh173BigInt.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/15.skyhigh173BigInt.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240156,7 +240205,7 @@ addExtensionToList({
   id: "utilities",
   url: "https://extensions.turbowarp.org/utilities.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 102).then(__webpack_require__.t.bind(null, /*! !raw-loader!./16.utilities.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/16.utilities.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 107).then(__webpack_require__.t.bind(null, /*! !raw-loader!./16.utilities.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/16.utilities.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240169,7 +240218,7 @@ addExtensionToList({
   id: "lmsVideo",
   url: "https://extensions.turbowarp.org/Lily/Video.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 103).then(__webpack_require__.t.bind(null, /*! !raw-loader!./17.lmsVideo.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/17.lmsVideo.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 108).then(__webpack_require__.t.bind(null, /*! !raw-loader!./17.lmsVideo.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/17.lmsVideo.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240182,7 +240231,7 @@ addExtensionToList({
   id: "iframe",
   url: "https://extensions.turbowarp.org/iframe.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 104).then(__webpack_require__.t.bind(null, /*! !raw-loader!./18.iframe.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/18.iframe.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 109).then(__webpack_require__.t.bind(null, /*! !raw-loader!./18.iframe.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/18.iframe.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240195,7 +240244,7 @@ addExtensionToList({
   id: "clayhtmlencode",
   url: "https://extensions.turbowarp.org/Clay/htmlEncode.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 105).then(__webpack_require__.t.bind(null, /*! !raw-loader!./19.clayhtmlencode.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/19.clayhtmlencode.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 110).then(__webpack_require__.t.bind(null, /*! !raw-loader!./19.clayhtmlencode.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/19.clayhtmlencode.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240208,7 +240257,7 @@ addExtensionToList({
   id: "xeltallivclipblend",
   url: "https://extensions.turbowarp.org/Xeltalliv/clippingblending.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 107).then(__webpack_require__.t.bind(null, /*! !raw-loader!./20.xeltallivclipblend.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/20.xeltallivclipblend.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 112).then(__webpack_require__.t.bind(null, /*! !raw-loader!./20.xeltallivclipblend.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/20.xeltallivclipblend.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240221,7 +240270,7 @@ addExtensionToList({
   id: "clipboard",
   url: "https://extensions.turbowarp.org/clipboard.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 108).then(__webpack_require__.t.bind(null, /*! !raw-loader!./21.clipboard.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/21.clipboard.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 113).then(__webpack_require__.t.bind(null, /*! !raw-loader!./21.clipboard.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/21.clipboard.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240234,7 +240283,7 @@ addExtensionToList({
   id: "penP",
   url: "https://extensions.turbowarp.org/obviousAlexC/penPlus.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 109).then(__webpack_require__.t.bind(null, /*! !raw-loader!./22.penP.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/22.penP.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 114).then(__webpack_require__.t.bind(null, /*! !raw-loader!./22.penP.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/22.penP.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240247,7 +240296,7 @@ addExtensionToList({
   id: "betterpen",
   url: "https://extensions.turbowarp.org/penplus.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 110).then(__webpack_require__.t.bind(null, /*! !raw-loader!./23.betterpen.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/23.betterpen.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 115).then(__webpack_require__.t.bind(null, /*! !raw-loader!./23.betterpen.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/23.betterpen.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240260,7 +240309,7 @@ addExtensionToList({
   id: "xeltallivSimple3D",
   url: "https://extensions.turbowarp.org/Xeltalliv/simple3D.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 111).then(__webpack_require__.t.bind(null, /*! !raw-loader!./24.xeltallivSimple3D.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/24.xeltallivSimple3D.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 116).then(__webpack_require__.t.bind(null, /*! !raw-loader!./24.xeltallivSimple3D.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/24.xeltallivSimple3D.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240273,7 +240322,7 @@ addExtensionToList({
   id: "lmsSkins",
   url: "https://extensions.turbowarp.org/Lily/Skins.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 112).then(__webpack_require__.t.bind(null, /*! !raw-loader!./25.lmsSkins.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/25.lmsSkins.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 117).then(__webpack_require__.t.bind(null, /*! !raw-loader!./25.lmsSkins.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/25.lmsSkins.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240286,7 +240335,7 @@ addExtensionToList({
   id: "obviousalexsensing",
   url: "https://extensions.turbowarp.org/obviousAlexC/SensingPlus.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 113).then(__webpack_require__.t.bind(null, /*! !raw-loader!./26.obviousalexsensing.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/26.obviousalexsensing.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 118).then(__webpack_require__.t.bind(null, /*! !raw-loader!./26.obviousalexsensing.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/26.obviousalexsensing.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240299,7 +240348,7 @@ addExtensionToList({
   id: "cubesterKeySimulation",
   url: "https://extensions.turbowarp.org/CubesterYT/KeySimulation.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 114).then(__webpack_require__.t.bind(null, /*! !raw-loader!./27.cubesterKeySimulation.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/27.cubesterKeySimulation.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 119).then(__webpack_require__.t.bind(null, /*! !raw-loader!./27.cubesterKeySimulation.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/27.cubesterKeySimulation.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240312,7 +240361,7 @@ addExtensionToList({
   id: "lmsclonesplus",
   url: "https://extensions.turbowarp.org/Lily/ClonesPlus.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 115).then(__webpack_require__.t.bind(null, /*! !raw-loader!./28.lmsclonesplus.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/28.lmsclonesplus.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 120).then(__webpack_require__.t.bind(null, /*! !raw-loader!./28.lmsclonesplus.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/28.lmsclonesplus.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240325,7 +240374,7 @@ addExtensionToList({
   id: "lmsLooksPlus",
   url: "https://extensions.turbowarp.org/Lily/LooksPlus.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 116).then(__webpack_require__.t.bind(null, /*! !raw-loader!./29.lmsLooksPlus.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/29.lmsLooksPlus.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 121).then(__webpack_require__.t.bind(null, /*! !raw-loader!./29.lmsLooksPlus.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/29.lmsLooksPlus.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240338,7 +240387,7 @@ addExtensionToList({
   id: "lmsMoreEvents",
   url: "https://extensions.turbowarp.org/Lily/MoreEvents.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 118).then(__webpack_require__.t.bind(null, /*! !raw-loader!./30.lmsMoreEvents.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/30.lmsMoreEvents.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 123).then(__webpack_require__.t.bind(null, /*! !raw-loader!./30.lmsMoreEvents.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/30.lmsMoreEvents.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240351,7 +240400,7 @@ addExtensionToList({
   id: "SPmessagePlus",
   url: "https://extensions.turbowarp.org/SharkPool/Messages-Plus.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 119).then(__webpack_require__.t.bind(null, /*! !raw-loader!./31.SPmessagePlus.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/31.SPmessagePlus.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 124).then(__webpack_require__.t.bind(null, /*! !raw-loader!./31.SPmessagePlus.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/31.SPmessagePlus.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240364,7 +240413,7 @@ addExtensionToList({
   id: "lmsListTools",
   url: "https://extensions.turbowarp.org/Lily/ListTools.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 120).then(__webpack_require__.t.bind(null, /*! !raw-loader!./32.lmsListTools.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/32.lmsListTools.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 125).then(__webpack_require__.t.bind(null, /*! !raw-loader!./32.lmsListTools.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/32.lmsListTools.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240377,7 +240426,7 @@ addExtensionToList({
   id: "mobilekeyboard0419",
   url: "https://extensions.turbowarp.org/veggiecan/mobilekeyboard.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 121).then(__webpack_require__.t.bind(null, /*! !raw-loader!./33.mobilekeyboard0419.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/33.mobilekeyboard0419.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 126).then(__webpack_require__.t.bind(null, /*! !raw-loader!./33.mobilekeyboard0419.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/33.mobilekeyboard0419.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240390,7 +240439,7 @@ addExtensionToList({
   id: "nkmoremotion",
   url: "https://extensions.turbowarp.org/NexusKitten/moremotion.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 122).then(__webpack_require__.t.bind(null, /*! !raw-loader!./34.nkmoremotion.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/34.nkmoremotion.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 127).then(__webpack_require__.t.bind(null, /*! !raw-loader!./34.nkmoremotion.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/34.nkmoremotion.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240403,7 +240452,7 @@ addExtensionToList({
   id: "cubesterWindowControls",
   url: "https://extensions.turbowarp.org/CubesterYT/WindowControls.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 123).then(__webpack_require__.t.bind(null, /*! !raw-loader!./35.cubesterWindowControls.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/35.cubesterWindowControls.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 128).then(__webpack_require__.t.bind(null, /*! !raw-loader!./35.cubesterWindowControls.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/35.cubesterWindowControls.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240416,7 +240465,7 @@ addExtensionToList({
   id: "fullscreen0419",
   url: "https://extensions.turbowarp.org/veggiecan/browserfullscreen.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 124).then(__webpack_require__.t.bind(null, /*! !raw-loader!./36.fullscreen0419.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/36.fullscreen0419.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 129).then(__webpack_require__.t.bind(null, /*! !raw-loader!./36.fullscreen0419.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/36.fullscreen0419.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240429,7 +240478,7 @@ addExtensionToList({
   id: "shreder95resolution",
   url: "https://extensions.turbowarp.org/shreder95ua/resolution.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 125).then(__webpack_require__.t.bind(null, /*! !raw-loader!./37.shreder95resolution.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/37.shreder95resolution.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 130).then(__webpack_require__.t.bind(null, /*! !raw-loader!./37.shreder95resolution.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/37.shreder95resolution.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240442,7 +240491,7 @@ addExtensionToList({
   id: "xmerclosecontrol",
   url: "https://extensions.turbowarp.org/XmerOriginals/closecontrol.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 126).then(__webpack_require__.t.bind(null, /*! !raw-loader!./38.xmerclosecontrol.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/38.xmerclosecontrol.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 131).then(__webpack_require__.t.bind(null, /*! !raw-loader!./38.xmerclosecontrol.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/38.xmerclosecontrol.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240455,7 +240504,7 @@ addExtensionToList({
   id: "navigatorinfo",
   url: "https://extensions.turbowarp.org/navigator.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 127).then(__webpack_require__.t.bind(null, /*! !raw-loader!./39.navigatorinfo.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/39.navigatorinfo.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 132).then(__webpack_require__.t.bind(null, /*! !raw-loader!./39.navigatorinfo.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/39.navigatorinfo.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240468,7 +240517,7 @@ addExtensionToList({
   id: "battery",
   url: "https://extensions.turbowarp.org/battery.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 129).then(__webpack_require__.t.bind(null, /*! !raw-loader!./40.battery.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/40.battery.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 134).then(__webpack_require__.t.bind(null, /*! !raw-loader!./40.battery.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/40.battery.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240481,7 +240530,7 @@ addExtensionToList({
   id: "pwldevvibration",
   url: "https://extensions.turbowarp.org/PwLDev/vibration.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 130).then(__webpack_require__.t.bind(null, /*! !raw-loader!./41.pwldevvibration.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/41.pwldevvibration.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 135).then(__webpack_require__.t.bind(null, /*! !raw-loader!./41.pwldevvibration.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/41.pwldevvibration.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240494,7 +240543,7 @@ addExtensionToList({
   id: "shovelcss",
   url: "https://extensions.turbowarp.org/TheShovel/CustomStyles.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 131).then(__webpack_require__.t.bind(null, /*! !raw-loader!./42.shovelcss.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/42.shovelcss.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 136).then(__webpack_require__.t.bind(null, /*! !raw-loader!./42.shovelcss.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/42.shovelcss.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240507,7 +240556,7 @@ addExtensionToList({
   id: "shovelColorPicker",
   url: "https://extensions.turbowarp.org/TheShovel/ColorPicker.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 132).then(__webpack_require__.t.bind(null, /*! !raw-loader!./43.shovelColorPicker.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/43.shovelColorPicker.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 137).then(__webpack_require__.t.bind(null, /*! !raw-loader!./43.shovelColorPicker.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/43.shovelColorPicker.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240520,7 +240569,7 @@ addExtensionToList({
   id: "nkcontrols",
   url: "https://extensions.turbowarp.org/NexusKitten/controlcontrols.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 133).then(__webpack_require__.t.bind(null, /*! !raw-loader!./44.nkcontrols.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/44.nkcontrols.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 138).then(__webpack_require__.t.bind(null, /*! !raw-loader!./44.nkcontrols.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/44.nkcontrols.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240533,7 +240582,7 @@ addExtensionToList({
   id: "mdwaltersnotifications",
   url: "https://extensions.turbowarp.org/mdwalters/notifications.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 134).then(__webpack_require__.t.bind(null, /*! !raw-loader!./45.mdwaltersnotifications.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/45.mdwaltersnotifications.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 139).then(__webpack_require__.t.bind(null, /*! !raw-loader!./45.mdwaltersnotifications.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/45.mdwaltersnotifications.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240546,7 +240595,7 @@ addExtensionToList({
   id: "dtbyxeroname",
   url: "https://extensions.turbowarp.org/XeroName/Deltatime.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 135).then(__webpack_require__.t.bind(null, /*! !raw-loader!./46.dtbyxeroname.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/46.dtbyxeroname.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 140).then(__webpack_require__.t.bind(null, /*! !raw-loader!./46.dtbyxeroname.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/46.dtbyxeroname.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240559,7 +240608,7 @@ addExtensionToList({
   id: "AR",
   url: "https://extensions.turbowarp.org/ar.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 136).then(__webpack_require__.t.bind(null, /*! !raw-loader!./47.AR.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/47.AR.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 141).then(__webpack_require__.t.bind(null, /*! !raw-loader!./47.AR.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/47.AR.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240572,7 +240621,7 @@ addExtensionToList({
   id: "Encoding",
   url: "https://extensions.turbowarp.org/encoding.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 137).then(__webpack_require__.t.bind(null, /*! !raw-loader!./48.Encoding.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/48.Encoding.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 142).then(__webpack_require__.t.bind(null, /*! !raw-loader!./48.Encoding.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/48.Encoding.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240585,7 +240634,7 @@ addExtensionToList({
   id: "SPtuneShark3",
   url: "https://extensions.turbowarp.org/SharkPool/Tune-Shark-V3.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 138).then(__webpack_require__.t.bind(null, /*! !raw-loader!./49.SPtuneShark3.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/49.SPtuneShark3.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 143).then(__webpack_require__.t.bind(null, /*! !raw-loader!./49.SPtuneShark3.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/49.SPtuneShark3.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240598,7 +240647,7 @@ addExtensionToList({
   id: "lmsSoundExpanded",
   url: "https://extensions.turbowarp.org/Lily/SoundExpanded.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 140).then(__webpack_require__.t.bind(null, /*! !raw-loader!./50.lmsSoundExpanded.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/50.lmsSoundExpanded.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 145).then(__webpack_require__.t.bind(null, /*! !raw-loader!./50.lmsSoundExpanded.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/50.lmsSoundExpanded.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240611,7 +240660,7 @@ addExtensionToList({
   id: "lmsTempVars2",
   url: "https://extensions.turbowarp.org/Lily/TempVariables2.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 141).then(__webpack_require__.t.bind(null, /*! !raw-loader!./51.lmsTempVars2.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/51.lmsTempVars2.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 146).then(__webpack_require__.t.bind(null, /*! !raw-loader!./51.lmsTempVars2.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/51.lmsTempVars2.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240624,7 +240673,7 @@ addExtensionToList({
   id: "lmsTimers",
   url: "https://extensions.turbowarp.org/Lily/MoreTimers.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 142).then(__webpack_require__.t.bind(null, /*! !raw-loader!./52.lmsTimers.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/52.lmsTimers.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 147).then(__webpack_require__.t.bind(null, /*! !raw-loader!./52.lmsTimers.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/52.lmsTimers.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240637,7 +240686,7 @@ addExtensionToList({
   id: "clouddataping",
   url: "https://extensions.turbowarp.org/clouddata-ping.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 143).then(__webpack_require__.t.bind(null, /*! !raw-loader!./53.clouddataping.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/53.clouddataping.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 148).then(__webpack_require__.t.bind(null, /*! !raw-loader!./53.clouddataping.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/53.clouddataping.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240650,7 +240699,7 @@ addExtensionToList({
   id: "cloudlink",
   url: "https://extensions.turbowarp.org/cloudlink.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 144).then(__webpack_require__.t.bind(null, /*! !raw-loader!./54.cloudlink.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/54.cloudlink.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 149).then(__webpack_require__.t.bind(null, /*! !raw-loader!./54.cloudlink.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/54.cloudlink.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240663,7 +240712,7 @@ addExtensionToList({
   id: "truefantomnetwork",
   url: "https://extensions.turbowarp.org/true-fantom/network.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 145).then(__webpack_require__.t.bind(null, /*! !raw-loader!./55.truefantomnetwork.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/55.truefantomnetwork.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 150).then(__webpack_require__.t.bind(null, /*! !raw-loader!./55.truefantomnetwork.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/55.truefantomnetwork.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240676,7 +240725,7 @@ addExtensionToList({
   id: "truefantommath",
   url: "https://extensions.turbowarp.org/true-fantom/math.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 146).then(__webpack_require__.t.bind(null, /*! !raw-loader!./56.truefantommath.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/56.truefantommath.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 151).then(__webpack_require__.t.bind(null, /*! !raw-loader!./56.truefantommath.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/56.truefantommath.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240689,7 +240738,7 @@ addExtensionToList({
   id: "truefantomregexp",
   url: "https://extensions.turbowarp.org/true-fantom/regexp.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 147).then(__webpack_require__.t.bind(null, /*! !raw-loader!./57.truefantomregexp.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/57.truefantomregexp.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 152).then(__webpack_require__.t.bind(null, /*! !raw-loader!./57.truefantomregexp.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/57.truefantomregexp.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240702,7 +240751,7 @@ addExtensionToList({
   id: "truefantomcouplers",
   url: "https://extensions.turbowarp.org/true-fantom/couplers.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 148).then(__webpack_require__.t.bind(null, /*! !raw-loader!./58.truefantomcouplers.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/58.truefantomcouplers.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 153).then(__webpack_require__.t.bind(null, /*! !raw-loader!./58.truefantomcouplers.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/58.truefantomcouplers.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240715,7 +240764,7 @@ addExtensionToList({
   id: "samuelloufgeolocation",
   url: "https://extensions.turbowarp.org/SamuelLouf/Geolocation.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 149).then(__webpack_require__.t.bind(null, /*! !raw-loader!./59.samuelloufgeolocation.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/59.samuelloufgeolocation.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 154).then(__webpack_require__.t.bind(null, /*! !raw-loader!./59.samuelloufgeolocation.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/59.samuelloufgeolocation.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240728,7 +240777,7 @@ addExtensionToList({
   id: "dogeiscutformatnumbers",
   url: "https://extensions.turbowarp.org/DogeisCut/FormatNumbers.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 151).then(__webpack_require__.t.bind(null, /*! !raw-loader!./60.dogeiscutformatnumbers.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/60.dogeiscutformatnumbers.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 156).then(__webpack_require__.t.bind(null, /*! !raw-loader!./60.dogeiscutformatnumbers.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/60.dogeiscutformatnumbers.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240741,7 +240790,7 @@ addExtensionToList({
   id: "lmsAllMenus",
   url: "https://extensions.turbowarp.org/Lily/AllMenus.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 152).then(__webpack_require__.t.bind(null, /*! !raw-loader!./61.lmsAllMenus.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/61.lmsAllMenus.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 157).then(__webpack_require__.t.bind(null, /*! !raw-loader!./61.lmsAllMenus.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/61.lmsAllMenus.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240754,7 +240803,7 @@ addExtensionToList({
   id: "lmsHackedBlocks",
   url: "https://extensions.turbowarp.org/Lily/HackedBlocks.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 153).then(__webpack_require__.t.bind(null, /*! !raw-loader!./62.lmsHackedBlocks.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/62.lmsHackedBlocks.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 158).then(__webpack_require__.t.bind(null, /*! !raw-loader!./62.lmsHackedBlocks.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/62.lmsHackedBlocks.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240767,7 +240816,7 @@ addExtensionToList({
   id: "lmsCast",
   url: "https://extensions.turbowarp.org/Lily/Cast.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 154).then(__webpack_require__.t.bind(null, /*! !raw-loader!./63.lmsCast.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/63.lmsCast.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 159).then(__webpack_require__.t.bind(null, /*! !raw-loader!./63.lmsCast.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/63.lmsCast.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240780,7 +240829,7 @@ addExtensionToList({
   id: "sipctime",
   url: "https://extensions.turbowarp.org/-SIPC-/time.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 155).then(__webpack_require__.t.bind(null, /*! !raw-loader!./64.sipctime.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/64.sipctime.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 160).then(__webpack_require__.t.bind(null, /*! !raw-loader!./64.sipctime.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/64.sipctime.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240793,7 +240842,7 @@ addExtensionToList({
   id: "sipcconsole",
   url: "https://extensions.turbowarp.org/-SIPC-/consoles.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 156).then(__webpack_require__.t.bind(null, /*! !raw-loader!./65.sipcconsole.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/65.sipcconsole.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 161).then(__webpack_require__.t.bind(null, /*! !raw-loader!./65.sipcconsole.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/65.sipcconsole.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240806,7 +240855,7 @@ addExtensionToList({
   id: "zxmushroom63searchparams",
   url: "https://extensions.turbowarp.org/ZXMushroom63/searchApi.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 157).then(__webpack_require__.t.bind(null, /*! !raw-loader!./66.zxmushroom63searchparams.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/66.zxmushroom63searchparams.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 162).then(__webpack_require__.t.bind(null, /*! !raw-loader!./66.zxmushroom63searchparams.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/66.zxmushroom63searchparams.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240819,7 +240868,7 @@ addExtensionToList({
   id: "ShovelUtils",
   url: "https://extensions.turbowarp.org/TheShovel/ShovelUtils.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 158).then(__webpack_require__.t.bind(null, /*! !raw-loader!./67.ShovelUtils.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/67.ShovelUtils.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 163).then(__webpack_require__.t.bind(null, /*! !raw-loader!./67.ShovelUtils.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/67.ShovelUtils.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240832,7 +240881,7 @@ addExtensionToList({
   id: "lmsAssets",
   url: "https://extensions.turbowarp.org/Lily/Assets.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 159).then(__webpack_require__.t.bind(null, /*! !raw-loader!./68.lmsAssets.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/68.lmsAssets.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 164).then(__webpack_require__.t.bind(null, /*! !raw-loader!./68.lmsAssets.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/68.lmsAssets.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240845,7 +240894,7 @@ addExtensionToList({
   id: "SPASfontManager",
   url: "https://extensions.turbowarp.org/SharkPool/Font-Manager.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 160).then(__webpack_require__.t.bind(null, /*! !raw-loader!./69.SPASfontManager.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/69.SPASfontManager.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 165).then(__webpack_require__.t.bind(null, /*! !raw-loader!./69.SPASfontManager.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/69.SPASfontManager.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240858,7 +240907,7 @@ addExtensionToList({
   id: "dninwakelock",
   url: "https://extensions.turbowarp.org/DNin/wake-lock.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 162).then(__webpack_require__.t.bind(null, /*! !raw-loader!./70.dninwakelock.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/70.dninwakelock.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 167).then(__webpack_require__.t.bind(null, /*! !raw-loader!./70.dninwakelock.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/70.dninwakelock.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240871,7 +240920,7 @@ addExtensionToList({
   id: "skyhigh173JSON",
   url: "https://extensions.turbowarp.org/Skyhigh173/json.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 163).then(__webpack_require__.t.bind(null, /*! !raw-loader!./71.skyhigh173JSON.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/71.skyhigh173JSON.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 168).then(__webpack_require__.t.bind(null, /*! !raw-loader!./71.skyhigh173JSON.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/71.skyhigh173JSON.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240884,7 +240933,7 @@ addExtensionToList({
   id: "mbwxml",
   url: "https://extensions.turbowarp.org/mbw/xml.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 164).then(__webpack_require__.t.bind(null, /*! !raw-loader!./72.mbwxml.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/72.mbwxml.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 169).then(__webpack_require__.t.bind(null, /*! !raw-loader!./72.mbwxml.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/72.mbwxml.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240897,7 +240946,7 @@ addExtensionToList({
   id: "numericalencoding2",
   url: "https://extensions.turbowarp.org/numerical-encoding-2.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 165).then(__webpack_require__.t.bind(null, /*! !raw-loader!./73.numericalencoding2.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/73.numericalencoding2.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 170).then(__webpack_require__.t.bind(null, /*! !raw-loader!./73.numericalencoding2.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/73.numericalencoding2.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240910,7 +240959,7 @@ addExtensionToList({
   id: "cs2627883NumericalEncoding",
   url: "https://extensions.turbowarp.org/cs2627883/numericalencoding.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 166).then(__webpack_require__.t.bind(null, /*! !raw-loader!./74.cs2627883NumericalEncoding.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/74.cs2627883NumericalEncoding.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 171).then(__webpack_require__.t.bind(null, /*! !raw-loader!./74.cs2627883NumericalEncoding.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/74.cs2627883NumericalEncoding.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240923,7 +240972,7 @@ addExtensionToList({
   id: "SPcamera",
   url: "https://extensions.turbowarp.org/SharkPool/Camera.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 167).then(__webpack_require__.t.bind(null, /*! !raw-loader!./75.SPcamera.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/75.SPcamera.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 172).then(__webpack_require__.t.bind(null, /*! !raw-loader!./75.SPcamera.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/75.SPcamera.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240936,7 +240985,7 @@ addExtensionToList({
   id: "DTcameracontrols",
   url: "https://extensions.turbowarp.org/DT/cameracontrols.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 168).then(__webpack_require__.t.bind(null, /*! !raw-loader!./76.DTcameracontrols.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/76.DTcameracontrols.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 173).then(__webpack_require__.t.bind(null, /*! !raw-loader!./76.DTcameracontrols.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/76.DTcameracontrols.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240949,7 +240998,7 @@ addExtensionToList({
   id: "theshovelcanvaseffects",
   url: "https://extensions.turbowarp.org/TheShovel/CanvasEffects.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 169).then(__webpack_require__.t.bind(null, /*! !raw-loader!./77.theshovelcanvaseffects.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/77.theshovelcanvaseffects.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 174).then(__webpack_require__.t.bind(null, /*! !raw-loader!./77.theshovelcanvaseffects.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/77.theshovelcanvaseffects.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240962,7 +241011,7 @@ addExtensionToList({
   id: "lbdrawtest",
   url: "https://extensions.turbowarp.org/Longboost/color_channels.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 170).then(__webpack_require__.t.bind(null, /*! !raw-loader!./78.lbdrawtest.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/78.lbdrawtest.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 175).then(__webpack_require__.t.bind(null, /*! !raw-loader!./78.lbdrawtest.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/78.lbdrawtest.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240975,7 +241024,7 @@ addExtensionToList({
   id: "cst1229zip",
   url: "https://extensions.turbowarp.org/CST1229/zip.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 171).then(__webpack_require__.t.bind(null, /*! !raw-loader!./79.cst1229zip.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/79.cst1229zip.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 176).then(__webpack_require__.t.bind(null, /*! !raw-loader!./79.cst1229zip.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/79.cst1229zip.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -240988,7 +241037,7 @@ addExtensionToList({
   id: "images",
   url: "https://extensions.turbowarp.org/CST1229/images.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 173).then(__webpack_require__.t.bind(null, /*! !raw-loader!./80.images.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/80.images.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 178).then(__webpack_require__.t.bind(null, /*! !raw-loader!./80.images.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/80.images.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241001,7 +241050,7 @@ addExtensionToList({
   id: "shovellzcompress",
   url: "https://extensions.turbowarp.org/TheShovel/LZ-String.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 174).then(__webpack_require__.t.bind(null, /*! !raw-loader!./81.shovellzcompress.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/81.shovellzcompress.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 179).then(__webpack_require__.t.bind(null, /*! !raw-loader!./81.shovellzcompress.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/81.shovellzcompress.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241014,7 +241063,7 @@ addExtensionToList({
   id: "0832rxfs2",
   url: "https://extensions.turbowarp.org/0832/rxFS2.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 175).then(__webpack_require__.t.bind(null, /*! !raw-loader!./82.0832rxfs2.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/82.0832rxfs2.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 180).then(__webpack_require__.t.bind(null, /*! !raw-loader!./82.0832rxfs2.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/82.0832rxfs2.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241027,7 +241076,7 @@ addExtensionToList({
   id: "nexuskittensgrab",
   url: "https://extensions.turbowarp.org/NexusKitten/sgrab.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 176).then(__webpack_require__.t.bind(null, /*! !raw-loader!./83.nexuskittensgrab.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/83.nexuskittensgrab.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 181).then(__webpack_require__.t.bind(null, /*! !raw-loader!./83.nexuskittensgrab.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/83.nexuskittensgrab.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241040,7 +241089,7 @@ addExtensionToList({
   id: "nonameawagraph",
   url: "https://extensions.turbowarp.org/NOname-awa/graphics2d.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 177).then(__webpack_require__.t.bind(null, /*! !raw-loader!./84.nonameawagraph.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/84.nonameawagraph.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 182).then(__webpack_require__.t.bind(null, /*! !raw-loader!./84.nonameawagraph.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/84.nonameawagraph.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241053,7 +241102,7 @@ addExtensionToList({
   id: "nonameawacomparisons",
   url: "https://extensions.turbowarp.org/NOname-awa/more-comparisons.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 178).then(__webpack_require__.t.bind(null, /*! !raw-loader!./85.nonameawacomparisons.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/85.nonameawacomparisons.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 183).then(__webpack_require__.t.bind(null, /*! !raw-loader!./85.nonameawacomparisons.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/85.nonameawacomparisons.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241066,7 +241115,7 @@ addExtensionToList({
   id: "jeremygamerTweening",
   url: "https://extensions.turbowarp.org/JeremyGamer13/tween.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 179).then(__webpack_require__.t.bind(null, /*! !raw-loader!./86.jeremygamerTweening.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/86.jeremygamerTweening.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 184).then(__webpack_require__.t.bind(null, /*! !raw-loader!./86.jeremygamerTweening.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/86.jeremygamerTweening.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241079,7 +241128,7 @@ addExtensionToList({
   id: "RixxyX",
   url: "https://extensions.turbowarp.org/rixxyx.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 180).then(__webpack_require__.t.bind(null, /*! !raw-loader!./87.RixxyX.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/87.RixxyX.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 185).then(__webpack_require__.t.bind(null, /*! !raw-loader!./87.RixxyX.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/87.RixxyX.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241092,7 +241141,7 @@ addExtensionToList({
   id: "lmsutilsblocks",
   url: "https://extensions.turbowarp.org/Lily/lmsutils.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 181).then(__webpack_require__.t.bind(null, /*! !raw-loader!./88.lmsutilsblocks.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/88.lmsutilsblocks.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 186).then(__webpack_require__.t.bind(null, /*! !raw-loader!./88.lmsutilsblocks.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/88.lmsutilsblocks.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241105,7 +241154,7 @@ addExtensionToList({
   id: "qxsckdataanalysis",
   url: "https://extensions.turbowarp.org/qxsck/data-analysis.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 182).then(__webpack_require__.t.bind(null, /*! !raw-loader!./89.qxsckdataanalysis.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/89.qxsckdataanalysis.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 187).then(__webpack_require__.t.bind(null, /*! !raw-loader!./89.qxsckdataanalysis.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/89.qxsckdataanalysis.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241118,7 +241167,7 @@ addExtensionToList({
   id: "qxsckvarandlist",
   url: "https://extensions.turbowarp.org/qxsck/var-and-list.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 184).then(__webpack_require__.t.bind(null, /*! !raw-loader!./90.qxsckvarandlist.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/90.qxsckvarandlist.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 189).then(__webpack_require__.t.bind(null, /*! !raw-loader!./90.qxsckvarandlist.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/90.qxsckvarandlist.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241131,7 +241180,7 @@ addExtensionToList({
   id: "verctedictionaries",
   url: "https://extensions.turbowarp.org/vercte/dictionaries.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 185).then(__webpack_require__.t.bind(null, /*! !raw-loader!./91.verctedictionaries.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/91.verctedictionaries.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 190).then(__webpack_require__.t.bind(null, /*! !raw-loader!./91.verctedictionaries.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/91.verctedictionaries.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241144,7 +241193,7 @@ addExtensionToList({
   id: "gsaHTTPRequests",
   url: "https://extensions.turbowarp.org/godslayerakp/http.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 186).then(__webpack_require__.t.bind(null, /*! !raw-loader!./92.gsaHTTPRequests.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/92.gsaHTTPRequests.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 191).then(__webpack_require__.t.bind(null, /*! !raw-loader!./92.gsaHTTPRequests.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/92.gsaHTTPRequests.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241157,7 +241206,7 @@ addExtensionToList({
   id: "gsaWebsocket",
   url: "https://extensions.turbowarp.org/godslayerakp/ws.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 187).then(__webpack_require__.t.bind(null, /*! !raw-loader!./93.gsaWebsocket.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/93.gsaWebsocket.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 192).then(__webpack_require__.t.bind(null, /*! !raw-loader!./93.gsaWebsocket.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/93.gsaWebsocket.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241170,7 +241219,7 @@ addExtensionToList({
   id: "cubesterWebhooks",
   url: "https://extensions.turbowarp.org/CubesterYT/Webhooks.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 188).then(__webpack_require__.t.bind(null, /*! !raw-loader!./94.cubesterWebhooks.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/94.cubesterWebhooks.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 193).then(__webpack_require__.t.bind(null, /*! !raw-loader!./94.cubesterWebhooks.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/94.cubesterWebhooks.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241183,7 +241232,7 @@ addExtensionToList({
   id: "lmscomments",
   url: "https://extensions.turbowarp.org/Lily/CommentBlocks.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 189).then(__webpack_require__.t.bind(null, /*! !raw-loader!./95.lmscomments.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/95.lmscomments.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 194).then(__webpack_require__.t.bind(null, /*! !raw-loader!./95.lmscomments.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/95.lmscomments.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241196,7 +241245,7 @@ addExtensionToList({
   id: "longvegdictionary",
   url: "https://extensions.turbowarp.org/veggiecan/LongmanDictionary.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 190).then(__webpack_require__.t.bind(null, /*! !raw-loader!./96.longvegdictionary.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/96.longvegdictionary.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 195).then(__webpack_require__.t.bind(null, /*! !raw-loader!./96.longvegdictionary.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/96.longvegdictionary.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241209,7 +241258,7 @@ addExtensionToList({
   id: "alestorenfc",
   url: "https://extensions.turbowarp.org/Alestore/nfcwarp.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 191).then(__webpack_require__.t.bind(null, /*! !raw-loader!./97.alestorenfc.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/97.alestorenfc.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 196).then(__webpack_require__.t.bind(null, /*! !raw-loader!./97.alestorenfc.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/97.alestorenfc.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241222,7 +241271,7 @@ addExtensionToList({
   id: "nishiowoDectalk",
   url: "https://extensions.turbowarp.org/NishiOwO/dectalk.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 192).then(__webpack_require__.t.bind(null, /*! !raw-loader!./98.nishiowoDectalk.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/98.nishiowoDectalk.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 197).then(__webpack_require__.t.bind(null, /*! !raw-loader!./98.nishiowoDectalk.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/98.nishiowoDectalk.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241235,7 +241284,7 @@ addExtensionToList({
   id: "steamworks",
   url: "https://extensions.turbowarp.org/steamworks.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 193).then(__webpack_require__.t.bind(null, /*! !raw-loader!./99.steamworks.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/99.steamworks.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 198).then(__webpack_require__.t.bind(null, /*! !raw-loader!./99.steamworks.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/99.steamworks.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241248,7 +241297,7 @@ addExtensionToList({
   id: "itch",
   url: "https://extensions.turbowarp.org/itchio.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 93).then(__webpack_require__.t.bind(null, /*! !raw-loader!./100.itch.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/100.itch.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 98).then(__webpack_require__.t.bind(null, /*! !raw-loader!./100.itch.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/100.itch.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241261,7 +241310,7 @@ addExtensionToList({
   id: "GameJoltAPI",
   url: "https://extensions.turbowarp.org/gamejolt.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 94).then(__webpack_require__.t.bind(null, /*! !raw-loader!./101.GameJoltAPI.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/101.GameJoltAPI.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 99).then(__webpack_require__.t.bind(null, /*! !raw-loader!./101.GameJoltAPI.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/101.GameJoltAPI.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241274,7 +241323,7 @@ addExtensionToList({
   id: "NGIO",
   url: "https://extensions.turbowarp.org/obviousAlexC/newgroundsIO.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 95).then(__webpack_require__.t.bind(null, /*! !raw-loader!./102.NGIO.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/102.NGIO.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 100).then(__webpack_require__.t.bind(null, /*! !raw-loader!./102.NGIO.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/102.NGIO.js", 7))
 });
 ////////////////////////////////////////
 /**
@@ -241287,7 +241336,7 @@ addExtensionToList({
   id: "lmsmcutils",
   url: "https://extensions.turbowarp.org/Lily/McUtils.js",
   type: ExtensionType.EXTENSION_TW_ASYNC,
-  importFunc: async () => await __webpack_require__.e(/*! import() */ 96).then(__webpack_require__.t.bind(null, /*! !raw-loader!./103.lmsmcutils.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/103.lmsmcutils.js", 7))
+  importFunc: async () => await __webpack_require__.e(/*! import() */ 101).then(__webpack_require__.t.bind(null, /*! !raw-loader!./103.lmsmcutils.js */ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/103.lmsmcutils.js", 7))
 });
 ////////////////////////////////////////
 
