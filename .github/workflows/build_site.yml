@@ -39,8 +39,9 @@ jobs:
         run: |
           
           sudo apt install python3
-          npm install --force --ignore-engines --no-lockfile
-          npm run build
+          yarn cache clean --all
+          yarn install --force --ignore-engines --no-lockfile
+          yarn run build
 
       - name: Deploy to Deploy Branch
         uses: JamesIves/github-pages-deploy-action@v4
