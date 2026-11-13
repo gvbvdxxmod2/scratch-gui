@@ -38,18 +38,17 @@ jobs:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-v2-${{ hashFiles('**/yarn.lock') }}
         
-      - name: Install and Build Frontend
+      - name: Install modules
         run: |
-          
           sudo apt install python3
           yarn cache clean --all
           yarn install --force --ignore-engines --no-lockfile
 
-          cd node_modules/scratch-blocks
-          yarn install --force --ignore-engines --no-lockfile
-          yarn run build
-          cd ../../
-          
+          chmod +x build-scratch-blocks.sh
+          ./build-scratch-blocks.sh
+
+      - name: Build Scratch-GUI
+        run: |
           yarn run build
 
       - name: Deploy to Deploy Branch
