@@ -66,7 +66,9 @@ const base = {
         symlinks: false,
         alias: {
             'text-encoding$': path.resolve(__dirname, 'src/lib/tw-text-encoder'),
-            //'scratch-render-fonts$': path.resolve(__dirname, 'src/lib/tw-scratch-render-fonts')
+            //'scratch-render-fonts$': path.resolve(__dirname, 'src/lib/tw-scratch-render-fonts'),
+            '@turbowarp/scratch-svg-renderer': path.resolve(__dirname, 'node_modules/scratch-svg-renderer/src/'),
+            '@turbowarp/jszip': path.resolve(__dirname, 'node_modules/@gvbvdxxmod2/jszip/lib/index')
         }
     },
     module: {
