@@ -1,3 +1,4 @@
+
 name: Build GUI and deploy it
 
 on:
@@ -43,6 +44,12 @@ jobs:
           sudo apt install python3
           yarn cache clean --all
           yarn install --force --ignore-engines --no-lockfile
+
+          cd node_modules/scratch-blocks
+          yarn install --force --ignore-engines --no-lockfile
+          yarn run build
+          cd ../../
+          
           yarn run build
 
       - name: Deploy to Deploy Branch
