@@ -38,8 +38,10 @@ jobs:
       - name: Install and Build Frontend
         run: |
           
-          chmod +x workflow-builder.sh
-          ./workflow-builder.sh
+          sudo apt install python3
+          npm cache clean
+          npm install --force --ignore-engines --no-lockfile
+          npm run build
 
       - name: Deploy to Deploy Branch
         uses: JamesIves/github-pages-deploy-action@v4
