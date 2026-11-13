@@ -7,4 +7,4 @@ yarn install --force --ignore-engines --no-lockfile
 yarn link
 
 cd ../scratch-gui
-yarm link scratch-vm
+yarn link scratch-vm

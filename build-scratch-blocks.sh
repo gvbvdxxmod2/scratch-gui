@@ -8,4 +8,4 @@ yarn run build
 yarn link
 
 cd ../scratch-gui
-yarm link scratch-blocks
+yarn link scratch-blocks
