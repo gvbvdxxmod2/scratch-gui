@@ -47,8 +47,15 @@ jobs:
           yarn cache clean --all
           yarn install --force --ignore-engines --no-lockfile
 
+      - name: Build Scratch-Blocks
+        run: |
           chmod +x build-scratch-blocks.sh
           ./build-scratch-blocks.sh
+
+      - name: Build Scratch-VM
+        run: |
+          chmod +x build-scratch-vm.sh
+          ./build-scratch-vm.sh
 
       - name: Build Scratch-GUI
         run: |

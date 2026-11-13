@@ -1,6 +1,11 @@
 #!/bin/bash
 
-cd node_modules/scratch-blocks
+cd ../
+git clone https://github.com/gvbvdxxmod2/scratch-blocks
+cd scratch-blocks
 yarn install --force --ignore-engines --no-lockfile
 yarn run build
-cd ../../
+yarn link
+
+cd ../scratch-gui
+yarm link scratch-blocks
