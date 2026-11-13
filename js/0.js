@@ -1,9 +1,9 @@
 (window["webpackJsonpGUI"] = window["webpackJsonpGUI"] || []).push([[0],{
 
-/***/ "./node_modules/scratch-translate-extension-languages/languages.json":
-/*!***************************************************************************!*\
-  !*** ./node_modules/scratch-translate-extension-languages/languages.json ***!
-  \***************************************************************************/
+/***/ "./node_modules/scratch-vm/node_modules/scratch-translate-extension-languages/languages.json":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/scratch-vm/node_modules/scratch-translate-extension-languages/languages.json ***!
+  \***************************************************************************************************/
 /*! exports provided: menuMap, nameMap, scratchToGoogleMap, previouslySupported, spokenLanguages, default */
 /***/ (function(module) {
 

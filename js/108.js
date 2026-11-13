@@ -1,9 +1,9 @@
 (window["webpackJsonpGUI"] = window["webpackJsonpGUI"] || []).push([[108],{
 
-/***/ "./node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/21.clipboard.js":
-/*!*********************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/21.clipboard.js ***!
-  \*********************************************************************************************************/
+/***/ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/21.clipboard.js":
+/*!*********************************************************************************************************************!*\
+  !*** ../scratch-vm/node_modules/raw-loader!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/21.clipboard.js ***!
+  \*********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 

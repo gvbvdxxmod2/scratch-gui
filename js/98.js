@@ -1,9 +1,9 @@
 (window["webpackJsonpGUI"] = window["webpackJsonpGUI"] || []).push([[98],{
 
-/***/ "./node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/12.localstorage.js":
-/*!************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/12.localstorage.js ***!
-  \************************************************************************************************************/
+/***/ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/12.localstorage.js":
+/*!************************************************************************************************************************!*\
+  !*** ../scratch-vm/node_modules/raw-loader!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/12.localstorage.js ***!
+  \************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 

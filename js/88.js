@@ -8,7 +8,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 const formatMessage = __webpack_require__(/*! format-message */ "./node_modules/scratch-vm/node_modules/format-message/index.js");
-const languageNames = __webpack_require__(/*! scratch-translate-extension-languages */ "./node_modules/scratch-translate-extension-languages/languages.json");
+const languageNames = __webpack_require__(/*! scratch-translate-extension-languages */ "./node_modules/scratch-vm/node_modules/scratch-translate-extension-languages/languages.json");
 const ArgumentType = __webpack_require__(/*! ../../extension-support/argument-type */ "./node_modules/scratch-vm/src/extension-support/argument-type.js");
 const BlockType = __webpack_require__(/*! ../../extension-support/block-type */ "./node_modules/scratch-vm/src/extension-support/block-type.js");
 const Cast = __webpack_require__(/*! ../../util/cast */ "./node_modules/scratch-vm/src/util/cast.js");

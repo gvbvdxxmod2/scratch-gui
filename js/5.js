@@ -1,9 +1,9 @@
 (window["webpackJsonpGUI"] = window["webpackJsonpGUI"] || []).push([[5],{
 
-/***/ "./node_modules/atob/browser-atob.js":
-/*!*******************************************!*\
-  !*** ./node_modules/atob/browser-atob.js ***!
-  \*******************************************/
+/***/ "./node_modules/scratch-vm/node_modules/atob/browser-atob.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/scratch-vm/node_modules/atob/browser-atob.js ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -52,14 +52,14 @@
   }
 }(window));
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../buffer/index.js */ "./node_modules/buffer/index.js").Buffer, __webpack_require__(/*! ./../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../buffer/index.js */ "./node_modules/buffer/index.js").Buffer, __webpack_require__(/*! ./../../../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
 
 /***/ }),
 
-/***/ "./node_modules/btoa/index.js":
-/*!************************************!*\
-  !*** ./node_modules/btoa/index.js ***!
-  \************************************/
+/***/ "./node_modules/scratch-vm/node_modules/btoa/index.js":
+/*!************************************************************!*\
+  !*** ./node_modules/scratch-vm/node_modules/btoa/index.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -81,7 +81,7 @@
   module.exports = btoa;
 }());
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../buffer/index.js */ "./node_modules/buffer/index.js").Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../buffer/index.js */ "./node_modules/buffer/index.js").Buffer))
 
 /***/ }),
 
@@ -1515,8 +1515,8 @@ module.exports = BT;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-const atob = __webpack_require__(/*! atob */ "./node_modules/atob/browser-atob.js");
-const btoa = __webpack_require__(/*! btoa */ "./node_modules/btoa/index.js");
+const atob = __webpack_require__(/*! atob */ "./node_modules/scratch-vm/node_modules/atob/browser-atob.js");
+const btoa = __webpack_require__(/*! btoa */ "./node_modules/scratch-vm/node_modules/btoa/index.js");
 class Base64Util {
   /**
    * Convert a base64 encoded string to a Uint8Array.

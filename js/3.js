@@ -1,9 +1,9 @@
 (window["webpackJsonpGUI"] = window["webpackJsonpGUI"] || []).push([[3],{
 
-/***/ "./node_modules/@vernier/godirect/dist/godirect.min.umd.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@vernier/godirect/dist/godirect.min.umd.js ***!
-  \*****************************************************************/
+/***/ "./node_modules/scratch-vm/node_modules/@vernier/godirect/dist/godirect.min.umd.js":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/scratch-vm/node_modules/@vernier/godirect/dist/godirect.min.umd.js ***!
+  \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1200,10 +1200,10 @@
 
 /***/ }),
 
-/***/ "./node_modules/atob/browser-atob.js":
-/*!*******************************************!*\
-  !*** ./node_modules/atob/browser-atob.js ***!
-  \*******************************************/
+/***/ "./node_modules/scratch-vm/node_modules/atob/browser-atob.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/scratch-vm/node_modules/atob/browser-atob.js ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1252,14 +1252,14 @@
   }
 }(window));
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../buffer/index.js */ "./node_modules/buffer/index.js").Buffer, __webpack_require__(/*! ./../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../buffer/index.js */ "./node_modules/buffer/index.js").Buffer, __webpack_require__(/*! ./../../../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
 
 /***/ }),
 
-/***/ "./node_modules/btoa/index.js":
-/*!************************************!*\
-  !*** ./node_modules/btoa/index.js ***!
-  \************************************/
+/***/ "./node_modules/scratch-vm/node_modules/btoa/index.js":
+/*!************************************************************!*\
+  !*** ./node_modules/scratch-vm/node_modules/btoa/index.js ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1281,7 +1281,7 @@
   module.exports = btoa;
 }());
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../buffer/index.js */ "./node_modules/buffer/index.js").Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../buffer/index.js */ "./node_modules/buffer/index.js").Buffer))
 
 /***/ }),
 
@@ -1298,7 +1298,7 @@ const log = __webpack_require__(/*! ../../util/log */ "./node_modules/scratch-vm
 const formatMessage = __webpack_require__(/*! format-message */ "./node_modules/scratch-vm/node_modules/format-message/index.js");
 const MathUtil = __webpack_require__(/*! ../../util/math-util */ "./node_modules/scratch-vm/src/util/math-util.js");
 const BLE = __webpack_require__(/*! ../../io/ble */ "./node_modules/scratch-vm/src/io/ble.js");
-const godirect = __webpack_require__(/*! @vernier/godirect/dist/godirect.min.umd.js */ "./node_modules/@vernier/godirect/dist/godirect.min.umd.js");
+const godirect = __webpack_require__(/*! @vernier/godirect/dist/godirect.min.umd.js */ "./node_modules/scratch-vm/node_modules/@vernier/godirect/dist/godirect.min.umd.js");
 const ScratchLinkDeviceAdapter = __webpack_require__(/*! ./scratch-link-device-adapter */ "./node_modules/scratch-vm/src/extensions/scratch3_gdx_for/scratch-link-device-adapter.js");
 
 /**
@@ -2491,8 +2491,8 @@ module.exports = BLE;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-const atob = __webpack_require__(/*! atob */ "./node_modules/atob/browser-atob.js");
-const btoa = __webpack_require__(/*! btoa */ "./node_modules/btoa/index.js");
+const atob = __webpack_require__(/*! atob */ "./node_modules/scratch-vm/node_modules/atob/browser-atob.js");
+const btoa = __webpack_require__(/*! btoa */ "./node_modules/scratch-vm/node_modules/btoa/index.js");
 class Base64Util {
   /**
    * Convert a base64 encoded string to a Uint8Array.
