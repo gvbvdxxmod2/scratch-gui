@@ -1,39 +1,465 @@
 (window["webpackJsonpGUI"] = window["webpackJsonpGUI"] || []).push([[11],{
 
-/***/ "../scratch-vm/node_modules/arraybuffer-loader/index.js!./node_modules/scratch-vm/src/extensions/scratch3_music/assets/drums/1-snare.mp3":
-/*!**************************************************************************************************************************************!*\
-  !*** ../scratch-vm/node_modules/arraybuffer-loader!./node_modules/scratch-vm/src/extensions/scratch3_music/assets/drums/1-snare.mp3 ***!
-  \**************************************************************************************************************************************/
+/***/ "./node_modules/scratch-vm/src/extensions/gm2_gamepad/constants.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/scratch-vm/src/extensions/gm2_gamepad/constants.js ***!
+  \*************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__(/*! ../../../../../../../../scratch-vm/node_modules/arraybuffer-loader/lib/to-array-buffer.js */ "../scratch-vm/node_modules/arraybuffer-loader/lib/to-array-buffer.js")("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")
+const GAMEPAD_BUTTONS = {
+  "Button B (Nintendo Map)": 1,
+  "Button A (Nintendo Map)": 2,
+  "Button Y (Nintendo Map)": 3,
+  "Button X (Nintendo Map)": 4,
+  "Trigger R (Nintendo Map)": 6,
+  "Trigger ZR (Nintendo Map)": 8,
+  "Trigger ZL (Nintendo Map)": 7,
+  "Trigger L (Nintendo Map)": 5,
+  "Button Start/+ (Nintendo Map)": 10,
+  "Button Select/- (Nintendo Map)": 9
+};
+const GAMEPAD_PLAYERS = {
+  "Gamepad 1": 1,
+  "Gamepad 2": 2,
+  "Gamepad 3": 3,
+  "Gamepad 4": 4
+};
+module.exports = {
+  GAMEPAD_PLAYERS,
+  GAMEPAD_BUTTONS
+};
 
 /***/ }),
 
-/***/ "../scratch-vm/node_modules/arraybuffer-loader/lib/to-array-buffer.js":
-/*!****************************************************************************!*\
-  !*** ../scratch-vm/node_modules/arraybuffer-loader/lib/to-array-buffer.js ***!
-  \****************************************************************************/
+/***/ "./node_modules/scratch-vm/src/extensions/gm2_gamepad/index.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/scratch-vm/src/extensions/gm2_gamepad/index.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-/* WEBPACK VAR INJECTION */(function(Buffer) {
+/**
+Gamepad Extension By: Gvbvdxx
+(C) Gvbvdxx 2022
+Improved in 2026
+*/
 
-module.exports = function (base64Data) {
-  var isBrowser = typeof window !== 'undefined' && typeof window.atob === 'function'
-  var binary = isBrowser ? window.atob(base64Data) : Buffer.from(base64Data, 'base64').toString('binary')
-  var bytes = new Uint8Array(binary.length)
-
-  for (var i = 0; i < binary.length; ++i) {
-    bytes[i] = binary.charCodeAt(i)
-  }
-
-  return bytes.buffer
+const ArgumentType = __webpack_require__(/*! ../../extension-support/argument-type */ "./node_modules/scratch-vm/src/extension-support/argument-type.js");
+const BlockType = __webpack_require__(/*! ../../extension-support/block-type */ "./node_modules/scratch-vm/src/extension-support/block-type.js");
+const Cast = __webpack_require__(/*! ../../util/cast */ "./node_modules/scratch-vm/src/util/cast.js");
+const Runtime = __webpack_require__(/*! ../../../src/engine/runtime */ "./node_modules/scratch-vm/src/engine/runtime.js");
+const Sprite = __webpack_require__(/*! ../../../src/sprites/sprite.js */ "./node_modules/scratch-vm/src/sprites/sprite.js");
+const _require = __webpack_require__(/*! ./constants.js */ "./node_modules/scratch-vm/src/extensions/gm2_gamepad/constants.js"),
+  GAMEPAD_PLAYERS = _require.GAMEPAD_PLAYERS,
+  GAMEPAD_BUTTONS = _require.GAMEPAD_BUTTONS;
+var ConnectedGamepads = [];
+var MAX_GAMEPADS = 4;
+var i = 0;
+while (i < MAX_GAMEPADS) {
+  ConnectedGamepads.push(null);
+  i += 1;
 }
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../scratch-gui/node_modules/buffer/index.js */ "./node_modules/buffer/index.js").Buffer))
+window.addEventListener("gamepadconnected", function (event) {
+  var gamepad = event.gamepad;
+  var i = 0;
+  var foundIndex = -1;
+  for (var g of ConnectedGamepads) {
+    if (foundIndex == -1 && !g) {
+      foundIndex = i;
+    }
+    i += 1;
+  }
+  if (foundIndex == -1) {
+    return;
+  }
+  ConnectedGamepads[foundIndex] = gamepad;
+});
+window.addEventListener("gamepaddisconnected", function (event) {
+  var gamepad = event.gamepad;
+  var i = 0;
+  for (var g of ConnectedGamepads) {
+    if (g == gamepad) {
+      ConnectedGamepads[i] = null;
+      return;
+    }
+    i += 1;
+  }
+  return;
+});
+class GamepadExtension {
+  constructor(runtime) {
+    this.runtime = runtime;
+    this._connected = ConnectedGamepads.length;
+    this.hatStates = {
+      connect: false,
+      disconnect: false
+    };
+    this.runtime.on("BEFORE_EXECUTE", this._checkHatStates.bind(this));
+    this.runtime.on("AFTER_EXECUTE", this._resetHatStates.bind(this));
+  }
+  _checkHatStates() {
+    var states = this.hatStates;
+    var connectedCount = ConnectedGamepads.length;
+    if (this._connected !== connectedCount) {
+      var last = this._connected;
+      this._connected = connectedCount;
+      if (connectedCount > last) {
+        states.connect = true;
+      } else if (connectedCount < last) {
+        states.disconnect = false;
+      }
+    }
+  }
+  _resetHatStates() {
+    var states = this.hatStates;
+    states.connect = false;
+    states.disconnect = false;
+  }
+  _getGamepadFromNum(NUM) {
+    var gamepadIndex = (+NUM || 0) - 1;
+    if (gamepadIndex < 0) {
+      gamepadIndex = 0;
+    }
+    if (gamepadIndex > MAX_GAMEPADS) {
+      return null;
+    }
+    if (!ConnectedGamepads.length < 1) {
+      return null;
+    }
+    var gamepad = ConnectedGamepads[gamepadIndex];
+    return gamepad || null;
+  }
+  _supportsVibration(gamepad) {
+    if (!gamepad) {
+      return false;
+    }
+    if (gamepad.vibrationActuator) {
+      if (gamepad.vibrationActuator.playEffect) {
+        return true;
+      }
+    }
+    return false;
+  }
+  _getGamepadCount() {
+    var count = 0;
+    for (var gamepad of ConnectedGamepads) {
+      if (gamepad) {
+        count += 1;
+      }
+    }
+    return count;
+  }
+  getInfo() {
+    return {
+      id: 'gamepad',
+      name: 'Gamepads',
+      blockIconURI: null,
+      color1: "#00c83f",
+      color2: "#00a90e",
+      color3: "#003a0b",
+      blocks: [{
+        opcode: 'getgamepadX',
+        name: 'Gamepad LS X',
+        blockType: BlockType.REPORTER,
+        text: 'Gamepad [player] left stick x axis',
+        arguments: {
+          player: {
+            acceptReporters: false,
+            menu: 'gamepadnum'
+          }
+        }
+      }, {
+        opcode: 'getgamepadY',
+        name: 'Gamepad LS Y',
+        blockType: BlockType.REPORTER,
+        text: 'Gamepad [player] left stick y axis',
+        arguments: {
+          player: {
+            acceptReporters: false,
+            menu: 'gamepadnum'
+          }
+        }
+      }, {
+        opcode: 'getgamepad2ndX',
+        name: 'Gamepad RS X',
+        blockType: BlockType.REPORTER,
+        text: 'Gamepad [player] right stick x axis',
+        arguments: {
+          player: {
+            acceptReporters: false,
+            menu: 'gamepadnum'
+          }
+        }
+      }, {
+        opcode: 'getgamepad2ndY',
+        name: 'Gamepad RS Y',
+        blockType: BlockType.REPORTER,
+        text: 'Gamepad [player] right stick y axis',
+        arguments: {
+          player: {
+            acceptReporters: false,
+            menu: 'gamepadnum'
+          }
+        }
+      }, {
+        opcode: 'getgamepadButton',
+        name: 'Gamepad Button',
+        blockType: BlockType.BOOLEAN,
+        text: 'Gamepad [player] button [btn] pressed?',
+        arguments: {
+          player: {
+            acceptReporters: false,
+            menu: 'gamepadnum'
+          },
+          btn: {
+            acceptReporters: false,
+            menu: 'gamepadbtn'
+          }
+        }
+      }, {
+        opcode: 'getgamepadConnected',
+        name: 'Gamepad connected?',
+        blockType: BlockType.BOOLEAN,
+        text: 'Gamepad [player] connected?',
+        arguments: {
+          player: {
+            acceptReporters: false,
+            menu: 'gamepadnum'
+          }
+        }
+      }, {
+        opcode: 'vibratecontroler',
+        name: 'Vibrate Gamepad for seconds',
+        blockType: BlockType.COMMAND,
+        text: 'Vibrate gamepad [player] for [seconds] seconds',
+        arguments: {
+          player: {
+            acceptReporters: false,
+            menu: 'gamepadnum'
+          },
+          seconds: {
+            type: ArgumentType.NUMBER,
+            defaultValue: 0.2
+          }
+        }
+      }, {
+        opcode: 'vibratecontrolerpower',
+        name: 'Vibrate Gamepad for seconds (power values)',
+        blockType: BlockType.COMMAND,
+        text: 'Vibrate gamepad [player] for [seconds] at left strength:[power]% right strength:[weakness]%',
+        arguments: {
+          player: {
+            acceptReporters: false,
+            menu: 'gamepadnum'
+          },
+          seconds: {
+            type: ArgumentType.NUMBER,
+            defaultValue: 0.2
+          },
+          power: {
+            type: ArgumentType.NUMBER,
+            defaultValue: 100
+          },
+          weakness: {
+            type: ArgumentType.NUMBER,
+            defaultValue: 100
+          }
+        }
+      }, {
+        opcode: 'getlastest',
+        name: 'Get first gamepad connected',
+        blockType: BlockType.REPORTER,
+        text: 'Get first gamepad connected',
+        arguments: {}
+      }, {
+        opcode: 'gm2GetConnectedGamepads',
+        name: 'Gamepads connected',
+        blockType: BlockType.REPORTER,
+        text: 'Gamepads connected',
+        arguments: {}
+      }, {
+        opcode: 'gm2WhenGamepadConnected',
+        name: 'When a gamepad connects',
+        blockType: BlockType.HAT,
+        text: 'When a gamepad connects',
+        arguments: {}
+      }, {
+        opcode: 'gm2WhenGamepadDisconnected',
+        name: 'When a gamepad disconnects',
+        blockType: BlockType.HAT,
+        text: 'When a gamepad disconnects',
+        arguments: {}
+      }],
+      menus: {
+        gamepadnum: {
+          acceptReporters: true,
+          items: Object.keys(GAMEPAD_PLAYERS).map(name => ({
+            text: name,
+            value: "" + GAMEPAD_PLAYERS[name]
+          }))
+        },
+        gamepadbtn: {
+          acceptReporters: true,
+          items: Object.keys(GAMEPAD_BUTTONS).map(name => ({
+            text: name,
+            value: "" + GAMEPAD_BUTTONS[name]
+          }))
+        }
+      }
+    };
+  }
+  getgamepadX(args) {
+    var gamepad = this._getGamepadFromNum(args.player);
+    if (!gamepad) {
+      return 0;
+    }
+    if (!gamepad.axes) {
+      return 0;
+    }
+    return gamepad.axes[0] * 10;
+  }
+  getgamepadY(args) {
+    var gamepad = this._getGamepadFromNum(args.player);
+    if (!gamepad) {
+      return 0;
+    }
+    if (!gamepad.axes) {
+      return 0;
+    }
+    return gamepad.axes[1] * -10;
+  }
+  getgamepad2ndX(args) {
+    var gamepad = this._getGamepadFromNum(args.player);
+    if (!gamepad) {
+      return 0;
+    }
+    if (!gamepad.axes) {
+      return 0;
+    }
+    return gamepad.axes[2] * 10;
+  }
+  getgamepad2ndY(args) {
+    var gamepad = this._getGamepadFromNum(args.player);
+    if (!gamepad) {
+      return 0;
+    }
+    if (!gamepad.axes) {
+      return 0;
+    }
+    return gamepad.axes[3] * -10;
+  }
+  getgamepadButton(args) {
+    var gamepad = this._getGamepadFromNum(args.player);
+    if (!gamepad) {
+      return false;
+    }
+    var buttonIndex = (+args.btn || 0) - 1;
+    var button = gamepad.buttons[buttonIndex];
+    if (!button) {
+      return false;
+    }
+    return !!button.pressed;
+  }
+  getgamepadConnected(args) {
+    var gamepad = this._getGamepadFromNum(args.player);
+    return !!gamepad;
+  }
+  vibratecontroler(args) {
+    var gamepad = this._getGamepadFromNum(args.player);
+    var duration = +args.seconds || 0;
+    if (duration < 0) {
+      duration = 0;
+    }
+    if (!gamepad) {
+      return;
+    }
+    if (!this._supportsVibration(gamepad)) {
+      return;
+    }
+    try {
+      if (duration <= 0) {
+        try {
+          gamepad.vibrationActuator.reset();
+        } catch (e) {
+          console.error("Unable to reset vibration effect for gamepad: ", gamepad, " Error:", e);
+        }
+        return;
+      }
+      gamepad.vibrationActuator.playEffect("dual-rumble", {
+        startDelay: 0,
+        duration: 1000 * duration,
+        weakMagnitude: 0.8,
+        strongMagnitude: 0.8
+      });
+    } catch (e) {
+      console.error("Unable to play vibration effect for gamepad: ", gamepad, " Error:", e);
+    }
+  }
+  vibratecontrolerpower(args) {
+    var gamepad = this._getGamepadFromNum(args.player);
+    if (!gamepad) {
+      return;
+    }
+    var duration = +args.seconds || 0;
+    if (duration < 0) {
+      duration = 0;
+    }
+    var power = +args.power || 0;
+    if (power < 0) {
+      power = 0;
+    } else if (power > 100) {
+      power = 100;
+    }
+    var weak = +args.weakness || 0;
+    if (weak < 0) {
+      weak = 0;
+    } else if (weak > 100) {
+      weak = 100;
+    }
+    if (!this._supportsVibration(gamepad)) {
+      return;
+    }
+    if (duration <= 0) {
+      try {
+        gamepad.vibrationActuator.reset();
+      } catch (e) {
+        console.error("Unable to reset vibration effect for gamepad: ", gamepad, " Error:", e);
+      }
+      return;
+    }
+    try {
+      gamepad.vibrationActuator.playEffect("dual-rumble", {
+        startDelay: 0,
+        duration: 1000 * duration,
+        weakMagnitude: weak / 100,
+        strongMagnitude: power / 100
+      });
+    } catch (e) {
+      console.error("Unable to play vibration effect for gamepad: ", gamepad, " Error:", e);
+    }
+  }
+  getlastest() {
+    var i = 0;
+    for (var gamepad of ConnectedGamepads) {
+      if (gamepad) {
+        return i + 1;
+      }
+      i += 1;
+    }
+    return 0;
+  }
+  gm2GetConnectedGamepads() {
+    return this._getGamepadCount();
+  }
+  gm2WhenGamepadConnected() {
+    return !!this.hatStates.connect;
+  }
+  gm2WhenGamepadDisconnected() {
+    return !!this.hatStates.disconnect;
+  }
+}
+module.exports = GamepadExtension;
 
 /***/ })
 

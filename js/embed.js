@@ -39429,6 +39429,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _html5_small_svg__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(_html5_small_svg__WEBPACK_IMPORTED_MODULE_28__);
 /* harmony import */ var _html5_html5_thumbnail_svg__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./html5/html5-thumbnail.svg */ "./src/lib/libraries/extensions/html5/html5-thumbnail.svg");
 /* harmony import */ var _html5_html5_thumbnail_svg__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(_html5_html5_thumbnail_svg__WEBPACK_IMPORTED_MODULE_29__);
+/* harmony import */ var _gm2liveconnect_liveconnect_svg__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./gm2liveconnect/liveconnect.svg */ "./src/lib/libraries/extensions/gm2liveconnect/liveconnect.svg");
+/* harmony import */ var _gm2liveconnect_liveconnect_svg__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(_gm2liveconnect_liveconnect_svg__WEBPACK_IMPORTED_MODULE_30__);
+/* harmony import */ var _gm2liveconnect_liveconnect_thumbnail_png__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./gm2liveconnect/liveconnect-thumbnail.png */ "./src/lib/libraries/extensions/gm2liveconnect/liveconnect-thumbnail.png");
+/* harmony import */ var _gm2liveconnect_liveconnect_thumbnail_png__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(_gm2liveconnect_liveconnect_thumbnail_png__WEBPACK_IMPORTED_MODULE_31__);
+
+
 
 
 
@@ -39460,6 +39466,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ([{
+  incompatibleWithScratch: true,
+  name: 'Gvbvdxx Mod 2 Live Connect',
+  extensionId: 'gm2liveconnect',
+  iconURL: _gm2liveconnect_liveconnect_thumbnail_png__WEBPACK_IMPORTED_MODULE_31___default.a,
+  insetIconURL: _gm2liveconnect_liveconnect_svg__WEBPACK_IMPORTED_MODULE_30___default.a,
+  description: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
+    defaultMessage: "Allows you to easilt connect to special open-source servers for online multiplayer. Really good for syncing variables & sending events.",
+    id: "gm2.extension.newblocks.description"
+  }),
+  featured: true,
+  disabled: false,
+  internetConnectionRequired: false,
+  bluetoothRequired: false,
+  helpLink: '',
+  tags: ["gm2"]
+}, {
   incompatibleWithScratch: true,
   name: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_intl__WEBPACK_IMPORTED_MODULE_1__["FormattedMessage"], {
     defaultMessage: "Sprite Canvases",
@@ -39736,6 +39758,28 @@ __webpack_require__.r(__webpack_exports__);
   helpLink: '',
   tags: ["gm2"]
 }]);
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/gm2liveconnect/liveconnect-thumbnail.png":
+/*!*******************************************************************************!*\
+  !*** ./src/lib/libraries/extensions/gm2liveconnect/liveconnect-thumbnail.png ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/5a1b7199183d5d36ebc38c1e32730656.png";
+
+/***/ }),
+
+/***/ "./src/lib/libraries/extensions/gm2liveconnect/liveconnect.svg":
+/*!*********************************************************************!*\
+  !*** ./src/lib/libraries/extensions/gm2liveconnect/liveconnect.svg ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/edcb56641d1846366a95c56c33b44d16.svg";
 
 /***/ }),
 

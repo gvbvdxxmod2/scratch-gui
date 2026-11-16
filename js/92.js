@@ -1,395 +1,165 @@
 (window["webpackJsonpGUI"] = window["webpackJsonpGUI"] || []).push([[92],{
 
-/***/ "./node_modules/scratch-vm/src/extensions/scratch3_makeymakey/index.js":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/scratch-vm/src/extensions/scratch3_makeymakey/index.js ***!
-  \*****************************************************************************/
+/***/ "./node_modules/scratch-vm/src/extensions/gm2_audiocontext/index.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/scratch-vm/src/extensions/gm2_audiocontext/index.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-const formatMessage = __webpack_require__(/*! format-message */ "./node_modules/scratch-vm/node_modules/format-message/index.js");
+// for cross browser compatibility
+var blockIconURI = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAkdEVYdERlc2NyaXB0aW9uAEdhbWVwYWQuIG1vbm9jaHJvbWUgaWNvbhGLVc0AAANlSURBVHhe7dxRbuIwGIVRmAV0/+vsBhhQkRh1gCTEjn9fnSNVzSNKP67sl54v36fLCUL8uf+GCIImiqCJImiiCJoogiaKoIkiaKIImiiCntT56/HDg6An9DtiUT8IejLifU/QExHzMkFPQszrCHoCYl5P0MWJeRtBFybm7QRdlJg/I+iC3sV8+b4/8JSgixHzPoIuRMz7CboIMbch6ALE3I6gBxNzW4IeSMztCXoQMfch6AHE3I+gDybmvgR9IDH3J+iDiPkYgj6AmI8j6M7EfCxBdyTm4wm6EzGPIegOxDyOoBsT81iCbkjM4wm6ETHXIOgGxFyHoHcScy2C3kHM9Qj6Q2KuSdAfEHNdgt5IzLUJegMx1yfolcQ8B0GvIOZ5CHqBmOci6DfEPB9BvyDmOQn6CTHPS9C/iHlu5+sf6XJ/HuJdQJVUivnZO/Nl+zF0ocVMa44cC8Q8F0G/Ieb5CPoFMc9p6KWwyuVmtkuWS+FrFpoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiXK+fJ8u9+fDnb/uDwVd30tZz95b5c97pGELXTlm5uXIQRRBE2VY0NXPfLcjkWPRfIZeCqtYCrfal8+l8DVHjqulGKz1PAR9t2bhRF2foP9xi9paz03QT1jreQn6BWs9J0EvsNZzEfQKa9ea8QS9gSNIfYLeyFrXJugPWeuaBL2Dta5H0A1Y6zoE3chS1Dei7k/QDa09ggi7H0F3YK3HEXQn1noMQXdmrY8l6AOsXWv2E/SBHEH6E/TBrHVfgh7EWvch6IGsdXuCLsBatyPoIpaivhH1MkEX4giyn6ALWrPWPCfootasNf8TdHGi3kbQE1iz1s7WPwQ9EWu9TNCTEfV7gg4h9B+CntDveMX84D/4E8VCE0XQRBE0UQRNFEETRdBEETRRBE0UQRNF0EQRNFEETRRBE0XQBDmd/gKDn9ES1n9HXQAAAABJRU5ErkJggg==";
 const ArgumentType = __webpack_require__(/*! ../../extension-support/argument-type */ "./node_modules/scratch-vm/src/extension-support/argument-type.js");
 const BlockType = __webpack_require__(/*! ../../extension-support/block-type */ "./node_modules/scratch-vm/src/extension-support/block-type.js");
 const Cast = __webpack_require__(/*! ../../util/cast */ "./node_modules/scratch-vm/src/util/cast.js");
-
-/**
- * Icon svg to be displayed at the left edge of each extension block, encoded as a data URI.
- * @type {string}
- */
-// eslint-disable-next-line max-len
-const blockIconURI = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PHN0eWxlPi5zdDJ7ZmlsbDpyZWR9LnN0M3tmaWxsOiNlMGUwZTB9LnN0NHtmaWxsOm5vbmU7c3Ryb2tlOiM2NjY7c3Ryb2tlLXdpZHRoOi41O3N0cm9rZS1taXRlcmxpbWl0OjEwfTwvc3R5bGU+PHBhdGggZD0iTTM1IDI4SDVhMSAxIDAgMCAxLTEtMVYxMmMwLS42LjQtMSAxLTFoMzBjLjUgMCAxIC40IDEgMXYxNWMwIC41LS41IDEtMSAxeiIgZmlsbD0iI2ZmZiIgaWQ9IkxheWVyXzYiLz48ZyBpZD0iTGF5ZXJfNCI+PHBhdGggY2xhc3M9InN0MiIgZD0iTTQgMjVoMzJ2Mi43SDR6TTEzIDI0aC0yLjJhMSAxIDAgMCAxLTEtMXYtOS43YzAtLjYuNC0xIDEtMUgxM2MuNiAwIDEgLjQgMSAxVjIzYzAgLjYtLjUgMS0xIDF6Ii8+PHBhdGggY2xhc3M9InN0MiIgZD0iTTYuMSAxOS4zdi0yLjJjMC0uNS40LTEgMS0xaDkuN2MuNSAwIDEgLjUgMSAxdjIuMmMwIC41LS41IDEtMSAxSDcuMWExIDEgMCAwIDEtMS0xeiIvPjxjaXJjbGUgY2xhc3M9InN0MiIgY3g9IjIyLjgiIGN5PSIxOC4yIiByPSIzLjQiLz48Y2lyY2xlIGNsYXNzPSJzdDIiIGN4PSIzMC42IiBjeT0iMTguMiIgcj0iMy40Ii8+PHBhdGggY2xhc3M9InN0MiIgZD0iTTQuMiAyN2gzMS45di43SDQuMnoiLz48L2c+PGcgaWQ9IkxheWVyXzUiPjxjaXJjbGUgY2xhc3M9InN0MyIgY3g9IjIyLjgiIGN5PSIxOC4yIiByPSIyLjMiLz48Y2lyY2xlIGNsYXNzPSJzdDMiIGN4PSIzMC42IiBjeT0iMTguMiIgcj0iMi4zIi8+PHBhdGggY2xhc3M9InN0MyIgZD0iTTEyLjUgMjIuOWgtMS4yYy0uMyAwLS41LS4yLS41LS41VjE0YzAtLjMuMi0uNS41LS41aDEuMmMuMyAwIC41LjIuNS41djguNGMwIC4zLS4yLjUtLjUuNXoiLz48cGF0aCBjbGFzcz0ic3QzIiBkPSJNNy4yIDE4Ljd2LTEuMmMwLS4zLjItLjUuNS0uNWg4LjRjLjMgMCAuNS4yLjUuNXYxLjJjMCAuMy0uMi41LS41LjVINy43Yy0uMyAwLS41LS4yLS41LS41ek00IDI2aDMydjJINHoiLz48L2c+PGcgaWQ9IkxheWVyXzMiPjxwYXRoIGNsYXNzPSJzdDQiIGQ9Ik0zNS4yIDI3LjlINC44YTEgMSAwIDAgMS0xLTFWMTIuMWMwLS42LjUtMSAxLTFoMzAuNWMuNSAwIDEgLjQgMSAxVjI3YTEgMSAwIDAgMS0xLjEuOXoiLz48cGF0aCBjbGFzcz0ic3Q0IiBkPSJNMzUuMiAyNy45SDQuOGExIDEgMCAwIDEtMS0xVjEyLjFjMC0uNi41LTEgMS0xaDMwLjVjLjUgMCAxIC40IDEgMVYyN2ExIDEgMCAwIDEtMS4xLjl6Ii8+PC9nPjwvc3ZnPg==';
-
-/**
- * Length of the buffer to store key presses for the "when keys pressed in order" hat
- * @type {number}
- */
-const KEY_BUFFER_LENGTH = 100;
-
-/**
- * Timeout in milliseconds to reset the completed flag for a sequence.
- * @type {number}
- */
-const SEQUENCE_HAT_TIMEOUT = 100;
-
-/**
- * An id for the space key on a keyboard.
- */
-const KEY_ID_SPACE = 'SPACE';
-
-/**
- * An id for the left arrow key on a keyboard.
- */
-const KEY_ID_LEFT = 'LEFT';
-
-/**
- * An id for the right arrow key on a keyboard.
- */
-const KEY_ID_RIGHT = 'RIGHT';
-
-/**
- * An id for the up arrow key on a keyboard.
- */
-const KEY_ID_UP = 'UP';
-
-/**
- * An id for the down arrow key on a keyboard.
- */
-const KEY_ID_DOWN = 'DOWN';
-
-/**
- * Names used by keyboard io for keys used in scratch.
- * @enum {string}
- */
-const SCRATCH_KEY_NAME = {
-  [KEY_ID_SPACE]: 'space',
-  [KEY_ID_LEFT]: 'left arrow',
-  [KEY_ID_UP]: 'up arrow',
-  [KEY_ID_RIGHT]: 'right arrow',
-  [KEY_ID_DOWN]: 'down arrow'
+window.audioctxExtensionData = {
+  volume: 100
 };
-
-/**
- * Class for the makey makey blocks in Scratch 3.0
- * @constructor
- */
-class Scratch3MakeyMakeyBlocks {
+class audioctx {
   constructor(runtime) {
-    /**
-     * The runtime instantiating this block package.
-     * @type {Runtime}
-     */
     this.runtime = runtime;
-
-    /**
-     * A toggle that alternates true and false each frame, so that an
-     * edge-triggered hat can trigger on every other frame.
-     * @type {boolean}
-     */
-    this.frameToggle = false;
-
-    // Set an interval that toggles the frameToggle every frame.
-    setInterval(() => {
-      this.frameToggle = !this.frameToggle;
-    }, this.runtime.currentStepTime);
-    this.keyPressed = this.keyPressed.bind(this);
-    this.runtime.on('KEY_PRESSED', this.keyPressed);
-    this._clearkeyPressBuffer = this._clearkeyPressBuffer.bind(this);
-    this.runtime.on('PROJECT_STOP_ALL', this._clearkeyPressBuffer);
-
-    /*
-     * An object containing a set of sequence objects.
-     * These are the key sequences currently being detected by the "when
-     * keys pressed in order" hat block. Each sequence is keyed by its
-     * string representation (the sequence's value in the menu, which is a
-     * string of KEY_IDs separated by spaces). Each sequence object
-     * has an array property (an array of KEY_IDs) and a boolean
-     * completed property that is true when the sequence has just been
-     * pressed.
-     * @type {object}
-     */
-    this.sequences = {};
-
-    /*
-     * An array of the key codes of recently pressed keys.
-     * @type {array}
-     */
-    this.keyPressBuffer = [];
+    this._playNoteForPicker = this._playNoteForPicker.bind(this);
+    this.runtime.on('PLAY_NOTE', this._playNoteForPicker);
   }
-
-  /*
-  * Localized short-form names of the space bar and arrow keys, for use in the
-  * displayed menu items of the "when keys pressed in order" block.
-  * @type {object}
-  */
-  get KEY_TEXT_SHORT() {
-    return {
-      [KEY_ID_SPACE]: formatMessage({
-        id: 'makeymakey.spaceKey',
-        default: 'space',
-        description: 'The space key on a computer keyboard.'
-      }),
-      [KEY_ID_LEFT]: formatMessage({
-        id: 'makeymakey.leftArrowShort',
-        default: 'left',
-        description: 'Short name for the left arrow key on a computer keyboard.'
-      }),
-      [KEY_ID_UP]: formatMessage({
-        id: 'makeymakey.upArrowShort',
-        default: 'up',
-        description: 'Short name for the up arrow key on a computer keyboard.'
-      }),
-      [KEY_ID_RIGHT]: formatMessage({
-        id: 'makeymakey.rightArrowShort',
-        default: 'right',
-        description: 'Short name for the right arrow key on a computer keyboard.'
-      }),
-      [KEY_ID_DOWN]: formatMessage({
-        id: 'makeymakey.downArrowShort',
-        default: 'down',
-        description: 'Short name for the down arrow key on a computer keyboard.'
-      })
-    };
-  }
-
-  /*
-   * An array of strings of KEY_IDs representing the default set of
-   * key sequences for use by the "when keys pressed in order" block.
-   * @type {array}
-   */
-  get DEFAULT_SEQUENCES() {
-    return ["".concat(KEY_ID_LEFT, " ").concat(KEY_ID_UP, " ").concat(KEY_ID_RIGHT), "".concat(KEY_ID_RIGHT, " ").concat(KEY_ID_UP, " ").concat(KEY_ID_LEFT), "".concat(KEY_ID_LEFT, " ").concat(KEY_ID_RIGHT), "".concat(KEY_ID_RIGHT, " ").concat(KEY_ID_LEFT), "".concat(KEY_ID_UP, " ").concat(KEY_ID_DOWN), "".concat(KEY_ID_DOWN, " ").concat(KEY_ID_UP), "".concat(KEY_ID_UP, " ").concat(KEY_ID_RIGHT, " ").concat(KEY_ID_DOWN, " ").concat(KEY_ID_LEFT), "".concat(KEY_ID_UP, " ").concat(KEY_ID_LEFT, " ").concat(KEY_ID_DOWN, " ").concat(KEY_ID_RIGHT), "".concat(KEY_ID_UP, " ").concat(KEY_ID_UP, " ").concat(KEY_ID_DOWN, " ").concat(KEY_ID_DOWN, " ") + "".concat(KEY_ID_LEFT, " ").concat(KEY_ID_RIGHT, " ").concat(KEY_ID_LEFT, " ").concat(KEY_ID_RIGHT)];
-  }
-
-  /**
-   * @returns {object} metadata for this extension and its blocks.
-   */
   getInfo() {
     return {
-      id: 'makeymakey',
-      name: 'Makey Makey',
+      id: 'audioctx',
+      name: 'Audio Context',
       blockIconURI: blockIconURI,
       blocks: [{
-        opcode: 'whenMakeyKeyPressed',
-        text: formatMessage({
-          id: 'makeymakey.whenKeyPressed',
-          default: 'when [KEY] key pressed',
-          description: 'when a keyboard key is pressed'
-        }),
-        blockType: BlockType.HAT,
+        opcode: 'playWave',
+        blockType: BlockType.COMMAND,
+        text: 'Play wave frequency [frequency] with [sharp] for [sec]',
         arguments: {
-          KEY: {
-            type: ArgumentType.STRING,
-            menu: 'KEY',
-            defaultValue: KEY_ID_SPACE
+          sharp: {
+            type: ArgumentType.NUMBER,
+            defaultValue: 100
+          },
+          sec: {
+            type: ArgumentType.NUMBER,
+            defaultValue: 0.5
+          },
+          frequency: {
+            type: ArgumentType.NUMBER,
+            defaultValue: 5000
           }
         }
       }, {
-        opcode: 'whenCodePressed',
-        text: formatMessage({
-          id: 'makeymakey.whenKeysPressedInOrder',
-          default: 'when [SEQUENCE] pressed in order',
-          description: 'when a sequence of keyboard keys is pressed in a specific order'
-        }),
-        blockType: BlockType.HAT,
+        opcode: 'playWaveNote',
+        blockType: BlockType.COMMAND,
+        text: 'Play wave note [note] with [sharp] for [sec]',
         arguments: {
-          SEQUENCE: {
-            type: ArgumentType.STRING,
-            menu: 'SEQUENCE',
-            defaultValue: this.DEFAULT_SEQUENCES[0]
+          sharp: {
+            type: ArgumentType.NUMBER,
+            defaultValue: 100
+          },
+          sec: {
+            type: ArgumentType.NUMBER,
+            defaultValue: 0.5
+          },
+          note: {
+            type: ArgumentType.NOTE,
+            defaultValue: 60
+          }
+        }
+      }, {
+        opcode: 'setVolume',
+        blockType: BlockType.COMMAND,
+        text: 'Set Volume To [volume]',
+        arguments: {
+          volume: {
+            type: ArgumentType.NUMBER,
+            defaultValue: 100
           }
         }
       }],
-      menus: {
-        KEY: {
-          acceptReporters: true,
-          items: [{
-            text: formatMessage({
-              id: 'makeymakey.spaceKey',
-              default: 'space',
-              description: 'The space key on a computer keyboard.'
-            }),
-            value: KEY_ID_SPACE
-          }, {
-            text: formatMessage({
-              id: 'makeymakey.upArrow',
-              default: 'up arrow',
-              description: 'The up arrow key on a computer keyboard.'
-            }),
-            value: KEY_ID_UP
-          }, {
-            text: formatMessage({
-              id: 'makeymakey.downArrow',
-              default: 'down arrow',
-              description: 'The down arrow key on a computer keyboard.'
-            }),
-            value: KEY_ID_DOWN
-          }, {
-            text: formatMessage({
-              id: 'makeymakey.rightArrow',
-              default: 'right arrow',
-              description: 'The right arrow key on a computer keyboard.'
-            }),
-            value: KEY_ID_RIGHT
-          }, {
-            text: formatMessage({
-              id: 'makeymakey.leftArrow',
-              default: 'left arrow',
-              description: 'The left arrow key on a computer keyboard.'
-            }),
-            value: KEY_ID_LEFT
-          }, {
-            text: 'w',
-            value: 'w'
-          }, {
-            text: 'a',
-            value: 'a'
-          }, {
-            text: 's',
-            value: 's'
-          }, {
-            text: 'd',
-            value: 'd'
-          }, {
-            text: 'f',
-            value: 'f'
-          }, {
-            text: 'g',
-            value: 'g'
-          }]
-        },
-        SEQUENCE: {
-          acceptReporters: true,
-          items: this.buildSequenceMenu(this.DEFAULT_SEQUENCES)
-        }
-      }
+      menus: {}
     };
   }
-
-  /*
-   * Build the menu of key sequences.
-   * @param {array} sequencesArray an array of strings of KEY_IDs.
-   * @returns {array} an array of objects with text and value properties.
-   */
-  buildSequenceMenu(sequencesArray) {
-    return sequencesArray.map(str => this.getMenuItemForSequenceString(str));
-  }
-
-  /*
-   * Create a menu item for a sequence string.
-   * @param {string} sequenceString a string of KEY_IDs.
-   * @return {object} an object with text and value properties.
-   */
-  getMenuItemForSequenceString(sequenceString) {
-    let sequenceArray = sequenceString.split(' ');
-    sequenceArray = sequenceArray.map(str => this.KEY_TEXT_SHORT[str]);
-    return {
-      text: sequenceArray.join(' '),
-      value: sequenceString
-    };
-  }
-
-  /*
-   * Check whether a keyboard key is currently pressed.
-   * Also, toggle the results of the test on alternate frames, so that the
-   * hat block fires repeatedly.
-   * @param {object} args - the block arguments.
-   * @property {number} KEY - a key code.
-   * @param {object} util - utility object provided by the runtime.
-   */
-  whenMakeyKeyPressed(args, util) {
-    let key = args.KEY;
-    // Convert the key arg, if it is a KEY_ID, to the key name used by
-    // the Keyboard io module.
-    if (SCRATCH_KEY_NAME[args.KEY]) {
-      key = SCRATCH_KEY_NAME[args.KEY];
+  _playNoteForPicker(noteNum, category) {
+    if (category !== this.getInfo().name) return;
+    if (this.playnoteosc) {
+      //so when you slide to the next note, it wont play over the last note.
+      var audiocxtobj = this.runtime.audioEngine.audioContext;
+      this.playnoteosc.stop(audiocxtobj.currentTime);
     }
-    const isDown = util.ioQuery('keyboard', 'getKeyIsDown', [key]);
-    return isDown && this.frameToggle;
+    this.playnoteosc = this.playWaveNoteFunct(noteNum, 100, 0.3);
   }
-
-  /*
-   * A function called on the KEY_PRESSED event, to update the key press
-   * buffer and check if any of the key sequences have been completed.
-   * @param {string} key A scratch key name.
-   */
-  keyPressed(key) {
-    // Store only the first word of the Scratch key name, so that e.g. when
-    // "left arrow" is pressed, we store "LEFT", which matches KEY_ID_LEFT
-    key = key.split(' ')[0];
-    key = key.toUpperCase();
-    this.keyPressBuffer.push(key);
-    // Keep the buffer under the length limit
-    if (this.keyPressBuffer.length > KEY_BUFFER_LENGTH) {
-      this.keyPressBuffer.shift();
+  capAudioOutput(out) {
+    var a = out;
+    if (a > 1) {
+      a = 1;
     }
-    // Check the buffer for each sequence in use
-    for (const str in this.sequences) {
-      const arr = this.sequences[str].array;
-      // Bail out if we don't have enough presses for this sequence
-      if (this.keyPressBuffer.length < arr.length) {
-        continue;
+    if (a < -1) {
+      a = -1;
+    }
+    return a;
+  }
+  playWave(args) {
+    try {
+      function mtof(m) {
+        return Math.pow(2, (m - 69) / 12) * 440;
       }
-      let missFlag = false;
-      // Slice the buffer to the length of the sequence we're checking
-      const bufferSegment = this.keyPressBuffer.slice(-1 * arr.length);
-      for (let i = 0; i < arr.length; i++) {
-        if (arr[i] !== bufferSegment[i]) {
-          missFlag = true;
-        }
+      var audiocxtobj = this.runtime.audioEngine.audioContext;
+      var real = new Float32Array(2);
+      var imag = new Float32Array(2);
+      var osc = audiocxtobj.createOscillator();
+      var gain = audiocxtobj.createGain();
+      gain.gain.value = window.audioctxExtensionData.volume / 100;
+      real[0] = 0;
+      imag[0] = 0;
+      real[1] = this.capAudioOutput(Number(Cast.toString(args.sharp)));
+      imag[1] = this.capAudioOutput(Number(Cast.toString(args.sharp)));
+      osc.frequency.value = Number(Cast.toString(args.frequency));
+      var wave = audiocxtobj.createPeriodicWave(real, imag, {
+        disableNormalization: false
+      });
+      osc.setPeriodicWave(wave);
+      osc.connect(this.runtime.audioEngine.getInputNode());
+      osc.start(audiocxtobj.currentTime);
+      osc.stop(Number(Cast.toString(args.sec)) + audiocxtobj.currentTime);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+  playWaveNoteFunct(note, sharp, sec) {
+    try {
+      function mtof(m) {
+        return Math.pow(2, (m - 69) / 12) * 440;
       }
-      // If the miss flag is false, the sequence matched the buffer
-      if (!missFlag) {
-        this.sequences[str].completed = true;
-        // Clear the completed flag after a timeout. This is necessary because
-        // the hat is edge-triggered (not event triggered). Multiple hats
-        // may be checking the same sequence, so this timeout gives them enough
-        // time to all trigger before resetting the flag.
-        setTimeout(() => {
-          this.sequences[str].completed = false;
-        }, SEQUENCE_HAT_TIMEOUT);
-      }
+      var audiocxtobj = this.runtime.audioEngine.audioContext;
+      var real = new Float32Array(2);
+      var imag = new Float32Array(2);
+      var osc = audiocxtobj.createOscillator();
+      var gain = audiocxtobj.createGain();
+      gain.gain.value = window.audioctxExtensionData.volume / 100;
+      real[0] = 0;
+      imag[0] = 0;
+      real[1] = this.capAudioOutput(sharp);
+      imag[1] = this.capAudioOutput(sharp);
+      osc.frequency.value = mtof(note);
+      var wave = audiocxtobj.createPeriodicWave(real, imag, {
+        disableNormalization: false
+      });
+      osc.setPeriodicWave(wave);
+      osc.connect(this.runtime.audioEngine.getInputNode());
+      osc.start(audiocxtobj.currentTime);
+      osc.stop(sec + audiocxtobj.currentTime);
+      return osc;
+    } catch (e) {}
+  }
+  playWaveNote(args) {
+    try {
+      this.playWaveNoteFunct(Number(Cast.toString(args.note)), Number(Cast.toString(args.sharp)), Number(Cast.toString(args.sec)));
+    } catch (e) {
+      console.error(e);
     }
   }
-
-  /**
-   * Clear the key press buffer.
-   */
-  _clearkeyPressBuffer() {
-    this.keyPressBuffer = [];
-  }
-
-  /*
-   * Add a key sequence to the set currently being checked on each key press.
-   * @param {string} sequenceString a string of space-separated KEY_IDs.
-   * @param {array} sequenceArray an array of KEY_IDs.
-   */
-  addSequence(sequenceString, sequenceArray) {
-    // If we already have this sequence string, return.
-    if (this.sequences.hasOwnProperty(sequenceString)) {
-      return;
-    }
-    this.sequences[sequenceString] = {
-      array: sequenceArray,
-      completed: false
-    };
-  }
-
-  /*
-   * Check whether a key sequence was recently completed.
-   * @param {object} args The block arguments.
-   * @property {number} SEQUENCE A string of KEY_IDs.
-   */
-  whenCodePressed(args) {
-    const sequenceString = Cast.toString(args.SEQUENCE).toUpperCase();
-    const sequenceArray = sequenceString.split(' ');
-    if (sequenceArray.length < 2) {
-      return;
-    }
-    this.addSequence(sequenceString, sequenceArray);
-    return this.sequences[sequenceString].completed;
+  setVolume(args) {
+    window.audioctxExtensionData.volume = Number(Cast.toString(args.volume));
   }
 }
-module.exports = Scratch3MakeyMakeyBlocks;
+module.exports = audioctx;
 
 /***/ })
 

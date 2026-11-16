@@ -1,13 +1,754 @@
 (window["webpackJsonpGUI"] = window["webpackJsonpGUI"] || []).push([[102],{
 
-/***/ "../scratch-vm/node_modules/raw-loader/index.js!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/11.strings.js":
-/*!*******************************************************************************************************************!*\
-  !*** ../scratch-vm/node_modules/raw-loader!./node_modules/scratch-vm/src/gm2-tw-extension-lib-data/11.strings.js ***!
-  \*******************************************************************************************************************/
+/***/ "./node_modules/scratch-vm/src/extensions/scratch3_text2speech/index.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/scratch-vm/src/extensions/scratch3_text2speech/index.js ***!
+  \******************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "// Name: Text\n// ID: strings\n// Description: Manipulate characters and text.\n// By: CST1229 <https://scratch.mit.edu/users/CST1229/>\n// By: BludIsAnLemon <https://scratch.mit.edu/users/BludIsAnLemon/>\n// By: Man-o-Valor <https://scratch.mit.edu/users/man-o-valor/>\n// License: MIT AND MPL-2.0\n\n/* generated l10n code */Scratch.translate.setup({\"es\":{\"_Text\":\"Texto\"},\"fi\":{\"_Exactly Title Case\":\"Alkukirjaimet Tarkasti Isolla\",\"_MiXeD CaSe\":\"IsOt jA PiEnEt kIrJaImEt sEkAiSiN\",\"_RAndoMCaSe\":\"SATuNnaiNEn KirJaInKoKO\",\"_Sentence case\":\"Virkkeen alkukirjain isolla\",\"_Text\":\"Teksti\",\"_Title Case\":\"Alkukirjaimet Isolla\",\"_UPPERCASE\":\"ISOT KIRJAIMET\",\"_[STRING] matches regex /[REGEX]/[FLAGS]?\":\"vastaako [STRING] säännöllistä lauseketta /[REGEX]/[FLAGS]?\",\"_apple\":\"omena\",\"_both sides\":\"molemmilta puolilta\",\"_camelCase\":\"karavaaniTyyli\",\"_convert [STRING] to [TEXTCASE]\":\"muunna [STRING] muotoon [TEXTCASE]\",\"_count [SUBSTRING] in [STRING]\":\"merkkien [SUBSTRING] määrä merkkijonossa [STRING]\",\"_count regex /[REGEX]/[FLAGS] in [STRING]\":\"laske säännöllinen lauseke /[REGEX]/[FLAGS] merkkijonossa [STRING]\",\"_index of [SUBSTRING] in [STRING]\":\"merkkijonon [SUBSTRING] järjestysnumero merkkijonossa [STRING]\",\"_is [OPERAND1] identical to [OPERAND2]?\":\"onko [OPERAND1] täysin sama kuin [OPERAND2]?\",\"_is [STRING] [TEXTCASE]?\":\"onko [STRING] muodossa [TEXTCASE]?\",\"_item [ITEM] of [STRING] matched by regex /[REGEX]/[FLAGS]\":\"merkkijonon [STRING] [ITEM]. kohde, joka vastaa säännöllistä lauseketta /[REGEX]/[FLAGS]\",\"_item [ITEM] of [STRING] split by [SPLIT]\":\"[ITEM]. kohde merkkijonosta [STRING] jaettuna merkillä [SPLIT]\",\"_letters [LETTER1] to [LETTER2] of [STRING]\":\"merkkijonon [STRING] merkit [LETTER1] – [LETTER2]\",\"_lowercase\":\"pienet kirjaimet\",\"_repeat [STRING] [REPEAT] times\":\"toista [STRING] [REPEAT] kertaa\",\"_replace [SUBSTRING] in [STRING] with [REPLACE]\":\"korvaa [SUBSTRING] merkkijonossa [STRING] merkkijonolla [REPLACE]\",\"_replace regex /[REGEX]/[FLAGS] in [STRING] with [REPLACE]\":\"korvaa säännöllinen lauseke /[REGEX]/[FLAGS] merkkijonossa [STRING] lausekkeella [REPLACE]\",\"_reverse text [STRING]\":\"teksti [STRING] käänteisenä\",\"_the end\":\"lopusta\",\"_the start\":\"alusta\",\"_trim whitespace [STRING] from [METHOD]\":\"poista turhat sanavälit merkkijonon [STRING] [METHOD]\",\"_unicode [NUM] as letter\":\"Unicode-koodi [NUM] merkkijonona\",\"_unicode of [STRING]\":\"merkkijonon [STRING] Unicode-koodi\"},\"he\":{\"_Text\":\"טקסט\"},\"hu\":{\"_Text\":\"Szöveg\"},\"it\":{\"_Exactly Title Case\":\"Maiuscolo stile Titolo Esatto\",\"_MiXeD CaSe\":\"MaIuScOlO MiSto\",\"_RAndoMCaSe\":\"MaiUSCoLoCaSUaLe\",\"_Sentence case\":\"Maiuscolo come frase\",\"_Text\":\"Testo\",\"_Title Case\":\"Maiuscolo stile TItolo\",\"_UPPERCASE\":\"MAIUSCOLO\",\"_[STRING] [POSITION] with [SUBSTRING]?\":\"[STRING] [POSITION] con [SUBSTRING]\",\"_[STRING] matches regex /[REGEX]/[FLAGS]?\":\"[STRING] corrisponde a regex /[REGEX]/[FLAGS]\",\"_apple\":\"mela\",\"_both sides\":\"entrambi i lati\",\"_camelCase\":\"maiuscoleInterne\",\"_convert [STRING] to [TEXTCASE]\":\"converti [STRING] in [TEXTCASE]\",\"_count [SUBSTRING] in [STRING]\":\"occorrenze di [SUBSTRING] in [STRING]\",\"_count regex /[REGEX]/[FLAGS] in [STRING]\":\"numero occorrenze di regex /[REGEX]/[FLAGS] in [STRING]\",\"_ends\":\"finisce\",\"_index of [SUBSTRING] in [STRING]\":\"posizione di [SUBSTRING] in [STRING]\",\"_is [OPERAND1] identical to [OPERAND2]?\":\"[OPERAND1] è identico a [OPERAND2]\",\"_is [STRING] [TEXTCASE]?\":\"[STRING] è [TEXTCASE]\",\"_item [ITEM] of [STRING] matched by regex /[REGEX]/[FLAGS]\":\"elemento [ITEM] di [STRING] corrispondente a regex /[REGEX]/[FLAGS]\",\"_item [ITEM] of [STRING] split by [SPLIT]\":\"elemento [ITEM] di [STRING] spezzata da [SPLIT]\",\"_letters [LETTER1] to [LETTER2] of [STRING]\":\"lettere da [LETTER1] a [LETTER2] di [STRING]\",\"_lowercase\":\"minuscolo\",\"_matches of [STRING] using regex /[REGEX]/[FLAGS] as array\":\"corrispondenze di [STRING] usando regex /[REGEX]/[FLAGS] come array\",\"_repeat [STRING] [REPEAT] times\":\"ripeti [STRING] [REPEAT] volte\",\"_replace [SUBSTRING] in [STRING] with [REPLACE]\":\"sostituisci [SUBSTRING] con [REPLACE]in [STRING]\",\"_replace regex /[REGEX]/[FLAGS] in [STRING] with [REPLACE]\":\"sostituisci regex /[REGEX]/[FLAGS] in [STRING] con [REPLACE]\",\"_reverse text [STRING]\":\"inverti testo [STRING]\",\"_starts\":\"inizia\",\"_the end\":\"la fine\",\"_the start\":\"l'inizio\",\"_trim whitespace [STRING] from [METHOD]\":\"Rimuovi spazi bianchi di [STRING] da [METHOD]\",\"_unicode [NUM] as letter\":\"[NUM] unicode come lettera\",\"_unicode of [STRING]\":\"unicode di [STRING]\"},\"ja\":{\"_Exactly Title Case\":\"正確なタイトルケース\",\"_MiXeD CaSe\":\"ミックスケース\",\"_RAndoMCaSe\":\"ランダムケース\",\"_Sentence case\":\"センテンスケース\",\"_Text\":\"テキスト\",\"_Title Case\":\"タイトルケース\",\"_UPPERCASE\":\"大文字\",\"_apple\":\"りんご\",\"_camelCase\":\"キャメルケース\",\"_convert [STRING] to [TEXTCASE]\":\"[STRING]を[TEXTCASE]に変換する\",\"_count [SUBSTRING] in [STRING]\":\"[STRING]に[SUBSTRING]が出てきた回数\",\"_index of [SUBSTRING] in [STRING]\":\"[STRING]の[SUBSTRING]の場所\",\"_is [OPERAND1] identical to [OPERAND2]?\":\"[OPERAND1]と[OPERAND2]が同一\",\"_is [STRING] [TEXTCASE]?\":\"[STRING]が[TEXTCASE]\",\"_item [ITEM] of [STRING] split by [SPLIT]\":\"[STRING]を[SPLIT]で区切ったときの[ITEM]番目\",\"_letters [LETTER1] to [LETTER2] of [STRING]\":\"[STRING]の[LETTER1]から[LETTER2]文字目\",\"_lowercase\":\"小文字\",\"_repeat [STRING] [REPEAT] times\":\"[STRING]を[REPEAT]回繰り返す\",\"_replace [SUBSTRING] in [STRING] with [REPLACE]\":\"[STRING]の[SUBSTRING]を[REPLACE]で置き換える\",\"_unicode [NUM] as letter\":\"Unicode[NUM]の文字\",\"_unicode of [STRING]\":\"[STRING]のUnicode\"},\"ko\":{\"_Exactly Title Case\":\"정확한 제목 표기법 (Abc Abc)\",\"_MiXeD CaSe\":\"섞인 표기법 (AbC AbCd)\",\"_Text\":\"텍스트\",\"_Title Case\":\"제목 표기법 (Abc Abc)\",\"_UPPERCASE\":\"대문자 표기법 (ABC)\",\"_[STRING] matches regex /[REGEX]/[FLAGS]?\":\"[STRING]이(가) 정규표현식 /[REGEX]/[FLAGS] 에 일치하는가?\",\"_convert [STRING] to [TEXTCASE]\":\"[STRING]을(를) [TEXTCASE](으)로 변환하기\",\"_count [SUBSTRING] in [STRING]\":\"[STRING]에서 [SUBSTRING]의 개수\",\"_count regex /[REGEX]/[FLAGS] in [STRING]\":\"[STRING]에서 정규표현식 /[REGEX]/[FLAGS] 의 결과 개수\",\"_index of [SUBSTRING] in [STRING]\":\"[STRING]에서 [SUBSTRING]의 번째\",\"_is [OPERAND1] identical to [OPERAND2]?\":\"[OPERAND1]이(가) [OPERAND2]와(과) 정확히 같지 않은가?\",\"_is [STRING] [TEXTCASE]?\":\"[STRING]이(가) [TEXTCASE]인가?\",\"_item [ITEM] of [STRING] matched by regex /[REGEX]/[FLAGS]\":\"[STRING]에서 정규표현식 /[REGEX]/[FLAGS] 의 [ITEM]번째 결과\",\"_item [ITEM] of [STRING] split by [SPLIT]\":\"[STRING]을(를) [SPLIT](으)로 나눈 것의 [ITEM]번째\",\"_lowercase\":\"소문자 표기법 (abc)\",\"_repeat [STRING] [REPEAT] times\":\"[STRING] 문자열 [REPEAT]번 반복\",\"_replace [SUBSTRING] in [STRING] with [REPLACE]\":\"[STRING]의 [SUBSTRING]을(를) [REPLACE](으)로 바꾸기\",\"_replace regex /[REGEX]/[FLAGS] in [STRING] with [REPLACE]\":\"정규표현식 /[REGEX]/[FLAGS] (으)로 [STRING]을(를) [REPLACE](으)로 바꾸기\",\"_unicode [NUM] as letter\":\"유니코드 문자 [NUM]\",\"_unicode of [STRING]\":\"[STRING]의 유니코드\"},\"nb\":{\"_Text\":\"Tekst\"},\"nl\":{\"_Exactly Title Case\":\"Alleen Beginhoofdletters\",\"_MiXeD CaSe\":\"DoOr eLkAaR\",\"_Text\":\"Tekst\",\"_Title Case\":\"Alles Met Beginhoofdletter\",\"_UPPERCASE\":\"HOOFDLETTERS\",\"_[STRING] matches regex /[REGEX]/[FLAGS]?\":\"[STRING] komt overeen met regex /[REGEX]/[FLAGS]?\",\"_apple\":\"appel\",\"_convert [STRING] to [TEXTCASE]\":\"zet [STRING] om naar [TEXTCASE]\",\"_count [SUBSTRING] in [STRING]\":\"aantal [SUBSTRING] in [STRING]\",\"_count regex /[REGEX]/[FLAGS] in [STRING]\":\"aantal overeenkomsten van regex /[REGEX]/[FLAGS] met [STRING]\",\"_index of [SUBSTRING] in [STRING]\":\"positie van [SUBSTRING] in [STRING]\",\"_is [OPERAND1] identical to [OPERAND2]?\":\"[OPERAND1] identiek aan [OPERAND2]?\",\"_item [ITEM] of [STRING] matched by regex /[REGEX]/[FLAGS]\":\"item [ITEM] van [STRING] waarmee regex /[REGEX]/[FLAGS] overeenkomt\",\"_item [ITEM] of [STRING] split by [SPLIT]\":\"item [ITEM] van [STRING] gesplitst door [SPLIT]\",\"_letters [LETTER1] to [LETTER2] of [STRING]\":\"letters [LETTER1] t/m [LETTER2] van [STRING]\",\"_lowercase\":\"kleine letters\",\"_repeat [STRING] [REPEAT] times\":\"herhaal [STRING] [REPEAT] keer\",\"_replace [SUBSTRING] in [STRING] with [REPLACE]\":\"vervang [SUBSTRING] in [STRING] door [REPLACE]\",\"_replace regex /[REGEX]/[FLAGS] in [STRING] with [REPLACE]\":\"vervang regex /[REGEX]/[FLAGS] in [STRING] door [REPLACE]\",\"_unicode [NUM] as letter\":\"unicode [NUM] als letter\",\"_unicode of [STRING]\":\"unicode van [STRING]\"},\"pl\":{\"_Text\":\"Tekst\"},\"pt-br\":{\"_Text\":\"Texto\"},\"ru\":{\"_Exactly Title Case\":\"Настоящий Тайтл Кейс\",\"_MiXeD CaSe\":\"СмЕшАнНыЙ КеЙс\",\"_RAndoMCaSe\":\"СЛуЧайнЫЙРеГисТР\",\"_Sentence case\":\"Смысловой регистр\",\"_Text\":\"Текст\",\"_Title Case\":\"Тайтл Кейс\",\"_UPPERCASE\":\"ВЕРХНИЙ РЕГИСТР\",\"_[STRING] [POSITION] with [SUBSTRING]?\":\"[STRING] [POSITION] на [SUBSTRING]?\",\"_[STRING] matches regex /[REGEX]/[FLAGS]?\":\"[STRING] совпадает с regex'ом /[REGEX]/[FLAGS]?\",\"_apple\":\"яблоко\",\"_both sides\":\"обе стороны\",\"_camelCase\":\"Регистр верблюда\",\"_convert [STRING] to [TEXTCASE]\":\"сконвертировать строку [STRING] в [TEXTCASE]\",\"_count [SUBSTRING] in [STRING]\":\"количество [SUBSTRING] в [STRING]\",\"_count regex /[REGEX]/[FLAGS] in [STRING]\":\"посчитать regex /[REGEX]/[FLAGS] в [STRING]\",\"_ends\":\"заканчивается\",\"_index of [SUBSTRING] in [STRING]\":\"индекс [SUBSTRING] в [STRING]\",\"_is [OPERAND1] identical to [OPERAND2]?\":\"[OPERAND1] идентичный с [OPERAND2]?\",\"_is [STRING] [TEXTCASE]?\":\"строка [STRING] это [TEXTCASE]?\",\"_item [ITEM] of [STRING] matched by regex /[REGEX]/[FLAGS]\":\"предмет [ITEM] строки [STRING] совпадающий regex'ом /[REGEX]/[FLAGS]\",\"_item [ITEM] of [STRING] split by [SPLIT]\":\"предмет [ITEM] строки [STRING] распределённый [SPLIT]\",\"_letters [LETTER1] to [LETTER2] of [STRING]\":\"буквы с [LETTER1] до [LETTER2] строки [STRING]\",\"_lowercase\":\"нижний регистр\",\"_matches of [STRING] using regex /[REGEX]/[FLAGS] as array\":\"совпадения [STRING] используя regex /[REGEX]/[FLAGS] как массив\",\"_repeat [STRING] [REPEAT] times\":\"повторить [STRING] [REPEAT] раз\",\"_replace [SUBSTRING] in [STRING] with [REPLACE]\":\"заменить [SUBSTRING] в [STRING] на [REPLACE]\",\"_replace regex /[REGEX]/[FLAGS] in [STRING] with [REPLACE]\":\"заменить regex /[REGEX]/[FLAGS] в [STRING] на [REPLACE]\",\"_reverse text [STRING]\":\"перевернуть текст [STRING]\",\"_starts\":\"начинается\",\"_the end\":\"конца\",\"_the start\":\"начала\",\"_trim whitespace [STRING] from [METHOD]\":\"обрезать пробелы [STRING] из [METHOD]\",\"_unicode [NUM] as letter\":\"юникод [NUM] как букву\",\"_unicode of [STRING]\":\"юникод [STRING]\"},\"sl\":{\"_Text\":\"Besedilo\"},\"tr\":{\"_Text\":\"Metin\"},\"uk\":{\"_Exactly Title Case\":\"Точно Заголовком\",\"_MiXeD CaSe\":\"МіШаНиМи\",\"_RAndoMCaSe\":\"ВИпадКоВИМи\",\"_Sentence case\":\"Речення\",\"_Text\":\"Текст\",\"_Title Case\":\"Заголовком\",\"_UPPERCASE\":\"ВЕЛИКИМИ БУКВАМИ\",\"_both sides\":\"обох сторін\",\"_convert [STRING] to [TEXTCASE]\":\"зробити [STRING] [TEXTCASE]\",\"_count [SUBSTRING] in [STRING]\":\"кількість [SUBSTRING] у [STRING]\",\"_index of [SUBSTRING] in [STRING]\":\"номер [SUBSTRING] у [STRING]\",\"_is [OPERAND1] identical to [OPERAND2]?\":\"[OPERAND1] ідентична до [OPERAND2]?\",\"_is [STRING] [TEXTCASE]?\":\"[STRING] є [TEXTCASE]?\",\"_item [ITEM] of [STRING] split by [SPLIT]\":\"елемент [ITEM] у [STRING] розділеного через [SPLIT]\",\"_letters [LETTER1] to [LETTER2] of [STRING]\":\"букви з [LETTER1] по [LETTER2] у [STRING]\",\"_lowercase\":\"малими буквами\",\"_repeat [STRING] [REPEAT] times\":\"повторити [STRING] [REPEAT] рази\",\"_replace [SUBSTRING] in [STRING] with [REPLACE]\":\"замінити [SUBSTRING] у [STRING] на [REPLACE]\",\"_reverse text [STRING]\":\"розвернути [STRING]\",\"_the end\":\"початку\",\"_the start\":\"кінця\",\"_trim whitespace [STRING] from [METHOD]\":\"очистити пробіли у [STRING] з [METHOD]\",\"_unicode [NUM] as letter\":\"символ юнікоду [NUM] \",\"_unicode of [STRING]\":\"юнікод [STRING]\"},\"zh-cn\":{\"_Exactly Title Case\":\"精确标题\",\"_MiXeD CaSe\":\"混合大小写\",\"_RAndoMCaSe\":\"随机大小写\",\"_Sentence case\":\"句首大写\",\"_Text\":\"文本\",\"_Title Case\":\"标题\",\"_UPPERCASE\":\"大写\",\"_[STRING] [POSITION] with [SUBSTRING]?\":\"[STRING]以[SUBSTRING][POSITION]？\",\"_[STRING] matches regex /[REGEX]/[FLAGS]?\":\"[STRING] 满足正则 /[REGEX]/[FLAGS]？\",\"_apple\":\"苹果\",\"_both sides\":\"两边\",\"_camelCase\":\"驼峰式命名\",\"_convert [STRING] to [TEXTCASE]\":\"转换[STRING]为[TEXTCASE]\",\"_count [SUBSTRING] in [STRING]\":\"[STRING]中[SUBSTRING]的数量\",\"_count regex /[REGEX]/[FLAGS] in [STRING]\":\"[STRING]中匹配正则 /[REGEX]/[FLAGS]的次数\",\"_ends\":\"结尾\",\"_index of [SUBSTRING] in [STRING]\":\"[STRING]中[SUBSTRING]的位置\",\"_is [OPERAND1] identical to [OPERAND2]?\":\"[OPERAND1]完全等价于[OPERAND2]？\",\"_is [STRING] [TEXTCASE]?\":\"[STRING]是[TEXTCASE]？\",\"_item [ITEM] of [STRING] matched by regex /[REGEX]/[FLAGS]\":\"[STRING]中匹配正则 /[REGEX]/[FLAGS]的第[ITEM]个部分\",\"_item [ITEM] of [STRING] split by [SPLIT]\":\"以[SPLIT]分割[STRING]后的第[ITEM]项\",\"_letters [LETTER1] to [LETTER2] of [STRING]\":\"[STRING]的第[LETTER1]到第[LETTER2]位\",\"_lowercase\":\"小写\",\"_matches of [STRING] using regex /[REGEX]/[FLAGS] as array\":\"[STRING]中匹配正则 /[REGEX]/[FLAGS]的所有部分列表\",\"_repeat [STRING] [REPEAT] times\":\"重复[REPEAT]个[STRING]\",\"_replace [SUBSTRING] in [STRING] with [REPLACE]\":\"替换[STRING]中的[SUBSTRING]为[REPLACE]\",\"_replace regex /[REGEX]/[FLAGS] in [STRING] with [REPLACE]\":\"将[STRING]中匹配正则 /[REGEX]/[FLAGS]的部分替换为[REPLACE]\",\"_reverse text [STRING]\":\"反转文本[STRING]\",\"_starts\":\"开头\",\"_the end\":\"末尾\",\"_the start\":\"开头\",\"_trim whitespace [STRING] from [METHOD]\":\"去除[STRING]中[METHOD]的空格\",\"_unicode [NUM] as letter\":\"unicode[NUM]对应的字符\",\"_unicode of [STRING]\":\"[STRING]的unicode\"}});/* end generated l10n code */(function (Scratch) {\n  \"use strict\";\n\n  const Cast = Scratch.Cast;\n\n  const CaseParam = {\n    LOWERCASE: \"lowercase\",\n    UPPERCASE: \"uppercase\",\n    MIXEDCASE: \"mixedcase\",\n    TITLECASE: \"titlecase\",\n    EXACTTITLECASE: \"exacttitlecase\",\n    RANDOMCASE: \"randomcase\",\n    SENTENCECASE: \"sentencecase\",\n    CAMELCASE: \"camelcase\",\n  };\n\n  let splitCache;\n  let matchCache;\n\n  class StringsExt {\n    constructor() {}\n\n    _initCaseMenu() {\n      return [\n        {\n          text: Scratch.translate({\n            default: \"lowercase\",\n            description: \"If your language has lowercase, style it accordingly\",\n          }),\n          value: CaseParam.LOWERCASE,\n        },\n        {\n          text: Scratch.translate({\n            default: \"UPPERCASE\",\n            description: \"If your language has uppercase, style it accordingly\",\n          }),\n          value: CaseParam.UPPERCASE,\n        },\n        {\n          text: Scratch.translate({\n            default: \"Sentence case\",\n            description:\n              \"Starts words after ., !, and ? with captialized letters\",\n          }),\n          value: CaseParam.SENTENCECASE,\n        },\n        {\n          text: Scratch.translate({\n            default: \"Title Case\",\n            description:\n              \"If your language has Title Case, style it accordingly. 'Abc' is title case and exactly title case but 'ABC' is only title case.\",\n          }),\n          value: CaseParam.TITLECASE,\n        },\n        {\n          text: Scratch.translate({\n            default: \"Exactly Title Case\",\n            description:\n              \"If your language has Title Case, style it accordingly. 'Abc' is title case and exactly title case but 'ABC' is only title case.\",\n          }),\n          value: CaseParam.EXACTTITLECASE,\n        },\n        {\n          text: Scratch.translate({\n            default: \"MiXeD CaSe\",\n            description:\n              \"If your language has mixed case, style it accordingly\",\n          }),\n          value: CaseParam.MIXEDCASE,\n        },\n        {\n          text: Scratch.translate({\n            default: \"RAndoMCaSe\",\n            description:\n              \"If your language has randomcase, style it accordingly\",\n          }),\n          value: CaseParam.RANDOMCASE,\n        },\n        {\n          text: Scratch.translate({\n            default: \"camelCase\",\n            description:\n              \"Removes all spaces and capitalizes all words after the first\",\n          }),\n          value: CaseParam.CAMELCASE,\n        },\n      ];\n    }\n\n    getInfo() {\n      return {\n        // id \"text\" would conflict with Scratch Lab's Animated Text (lab/text.js)\n        id: \"strings\",\n        name: Scratch.translate(\"Text\"),\n        blocks: [\n          {\n            opcode: \"letters_of\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate(\n              \"letters [LETTER1] to [LETTER2] of [STRING]\"\n            ),\n            arguments: {\n              LETTER1: {\n                type: Scratch.ArgumentType.NUMBER,\n                defaultValue: 2,\n              },\n              LETTER2: {\n                type: Scratch.ArgumentType.NUMBER,\n                defaultValue: 4,\n              },\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"apple\",\n              },\n            },\n          },\n          {\n            opcode: \"split\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate(\"item [ITEM] of [STRING] split by [SPLIT]\"),\n            arguments: {\n              ITEM: {\n                type: Scratch.ArgumentType.NUMBER,\n                defaultValue: 3,\n              },\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"apple\",\n              },\n              SPLIT: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"p\",\n              },\n            },\n          },\n          {\n            opcode: \"count\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate({\n              default: \"count [SUBSTRING] in [STRING]\",\n              description:\n                \"Counts how many time [SUBSTRING] appears in [STRING]\",\n            }),\n            arguments: {\n              SUBSTRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"p\",\n              },\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"apple\",\n              },\n            },\n          },\n          {\n            opcode: \"indexof\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate({\n              default: \"index of [SUBSTRING] in [STRING]\",\n              description: \"Reports where [SUBSTRING] appears in [STRING]\",\n            }),\n            arguments: {\n              SUBSTRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"p\",\n              },\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"apple\",\n              },\n            },\n          },\n\n          \"---\",\n\n          {\n            opcode: \"replace\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate(\n              \"replace [SUBSTRING] in [STRING] with [REPLACE]\"\n            ),\n            arguments: {\n              SUBSTRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"world\",\n              },\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"Hello world!\",\n              },\n              REPLACE: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"fellow Scratchers\",\n              },\n            },\n          },\n          {\n            opcode: \"repeat\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate(\"repeat [STRING] [REPEAT] times\"),\n            arguments: {\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"apple \",\n              },\n              REPEAT: {\n                type: Scratch.ArgumentType.NUMBER,\n                defaultValue: 3,\n              },\n            },\n          },\n\n          \"---\",\n\n          {\n            opcode: \"unicodeof\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate(\"unicode of [STRING]\"),\n            arguments: {\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"A\",\n              },\n            },\n          },\n          {\n            opcode: \"unicodefrom\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate(\"unicode [NUM] as letter\"),\n            arguments: {\n              NUM: {\n                type: Scratch.ArgumentType.NUMBER,\n                defaultValue: 65,\n              },\n            },\n          },\n\n          \"---\",\n          {\n            opcode: \"replaceRegex\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate(\n              \"replace regex /[REGEX]/[FLAGS] in [STRING] with [REPLACE]\"\n            ),\n            arguments: {\n              REGEX: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \".\",\n              },\n              FLAGS: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"g\",\n              },\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"Hello world!\",\n              },\n              REPLACE: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"$&$&\",\n              },\n            },\n          },\n          {\n            opcode: \"matchRegex\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate({\n              default:\n                \"item [ITEM] of [STRING] matched by regex /[REGEX]/[FLAGS]\",\n              description:\n                \"/[REGEX]/ is supposed to match the syntax that some actual programming languages used for regular expressions.\",\n            }),\n            arguments: {\n              ITEM: {\n                type: Scratch.ArgumentType.NUMBER,\n                defaultValue: 1,\n              },\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"Hello world!\",\n              },\n              REGEX: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"(.) (.{2})\",\n              },\n              FLAGS: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"g\",\n              },\n            },\n          },\n          {\n            opcode: \"matchRegexJSON\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate({\n              default:\n                \"matches of [STRING] using regex /[REGEX]/[FLAGS] as array\",\n              description:\n                \"/[REGEX]/ is supposed to match the syntax that some actual programming languages used for regular expressions.\",\n            }),\n            arguments: {\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"Hello world!\",\n              },\n              REGEX: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"(.) (.{2})\",\n              },\n              FLAGS: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"g\",\n              },\n            },\n          },\n          {\n            opcode: \"testRegex\",\n            blockType: Scratch.BlockType.BOOLEAN,\n            text: Scratch.translate({\n              default: \"[STRING] matches regex /[REGEX]/[FLAGS]?\",\n              description:\n                \"/[REGEX]/ is supposed to match the syntax that some actual programming languages used for regular expressions.\",\n            }),\n            arguments: {\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"Hello world!\",\n              },\n              REGEX: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"hello\",\n              },\n              FLAGS: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"i\",\n              },\n            },\n          },\n          {\n            opcode: \"countRegex\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate({\n              default: \"count regex /[REGEX]/[FLAGS] in [STRING]\",\n              description:\n                \"/[REGEX]/ is supposed to match the syntax that some actual programming languages used for regular expressions.\",\n            }),\n            arguments: {\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"Hello world!\",\n              },\n              REGEX: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"[AEIOU]\",\n              },\n              FLAGS: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"i\",\n              },\n            },\n          },\n\n          \"---\",\n\n          {\n            opcode: \"identical\",\n            blockType: Scratch.BlockType.BOOLEAN,\n            text: Scratch.translate(\"is [OPERAND1] identical to [OPERAND2]?\"),\n            arguments: {\n              OPERAND1: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"A\",\n              },\n              OPERAND2: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"a\",\n              },\n            },\n          },\n\n          \"---\",\n\n          {\n            opcode: \"isCase\",\n            blockType: Scratch.BlockType.BOOLEAN,\n            text: Scratch.translate({\n              default: \"is [STRING] [TEXTCASE]?\",\n              description: \"Example block context: <is [hello] [lowercase] ?>\",\n            }),\n            arguments: {\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"apple\",\n              },\n              TEXTCASE: {\n                type: Scratch.ArgumentType.STRING,\n                menu: \"textCase\",\n                defaultValue: CaseParam.LOWERCASE,\n              },\n            },\n          },\n          {\n            opcode: \"toCase\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate({\n              default: \"convert [STRING] to [TEXTCASE]\",\n              description:\n                \"Example block context: (convert [HELLO] to [lowercase])\",\n            }),\n            arguments: {\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"apple\",\n              },\n              TEXTCASE: {\n                type: Scratch.ArgumentType.STRING,\n                menu: \"textCase\",\n                defaultValue: CaseParam.UPPERCASE,\n              },\n            },\n          },\n\n          \"---\",\n          {\n            opcode: \"posWith\",\n            blockType: Scratch.BlockType.BOOLEAN,\n            text: Scratch.translate({\n              default: \"[STRING] [POSITION] with [SUBSTRING]?\",\n              description:\n                \"[POSITION] is a dropdown with 'starts' and 'ends'. The block then takes the form '[STRING] starts with [SUBSTRING]?' or '[STRING] ends with [SUBSTRING]?'\",\n            }),\n            arguments: {\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"turbowarp\",\n              },\n              POSITION: {\n                type: Scratch.ArgumentType.STRING,\n                menu: \"positions\",\n              },\n              SUBSTRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: \"turbo\",\n              },\n            },\n          },\n\n          \"---\",\n\n          {\n            opcode: \"reverse\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate(\"reverse text [STRING]\"),\n            arguments: {\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: Scratch.translate(\"apple\"),\n              },\n            },\n          },\n\n          \"---\",\n\n          {\n            opcode: \"trim\",\n            blockType: Scratch.BlockType.REPORTER,\n            text: Scratch.translate(\"trim whitespace [STRING] from [METHOD]\"),\n            arguments: {\n              STRING: {\n                type: Scratch.ArgumentType.STRING,\n                defaultValue: `    ${Scratch.translate(\"apple\")}    `,\n              },\n              METHOD: {\n                type: Scratch.ArgumentType.STRING,\n                menu: \"trimMethod\",\n              },\n            },\n          },\n        ],\n        menus: {\n          textCase: {\n            acceptReporters: true,\n            items: this._initCaseMenu(),\n          },\n          positions: {\n            acceptReporters: true,\n            items: [\n              {\n                text: Scratch.translate(\"starts\"),\n                value: \"starts\",\n              },\n              {\n                text: Scratch.translate(\"ends\"),\n                value: \"ends\",\n              },\n            ],\n          },\n          trimMethod: {\n            acceptReporters: true,\n            items: [\n              {\n                text: Scratch.translate(\"both sides\"),\n                value: \"both\",\n              },\n              {\n                text: Scratch.translate(\"the end\"),\n                value: \"end\",\n              },\n              {\n                text: Scratch.translate(\"the start\"),\n                value: \"start\",\n              },\n            ],\n          },\n        },\n      };\n    }\n\n    identical(args, util) {\n      // Purposefully no casting, because\n      // types ARE differentiated in this block\n      return args.OPERAND1 === args.OPERAND2;\n    }\n\n    unicodeof(args, util) {\n      const chars = Array.from(Cast.toString(args.STRING));\n      return chars.map((char) => char.charCodeAt(0)).join(\" \");\n    }\n\n    unicodefrom(args, util) {\n      return String.fromCharCode(Cast.toNumber(args.NUM));\n    }\n\n    letters_of(args, util) {\n      const string = Cast.toString(args.STRING);\n      const letter1 = Cast.toNumber(args.LETTER1);\n      const letter2 = Cast.toNumber(args.LETTER2);\n      return string.substring(letter1 - 1, letter2);\n    }\n\n    _caseInsensitiveRegex(str) {\n      return new RegExp(str.replaceAll(/[^a-zA-Z0-9]/g, \"\\\\$&\"), \"gi\");\n    }\n\n    split(args, util) {\n      const string = Cast.toString(args.STRING);\n      const split = Cast.toString(args.SPLIT);\n      const item = Cast.toNumber(args.ITEM);\n\n      // Cache the last split\n      if (\n        !(\n          splitCache &&\n          splitCache.string === string &&\n          splitCache.split === split\n        )\n      ) {\n        const regex = this._caseInsensitiveRegex(split);\n\n        splitCache = {\n          string,\n          split,\n          arr: string.split(regex),\n        };\n      }\n      return splitCache.arr[item - 1] || \"\";\n    }\n\n    count(args, util) {\n      // Fill cache\n      this.split(\n        {\n          SPLIT: args.SUBSTRING,\n          STRING: args.STRING,\n          ITEM: 0,\n        },\n        util\n      );\n      return splitCache.arr.length - 1 || 0;\n    }\n\n    replace(args, util) {\n      const string = Cast.toString(args.STRING);\n      const substring = Cast.toString(args.SUBSTRING);\n      const replace = Cast.toString(args.REPLACE);\n\n      const regex = this._caseInsensitiveRegex(substring);\n\n      return string.replace(regex, replace);\n    }\n\n    indexof(args, util) {\n      // .toLowerCase() for case insensitivity\n      const string = Cast.toString(args.STRING).toLowerCase();\n      const substring = Cast.toString(args.SUBSTRING).toLowerCase();\n\n      // Since both arguments are casted to strings beforehand,\n      // we don't have to worry about type differences\n      // like in the item number of in list block\n      const found = string.indexOf(substring);\n\n      // indexOf returns -1 when no matches are found, we can just +1\n      return found + 1;\n    }\n\n    repeat(args, util) {\n      const string = Cast.toString(args.STRING);\n      const repeat = Math.floor(Cast.toNumber(args.REPEAT));\n      if (repeat < 0 || !Number.isFinite(repeat)) {\n        return \"\";\n      }\n      return string.repeat(repeat);\n    }\n\n    replaceRegex(args, util) {\n      try {\n        const string = Cast.toString(args.STRING);\n        const replacer = Cast.toString(args.REPLACE);\n        const regex = Cast.toString(args.REGEX);\n        const flags = Cast.toString(args.FLAGS);\n\n        return string.replace(new RegExp(regex, flags), replacer);\n      } catch (e) {\n        console.error(e);\n        return \"\";\n      }\n    }\n\n    matchRegex(args, util) {\n      try {\n        const string = Cast.toString(args.STRING);\n        const uncleanRegex = Cast.toString(args.REGEX);\n        const flags = Cast.toString(args.FLAGS);\n        const item = Cast.toNumber(args.ITEM);\n\n        // Cache the last matched string\n        if (\n          !(\n            matchCache &&\n            matchCache.string === string &&\n            matchCache.regex === uncleanRegex &&\n            matchCache.flags === flags\n          )\n        ) {\n          const newFlags = flags.includes(\"g\") ? flags : flags + \"g\";\n          const regex = new RegExp(uncleanRegex, newFlags);\n\n          matchCache = {\n            string,\n            regex: uncleanRegex,\n            flags,\n            arr: string.match(regex) || [],\n          };\n        }\n        return matchCache.arr[item - 1] || \"\";\n      } catch (e) {\n        console.error(e);\n        return \"\";\n      }\n    }\n    matchRegexJSON(args, util) {\n      // matchRegex but it returns an array\n      try {\n        const string = Cast.toString(args.STRING);\n        const uncleanRegex = Cast.toString(args.REGEX);\n        const flags = Cast.toString(args.FLAGS);\n\n        // Cache the last matched string\n        if (\n          !(\n            matchCache &&\n            matchCache.string === string &&\n            matchCache.regex === uncleanRegex &&\n            matchCache.flags === flags\n          )\n        ) {\n          const newFlags = flags.includes(\"g\") ? flags : flags + \"g\";\n          const regex = new RegExp(uncleanRegex, newFlags);\n\n          matchCache = {\n            string,\n            regex: uncleanRegex,\n            flags,\n            arr: string.match(regex) || [],\n          };\n        }\n        return JSON.stringify(matchCache.arr) || \"[]\";\n      } catch (e) {\n        console.error(e);\n        return \"\";\n      }\n    }\n\n    countRegex(args, util) {\n      // Fill cache\n      // (ITEM is casted into 0,\n      // but we don't care about the return value)\n      this.matchRegex(args, util);\n      return matchCache.arr.length || 0;\n    }\n\n    testRegex(args, util) {\n      try {\n        const string = Cast.toString(args.STRING);\n        const regex = Cast.toString(args.REGEX);\n        const flags = Cast.toString(args.FLAGS);\n\n        return new RegExp(regex, flags).test(string);\n      } catch (e) {\n        console.error(e);\n        return false;\n      }\n    }\n\n    isCase(args, util) {\n      const string = Cast.toString(args.STRING);\n      const textCase = Cast.toString(args.TEXTCASE);\n      switch (textCase) {\n        case CaseParam.LOWERCASE:\n          return string.toLowerCase() === string;\n        case CaseParam.UPPERCASE:\n          return string.toUpperCase() === string;\n        case CaseParam.MIXEDCASE:\n          return !(\n            string.toUpperCase() === string || string.toLowerCase() === string\n          );\n        case CaseParam.TITLECASE:\n          return string.split(/\\b/g).every((word) => {\n            if (!word) return true;\n            const titleCased = word[0].toUpperCase() + word.substring(1);\n            return word === titleCased;\n          });\n        case CaseParam.EXACTTITLECASE:\n          return string.split(/\\b/g).every((word) => {\n            if (!word) return true;\n            const titleCased =\n              word[0].toUpperCase() + word.substring(1).toLowerCase();\n            return word === titleCased;\n          });\n        case CaseParam.CAMELCASE:\n          return /^[^A-Z\\s][^\\s]*$/.test(string);\n        case CaseParam.RANDOMCASE:\n          return true;\n        case CaseParam.SENTENCECASE:\n          return /^[A-Z][^?.!]*(?:[?.!]\\s+[A-Z][^?.!]*)*$/.test(string);\n        default:\n          return false;\n      }\n    }\n\n    toCase(args, util) {\n      const string = Cast.toString(args.STRING);\n      const textCase = Cast.toString(args.TEXTCASE);\n      let workingText = \"\";\n      let sentenceCapitalFlag = false;\n      switch (textCase) {\n        case CaseParam.LOWERCASE:\n          return string.toLowerCase();\n        case CaseParam.UPPERCASE:\n          return string.toUpperCase();\n        case CaseParam.MIXEDCASE:\n          return Array.from(string)\n            .map((char, index) =>\n              index % 2 === 0 ? char.toUpperCase() : char.toLowerCase()\n            )\n            .join(\"\");\n        case CaseParam.TITLECASE:\n          return string\n            .split(/\\b/g)\n            .map((word) => {\n              if (!word) return \"\";\n              return word[0].toUpperCase() + word.substring(1);\n            })\n            .join(\"\");\n        case CaseParam.EXACTTITLECASE:\n          return string\n            .split(/\\b/g)\n            .map((word) => {\n              if (!word) return \"\";\n              return word[0].toUpperCase() + word.substring(1).toLowerCase();\n            })\n            .join(\"\");\n        case CaseParam.SENTENCECASE:\n          for (let i = 0; i < string.length; i++) {\n            if (\n              /^\\s*$/.test(string[i - 1] ?? \" \") &&\n              !sentenceCapitalFlag &&\n              string[i].toUpperCase() != string[i].toLowerCase()\n            ) {\n              workingText += string[i].toUpperCase();\n              sentenceCapitalFlag = true;\n            } else {\n              if (string[i] == \".\" || string[i] == \"!\" || string[i] == \"?\") {\n                sentenceCapitalFlag = false;\n              }\n              workingText += string[i].toLowerCase();\n            }\n          }\n          return workingText;\n        case CaseParam.RANDOMCASE:\n          for (let i = 0; i < string.length; i++) {\n            if (Math.random() > 0.5) {\n              workingText += string[i].toUpperCase();\n            } else {\n              workingText += string[i].toLowerCase();\n            }\n          }\n          return workingText;\n        case CaseParam.CAMELCASE:\n          for (let i = 0; i < string.length; i++) {\n            if (/^\\s*$/.test(string[i - 1] ?? \"x\")) {\n              workingText += string[i].toUpperCase();\n            } else {\n              workingText += string[i].toLowerCase();\n            }\n          }\n          return workingText.replace(/\\s/g, \"\");\n        default:\n          return string;\n      }\n    }\n    posWith(args) {\n      const STRING = Cast.toString(args.STRING);\n      const SUBSTRING = Cast.toString(args.SUBSTRING);\n      if (Cast.toString(args.POSITION) === \"starts\") {\n        return STRING.startsWith(SUBSTRING);\n      }\n      return STRING.endsWith(SUBSTRING);\n    }\n    reverse(args) {\n      return Array.from(Cast.toString(args.STRING)).reverse().join(\"\");\n    }\n    trim(args) {\n      const STRING = Cast.toString(args.STRING);\n      switch (Cast.toString(args.METHOD)) {\n        case \"start\":\n          return STRING.trimStart();\n        case \"end\":\n          return STRING.trimEnd();\n        case \"both\":\n        default:\n          return STRING.trim();\n      }\n    }\n  }\n\n  Scratch.extensions.register(new StringsExt());\n})(Scratch);\n"
+const formatMessage = __webpack_require__(/*! format-message */ "./node_modules/scratch-vm/node_modules/format-message/index.js");
+const languageNames = __webpack_require__(/*! scratch-translate-extension-languages */ "./node_modules/scratch-vm/node_modules/scratch-translate-extension-languages/languages.json");
+const ArgumentType = __webpack_require__(/*! ../../extension-support/argument-type */ "./node_modules/scratch-vm/src/extension-support/argument-type.js");
+const BlockType = __webpack_require__(/*! ../../extension-support/block-type */ "./node_modules/scratch-vm/src/extension-support/block-type.js");
+const Cast = __webpack_require__(/*! ../../util/cast */ "./node_modules/scratch-vm/src/util/cast.js");
+const MathUtil = __webpack_require__(/*! ../../util/math-util */ "./node_modules/scratch-vm/src/util/math-util.js");
+const Clone = __webpack_require__(/*! ../../util/clone */ "./node_modules/scratch-vm/src/util/clone.js");
+const log = __webpack_require__(/*! ../../util/log */ "./node_modules/scratch-vm/src/util/log.js");
+const fetchWithTimeout = __webpack_require__(/*! ../../util/fetch-with-timeout */ "./node_modules/scratch-vm/src/util/fetch-with-timeout.js");
+
+/**
+ * Icon svg to be displayed in the blocks category menu, encoded as a data URI.
+ * @type {string}
+ */
+// eslint-disable-next-line max-len
+const menuIconURI = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUyLjIgKDY3MTQ1KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5FeHRlbnNpb25zL1NvZnR3YXJlL1RleHQtdG8tU3BlZWNoLU1lbnU8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZyBpZD0iRXh0ZW5zaW9ucy9Tb2Z0d2FyZS9UZXh0LXRvLVNwZWVjaC1NZW51IiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0idGV4dDJzcGVlY2giIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIuMDAwMDAwLCAyLjAwMDAwMCkiIGZpbGwtcnVsZT0ibm9uemVybyI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik01Ljc1LDguODM0NjcxNzMgQzUuNzUsOC4zMjY5NjM0NCA1LjAwMzAwNzI3LDguMDQyMjEzNzEgNC41NTYyODAxMiw4LjQ0NDE0OTk5IEwzLjIwNjI4MDEyLDkuNTI1MzU3MDIgQzIuNjk2NzMzNzgsOS45MzM0NDk2OCAyLjAzNzQ4Njc1LDEwLjE2NTg3ODggMS4zNSwxMC4xNjU4Nzg4IEwxLjE1LDEwLjE2NTg3ODggQzAuNjMyNTk2MTY1LDEwLjE2NTg3ODggMC4yNSwxMC41MTA2MDAyIDAuMjUsMTAuOTUyMDM1NSBMMC4yNSwxMy4wNjkzOTkzIEMwLjI1LDEzLjUxMDgzNDYgMC42MzI1OTYxNjUsMTMuODU1NTU2IDEuMTUsMTMuODU1NTU2IEwxLjM1LDEzLjg1NTU1NiBDMi4wNzg3Nzg0MSwxMy44NTU1NTYgMi43MjY4NjE2MSwxNC4wNjY3NjM2IDMuMjU5ODYwNDksMTQuNDk5IEw0LjU1OTIwMTQ3LDE1LjU3OTY2MDggQzUuMDEzMDkyNzYsMTUuOTU0NTM5NiA1Ljc1LDE1LjY3MzYzNDQgNS43NSwxNS4xNDE3MTI4IEw1Ljc1LDguODM0NjcxNzMgWiIgaWQ9InNwZWFrZXIiIHN0cm9rZS1vcGFjaXR5PSIwLjE1IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMC41IiBmaWxsPSIjNEQ0RDREIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0xMC43MDQ4MzEzLDggQzkuNzkwNjc0NjgsOS4xMzExNDg0NyA4LjMwNjYxODQsOS43MTQyODU3MSA3LjgzMzMzMzMzLDkuNzE0Mjg1NzEgQzcuODMzMzMzMzMsOS43MTQyODU3MSA3LjUsOS43MTQyODU3MSA3LjUsOS4zODA5NTIzOCBDNy41LDkuMDg1MjI2ODQgOC4wNjIyMDE2OCw4LjkwMTk0MTY0IDguMTg5MDYwNjcsNy41Njc1NDA1OCBDNi44ODk5Njk5MSw2LjkwNjc5MDA1IDYsNS41NTczMjY4MyA2LDQgQzYsMS43OTA4NjEgNy43OTA4NjEsNC4wNTgxMjI1MWUtMTYgMTAsMCBMMTIsMCBDMTQuMjA5MTM5LC00LjA1ODEyMjUxZS0xNiAxNiwxLjc5MDg2MSAxNiw0IEMxNiw2LjIwOTEzOSAxNC4yMDkxMzksOCAxMiw4IEwxMC43MDQ4MzEzLDggWiIgaWQ9InNwZWVjaCIgZmlsbD0iIzBFQkQ4QyI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+';
+
+/**
+ * Icon svg to be displayed at the left edge of each extension block, encoded as a data URI.
+ * @type {string}
+ */
+// eslint-disable-next-line max-len
+const blockIconURI = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNDBweCIgaGVpZ2h0PSI0MHB4IiB2aWV3Qm94PSIwIDAgNDAgNDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUyLjIgKDY3MTQ1KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5FeHRlbnNpb25zL1NvZnR3YXJlL1RleHQtdG8tU3BlZWNoLUJsb2NrPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IkV4dGVuc2lvbnMvU29mdHdhcmUvVGV4dC10by1TcGVlY2gtQmxvY2siIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZS1vcGFjaXR5PSIwLjE1Ij4KICAgICAgICA8ZyBpZD0idGV4dDJzcGVlY2giIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQuMDAwMDAwLCA0LjAwMDAwMCkiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSIjMDAwMDAwIj4KICAgICAgICAgICAgPHBhdGggZD0iTTExLjUsMTcuNjY5MzQzNSBDMTEuNSwxNi42NTM5MjY5IDEwLjAwNjAxNDUsMTYuMDg0NDI3NCA5LjExMjU2MDI0LDE2Ljg4ODMgTDYuNDEyNTYwMjQsMTkuMDUwNzE0IEM1LjM5MzQ2NzU1LDE5Ljg2Njg5OTQgNC4wNzQ5NzM1MSwyMC4zMzE3NTc1IDIuNywyMC4zMzE3NTc1IEwyLjMsMjAuMzMxNzU3NSBDMS4yNjUxOTIzMywyMC4zMzE3NTc1IDAuNSwyMS4wMjEyMDAzIDAuNSwyMS45MDQwNzEgTDAuNSwyNi4xMzg3OTg2IEMwLjUsMjcuMDIxNjY5MyAxLjI2NTE5MjMzLDI3LjcxMTExMiAyLjMsMjcuNzExMTEyIEwyLjcsMjcuNzExMTEyIEM0LjE1NzU1NjgyLDI3LjcxMTExMiA1LjQ1MzcyMzIyLDI4LjEzMzUyNzEgNi41MTk3MjA5OCwyOC45OTggTDkuMTE4NDAyOTMsMzEuMTU5MzIxNiBDMTAuMDI2MTg1NSwzMS45MDkwNzkzIDExLjUsMzEuMzQ3MjY4OSAxMS41LDMwLjI4MzQyNTUgTDExLjUsMTcuNjY5MzQzNSBaIiBpZD0ic3BlYWtlciIgZmlsbD0iIzRENEQ0RCI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBkPSJNMjEuNjQzNjA2NiwxNi41IEMxOS45NzcwMDk5LDE4LjQzNzAyMzQgMTcuMTA1MDI3NSwxOS45Mjg1NzE0IDE1LjY2NjY2NjcsMTkuOTI4NTcxNCBDMTUuNTEyNjM5NywxOS45Mjg1NzE0IDE1LjMxNjYyOTIsMTkuODk1OTAzIDE1LjEwOTcyNjUsMTkuNzkyNDUxNyBDMTQuNzM3NjAzOSwxOS42MDYzOTA0IDE0LjUsMTkuMjQ5OTg0NiAxNC41LDE4Ljc2MTkwNDggQzE0LjUsMTguNjU2ODA0MSAxNC41MTcwNTU1LDE4LjU1NDUwNzYgMTQuNTQ5NDQ2NywxOC40NTQwODQ0IEMxNC42MjU3NTQ1LDE4LjIxNzUwNjMgMTUuMTczNTcyMSwxNy40Njc1MzEgMTUuMjc3MjA3MSwxNy4yODA5ODgxIEMxNS41NDYzNTI2LDE2Ljc5NjUyNjEgMTUuNzM5MDI1LDE2LjIwNjM1NjEgMTUuODQzMjg5MSwxNS40MTYwMDM0IEMxMy4xODk3MDA1LDEzLjkyNjgzNjkgMTEuNSwxMS4xMTM5NjY4IDExLjUsOCBDMTEuNSwzLjMwNTU3OTYzIDE1LjMwNTU3OTYsLTAuNSAyMCwtMC41IEwyNCwtMC41IEMyOC42OTQ0MjA0LC0wLjUgMzIuNSwzLjMwNTU3OTYzIDMyLjUsOCBDMzIuNSwxMi42OTQ0MjA0IDI4LjY5NDQyMDQsMTYuNSAyNCwxNi41IEwyMS42NDM2MDY2LDE2LjUgWiIgaWQ9InNwZWVjaCIgZmlsbD0iI0ZGRkZGRiI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+';
+
+/**
+ * The url of the synthesis server.
+ * @type {string}
+ */
+const SERVER_HOST = 'https://synthesis-service.scratch.mit.edu';
+
+/**
+ * How long to wait in ms before timing out requests to synthesis server.
+ * @type {int}
+ */
+const SERVER_TIMEOUT = 10000; // 10 seconds
+
+/**
+ * Volume for playback of speech sounds, as a percentage.
+ * @type {number}
+ */
+const SPEECH_VOLUME = 250;
+
+/**
+ * An id for one of the voices.
+ */
+const ALTO_ID = 'ALTO';
+
+/**
+ * An id for one of the voices.
+ */
+const TENOR_ID = 'TENOR';
+
+/**
+ * An id for one of the voices.
+ */
+const SQUEAK_ID = 'SQUEAK';
+
+/**
+ * An id for one of the voices.
+ */
+const GIANT_ID = 'GIANT';
+
+/**
+ * An id for one of the voices.
+ */
+const KITTEN_ID = 'KITTEN';
+
+/**
+ * Playback rate for the tenor voice, for cases where we have only a female gender voice.
+ */
+const FEMALE_TENOR_RATE = 0.89; // -2 semitones
+
+/**
+ * Playback rate for the giant voice, for cases where we have only a female gender voice.
+ */
+const FEMALE_GIANT_RATE = 0.79; // -4 semitones
+
+/**
+ * Language ids. The value for each language id is a valid Scratch locale.
+ */
+const ARABIC_ID = 'ar';
+const CHINESE_ID = 'zh-cn';
+const DANISH_ID = 'da';
+const DUTCH_ID = 'nl';
+const ENGLISH_ID = 'en';
+const FRENCH_ID = 'fr';
+const GERMAN_ID = 'de';
+const HINDI_ID = 'hi';
+const ICELANDIC_ID = 'is';
+const ITALIAN_ID = 'it';
+const JAPANESE_ID = 'ja';
+const KOREAN_ID = 'ko';
+const NORWEGIAN_ID = 'nb';
+const POLISH_ID = 'pl';
+const PORTUGUESE_BR_ID = 'pt-br';
+const PORTUGUESE_ID = 'pt';
+const ROMANIAN_ID = 'ro';
+const RUSSIAN_ID = 'ru';
+const SPANISH_ID = 'es';
+const SPANISH_419_ID = 'es-419';
+const SWEDISH_ID = 'sv';
+const TURKISH_ID = 'tr';
+const WELSH_ID = 'cy';
+
+/**
+ * Class for the text2speech blocks.
+ * @constructor
+ */
+class Scratch3Text2SpeechBlocks {
+  constructor(runtime) {
+    /**
+     * The runtime instantiating this block package.
+     * @type {Runtime}
+     */
+    this.runtime = runtime;
+
+    /**
+     * Map of soundPlayers by sound id.
+     * @type {Map<string, SoundPlayer>}
+     */
+    this._soundPlayers = new Map();
+    this._stopAllSpeech = this._stopAllSpeech.bind(this);
+    if (this.runtime) {
+      this.runtime.on('PROJECT_STOP_ALL', this._stopAllSpeech);
+    }
+    this._onTargetCreated = this._onTargetCreated.bind(this);
+    if (this.runtime) {
+      runtime.on('targetWasCreated', this._onTargetCreated);
+    }
+
+    /**
+     * A list of all Scratch locales that are supported by the extension.
+     * @type {Array}
+     */
+    this._supportedLocales = this._getSupportedLocales();
+  }
+
+  /**
+   * An object with info for each voice.
+   */
+  get VOICE_INFO() {
+    return {
+      [ALTO_ID]: {
+        name: formatMessage({
+          id: 'text2speech.alto',
+          default: 'alto',
+          description: 'Name for a voice with ambiguous gender.'
+        }),
+        gender: 'female',
+        playbackRate: 1
+      },
+      [TENOR_ID]: {
+        name: formatMessage({
+          id: 'text2speech.tenor',
+          default: 'tenor',
+          description: 'Name for a voice with ambiguous gender.'
+        }),
+        gender: 'male',
+        playbackRate: 1
+      },
+      [SQUEAK_ID]: {
+        name: formatMessage({
+          id: 'text2speech.squeak',
+          default: 'squeak',
+          description: 'Name for a funny voice with a high pitch.'
+        }),
+        gender: 'female',
+        playbackRate: 1.19 // +3 semitones
+      },
+      [GIANT_ID]: {
+        name: formatMessage({
+          id: 'text2speech.giant',
+          default: 'giant',
+          description: 'Name for a funny voice with a low pitch.'
+        }),
+        gender: 'male',
+        playbackRate: 0.84 // -3 semitones
+      },
+      [KITTEN_ID]: {
+        name: formatMessage({
+          id: 'text2speech.kitten',
+          default: 'kitten',
+          description: 'A baby cat.'
+        }),
+        gender: 'female',
+        playbackRate: 1.41 // +6 semitones
+      }
+    };
+  }
+
+  /**
+   * An object with information for each language.
+   *
+   * A note on the different sets of locales referred to in this extension:
+   *
+   * SCRATCH LOCALE
+   *      Set by the editor, and used to store the language state in the project.
+   *      Listed in l10n: https://github.com/LLK/scratch-l10n/blob/master/src/supported-locales.js
+   * SUPPORTED LOCALE
+   *      A Scratch locale that has a corresponding extension locale.
+   * EXTENSION LOCALE
+   *      A locale corresponding to one of the available spoken languages
+   *      in the extension. There can be multiple supported locales for a single
+   *      extension locale. For example, for both written versions of chinese,
+   *      zh-cn and zh-tw, we use a single spoken language (Mandarin). So there
+   *      are two supported locales, with a single extension locale.
+   * SPEECH SYNTH LOCALE
+   *      A different locale code system, used by our speech synthesis service.
+   *      Each extension locale has a speech synth locale.
+   */
+  get LANGUAGE_INFO() {
+    return {
+      [ARABIC_ID]: {
+        name: 'Arabic',
+        locales: ['ar'],
+        speechSynthLocale: 'arb',
+        singleGender: true
+      },
+      [CHINESE_ID]: {
+        name: 'Chinese (Mandarin)',
+        locales: ['zh-cn', 'zh-tw'],
+        speechSynthLocale: 'cmn-CN',
+        singleGender: true
+      },
+      [DANISH_ID]: {
+        name: 'Danish',
+        locales: ['da'],
+        speechSynthLocale: 'da-DK'
+      },
+      [DUTCH_ID]: {
+        name: 'Dutch',
+        locales: ['nl'],
+        speechSynthLocale: 'nl-NL'
+      },
+      [ENGLISH_ID]: {
+        name: 'English',
+        locales: ['en'],
+        speechSynthLocale: 'en-US'
+      },
+      [FRENCH_ID]: {
+        name: 'French',
+        locales: ['fr'],
+        speechSynthLocale: 'fr-FR'
+      },
+      [GERMAN_ID]: {
+        name: 'German',
+        locales: ['de'],
+        speechSynthLocale: 'de-DE'
+      },
+      [HINDI_ID]: {
+        name: 'Hindi',
+        locales: ['hi'],
+        speechSynthLocale: 'hi-IN',
+        singleGender: true
+      },
+      [ICELANDIC_ID]: {
+        name: 'Icelandic',
+        locales: ['is'],
+        speechSynthLocale: 'is-IS'
+      },
+      [ITALIAN_ID]: {
+        name: 'Italian',
+        locales: ['it'],
+        speechSynthLocale: 'it-IT'
+      },
+      [JAPANESE_ID]: {
+        name: 'Japanese',
+        locales: ['ja', 'ja-hira'],
+        speechSynthLocale: 'ja-JP'
+      },
+      [KOREAN_ID]: {
+        name: 'Korean',
+        locales: ['ko'],
+        speechSynthLocale: 'ko-KR',
+        singleGender: true
+      },
+      [NORWEGIAN_ID]: {
+        name: 'Norwegian',
+        locales: ['nb', 'nn'],
+        speechSynthLocale: 'nb-NO',
+        singleGender: true
+      },
+      [POLISH_ID]: {
+        name: 'Polish',
+        locales: ['pl'],
+        speechSynthLocale: 'pl-PL'
+      },
+      [PORTUGUESE_BR_ID]: {
+        name: 'Portuguese (Brazilian)',
+        locales: ['pt-br'],
+        speechSynthLocale: 'pt-BR'
+      },
+      [PORTUGUESE_ID]: {
+        name: 'Portuguese (European)',
+        locales: ['pt'],
+        speechSynthLocale: 'pt-PT'
+      },
+      [ROMANIAN_ID]: {
+        name: 'Romanian',
+        locales: ['ro'],
+        speechSynthLocale: 'ro-RO',
+        singleGender: true
+      },
+      [RUSSIAN_ID]: {
+        name: 'Russian',
+        locales: ['ru'],
+        speechSynthLocale: 'ru-RU'
+      },
+      [SPANISH_ID]: {
+        name: 'Spanish (European)',
+        locales: ['es'],
+        speechSynthLocale: 'es-ES'
+      },
+      [SPANISH_419_ID]: {
+        name: 'Spanish (Latin American)',
+        locales: ['es-419'],
+        speechSynthLocale: 'es-US'
+      },
+      [SWEDISH_ID]: {
+        name: 'Swedish',
+        locales: ['sv'],
+        speechSynthLocale: 'sv-SE',
+        singleGender: true
+      },
+      [TURKISH_ID]: {
+        name: 'Turkish',
+        locales: ['tr'],
+        speechSynthLocale: 'tr-TR',
+        singleGender: true
+      },
+      [WELSH_ID]: {
+        name: 'Welsh',
+        locales: ['cy'],
+        speechSynthLocale: 'cy-GB',
+        singleGender: true
+      }
+    };
+  }
+
+  /**
+   * The key to load & store a target's text2speech state.
+   * @return {string} The key.
+   */
+  static get STATE_KEY() {
+    return 'Scratch.text2speech';
+  }
+
+  /**
+   * The default state, to be used when a target has no existing state.
+   * @type {Text2SpeechState}
+   */
+  static get DEFAULT_TEXT2SPEECH_STATE() {
+    return {
+      voiceId: ALTO_ID
+    };
+  }
+
+  /**
+   * A default language to use for speech synthesis.
+   * @type {string}
+   */
+  get DEFAULT_LANGUAGE() {
+    return ENGLISH_ID;
+  }
+
+  /**
+   * @param {Target} target - collect  state for this target.
+   * @returns {Text2SpeechState} the mutable state associated with that target. This will be created if necessary.
+   * @private
+   */
+  _getState(target) {
+    let state = target.getCustomState(Scratch3Text2SpeechBlocks.STATE_KEY);
+    if (!state) {
+      state = Clone.simple(Scratch3Text2SpeechBlocks.DEFAULT_TEXT2SPEECH_STATE);
+      target.setCustomState(Scratch3Text2SpeechBlocks.STATE_KEY, state);
+    }
+    return state;
+  }
+
+  /**
+   * When a Target is cloned, clone the state.
+   * @param {Target} newTarget - the newly created target.
+   * @param {Target} [sourceTarget] - the target used as a source for the new clone, if any.
+   * @listens Runtime#event:targetWasCreated
+   * @private
+   */
+  _onTargetCreated(newTarget, sourceTarget) {
+    if (sourceTarget) {
+      const state = sourceTarget.getCustomState(Scratch3Text2SpeechBlocks.STATE_KEY);
+      if (state) {
+        newTarget.setCustomState(Scratch3Text2SpeechBlocks.STATE_KEY, Clone.simple(state));
+      }
+    }
+  }
+
+  /**
+   * @returns {object} metadata for this extension and its blocks.
+   */
+  getInfo() {
+    // Only localize the default input to the "speak" block if we are in a
+    // supported language.
+    let defaultTextToSpeak = 'hello';
+    if (this.isSupportedLanguage(this.getEditorLanguage())) {
+      defaultTextToSpeak = formatMessage({
+        id: 'text2speech.defaultTextToSpeak',
+        default: 'hello',
+        description: 'hello: the default text to speak'
+      });
+    }
+    return {
+      id: 'text2speech',
+      name: formatMessage({
+        id: 'text2speech.categoryName',
+        default: 'Text to Speech',
+        description: 'Name of the Text to Speech extension.'
+      }),
+      blockIconURI: blockIconURI,
+      menuIconURI: menuIconURI,
+      blocks: [{
+        opcode: 'speakAndWait',
+        text: formatMessage({
+          id: 'text2speech.speakAndWaitBlock',
+          default: 'speak [WORDS]',
+          description: 'Speak some words.'
+        }),
+        blockType: BlockType.COMMAND,
+        arguments: {
+          WORDS: {
+            type: ArgumentType.STRING,
+            defaultValue: defaultTextToSpeak
+          }
+        }
+      }, {
+        opcode: 'setVoice',
+        text: formatMessage({
+          id: 'text2speech.setVoiceBlock',
+          default: 'set voice to [VOICE]',
+          description: 'Set the voice for speech synthesis.'
+        }),
+        blockType: BlockType.COMMAND,
+        arguments: {
+          VOICE: {
+            type: ArgumentType.STRING,
+            menu: 'voices',
+            defaultValue: ALTO_ID
+          }
+        }
+      }, {
+        opcode: 'setLanguage',
+        text: formatMessage({
+          id: 'text2speech.setLanguageBlock',
+          default: 'set language to [LANGUAGE]',
+          description: 'Set the language for speech synthesis.'
+        }),
+        blockType: BlockType.COMMAND,
+        arguments: {
+          LANGUAGE: {
+            type: ArgumentType.STRING,
+            menu: 'languages',
+            defaultValue: this.getCurrentLanguage()
+          }
+        }
+      }],
+      menus: {
+        voices: {
+          acceptReporters: true,
+          items: this.getVoiceMenu()
+        },
+        languages: {
+          acceptReporters: true,
+          items: this.getLanguageMenu()
+        }
+      }
+    };
+  }
+
+  /**
+   * Get the language code currently set in the editor, or fall back to the
+   * browser locale.
+   * @return {string} a Scratch locale code.
+   */
+  getEditorLanguage() {
+    const locale = formatMessage.setup().locale || navigator.language || navigator.userLanguage || this.DEFAULT_LANGUAGE;
+    return locale.toLowerCase();
+  }
+
+  /**
+   * Get the language code currently set for the extension.
+   * @returns {string} a Scratch locale code.
+   */
+  getCurrentLanguage() {
+    const stage = this.runtime.getTargetForStage();
+    if (!stage) return this.DEFAULT_LANGUAGE;
+    // If no language has been set, set it to the editor locale (or default).
+    if (!stage.textToSpeechLanguage) {
+      this.setCurrentLanguage(this.getEditorLanguage());
+    }
+    return stage.textToSpeechLanguage;
+  }
+
+  /**
+   * Set the language code for the extension.
+   * It is stored in the stage so it can be saved and loaded with the project.
+   * @param {string} locale a locale code.
+   */
+  setCurrentLanguage(locale) {
+    const stage = this.runtime.getTargetForStage();
+    if (!stage) return;
+    if (this.isSupportedLanguage(locale)) {
+      stage.textToSpeechLanguage = this._getExtensionLocaleForSupportedLocale(locale);
+    }
+
+    // Support language names dropped onto the menu via reporter block
+    // such as a variable containing a language name (in any language),
+    // or the translate extension's language reporter.
+    const localeForDroppedName = languageNames.nameMap[locale.toLowerCase()];
+    if (localeForDroppedName && this.isSupportedLanguage(localeForDroppedName)) {
+      stage.textToSpeechLanguage = this._getExtensionLocaleForSupportedLocale(localeForDroppedName);
+    }
+
+    // If the language is null, set it to the default language.
+    // This can occur e.g. if the extension was loaded with the editor
+    // set to a language that is not in the list.
+    if (!stage.textToSpeechLanguage) {
+      stage.textToSpeechLanguage = this.DEFAULT_LANGUAGE;
+    }
+  }
+
+  /**
+   * Get the extension locale for a supported locale, or null.
+   * @param {string} locale a locale code.
+   * @returns {?string} a locale supported by the extension.
+   */
+  _getExtensionLocaleForSupportedLocale(locale) {
+    for (const lang in this.LANGUAGE_INFO) {
+      if (this.LANGUAGE_INFO[lang].locales.includes(locale)) {
+        return lang;
+      }
+    }
+    log.error("cannot find extension locale for locale ".concat(locale));
+  }
+
+  /**
+   * Get the locale code used by the speech synthesis server corresponding to
+   * the current language code set for the extension.
+   * @returns {string} a speech synthesis locale.
+   */
+  _getSpeechSynthLocale() {
+    let speechSynthLocale = this.LANGUAGE_INFO[this.DEFAULT_LANGUAGE].speechSynthLocale;
+    if (this.LANGUAGE_INFO[this.getCurrentLanguage()]) {
+      speechSynthLocale = this.LANGUAGE_INFO[this.getCurrentLanguage()].speechSynthLocale;
+    }
+    return speechSynthLocale;
+  }
+
+  /**
+   * Get an array of the locales supported by this extension.
+   * @returns {Array} An array of locale strings.
+   */
+  _getSupportedLocales() {
+    return Object.keys(this.LANGUAGE_INFO).reduce((acc, lang) => acc.concat(this.LANGUAGE_INFO[lang].locales), []);
+  }
+
+  /**
+   * Check if a Scratch language code is in the list of supported languages for the
+   * speech synthesis service.
+   * @param {string} languageCode the language code to check.
+   * @returns {boolean} true if the language code is supported.
+   */
+  isSupportedLanguage(languageCode) {
+    return this._supportedLocales.includes(languageCode);
+  }
+
+  /**
+   * Get the menu of voices for the "set voice" block.
+   * @return {array} the text and value for each menu item.
+   */
+  getVoiceMenu() {
+    return Object.keys(this.VOICE_INFO).map(voiceId => ({
+      text: this.VOICE_INFO[voiceId].name,
+      value: voiceId
+    }));
+  }
+
+  /**
+   * Get the localized menu of languages for the "set language" block.
+   * For each language:
+   *   if there is a custom translated spoken language name, use that;
+   *   otherwise use the translation in the languageNames menuMap;
+   *   otherwise fall back to the untranslated name in LANGUAGE_INFO.
+   * @return {array} the text and value for each menu item.
+   */
+  getLanguageMenu() {
+    const editorLanguage = this.getEditorLanguage();
+    // Get the array of localized language names
+    const localizedNameMap = {};
+    let nameArray = languageNames.menuMap[editorLanguage];
+    if (nameArray) {
+      // Also get any localized names of spoken languages
+      let spokenNameArray = [];
+      if (languageNames.spokenLanguages) {
+        spokenNameArray = languageNames.spokenLanguages[editorLanguage];
+        nameArray = nameArray.concat(spokenNameArray);
+      }
+      // Create a map of language code to localized name
+      // The localized spoken language names have been concatenated onto
+      // the end of the name array, so the result of the forEach below is
+      // when there is both a written language name (e.g. 'Chinese
+      // (simplified)') and a spoken language name (e.g. 'Chinese
+      // (Mandarin)', we always use the spoken version.
+      nameArray.forEach(lang => {
+        localizedNameMap[lang.code] = lang.name;
+      });
+    }
+    return Object.keys(this.LANGUAGE_INFO).map(key => {
+      let name = this.LANGUAGE_INFO[key].name;
+      const localizedName = localizedNameMap[key];
+      if (localizedName) {
+        name = localizedName;
+      }
+      // Uppercase the first character of the name
+      name = name.charAt(0).toUpperCase() + name.slice(1);
+      return {
+        text: name,
+        value: key
+      };
+    });
+  }
+
+  /**
+   * Set the voice for speech synthesis for this sprite.
+   * @param  {object} args Block arguments
+   * @param {object} util Utility object provided by the runtime.
+   */
+  setVoice(args, util) {
+    const state = this._getState(util.target);
+    let voice = args.VOICE;
+
+    // If the arg is a dropped number, treat it as a voice index
+    let voiceNum = parseInt(voice, 10);
+    if (!isNaN(voiceNum)) {
+      voiceNum -= 1; // Treat dropped args as one-indexed
+      voiceNum = MathUtil.wrapClamp(voiceNum, 0, Object.keys(this.VOICE_INFO).length - 1);
+      voice = Object.keys(this.VOICE_INFO)[voiceNum];
+    }
+
+    // Only set the voice if the arg is a valid voice id.
+    if (Object.keys(this.VOICE_INFO).includes(voice)) {
+      state.voiceId = voice;
+    }
+  }
+
+  /**
+   * Set the language for speech synthesis.
+   * @param  {object} args Block arguments
+   */
+  setLanguage(args) {
+    this.setCurrentLanguage(args.LANGUAGE);
+  }
+
+  /**
+   * Stop all currently playing speech sounds.
+   */
+  _stopAllSpeech() {
+    this._soundPlayers.forEach(player => {
+      player.stop();
+    });
+  }
+
+  /**
+   * Convert the provided text into a sound file and then play the file.
+   * @param  {object} args Block arguments
+   * @param {object} util Utility object provided by the runtime.
+   * @return {Promise} A promise that resolves after playing the sound
+   */
+  speakAndWait(args, util) {
+    // Cast input to string
+    let words = Cast.toString(args.WORDS);
+    let locale = this._getSpeechSynthLocale();
+    const state = this._getState(util.target);
+    let gender = this.VOICE_INFO[state.voiceId].gender;
+    let playbackRate = this.VOICE_INFO[state.voiceId].playbackRate;
+
+    // Special case for voices where the synthesis service only provides a
+    // single gender voice. In that case, always request the female voice,
+    // and set special playback rates for the tenor and giant voices.
+    if (this.LANGUAGE_INFO[this.getCurrentLanguage()].singleGender) {
+      gender = 'female';
+      if (state.voiceId === TENOR_ID) {
+        playbackRate = FEMALE_TENOR_RATE;
+      }
+      if (state.voiceId === GIANT_ID) {
+        playbackRate = FEMALE_GIANT_RATE;
+      }
+    }
+    if (state.voiceId === KITTEN_ID) {
+      words = words.replace(/\S+/g, 'meow');
+      locale = this.LANGUAGE_INFO[this.DEFAULT_LANGUAGE].speechSynthLocale;
+    }
+
+    // Build up URL
+    let path = "".concat(SERVER_HOST, "/synth");
+    path += "?locale=".concat(locale);
+    path += "&gender=".concat(gender);
+    path += "&text=".concat(encodeURIComponent(words.substring(0, 128)));
+
+    // Perform HTTP request to get audio file
+    return fetchWithTimeout(path, {}, SERVER_TIMEOUT).then(res => {
+      if (res.status !== 200) {
+        throw new Error("HTTP ".concat(res.status, " error reaching translation service"));
+      }
+      return res.arrayBuffer();
+    }).then(buffer => {
+      // Play the sound
+      const sound = {
+        data: {
+          buffer
+        }
+      };
+      return this.runtime.audioEngine.decodeSoundPlayer(sound);
+    }).then(soundPlayer => {
+      this._soundPlayers.set(soundPlayer.id, soundPlayer);
+      soundPlayer.setPlaybackRate(playbackRate);
+
+      // Increase the volume
+      const engine = this.runtime.audioEngine;
+      const chain = engine.createEffectChain();
+      chain.set('volume', SPEECH_VOLUME);
+      soundPlayer.connect(chain);
+      soundPlayer.play();
+      return new Promise(resolve => {
+        soundPlayer.on('stop', () => {
+          this._soundPlayers.delete(soundPlayer.id);
+          resolve();
+        });
+      });
+    }).catch(err => {
+      log.warn(err);
+    });
+  }
+}
+module.exports = Scratch3Text2SpeechBlocks;
 
 /***/ })
 
