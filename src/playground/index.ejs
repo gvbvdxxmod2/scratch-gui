@@ -96,6 +96,51 @@
 
     <script>
       (function () {
+
+        //First, detect if we're in desktop
+        var isDesktop = window.require && window.__dirname && window.__filename && window.module;
+        if (!isDesktop) {
+          return;
+        }
+
+        window.IsGM2Desktop = true;
+        var remote = require("@electron/remote");
+        var electron = require('electron');
+        var ipcRenderer = electron.ipcRenderer;
+
+        //We override these with our own fancy versions,
+        // note that these will freeze the page until they complete.
+        window.alert= function (title, value){
+          return ipcRenderer.sendSync('alert', {title, value});
+        };
+        window.confirm=function(title, value){
+          return ipcRenderer.sendSync('confirm', {title, value});
+        };
+        window.prompt=function(title, val){
+          return ipcRenderer.sendSync('prompt', {title, value});
+        };
+        window.open = function (url) {
+          return ipcRenderer.sendSync('windowOpen', url);
+        };
+
+        var temp_beforeunload = null;
+        setInterval(() => {
+            if (window.onbeforeunload && !temp_beforeunload) {
+                temp_beforeunload = window.onbeforeunload;
+                window.onbeforeunload = undefined;
+            }
+            if (temp_beforeunload) {
+                var evnt = {};
+                window.onbeforeunload = undefined;
+                if (temp_beforeunload(evnt)) {
+                    ipcRenderer.send('confirmbeforeclosing', true);
+                } else {
+                    ipcRenderer.send('confirmbeforeclosing', false);
+                }
+            }
+        },1000/30);
+      })();
+      (function () {
         'use strict';
 
         var theme = '';

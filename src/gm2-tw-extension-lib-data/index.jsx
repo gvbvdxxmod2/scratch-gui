@@ -98,7 +98,8 @@ import TWExtension98Image from "./98.nishiowoDectalk.png";
 import TWExtension100Image from "./100.itch.svg";
 import TWExtension101Image from "./101.GameJoltAPI.png";
 import TWExtension102Image from "./102.NGIO.svg";
-import TWExtension103Image from "./103.lmsmcutils.png";
+import TWExtension103Image from "./103.samuelloufwikipedia.svg";
+import TWExtension104Image from "./104.lmsmcutils.png";
 
 export default [
   {
@@ -823,8 +824,15 @@ export default [
     authors: [{"name":"ObviousAlexC","link":"https://scratch.mit.edu/users/pinksheep2917/"}]
   },
   {
-    id: "lmsmcutils",
+    id: "samuelloufwikipedia",
     image: TWExtension103Image,
+    name: "Wikipedia",
+    description: "Fetch the content of Wikipedia pages.",
+    authors: [{"name":"SamuelLouf","link":"https://scratch.mit.edu/users/samuellouf/"}]
+  },
+  {
+    id: "lmsmcutils",
+    image: TWExtension104Image,
     name: "McUtils",
     description: "Helpful utilities for any fast food employee.",
     authors: [{"name":"LilyMakesThings","link":"https://scratch.mit.edu/users/LilyMakesThings/"}]

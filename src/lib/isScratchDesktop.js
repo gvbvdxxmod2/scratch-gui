@@ -9,7 +9,12 @@ let _isScratchDesktop; // undefined = not ready yet
  * @param {boolean} value - the new value which `isScratchDesktop()` should return in the future.
  */
 const setIsScratchDesktop = function (value) {
-    _isScratchDesktop = value;
+    if (value) {
+        window.IsGM2Desktop = true;
+    } else {
+        window.IsGM2Desktop = false;
+        delete window.IsGM2Desktop;
+    }
 };
 
 /**
@@ -17,7 +22,7 @@ const setIsScratchDesktop = function (value) {
  * If `setIsScratchDesktop()` has not yet been called, this can return `undefined`.
  */
 const isScratchDesktop = function () {
-    return _isScratchDesktop;
+    return window.IsGM2Desktop;
 };
 
 /**

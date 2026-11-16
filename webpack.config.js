@@ -37,6 +37,7 @@ const base = {
         disableHostCheck: true,
         compress: true,
         port: process.env.PORT || 8601,
+        injectClient: false,
         headers: {
             // Enable SharedArrayBuffer
             'Document-Isolation-Policy': 'isolate-and-credentialless'

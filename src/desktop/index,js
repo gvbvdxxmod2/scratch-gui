@@ -1,0 +1,23 @@
+
+//We'll need to check if we are in desktop first.
+//Then load the enviroment if we are in desktop.
+
+var isDesktop = false;
+
+try{
+    isDesktop = window.require && window.__dirname && window.__filename && window.module;
+}catch(e){
+    //This usually should not throw an error.
+    console.error("Error with checking for running in desktop environment: ",e);
+}
+isDesktop = !!isDesktop; //Ensure its a boolean by converting it. (if its already a boolean this does nothing)
+
+var DesktopAPI = null;
+if (isDesktop) {
+    DesktopAPI = require("./desktop.js");
+}
+
+module.exports = {
+    isDesktop,
+    DesktopAPI
+};
