@@ -237389,8 +237389,9 @@ module.exports = BlockType;
   !*** ./node_modules/scratch-vm/src/extension-support/extension-list.js ***!
   \*************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
+const log = __webpack_require__(/*! ../util/log */ "./node_modules/scratch-vm/src/util/log.js");
 class ExtensionType {
   //Syncronously loaded extensions, for extensions that need to be ready as soon as possible.
   static get EXTENSION_BUILTIN_SYNC() {
@@ -238474,6 +238475,7 @@ module.exports = ScratchExtensionAPI;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+const log = __webpack_require__(/*! ../util/log */ "./node_modules/scratch-vm/src/util/log.js");
 var ScratchExtensionAPI = __webpack_require__(/*! ./gm2-tw-extension-api.js */ "./node_modules/scratch-vm/src/extension-support/gm2-tw-extension-api.js");
 class ExtensionRunner {
   static get ScratchExtensionAPI() {

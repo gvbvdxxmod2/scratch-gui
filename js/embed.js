@@ -27223,7 +27223,6 @@ const setProjectIdMetadata = projectId => {
 };
 class GUI extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
   componentDidMount() {
-    Object(_lib_isScratchDesktop_js__WEBPACK_IMPORTED_MODULE_23__["setIsScratchDesktop"])(this.props.isScratchDesktop);
     this.props.onStorageInit(_lib_storage__WEBPACK_IMPORTED_MODULE_18__["default"]);
     this.props.onVmInit(this.props.vm);
     setProjectIdMetadata(this.props.projectId);

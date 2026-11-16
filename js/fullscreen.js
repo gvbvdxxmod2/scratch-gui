@@ -28889,7 +28889,6 @@ const setProjectIdMetadata = projectId => {
 };
 class GUI extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
   componentDidMount() {
-    Object(_lib_isScratchDesktop_js__WEBPACK_IMPORTED_MODULE_23__["setIsScratchDesktop"])(this.props.isScratchDesktop);
     this.props.onStorageInit(_lib_storage__WEBPACK_IMPORTED_MODULE_18__["default"]);
     this.props.onVmInit(this.props.vm);
     setProjectIdMetadata(this.props.projectId);
@@ -49797,9 +49796,13 @@ function _objectWithoutPropertiesLoose(r, e) { if (null == r) return {}; var t =
 const isInvalidEmbed = window.parent !== window;
 const handleClickAddonSettings = addonId => {
   // addonId might be a string of the addon to focus on, undefined, or an event (treat like undefined)
-  const path =  false ? undefined : 'addons.html';
-  const url = "".concat("").concat(path).concat(typeof addonId === 'string' ? "#".concat(addonId) : '');
-  window.open(url);
+  if (window.GM2desktop) {
+    window.GM2desktop.openAddonSettings(typeof addonId == "string" ? addonId : null);
+  } else {
+    window.open(url);
+    const path =  false ? undefined : 'addons.html';
+    const url = "".concat("").concat(path).concat(typeof addonId === 'string' ? "#".concat(addonId) : '');
+  }
 };
 const handleClickEditorSettings = () => {
   try {

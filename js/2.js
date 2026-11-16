@@ -66,9 +66,20 @@ module.exports = __webpack_require__.p + "static/assets/23e00409652f65598e0ed2e8
 
 /***/ }),
 
-/***/ "./src/gm2-tw-extension-lib-data/103.lmsmcutils.png":
+/***/ "./src/gm2-tw-extension-lib-data/103.samuelloufwikipedia.svg":
+/*!*******************************************************************!*\
+  !*** ./src/gm2-tw-extension-lib-data/103.samuelloufwikipedia.svg ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/assets/1ef2b659abaf3b90706b9404d1ba100c.svg";
+
+/***/ }),
+
+/***/ "./src/gm2-tw-extension-lib-data/104.lmsmcutils.png":
 /*!**********************************************************!*\
-  !*** ./src/gm2-tw-extension-lib-data/103.lmsmcutils.png ***!
+  !*** ./src/gm2-tw-extension-lib-data/104.lmsmcutils.png ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -1320,8 +1331,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _101_GameJoltAPI_png__WEBPACK_IMPORTED_MODULE_98___default = /*#__PURE__*/__webpack_require__.n(_101_GameJoltAPI_png__WEBPACK_IMPORTED_MODULE_98__);
 /* harmony import */ var _102_NGIO_svg__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./102.NGIO.svg */ "./src/gm2-tw-extension-lib-data/102.NGIO.svg");
 /* harmony import */ var _102_NGIO_svg__WEBPACK_IMPORTED_MODULE_99___default = /*#__PURE__*/__webpack_require__.n(_102_NGIO_svg__WEBPACK_IMPORTED_MODULE_99__);
-/* harmony import */ var _103_lmsmcutils_png__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./103.lmsmcutils.png */ "./src/gm2-tw-extension-lib-data/103.lmsmcutils.png");
-/* harmony import */ var _103_lmsmcutils_png__WEBPACK_IMPORTED_MODULE_100___default = /*#__PURE__*/__webpack_require__.n(_103_lmsmcutils_png__WEBPACK_IMPORTED_MODULE_100__);
+/* harmony import */ var _103_samuelloufwikipedia_svg__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./103.samuelloufwikipedia.svg */ "./src/gm2-tw-extension-lib-data/103.samuelloufwikipedia.svg");
+/* harmony import */ var _103_samuelloufwikipedia_svg__WEBPACK_IMPORTED_MODULE_100___default = /*#__PURE__*/__webpack_require__.n(_103_samuelloufwikipedia_svg__WEBPACK_IMPORTED_MODULE_100__);
+/* harmony import */ var _104_lmsmcutils_png__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./104.lmsmcutils.png */ "./src/gm2-tw-extension-lib-data/104.lmsmcutils.png");
+/* harmony import */ var _104_lmsmcutils_png__WEBPACK_IMPORTED_MODULE_101___default = /*#__PURE__*/__webpack_require__.n(_104_lmsmcutils_png__WEBPACK_IMPORTED_MODULE_101__);
+
 
 
 
@@ -2402,8 +2416,17 @@ __webpack_require__.r(__webpack_exports__);
     "link": "https://scratch.mit.edu/users/pinksheep2917/"
   }]
 }, {
+  id: "samuelloufwikipedia",
+  image: _103_samuelloufwikipedia_svg__WEBPACK_IMPORTED_MODULE_100___default.a,
+  name: "Wikipedia",
+  description: "Fetch the content of Wikipedia pages.",
+  authors: [{
+    "name": "SamuelLouf",
+    "link": "https://scratch.mit.edu/users/samuellouf/"
+  }]
+}, {
   id: "lmsmcutils",
-  image: _103_lmsmcutils_png__WEBPACK_IMPORTED_MODULE_100___default.a,
+  image: _104_lmsmcutils_png__WEBPACK_IMPORTED_MODULE_101___default.a,
   name: "McUtils",
   description: "Helpful utilities for any fast food employee.",
   authors: [{
