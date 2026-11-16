@@ -35,7 +35,32 @@ import nesbig from './nes_emulator/nes.svg';
 import gm2HTML5Small from './html5/small.svg';
 import gm2HTML5Large from './html5/html5-thumbnail.svg';
 
+import gm2liveInset from './gm2liveconnect/liveconnect.svg';
+import gm2liveThumbnail from './gm2liveconnect/liveconnect-thumbnail.png';
+
 export default [
+    {
+            incompatibleWithScratch: true,
+            name: 'Gvbvdxx Mod 2 Live Connect',
+            extensionId: 'gm2liveconnect',
+            iconURL: gm2liveThumbnail,
+            insetIconURL: gm2liveInset,
+            description: (
+                <FormattedMessage
+                    defaultMessage="Allows you to easilt connect to special open-source servers for online multiplayer. Really good for syncing variables & sending events."
+                    description="Allows you to easilt connect to special open-source servers for online multiplayer. Really good for syncing variables & sending events."
+                    id="gm2.extension.newblocks.description"
+                />
+            ),
+            featured: true,
+            disabled: false,
+            internetConnectionRequired: false,
+            bluetoothRequired: false,
+            helpLink: '',
+            tags: [
+                "gm2"
+            ]
+        },
     {
         incompatibleWithScratch: true,
         name: (
